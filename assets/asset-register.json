@@ -1,0 +1,1545 @@
+{
+  "schemaVersion": 1,
+  "recordSchema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Learning is Fun runtime export record",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "id",
+      "kind",
+      "milestone",
+      "status",
+      "sourcePaths",
+      "runtimePath",
+      "author",
+      "permission"
+    ],
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      },
+      "kind": {
+        "enum": [
+          "svg",
+          "audio-loop",
+          "audio-effect"
+        ]
+      },
+      "milestone": {
+        "enum": [
+          "M1",
+          "M2"
+        ]
+      },
+      "status": {
+        "enum": [
+          "planned",
+          "ready"
+        ]
+      },
+      "sourcePaths": {
+        "type": "array",
+        "minItems": 1,
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "runtimePath": {
+        "type": "string",
+        "pattern": "^assets/(?:[a-z0-9-]+/)*[a-z0-9-]+\\.(?:svg|wav)$"
+      },
+      "author": {
+        "type": "string",
+        "minLength": 1
+      },
+      "sourceUrl": {
+        "type": "string",
+        "format": "uri"
+      },
+      "permission": {
+        "$ref": "#/$defs/permission"
+      },
+      "attribution": {
+        "type": "string"
+      },
+      "modifications": {
+        "type": "string"
+      },
+      "width": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "height": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "sampleRate": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "frameCount": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "loopStartFrame": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "loopEndFrame": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "bytes": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "$defs": {
+      "permission": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "status",
+              "holder",
+              "statement"
+            ],
+            "properties": {
+              "kind": {
+                "const": "original"
+              },
+              "status": {
+                "enum": [
+                  "pending",
+                  "confirmed"
+                ]
+              },
+              "holder": {
+                "type": "string",
+                "minLength": 1
+              },
+              "statement": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidencePath": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "licence",
+              "version",
+              "licenceUrl",
+              "retainedLicencePath"
+            ],
+            "properties": {
+              "kind": {
+                "const": "reused"
+              },
+              "licence": {
+                "type": "string",
+                "minLength": 1
+              },
+              "version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "licenceUrl": {
+                "type": "string",
+                "format": "uri"
+              },
+              "retainedLicencePath": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        ]
+      }
+    },
+    "allOf": [
+      {
+        "if": {
+          "properties": {
+            "status": {
+              "const": "ready"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "bytes"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "kind": {
+                    "const": "svg"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "width",
+                  "height"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "audio-loop",
+                      "audio-effect"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sampleRate",
+                  "frameCount"
+                ],
+                "properties": {
+                  "sampleRate": {
+                    "const": 44100
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "kind": {
+                    "const": "audio-loop"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "loopStartFrame",
+                  "loopEndFrame"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "permission": {
+                    "properties": {
+                      "kind": {
+                        "const": "original"
+                      }
+                    }
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "permission": {
+                    "required": [
+                      "evidencePath"
+                    ],
+                    "properties": {
+                      "status": {
+                        "const": "confirmed"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "status": {
+              "const": "planned"
+            }
+          }
+        },
+        "then": {
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "bytes"
+                ]
+              },
+              {
+                "required": [
+                  "width"
+                ]
+              },
+              {
+                "required": [
+                  "height"
+                ]
+              },
+              {
+                "required": [
+                  "sampleRate"
+                ]
+              },
+              {
+                "required": [
+                  "frameCount"
+                ]
+              },
+              {
+                "required": [
+                  "loopStartFrame"
+                ]
+              },
+              {
+                "required": [
+                  "loopEndFrame"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "inventoryRule": "One row per fetched runtime export, not per SVG layer. Required runtime paths are the unique ready rows filtered to delivered milestone (M2 includes M1). Planned rows confer no offline readiness. Schema alone cannot prove export measurement, provenance or acoustic quality.",
+  "readyChecks": [
+    "Measure bytes and actual SVG viewBox dimensions or decoded PCM frame count/sample rate.",
+    "For loops: 0 <= loopStartFrame < loopEndFrame <= frameCount (exclusive end).",
+    "Reject unsafe/traversing source and runtime paths, duplicate IDs/paths and absent source/runtime files.",
+    "Retain original authorship permission evidence or exact reused licence/version/link/file; reconcile attribution/modifications before ready.",
+    "Measure WAV mono 16-bit PCM format and listen to cues/two joins. No planned row supplies measured fields."
+  ],
+  "assets": [
+    {
+      "id": "scene-village-green",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/scenes/village-green.svg"
+      ],
+      "runtimePath": "assets/art/m1/scenes/village-green.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "scene-river-bridge",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/scenes/river-bridge.svg"
+      ],
+      "runtimePath": "assets/art/m1/scenes/river-bridge.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "scene-whispering-library",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/scenes/whispering-library.svg"
+      ],
+      "runtimePath": "assets/art/m1/scenes/whispering-library.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "scene-market-square",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/scenes/market-square.svg"
+      ],
+      "runtimePath": "assets/art/m1/scenes/market-square.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "pip-idle",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/characters/pip-idle.svg"
+      ],
+      "runtimePath": "assets/art/m1/characters/pip-idle.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "pip-help",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/characters/pip-help.svg"
+      ],
+      "runtimePath": "assets/art/m1/characters/pip-help.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "pip-celebration",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/characters/pip-celebration.svg"
+      ],
+      "runtimePath": "assets/art/m1/characters/pip-celebration.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "rowan",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/characters/rowan.svg"
+      ],
+      "runtimePath": "assets/art/m1/characters/rowan.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "iona",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/characters/iona.svg"
+      ],
+      "runtimePath": "assets/art/m1/characters/iona.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "nessa",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/characters/nessa.svg"
+      ],
+      "runtimePath": "assets/art/m1/characters/nessa.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "plank-1",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/plank-1.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/plank-1.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "plank-2",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/plank-2.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/plank-2.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "plank-3",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/plank-3.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/plank-3.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "plank-4",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/plank-4.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/plank-4.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "plank-5",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/plank-5.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/plank-5.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "plank-6",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/plank-6.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/plank-6.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "punctuation-tile",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/punctuation-tile.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/punctuation-tile.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "apple",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/apple.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/apple.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "pear",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/pear.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/pear.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "basket",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/basket.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/basket.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "spellbook",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/spellbook.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/spellbook.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "market-instructions",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/market-instructions.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/market-instructions.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "decoration-planter",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/decoration-planter.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/decoration-planter.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "scarf-teal",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/scarf-teal.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/scarf-teal.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "scarf-amber",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/scarf-amber.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/scarf-amber.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "scarf-plum",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/scarf-plum.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/scarf-plum.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "flowers-coral",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/flowers-coral.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/flowers-coral.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "flowers-gold",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/flowers-gold.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/flowers-gold.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "flowers-violet",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/flowers-violet.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/flowers-violet.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "scarf-leaf",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/scarf-leaf.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/scarf-leaf.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "planter-rim",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/planter-rim.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/planter-rim.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "river-fish",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/props/river-fish.svg"
+      ],
+      "runtimePath": "assets/art/m1/props/river-fish.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "world-map",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/ui/world-map.svg"
+      ],
+      "runtimePath": "assets/art/m1/ui/world-map.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "hall-marker",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/ui/hall-marker.svg"
+      ],
+      "runtimePath": "assets/art/m1/ui/hall-marker.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "plot-socket",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/ui/plot-socket.svg"
+      ],
+      "runtimePath": "assets/art/m1/ui/plot-socket.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "control-surround",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m1/ui/control-surround.svg"
+      ],
+      "runtimePath": "assets/art/m1/ui/control-surround.svg",
+      "author": "Unassigned (WP02-02A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "scene-tinkers-workshop",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/scenes/tinkers-workshop.svg"
+      ],
+      "runtimePath": "assets/art/m2/scenes/tinkers-workshop.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "scene-storywood-forest",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/scenes/storywood-forest.svg"
+      ],
+      "runtimePath": "assets/art/m2/scenes/storywood-forest.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "scene-clockwork-castle",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/scenes/clockwork-castle.svg"
+      ],
+      "runtimePath": "assets/art/m2/scenes/clockwork-castle.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "green-garden",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/scenes/green-garden.svg"
+      ],
+      "runtimePath": "assets/art/m2/scenes/green-garden.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "green-finale",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/scenes/green-finale.svg"
+      ],
+      "runtimePath": "assets/art/m2/scenes/green-finale.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "castle-finale",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/scenes/castle-finale.svg"
+      ],
+      "runtimePath": "assets/art/m2/scenes/castle-finale.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "library-shelf",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/scenes/library-shelf.svg"
+      ],
+      "runtimePath": "assets/art/m2/scenes/library-shelf.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "orin",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/characters/orin.svg"
+      ],
+      "runtimePath": "assets/art/m2/characters/orin.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "array-surround",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/props/array-surround.svg"
+      ],
+      "runtimePath": "assets/art/m2/props/array-surround.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "potion-surround",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/props/potion-surround.svg"
+      ],
+      "runtimePath": "assets/art/m2/props/potion-surround.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "book-surround",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/props/book-surround.svg"
+      ],
+      "runtimePath": "assets/art/m2/props/book-surround.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "story-panel",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/props/story-panel.svg"
+      ],
+      "runtimePath": "assets/art/m2/props/story-panel.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "map-surround",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/props/map-surround.svg"
+      ],
+      "runtimePath": "assets/art/m2/props/map-surround.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "clock-surround",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/props/clock-surround.svg"
+      ],
+      "runtimePath": "assets/art/m2/props/clock-surround.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "castle-gear",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/props/castle-gear.svg"
+      ],
+      "runtimePath": "assets/art/m2/props/castle-gear.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "forest-marker",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/props/forest-marker.svg"
+      ],
+      "runtimePath": "assets/art/m2/props/forest-marker.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "forest-story-map",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/props/forest-story-map.svg"
+      ],
+      "runtimePath": "assets/art/m2/props/forest-story-map.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "forest-tale",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/props/forest-tale.svg"
+      ],
+      "runtimePath": "assets/art/m2/props/forest-tale.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "sawmill-model",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/props/sawmill-model.svg"
+      ],
+      "runtimePath": "assets/art/m2/props/sawmill-model.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "forest-moth",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/props/forest-moth.svg"
+      ],
+      "runtimePath": "assets/art/m2/props/forest-moth.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "decoration-tree",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/props/decoration-tree.svg"
+      ],
+      "runtimePath": "assets/art/m2/props/decoration-tree.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "decoration-bench",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/props/decoration-bench.svg"
+      ],
+      "runtimePath": "assets/art/m2/props/decoration-bench.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "decoration-lantern",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/props/decoration-lantern.svg"
+      ],
+      "runtimePath": "assets/art/m2/props/decoration-lantern.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "decoration-banner",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/props/decoration-banner.svg"
+      ],
+      "runtimePath": "assets/art/m2/props/decoration-banner.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "decoration-pond",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/props/decoration-pond.svg"
+      ],
+      "runtimePath": "assets/art/m2/props/decoration-pond.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "home-trim",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/props/home-trim.svg"
+      ],
+      "runtimePath": "assets/art/m2/props/home-trim.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "scarf-star",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/props/scarf-star.svg"
+      ],
+      "runtimePath": "assets/art/m2/props/scarf-star.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "scarf-wave",
+      "kind": "svg",
+      "milestone": "M2",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/art/m2/props/scarf-wave.svg"
+      ],
+      "runtimePath": "assets/art/m2/props/scarf-wave.svg",
+      "author": "Unassigned (WP02-08A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
+      }
+    },
+    {
+      "id": "village-loop",
+      "kind": "audio-loop",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/audio/village.json",
+        "tools/render-audio.mjs"
+      ],
+      "runtimePath": "assets/audio/village-loop.wav",
+      "author": "Unassigned (WP02-03A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original note/envelope composition and local PCM synthesis required; retain creator permission. No external samples assumed."
+      }
+    },
+    {
+      "id": "library-loop",
+      "kind": "audio-loop",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/audio/library.json",
+        "tools/render-audio.mjs"
+      ],
+      "runtimePath": "assets/audio/library-loop.wav",
+      "author": "Unassigned (WP02-03A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original note/envelope composition and local PCM synthesis required; retain creator permission. No external samples assumed."
+      }
+    },
+    {
+      "id": "pickup",
+      "kind": "audio-effect",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/audio/effects.json",
+        "tools/render-audio.mjs"
+      ],
+      "runtimePath": "assets/audio/pickup.wav",
+      "author": "Unassigned (WP02-03A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original note/envelope composition and local PCM synthesis required; retain creator permission. No external samples assumed."
+      }
+    },
+    {
+      "id": "placement",
+      "kind": "audio-effect",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/audio/effects.json",
+        "tools/render-audio.mjs"
+      ],
+      "runtimePath": "assets/audio/placement.wav",
+      "author": "Unassigned (WP02-03A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original note/envelope composition and local PCM synthesis required; retain creator permission. No external samples assumed."
+      }
+    },
+    {
+      "id": "support",
+      "kind": "audio-effect",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/audio/effects.json",
+        "tools/render-audio.mjs"
+      ],
+      "runtimePath": "assets/audio/support.wav",
+      "author": "Unassigned (WP02-03A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original note/envelope composition and local PCM synthesis required; retain creator permission. No external samples assumed."
+      }
+    },
+    {
+      "id": "success",
+      "kind": "audio-effect",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/audio/effects.json",
+        "tools/render-audio.mjs"
+      ],
+      "runtimePath": "assets/audio/success.wav",
+      "author": "Unassigned (WP02-03A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original note/envelope composition and local PCM synthesis required; retain creator permission. No external samples assumed."
+      }
+    },
+    {
+      "id": "restoration",
+      "kind": "audio-effect",
+      "milestone": "M1",
+      "status": "planned",
+      "sourcePaths": [
+        "assets/source/audio/effects.json",
+        "tools/render-audio.mjs"
+      ],
+      "runtimePath": "assets/audio/restoration.wav",
+      "author": "Unassigned (WP02-03A)",
+      "permission": {
+        "kind": "original",
+        "status": "pending",
+        "holder": "To be confirmed by producing author",
+        "statement": "Original note/envelope composition and local PCM synthesis required; retain creator permission. No external samples assumed."
+      }
+    }
+  ]
+}
