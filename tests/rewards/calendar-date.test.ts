@@ -40,8 +40,19 @@ describe('validated Europe/London date-only calendar', () => {
 
   it('produces identical London results in two distinct process host timezones', () => {
     const moduleUrl = new URL('../../src/rewards/calendar.ts', import.meta.url).href;
+    const standingsUrl = new URL('../../src/rewards/standings.ts', import.meta.url).href;
     const script = `
-      import { localDateAt, weekKeyFor, addCalendarDays } from ${JSON.stringify(moduleUrl)};
+      import { registerHooks } from 'node:module';
+      // Bundler source imports are extensionless; this test-only Node hook
+      // resolves the two reward modules while preserving real host TZ behavior.
+      registerHooks({ resolve(specifier, context, nextResolve) {
+        if ([${JSON.stringify(moduleUrl)}, ${JSON.stringify(standingsUrl)}].includes(context.parentURL)
+          && ['./calendar', './standings'].includes(specifier)) {
+          return nextResolve(new URL(specifier + '.ts', context.parentURL).href, context);
+        }
+        return nextResolve(specifier, context);
+      }});
+      const { localDateAt, weekKeyFor, addCalendarDays } = await import(${JSON.stringify(moduleUrl)});
       const instants = ${JSON.stringify(instants)};
       console.log(JSON.stringify({
         hostOffset: new Date(instants[0][0]).getTimezoneOffset(),
@@ -353,12 +364,16 @@ describe('pure reward producer contract fixtures', () => {
     expect(twoProfiles.personalRecordsByProfile['profile-1'].medals.gold).toBe(1);
     expect(twoProfiles.personalRecordsByProfile['profile-2'].medals.gold).toBe(2);
   });
-  it('contains only upstream learning type imports and no successful closure implementation', () => {
+  it('keeps contracts upstream-only and appended calendar policy within the reward domain', () => {
     const source = readFileSync(new URL('../../src/rewards/contracts.ts', import.meta.url), 'utf8');
     expect(source.match(/from\s+['"]([^'"]+)['"]/g)).toEqual(["from '../learning/contracts'"]);
     expect(source.replace(/\/\*[\s\S]*?\*\//g, '')).not.toMatch(
       /export\s+(?:async\s+)?function|Date\.now|window\.|document\.|fetch\(/);
     const calendar = readFileSync(new URL('../../src/rewards/calendar.ts', import.meta.url), 'utf8');
-    expect(calendar).not.toMatch(/export\s+function\s+reconcileCompetitionWeek/);
+    expect(calendar.match(/from\s+['"]([^'"]+)['"]/g)).toEqual([
+      "from './contracts'", "from './contracts'", "from './standings'",
+    ]);
+    expect(calendar.replace(/\/\*[\s\S]*?\*\//g, '')).not.toMatch(
+      /Date\.now|window\.|document\.|fetch\(|SaveDataV1|controller/);
   });
 });

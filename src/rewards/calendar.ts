@@ -1,4 +1,6 @@
 import type { LocalDate, WeekKey } from './contracts';
+import type { ReconcileCompetitionWeek } from './contracts';
+import { closeWeek, validateCompetitionState } from './standings';
 
 export type CalendarErrorCode = 'invalid-date' | 'unsupported-zone';
 export class CalendarError extends Error {
@@ -98,3 +100,34 @@ export function addCalendarDays(date: LocalDate, days: number): LocalDate {
   carrier.setUTCDate(carrier.getUTCDate() + days);
   return dateFromCarrier(carrier);
 }
+
+/** One explicit observation governs closure and learning/reward adapters. The
+ * returned competition and profile records must be committed atomically by WP04.
+ * No skipped inactive week is fabricated; rollback never reopens a closed week. */
+export const reconcileCompetitionWeek: ReconcileCompetitionWeek = (input, nowEpochMs) => {
+  const observedLocalDate = localDateAt(nowEpochMs);
+  const observedWeek = weekKeyFor(observedLocalDate);
+  const { competition, profiles } = input;
+  const issues = validateCompetitionState(competition, profiles);
+  if (issues.length > 0) throw new RangeError(`Invalid competition: ${issues[0].path}: ${issues[0].message}`);
+  const latest = competition.latestOpenedWeek;
+  const personalRecords = Object.fromEntries(profiles.map(profile => [profile.profileId, profile.personalRecords]));
+  if (latest !== null && observedWeek <= latest) {
+    return {
+      nextCompetition: competition, nextPersonalRecordsByProfile: personalRecords,
+      context: { observedLocalDate, activeWeek: latest, clockRollback: observedWeek < latest },
+      closedWeekChanges: [],
+    };
+  }
+  const closure = closeWeek(input);
+  const result = closure.result;
+  return {
+    nextCompetition: {
+      ...competition, latestOpenedWeek: observedWeek, currentScores: {}, currentSlots: {},
+      archives: result === null ? competition.archives : [...competition.archives, result].slice(-52),
+    },
+    nextPersonalRecordsByProfile: closure.nextPersonalRecordsByProfile,
+    context: { observedLocalDate, activeWeek: observedWeek, clockRollback: false },
+    closedWeekChanges: result === null ? [] : [{ week: result.week, result }],
+  };
+};
