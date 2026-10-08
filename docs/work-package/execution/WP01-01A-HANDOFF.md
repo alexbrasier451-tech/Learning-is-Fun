@@ -2,6 +2,12 @@
 
 Execution date: 8 October 2026. Foundation implementation is complete for independent validation; browser capability gaps are explicit below. This does not claim gameplay, audio, offline readiness, publication or D1–T2 adventure acceptance. Controller owns shared package/status files, Git staging/commits and acceptance; this worker did not initialize Git, stage, commit, create/delegate to, or message another chat.
 
+## Downstream unit-discovery correction
+
+On 8 October 2026 the controller requested the narrow WP03-01A integration correction: Vitest now discovers both `src/**/*.test.ts`/`.test.tsx` and `tests/**/*.test.ts`/`.test.tsx`. It retains Vitest's default exclusions and explicitly excludes `tests/fixtures/**` and Playwright `.spec.ts`/`.spec.tsx` files. No downstream author needs an in-memory include override.
+
+Verification: the existing `src/platform/assets.test.ts` suite still passes all 27 checks. A temporary harmless `tests/__wp01-unit-discovery__/probe.test.ts` was listed and passed one check; temporary same-directory `.spec.ts` and fixture-directory `.test.ts` files were absent from discovery. All three temporary files and the temporary unit directory were removed in a `finally` cleanup. Node tooling configuration typecheck passes. Only `vitest.config.ts` and this handoff were changed for this correction; no browser recovery was repeated.
+
 ## Authority and delivered scope
 
 Read GLOBAL_RULES current execution authority, WP01-01A, DEC-005/016/017/019/023/027/033 and BASELINE/Stage 6. The current execution authorization supersedes historical planning-only statements. The controller subsequently confirmed intended public repository alexbrasier451-tech/Learning-is-Fun and default Pages base /Learning-is-Fun/. Remote creation/publication is not evidenced here.
