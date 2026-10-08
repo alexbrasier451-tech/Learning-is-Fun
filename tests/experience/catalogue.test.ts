@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, statSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   AVATARS, COSMETICS, CREATIVE_CHOICES, DISCOVERIES, INITIAL_CREATIVE_STATE,
@@ -174,7 +174,7 @@ describe('pure consumer fixtures', () => {
   });
 });
 
-describe('per-export planned inventory', () => {
+describe('per-export inventory lifecycle', () => {
   it('resolves all referenced assets with unique IDs and safe base-relative paths', () => {
     expect(assets.length).toBe(71);
     expect(unique(ids(assets))).toBe(true);
@@ -184,12 +184,60 @@ describe('per-export planned inventory', () => {
     for (const asset of assets) {
       expect(asset.sourcePaths.length).toBeGreaterThan(0);
       expect(asset.sourcePaths.every(p => /^(assets\/source\/(art\/(m1|m2)\/|audio\/)|tools\/render-audio\.mjs$)/.test(p) && !p.includes('..'))).toBe(true);
-      expect(asset.status).toBe('planned');
-      expect(asset.permission.kind).toBe('original');
-      if (asset.permission.kind === 'original') expect(asset.permission.status).toBe('pending');
-      for (const field of ['bytes', 'width', 'height', 'sampleRate', 'frameCount', 'loopStartFrame', 'loopEndFrame']) expect(asset).not.toHaveProperty(field);
+      expect(['planned', 'ready']).toContain(asset.status);
+      if (asset.status === 'planned') {
+        if (asset.permission.kind === 'original') expect(asset.permission.status).toBe('pending');
+        for (const field of ['bytes', 'width', 'height', 'sampleRate', 'frameCount', 'loopStartFrame', 'loopEndFrame']) expect(asset).not.toHaveProperty(field);
+        continue;
+      }
+
+      // Ready is an export lifecycle state, not independent art/audio acceptance.
+      // Check concrete inventory evidence without rendering or decoding media.
+      const existingFile = (path: string) => {
+        expect(path).not.toMatch(/(?:^|\/)\.{1,2}(?:\/|$)|^[\/\\]|[\\:%?#\u0000-\u001f\u007f]/);
+        const url = new URL(`../../${path}`, import.meta.url);
+        expect(statSync(url).isFile(), `${asset.id}: ${path}`).toBe(true);
+        const bytes = readFileSync(url);
+        expect(bytes.length, `${asset.id}: empty ${path}`).toBeGreaterThan(0);
+        return bytes;
+      };
+      asset.sourcePaths.forEach(existingFile);
+      const runtime = existingFile(`public/${asset.runtimePath}`);
+      expect(Number.isSafeInteger(asset.bytes)).toBe(true);
+      expect(asset.bytes).toBe(runtime.length);
+      expect(asset.author.trim()).not.toMatch(/^$|^unassigned\b/i);
+      if (asset.permission.kind === 'original') {
+        expect(asset.permission.status).toBe('confirmed');
+        expect(asset.permission.holder.trim()).not.toBe('');
+        expect(asset.permission.statement.trim()).not.toBe('');
+        expect(asset.permission.evidencePath).toBeTruthy();
+        existingFile(asset.permission.evidencePath!);
+      } else {
+        expect(asset.permission.kind).toBe('reused');
+        expect(asset.permission.licence.trim()).not.toBe('');
+        expect(asset.permission.version.trim()).not.toBe('');
+        expect(asset.permission.licenceUrl).toMatch(/^https?:\/\//);
+        existingFile(asset.permission.retainedLicencePath);
+      }
+      if (asset.kind === 'svg') {
+        expect(Number.isSafeInteger(asset.width) && asset.width! > 0).toBe(true);
+        expect(Number.isSafeInteger(asset.height) && asset.height! > 0).toBe(true);
+        const root = runtime.toString('utf8').match(/<svg\b[^>]*>/)?.[0] ?? '';
+        const viewBox = root.match(/\bviewBox=["']([^"']+)["']/)?.[1].trim().split(/[\s,]+/).map(Number);
+        expect(viewBox, `${asset.id}: export viewBox`).toHaveLength(4);
+        expect(viewBox!.every(Number.isFinite)).toBe(true);
+        expect(viewBox!.slice(2)).toEqual([asset.width, asset.height]);
+      } else {
+        expect(asset.sampleRate).toBe(44100);
+        expect(Number.isSafeInteger(asset.frameCount) && asset.frameCount! > 0).toBe(true);
+        if (asset.kind === 'audio-loop') {
+          expect(Number.isSafeInteger(asset.loopStartFrame) && asset.loopStartFrame! >= 0).toBe(true);
+          expect(Number.isSafeInteger(asset.loopEndFrame)).toBe(true);
+          expect(asset.loopEndFrame!).toBeGreaterThan(asset.loopStartFrame!);
+          expect(asset.loopEndFrame!).toBeLessThanOrEqual(asset.frameCount!);
+        }
+      }
     }
-    expect(assets.filter(a => a.status === 'ready')).toEqual([]);
   });
 
   it('retains exact audio outputs and staged M2 metadata, not fabricated readiness', () => {

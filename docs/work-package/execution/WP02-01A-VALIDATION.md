@@ -62,3 +62,22 @@ Reviewed lowercase SHA-256 snapshots:
 | `tests/experience/catalogue.test.ts` | `341177618b2ebce41eaafe5e86de23b438d73a8c8831e684b13dfcc389140050` |
 
 The accepted contracts and reference provide concrete direction for the final illustrated experience. Actual production quality, asset rights/measurements, audio quality, offline inventory and integrated interaction remain downstream acceptance responsibilities; this early acceptance waives none of them.
+
+## Independent correction recheck — 9 October 2026
+
+**Correction verdict: ACCEPTED. Finding severity: NONE. Invalidated criteria: NONE.** Original acceptance remains valid. The original all-planned inventory description and hashes above identify the initial handoff; they are not a permanent readiness constraint.
+
+Read the author's dated planned-to-ready correction in [WP02-01A-HANDOFF](WP02-01A-HANDOFF.md), its exact test diff and the current register. At recheck HEAD was `85ec7099d58e9ecde0681f1e266c23903fb06f87`. The register now contains 36 ready M1 SVGs and 35 planned rows: seven M1 audio exports and 28 M2 SVGs.
+
+The correction removes only the obsolete all-planned/empty-ready expectation and adds lifecycle-sensitive checks. It retains 71 exports, unique IDs/paths, safe base-relative paths, source conventions, referenced assets, exact audio outputs/M1/M2 counts and embedded-schema requirements. Planned rows still forbid fabricated measurements and retain pending original permission. Ready rows require nonempty existing source/runtime/evidence files, exact measured runtime bytes, a non-placeholder author, confirmed original permission or exact reused-licence metadata, and positive integer SVG dimensions matching the root viewBox. Future ready audio requires the declared sample rate, positive frame count and valid exclusive loop bounds. Traversing/absolute/unsafe paths are rejected while ordinary spaces in evidence filenames are supported. No fixed ready count obstructs later producer handoffs.
+
+Fresh bounded verification:
+
+- `node node_modules/vitest/vitest.mjs run tests/experience/catalogue.test.ts -t 'per-export inventory lifecycle'` — **three affected tests passed; 17 unrelated tests skipped**. This exercised the actual files and dimensions of all 36 ready SVG records.
+- `node node_modules/typescript/bin/tsc --ignoreConfig --noEmit --incremental false --strict --skipLibCheck --target ES2022 --module ESNext --moduleResolution Bundler --types node tests/experience/catalogue.test.ts` — **exit 0**.
+- Reused the author's corrected full focused run: **20 tests passed**. No contract source, art reference or contrast token changed.
+- Fresh owned-file whitespace scan and scoped `git diff --check` — **passed**.
+
+Recheck SHA-256: `tests/experience/catalogue.test.ts` = `d65af833024236a6af1200d872fd35173537f527f3a6f4eba9bbecc833201bbb`; current `assets/asset-register.json` = `a21f03113c566a662ef1dd84f28646ae956a1e45296875625e7202943d5cd41e`.
+
+This accepts the catalogue test's readiness lifecycle and inventory consistency. Independent finished-art acceptance remains with the assigned art validator; legal rights truth, real audio decoding/listening and offline/gameplay acceptance retain their existing owners. This validator changed only this appended report section.

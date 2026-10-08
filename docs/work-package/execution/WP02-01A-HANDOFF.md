@@ -108,3 +108,39 @@ future producer's obligations. Static reference QA does not prove real keyboard/
 touch/reflow, tablet/child testing, acoustic quality or offline readiness.
 No config, shared package/status, durable instructions, commits, delegation or
 other-chat messages were changed/performed.
+
+## Owner correction — 9 October 2026, planned-to-ready inventory lifecycle
+
+Controller authorized this bounded continuation after WP02-02A supplied 36
+ready M1 SVG exports for independent art review. Reproduced the obsolete
+`asset.status === 'planned'` assertion at catalogue test line 187: expected
+planned, received ready. This was a historical test expectation, not an asset
+or producer-contract defect. The original all-planned evidence above describes
+the initial handoff only.
+
+Changed only `tests/experience/catalogue.test.ts` and this appended section.
+The inventory check now permits planned/ready states. Planned rows still forbid
+all measured fields and retain pending original permission. Ready rows require
+nonempty existing editable sources/runtime files, exact file-byte agreement,
+positive safe-integer bytes/dimensions, a non-placeholder author and retained
+original permission evidence or exact reused licence/version/URL/file. SVG
+record dimensions must match the runtime root viewBox. Future ready audio rows
+require 44.1kHz/positive frame counts and valid exclusive loop-frame bounds.
+Unsafe/traversing file paths are rejected; ordinary spaces in evidence filenames
+remain permitted. Existing ID/count/reference/base-path/schema checks are retained.
+No fixed ready count is asserted, so later audio/M2 acceptance can advance the
+same lifecycle without rewriting this early catalogue test.
+
+At verification the register contained 36 ready M1 SVGs and 35 planned rows
+(seven audio, 28 M2 SVG). Successful bounded checks, using the same bundled Node:
+
+1. `node node_modules/vitest/vitest.mjs run tests/experience/catalogue.test.ts`
+   — 1 suite, all 20 tests passed, including measured file/viewBox evidence for
+   the actual 36 ready exports.
+2. `node node_modules/typescript/bin/tsc --ignoreConfig --noEmit --incremental false --strict --skipLibCheck --target ES2022 --module ESNext --moduleResolution Bundler --types node tests/experience/catalogue.test.ts`
+   — focused no-cache typecheck passed.
+
+No register/asset/source/config/ledger edits, commit or delegation. These are
+inventory-consistency checks, not independent visual acceptance, SVG rendering,
+audio decoding/PCM verification, listening or proof of legal rights. Those
+producer/validator obligations remain unchanged.
