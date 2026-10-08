@@ -1,0 +1,272 @@
+[
+  {
+    "width": 1366,
+    "height": 768,
+    "engine": "Playwright Chromium",
+    "browserVersion": "156.0.8078.4",
+    "reducedMotion": "reduce",
+    "errors": [],
+    "sceneChecks": [
+      {
+        "scene": "Village Green",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "Initial": "0e7d41de2d2074d913e4fc376cdd42e33b7c35d6cd34440bfaf3d0a138925be7",
+          "Restored": "46dc35357c576398212a6376be0780166ff36ae0077aeec517f403a0c20933a6",
+          "Static result": "46dc35357c576398212a6376be0780166ff36ae0077aeec517f403a0c20933a6"
+        }
+      },
+      {
+        "scene": "River Bridge",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "Initial": "1c4f7755d1602822a0753276c4e73243ae451280a6a71678a84c849092659385",
+          "Restored": "ee615c1a5c7b20253e28af6094677902eef0fe020c3d8dcff7e5fcee7b9c8248",
+          "Static result": "ee615c1a5c7b20253e28af6094677902eef0fe020c3d8dcff7e5fcee7b9c8248"
+        }
+      },
+      {
+        "scene": "Whispering Library",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "Initial": "cd6995f59571890cb8ceeb83e498c29406477a85323b5db839eac9354f621822",
+          "Restored": "6af87ff7847c50c9bbc4e1838fe74fd66b8c23b95a16125424fdcff55bef795f",
+          "Static result": "6af87ff7847c50c9bbc4e1838fe74fd66b8c23b95a16125424fdcff55bef795f"
+        }
+      },
+      {
+        "scene": "Market Square",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "Initial": "a588f9fbd7454c9e08fd4a9d74e781e5e222afb8139019628130e4fee83977af",
+          "Restored": "713664460b65f2e7347a61b2a9b81a6bbba8289b494edf692002b3ccbdfad910",
+          "Static result": "713664460b65f2e7347a61b2a9b81a6bbba8289b494edf692002b3ccbdfad910"
+        }
+      }
+    ],
+    "horizontalOverflow": false,
+    "brokenImages": 0,
+    "controls": [
+      {
+        "label": "Village Green",
+        "w": 134.203125,
+        "h": 48
+      },
+      {
+        "label": "River Bridge",
+        "w": 125.25,
+        "h": 48
+      },
+      {
+        "label": "Whispering Library",
+        "w": 172.5625,
+        "h": 48
+      },
+      {
+        "label": "Market Square",
+        "w": 143.25,
+        "h": 48
+      },
+      {
+        "label": "Initial",
+        "w": 57.6875,
+        "h": 48
+      },
+      {
+        "label": "Restored",
+        "w": 78.609375,
+        "h": 48
+      },
+      {
+        "label": "Static result",
+        "w": 95.484375,
+        "h": 48
+      }
+    ],
+    "imageCount": 81
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "engine": "Playwright Chromium",
+    "browserVersion": "156.0.8078.4",
+    "reducedMotion": "reduce",
+    "errors": [],
+    "sceneChecks": [
+      {
+        "scene": "Village Green",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "Initial": "1dfe41301a20142ea87523185c48e6091dff82c37b010dd5c0c5e94723baafea",
+          "Restored": "354214fbbf9f79296ede7089df3a79eab1762efad75f54af9447b6edb68ad2e3",
+          "Static result": "354214fbbf9f79296ede7089df3a79eab1762efad75f54af9447b6edb68ad2e3"
+        }
+      },
+      {
+        "scene": "River Bridge",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "Initial": "44b182064cc4ead788e4d5dc9f2f42f1fa94afd54321ecaa4301732489525d4b",
+          "Restored": "77f4f2640f3e88eaffa46de71a5e2188fb062c102018b016a1a92366bf012b10",
+          "Static result": "77f4f2640f3e88eaffa46de71a5e2188fb062c102018b016a1a92366bf012b10"
+        }
+      },
+      {
+        "scene": "Whispering Library",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "Initial": "a72dc7be3113dc6688fed89b4b121472e63dc4a6892794dd469070f7cefce6ee",
+          "Restored": "21f0b2357ecdc91380b06a890f3d52f22e40bbb1b7b30fcf4b23b09ed3eb5c57",
+          "Static result": "21f0b2357ecdc91380b06a890f3d52f22e40bbb1b7b30fcf4b23b09ed3eb5c57"
+        }
+      },
+      {
+        "scene": "Market Square",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "Initial": "2f69f5abd0b36f161e9d7f62f3fec64195eeb7fa6cf529917ff75fb7e2d60374",
+          "Restored": "b7cb2d584dc97fa35c551efb508cbfde8fc96d90c6d10c177143bff92f8565b3",
+          "Static result": "b7cb2d584dc97fa35c551efb508cbfde8fc96d90c6d10c177143bff92f8565b3"
+        }
+      }
+    ],
+    "horizontalOverflow": false,
+    "brokenImages": 0,
+    "controls": [
+      {
+        "label": "Village Green",
+        "w": 134.203125,
+        "h": 48
+      },
+      {
+        "label": "River Bridge",
+        "w": 125.25,
+        "h": 48
+      },
+      {
+        "label": "Whispering Library",
+        "w": 172.5625,
+        "h": 48
+      },
+      {
+        "label": "Market Square",
+        "w": 143.25,
+        "h": 48
+      },
+      {
+        "label": "Initial",
+        "w": 57.6875,
+        "h": 48
+      },
+      {
+        "label": "Restored",
+        "w": 78.609375,
+        "h": 48
+      },
+      {
+        "label": "Static result",
+        "w": 95.484375,
+        "h": 48
+      }
+    ],
+    "imageCount": 81
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "engine": "Playwright Chromium",
+    "browserVersion": "156.0.8078.4",
+    "reducedMotion": "reduce",
+    "errors": [],
+    "sceneChecks": [
+      {
+        "scene": "Village Green",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "Initial": "bd93ab7d643247cef674dca1376593f53eec9adb798ee9eacc07ffc3d5860605",
+          "Restored": "95c3dd46ffe8b032f0b1c44a05debd3541ce28a69ed618453d999bbadfea6867",
+          "Static result": "95c3dd46ffe8b032f0b1c44a05debd3541ce28a69ed618453d999bbadfea6867"
+        }
+      },
+      {
+        "scene": "River Bridge",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "Initial": "859e3fa139e36975c7f07605ad68a27dc49ef7ee9f6b93dec53a92be05e1ba52",
+          "Restored": "b27a3113fcd6b151ef2953d975585452e0ed22fac4c52e516c6ebe8aa6ac254f",
+          "Static result": "b27a3113fcd6b151ef2953d975585452e0ed22fac4c52e516c6ebe8aa6ac254f"
+        }
+      },
+      {
+        "scene": "Whispering Library",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "Initial": "9ebeaa5d56d5f99e1c392814fc72be6f1c1615f6272ad97f704b5a3a078455a7",
+          "Restored": "09df038950e1527c75927844943620a75b9b116a224aa3aa16035b55b05bf065",
+          "Static result": "09df038950e1527c75927844943620a75b9b116a224aa3aa16035b55b05bf065"
+        }
+      },
+      {
+        "scene": "Market Square",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "Initial": "2501c697dcd63803b2292f13ff7bb21e1cc78ac7581c7380cff58f139f0ea978",
+          "Restored": "a96b7494903f3706dad3fd4eba90cc3e1940d697efd28a1a208574948ada7751",
+          "Static result": "a96b7494903f3706dad3fd4eba90cc3e1940d697efd28a1a208574948ada7751"
+        }
+      }
+    ],
+    "horizontalOverflow": false,
+    "brokenImages": 0,
+    "controls": [
+      {
+        "label": "Village Green",
+        "w": 134.203125,
+        "h": 48
+      },
+      {
+        "label": "River Bridge",
+        "w": 125.25,
+        "h": 48
+      },
+      {
+        "label": "Whispering Library",
+        "w": 172.5625,
+        "h": 48
+      },
+      {
+        "label": "Market Square",
+        "w": 143.25,
+        "h": 48
+      },
+      {
+        "label": "Initial",
+        "w": 57.6875,
+        "h": 48
+      },
+      {
+        "label": "Restored",
+        "w": 78.609375,
+        "h": 48
+      },
+      {
+        "label": "Static result",
+        "w": 95.484375,
+        "h": 48
+      }
+    ],
+    "imageCount": 81
+  }
+]
