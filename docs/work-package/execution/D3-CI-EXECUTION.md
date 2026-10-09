@@ -39,3 +39,15 @@ Original Hall and adult validators have now independently inspected their respec
 Original author added only fixture checkpoints and failure attachments; independent review confirmed native calls, promise identity, thrown/rejected errors, original inputs and expectations remain unchanged. Commit `ffd1d39f103f8b2b694f2db203a6acc160e40dfd` was pushed and explicitly dispatched.
 
 Run https://github.com/alexbrasier451-tech/Learning-is-Fun/actions/runs/37885535995 completed with the same two audio failures, after three adult and three Hall passes. Creative was not reached. Downloaded artifact `11596108124` (22,176,419 bytes) and job `113674588485` log to `C:/Users/alexb/AppData/Local/Temp/learning-is-fun-d3-run-37885535995`. Original audio owner is examining the new ordered native-startup checkpoints. This was an evidence-gathering run, not an attempted production repair or a target-browser pass.
+
+## Passive native-host observation
+
+The original audio owner localized both captured failures to one pending native resume, with valid consent/visibility/user activation and no native state progress. Missing or unusable output remains a hypothesis; zero output channels alone do not prove its cause.
+
+Foundation authored passive audio-host metadata and bounded native Firefox stderr capture. Independent review passed, preserving the original cases, failure exit status, and acceptance gates. Candidate `307885b493857655635924adcad8c056ac59562c` was committed, pushed, remote-SHA checked and explicitly dispatched as run https://github.com/alexbrasier451-tech/Learning-is-Fun/actions/runs/37887423464 (job `113680449790`). Actual host evidence is pending. No audio service has been installed/started or product behavior changed by this observation.
+
+That run completed with the same two audio failures after six adult/Hall passes. Artifact `11597425353` (22,546,416 bytes) and the job log were downloaded to `C:/Users/alexb/AppData/Local/Temp/learning-is-fun-d3-run-37887423464`.
+
+The passive post-test snapshot reports missing `/dev/snd`, ALSA cards/PCM files, standard Pulse/PipeWire socket paths and corresponding executable commands. Both observed process lists have zero audio matches; relevant user/system units are not-found/inactive/dead. The mixed package query exited 1 and must be read as partial evidence: it reports libasound2t64 installed and several named Pulse/PipeWire packages not found. Sink state remains explicitly unprobed. Native Firefox logs are retained, including teardown warnings; no sandbox override is authorized by them.
+
+Foundation is interpreting these facts and preparing the narrow native-output provisioning repair on the ephemeral Linux runner. This adds no game-source change and grants no Firefox pass until the original complete cases run successfully with a verified real backend.

@@ -84,6 +84,80 @@ jobs:
         run: |
           pnpm exec playwright --version | tee "$D3_EVIDENCE_ROOT/playwright-version.txt"
           pnpm exec playwright install --with-deps firefox
+      - name: Install native virtual-output packages
+        timeout-minutes: 5
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends pulseaudio pulseaudio-utils
+      - name: Start and verify private native audio output
+        timeout-minutes: 2
+        run: |
+          node --input-type=module <<'NODE'
+          import { appendFileSync, chmodSync, mkdirSync, mkdtempSync, statSync, writeFileSync } from 'node:fs';
+          import { spawnSync } from 'node:child_process';
+          import { join } from 'node:path';
+          import { userInfo } from 'node:os';
+          const uid = userInfo().uid;
+          if (uid === 0) throw new Error('Native audio must run as the runner user, not root.');
+          const evidence = join(process.env.D3_EVIDENCE_ROOT, 'audio-output');
+          mkdirSync(evidence, { recursive: true });
+          const runtime = mkdtempSync(join(process.env.RUNNER_TEMP, 'd3-pulse-'));
+          chmodSync(runtime, 0o700);
+          const socket = join(runtime, 'native');
+          const cookie = join(runtime, 'cookie');
+          if (Buffer.byteLength(socket) >= 108) throw new Error('Private Unix socket path exceeds Linux limit.');
+          const sinkName = 'd3_output';
+          const startup = [
+            'load-module module-null-sink sink_name=d3_output rate=44100 channels=2 channel_map=front-left,front-right sink_properties=device.description=D3_CI_Virtual_Output',
+            `load-module module-native-protocol-unix socket=${JSON.stringify(socket)} auth-cookie=${JSON.stringify(cookie)} auth-anonymous=0`,
+            'set-default-sink d3_output',
+          ].join('\n') + '\n';
+          const script = join(evidence, 'default.pa');
+          const client = join(evidence, 'client.conf');
+          writeFileSync(script, startup);
+          writeFileSync(client, 'autospawn = no\n');
+          const routing = { PULSE_SERVER: `unix:${socket}`, PULSE_SINK: sinkName, PULSE_COOKIE: cookie,
+            PULSE_CLIENTCONFIG: client, PULSE_RUNTIME_PATH: runtime };
+          const env = { ...process.env, ...routing, LC_ALL: 'C' };
+          const report = { observedAt: new Date().toISOString(), phase: 'before-original-browser-cases',
+            commit: process.env.GITHUB_SHA, runId: process.env.GITHUB_RUN_ID, uid, routing,
+            startupScript: startup, ready: false, commands: [] };
+          // Retain the exact private route even if startup fails, for targeted cleanup.
+          for (const [key, value] of Object.entries(routing)) appendFileSync(process.env.GITHUB_ENV, `${key}=${value}\n`);
+          appendFileSync(process.env.GITHUB_ENV, `D3_PULSE_RUNTIME=${runtime}\n`);
+          function command(name, args, timeout = 3000) {
+            const r = spawnSync(name, args, { env, encoding: 'utf8', timeout, maxBuffer: 32768, killSignal: 'SIGKILL' });
+            report.commands.push({ name, args, exitCode: r.status, signal: r.signal, error: r.error?.code ?? null,
+              stdout: (r.stdout ?? '').slice(0, 32768), stderr: (r.stderr ?? '').slice(0, 32768) });
+            if (r.error || r.status !== 0) throw new Error(`${name} failed; see native output readiness evidence.`);
+            return r.stdout;
+          }
+          try {
+            report.packages = command('dpkg-query', ['-W', '-f=${Package}\t${Version}\t${db:Status-Status}\n',
+              'pulseaudio', 'pulseaudio-utils', 'libpulse0']);
+            report.version = command('pulseaudio', ['--version']).trim();
+            command('pulseaudio', ['--daemonize=yes', '--system=no', '--use-pid-file=yes', '--exit-idle-time=-1',
+              '--realtime=no', '--high-priority=no', '--fail=yes', '--log-level=notice',
+              `--log-target=file:${join(runtime, 'daemon.log')}`, '-n', `--file=${script}`], 10000);
+            const socketStat = statSync(socket);
+            report.socket = { path: socket, uid: socketStat.uid, mode: (socketStat.mode & 0o777).toString(8), isSocket: socketStat.isSocket() };
+            if (!report.socket.isSocket || report.socket.uid !== uid) throw new Error('Private native socket ownership/type mismatch.');
+            report.server = JSON.parse(command('pactl', ['--server', routing.PULSE_SERVER, '--format=json', 'info']));
+            report.sinks = JSON.parse(command('pactl', ['--server', routing.PULSE_SERVER, '--format=json', 'list', 'sinks']));
+            report.modules = JSON.parse(command('pactl', ['--server', routing.PULSE_SERVER, '--format=json', 'list', 'modules']));
+            const sink = report.sinks.find(item => item.name === sinkName);
+            const module = report.modules.find(item => item.index === sink?.owner_module);
+            if (report.server.default_sink_name !== sinkName || report.server.server_string !== routing.PULSE_SERVER ||
+                !sink || module?.name !== 'module-null-sink' ||
+                !/\b2ch 44100Hz$/.test(sink.sample_specification) || sink.channel_map !== 'front-left,front-right' ||
+                !['IDLE', 'RUNNING'].includes(sink.state) || sink.mute !== false) {
+              throw new Error('Expected private, unmuted, clocked stereo native output is not ready.');
+            }
+            report.ready = true;
+            console.log('Private PulseAudio stereo output verified; original browser cases may now run.');
+          } catch (error) { report.failure = error.message; throw error; }
+          finally { writeFileSync(join(evidence, 'readiness.json'), JSON.stringify(report, null, 2)); }
+          NODE
       - name: Run D3 views and routes serially
         shell: bash
         env:
@@ -199,6 +273,36 @@ jobs:
             console.log(`${fixture}: ${count} actual D3 passes`);
           }
           NODE
+      - name: Stop private native audio output and retain its log
+        if: ${{ always() }}
+        timeout-minutes: 1
+        run: |
+          node --input-type=module <<'NODE'
+          import { openSync, readSync, closeSync, writeFileSync } from 'node:fs';
+          import { spawnSync } from 'node:child_process';
+          import { join } from 'node:path';
+          if (process.env.D3_PULSE_RUNTIME) {
+            const runtime = process.env.D3_PULSE_RUNTIME;
+            const server = `unix:${join(runtime, 'native')}`;
+            const evidence = join(process.env.D3_EVIDENCE_ROOT, 'audio-output');
+            const r = spawnSync('pactl', ['--server', server, 'exit'], {
+              env: { ...process.env, PULSE_SERVER: server, PULSE_RUNTIME_PATH: runtime },
+              encoding: 'utf8', timeout: 3000, maxBuffer: 32768, killSignal: 'SIGKILL' });
+            const cleanup = { observedAt: new Date().toISOString(), server,
+              exitCode: r.status, signal: r.signal, error: r.error?.code ?? null,
+              stdout: (r.stdout ?? '').slice(0, 32768), stderr: (r.stderr ?? '').slice(0, 32768) };
+            let fd;
+            try {
+              fd = openSync(join(runtime, 'daemon.log'), 'r');
+              const buffer = Buffer.alloc(32769); const bytes = readSync(fd, buffer, 0, buffer.length, 0);
+              cleanup.logTruncated = bytes > 32768;
+              writeFileSync(join(evidence, 'daemon.log'), buffer.subarray(0, Math.min(bytes, 32768)));
+            } catch (error) { cleanup.logError = error.code; }
+            finally { if (fd !== undefined) closeSync(fd); }
+            writeFileSync(join(evidence, 'cleanup.json'), JSON.stringify(cleanup, null, 2));
+            if (r.error || r.status !== 0) process.exitCode = 1;
+          }
+          NODE
       - name: Retain compact evidence including failures
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v7
@@ -208,6 +312,11 @@ jobs:
             ${{ runner.temp }}/d3-firefox/run.json
             ${{ runner.temp }}/d3-firefox/playwright-version.txt
             ${{ runner.temp }}/d3-firefox/audio-host.json
+            ${{ runner.temp }}/d3-firefox/audio-output/readiness.json
+            ${{ runner.temp }}/d3-firefox/audio-output/default.pa
+            ${{ runner.temp }}/d3-firefox/audio-output/client.conf
+            ${{ runner.temp }}/d3-firefox/audio-output/daemon.log
+            ${{ runner.temp }}/d3-firefox/audio-output/cleanup.json
             ${{ runner.temp }}/d3-firefox/*/browser.log
             ${{ runner.temp }}/d3-firefox/*/discovery.json
             ${{ runner.temp }}/d3-firefox/*/results.json
