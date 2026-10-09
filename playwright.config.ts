@@ -1,6 +1,7 @@
 import { defineConfig } from '@playwright/test';
 
 const published = process.env.PLAYTEST_MODE === 'published';
+const fixtureAndSupportPaths = ['**/fixtures/**', '**/support/**'];
 if (process.env.PLAYTEST_MODE && !['local', 'published'].includes(process.env.PLAYTEST_MODE)) {
   throw new Error('PLAYTEST_MODE must be local or published.');
 }
@@ -20,6 +21,7 @@ if (published) {
 
 export default defineConfig({
   testDir: './tests',
+  testIgnore: fixtureAndSupportPaths,
   fullyParallel: false,
   forbidOnly: Boolean(process.env.CI),
   retries: 0,
@@ -32,7 +34,12 @@ export default defineConfig({
     { name: 'T1-Chromium-touch', testMatch: '**/*.published.spec.ts', use: { browserName: 'chromium', viewport: { width: 1024, height: 768 }, hasTouch: true } },
     { name: 'T2-WebKit-touch', testMatch: '**/*.published.spec.ts', use: { browserName: 'webkit', viewport: { width: 768, height: 1024 }, hasTouch: true } },
   ] : [
-    { name: 'local-fixture', testMatch: '**/*.local.spec.ts', use: { browserName: 'chromium', viewport: { width: 1366, height: 768 } } },
+    {
+      name: 'local-fixture',
+      testMatch: ['**/*.local.spec.ts', '**/browser/**/*.spec.ts', '**/platform/**/*.spec.ts'],
+      testIgnore: [...fixtureAndSupportPaths, '**/*.published.spec.ts', '**/playtest/**'],
+      use: { browserName: 'chromium', viewport: { width: 1366, height: 768 } },
+    },
   ],
   webServer: published ? undefined : {
     command: 'pnpm dev --port 4173 --strictPort',
