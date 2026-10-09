@@ -27,21 +27,21 @@ function createActivitySession(initial: CommittedActivityProjection, controller:
   onCommitted: (result: Extract<CommitResult, { status: 'committed' }>) => void) {
   const key = { profileId: initial.profileId, encounterId: initial.encounterId };
   let activity = initial, draft = createDraft(toActivityTaskView(initial).responseSpec, initial.responseDraft);
-  let baseline = toResponse(draft), disposed = false, failedLeave = false, pending = false, leaving = false, freshSuccess = false;
+  let baseline = toResponse(draft), connected = false, failedLeave = false, pending = false, leaving = false, freshSuccess = false;
   let operation: Promise<CommitResult | null> | null = null, leaveOperation: Promise<PanelLeaveResult> | null = null;
   let retry: ActivityCommand | null = null, leaveRetry: Extract<ActivityCommand, { kind: 'SuspendEncounter' }> | null = null, message = '', conflict = false;
   let version = 0, status: ActivePanelStatus = { dirty: false, pending: false, failed: false };
   const listeners = new Set<() => void>();
   const read = () => {
     const snapshot = controller.getSnapshot();
-    if (disposed || snapshot.token.epoch !== initial.token.epoch) return null;
+    if (!connected || snapshot.token.epoch !== initial.token.epoch) return null;
     const projected = selectCommittedActivity(snapshot, catalogue, key);
     return projected.status === 'ready' && projected.activity.learningEpisodeOrdinal === initial.learningEpisodeOrdinal ? projected.activity : null;
   };
   function publish() {
     const next = { dirty: !same(toResponse(draft), baseline), pending: pending || leaving, failed: failedLeave };
     if (!same(status, next)) status = next;
-    version++; listeners.forEach(listener => listener());
+    version++; if (connected) listeners.forEach(listener => listener());
   }
   function sync() {
     const next = read();
@@ -51,12 +51,12 @@ function createActivitySession(initial: CommittedActivityProjection, controller:
     }
     activity = next; publish();
   }
-  const unsubscribe = controller.subscribe(sync);
   function envelope() { return { actionId: crypto.randomUUID(), profileId: initial.profileId, expected: controller.getSnapshot().token }; }
   function run(command: ActivityCommand): Promise<CommitResult | null> {
     if (pending || !read()) return Promise.resolve(null);
     pending = true; message = 'Saving…'; publish();
     const work = Promise.resolve().then(async () => {
+      if (!read()) return null;
       let result: CommitResult;
       try { result = await controller.dispatch(command); }
       catch { result = { status: 'save-failed', retryable: true, reason: { code: 'storage-write-failed', message: 'Saving was interrupted.' } }; }
@@ -76,7 +76,7 @@ function createActivitySession(initial: CommittedActivityProjection, controller:
         conflict = result.status === 'conflict'; message = failure(result);
       }
       publish(); return result;
-    }).finally(() => { if (operation === work) operation = null; });
+    }).finally(() => { if (operation === work) { operation = null; pending = false; publish(); } });
     operation = work; return work;
   }
   async function retryAction() {
@@ -121,7 +121,7 @@ function createActivitySession(initial: CommittedActivityProjection, controller:
         return blocked(message || 'Your draft has not been saved. Retry leaving, or explicitly leave without saving the draft.');
       }).catch(() => { failedLeave = true; message = 'Leaving was interrupted. Your draft is still here.'; return blocked(message); })
         .then(result => { if (result.status === 'blocked') { failedLeave = true; message = result.message; } return result; })
-        .finally(() => { leaving = false; leaveOperation = null; if (!disposed) publish(); });
+        .finally(() => { leaving = false; leaveOperation = null; publish(); });
       leaveOperation = work; return work;
     },
     discardDraft() {
@@ -176,7 +176,14 @@ function createActivitySession(initial: CommittedActivityProjection, controller:
       return run({ ...envelope(), kind: 'FinishPractice', payload: { encounterId: key.encounterId, learningEpisodeOrdinal: initial.learningEpisodeOrdinal } });
     },
     retryAction,
-    dispose() { disposed = true; unsubscribe(); listeners.clear(); },
+    // Construction is render-pure. React may discard a memoized render or replay
+    // setup/cleanup; only a committed effect owns this reversible subscription.
+    connect() {
+      connected = true;
+      const unsubscribe = controller.subscribe(sync);
+      sync();
+      return () => { connected = false; unsubscribe(); };
+    },
   };
 }
 
@@ -192,8 +199,9 @@ export function QuestActivity({ activity, stateController, audioController, acti
   const audioStatus = useSyncExternalStore(audioController.subscribe, audioController.getSnapshot, audioController.getSnapshot);
   const heading = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
+    const disconnect = session.connect();
     const unregister = activePanelHost.register(session.lifecycle); heading.current?.focus();
-    return () => { session.dispose(); audioController.stopReading(); unregister(); };
+    return () => { disconnect(); audioController.stopReading(); unregister(); };
   }, [session, activePanelHost, audioController]);
   const view = session.getView(), task = toActivityTaskView(view.activity);
   const success = view.activity.episodeStatus === 'completed-success';

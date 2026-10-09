@@ -7,7 +7,8 @@ export type AdventureFixtureApi = {
   snapshot(): CommittedSnapshot; events(): readonly AdventureEvent[];
   abortNext(): void; holdNext(): void; release(): void;
   loseNextAcknowledgement(): void; redeliverLastCommand(): Promise<CommitResult>;
-  readiness(): { facade: UpdateReadiness; panel: ActivePanelStatus | null };
+  readiness(): { facade: UpdateReadiness; panel: ActivePanelStatus | null; stateSubscriptions: number };
+  remountWorld(): void;
   flush(): Promise<UpdateReadiness>;
   setClock(iso: string): void;
   externalRename(nickname: string): Promise<CommitResult>;

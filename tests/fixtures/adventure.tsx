@@ -1,4 +1,4 @@
-import { useState, useSyncExternalStore } from 'react';
+import { StrictMode, useState, useSyncExternalStore } from 'react';
 import { mountPanel } from './host';
 import { AdventureView } from '../../src/experience/AdventureView';
 import { createStateController } from '../../src/state/controller';
@@ -25,6 +25,7 @@ const params = new URLSearchParams(location.search);
 const namespace = `learning-is-fun:/playtest/:adventure-${params.get('namespace') ?? 'manual'}`;
 const catalogue = listTasks(), events: AdventureEvent[] = [], listeners = new Set<() => void>();
 let version = 0, selected = '', view: AppView = { kind: 'profiles' }, notice = '', switchPending = false;
+let worldMount = 0, stateSubscriptions = 0;
 let now = Date.parse('2026-10-09T12:00:00Z'), disposed = false, abortNext = false, holdNext = false, loseAcknowledgement = false;
 let release: (() => void) | null = null, active: { token: symbol; panel: ActivePanelLifecycle; unsubscribe(): void } | null = null;
 let hall: LeaderboardReadModel | null = null, hallStatus: HallRefreshStatus = 'loading', history: string | null = null;
@@ -53,9 +54,13 @@ const repository: SaveRepository = { ...real, async commitCommand(command, ports
   if (loseAcknowledgement) { loseAcknowledgement = false; events.push({ stage: 'acknowledgement-lost' }); throw new Error('Fixture transport dropped the actual native acknowledgement'); }
   return result;
 } };
-const controller = createStateController({ repository, catalogue, questBindings: QUEST_ACTIVITY_BINDINGS, milestone: 'M1',
+const facade = createStateController({ repository, catalogue, questBindings: QUEST_ACTIVITY_BINDINGS, milestone: 'M1',
   clock: { nowEpochMs: () => now }, preferenceGate: audio,
   readTransientReadiness: () => active?.panel.getStatus() ?? { dirty: false, pending: switchPending, failed: false } });
+const controller: typeof facade = { ...facade, subscribe(listener) {
+  stateSubscriptions++; const unsubscribe = facade.subscribe(listener); let subscribed = true;
+  return () => { if (subscribed) { subscribed = false; stateSubscriptions--; unsubscribe(); } };
+} };
 await controller.ready;
 const unsubscribeState = controller.subscribe(publish);
 const unsubscribePreferences = controller.preferences.subscribe(() => audio.applyPreferenceState(controller.preferences.getStatus()));
@@ -116,10 +121,10 @@ function Fixture() {
       : view.kind === 'leaderboard' ? hall ? history ? <PersonalHistory profileId={history} model={hall} onBack={() => { history = null; publish(); }} />
         : <HallOfChampions model={hall} refreshStatus={hallStatus} onRefresh={() => { void refreshHall(); }} onOpenHistory={id => { history = id; publish(); }} onClose={() => { view = { kind: 'world' }; publish(); }} />
         : <p role="status">{hallStatus === 'failed' ? 'The Hall could not load.' : 'Loading saved Hall results…'}<button onClick={() => { void refreshHall(); }}>Retry Hall</button></p>
-        : <AdventureView selectedProfileId={selected} activePanelHost={activePanelHost} stateController={controller} audioController={audio} navigation={navigation} assetResolver={assetUrl} />}
+        : <AdventureView key={worldMount} selectedProfileId={selected} activePanelHost={activePanelHost} stateController={controller} audioController={audio} navigation={navigation} assetResolver={assetUrl} />}
   </>;
 }
-const mounted = mountPanel(document.getElementById('root')!, <Fixture />);
+const mounted = mountPanel(document.getElementById('root')!, <StrictMode><Fixture /></StrictMode>);
 const api: AdventureFixtureApi = {
   snapshot: controller.getSnapshot, events: () => events,
   abortNext() { abortNext = true; }, holdNext() { holdNext = true; }, release() { release?.(); },
@@ -129,7 +134,10 @@ const api: AdventureFixtureApi = {
     if (!last || last.stage !== 'command') throw new Error('No captured command to redeliver');
     return controller.dispatch(last.command);
   },
-  readiness: () => ({ facade: controller.getUpdateReadiness(), panel: active?.panel.getStatus() ?? null }), flush: controller.flush,
+  readiness: () => ({ facade: controller.getUpdateReadiness(), panel: active?.panel.getStatus() ?? null, stateSubscriptions }), flush: controller.flush,
+  // Deliberately bypass normal leave only to exercise genuine disposal while an
+  // already dispatched native command is pending. No save/progress is patched.
+  remountWorld() { worldMount++; publish(); },
   setClock(iso) { const date = Date.parse(iso); if (!Number.isFinite(date)) throw new Error('Invalid test date'); now = date; },
   async externalRename(nickname) {
     const external = createStateController({ repository: openSaveRepository({ appNamespace: namespace, initialSave: createInitialSave(), validateSave, catalogue }),

@@ -269,6 +269,34 @@ test('pending Check blocks profile change, saves only captured child, and a fail
   await expect(page.getByText('Second’s adventure', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Retry player change' }).click();
   await expect(page.getByText('First’s adventure', { exact: true })).toBeVisible();
+  const readiness = () => page.evaluate(() => (globalThis as unknown as FixtureWindow).adventureFixture.readiness());
+  const withoutActivity = (await readiness()).stateSubscriptions;
+  await page.getByRole('button', { name: 'Play as Second', exact: true }).click();
+  for (let cycle = 0; cycle < 3; cycle++) {
+    await page.getByRole('button', { name: 'Resume A Bridge Back Home', exact: true }).click();
+    await expect(page.getByRole('heading', { name: 'Build your bridge' })).toBeVisible();
+    await expect.poll(async () => (await readiness()).stateSubscriptions).toBe(withoutActivity + 1);
+    await expect(page.getByRole('button', { name: 'Choose placed plank 1: 2 metres', exact: true })).toBeVisible();
+    await page.getByRole('button', { name: 'Leave activity', exact: true }).click();
+    await expect(page.getByRole('button', { name: 'Resume A Bridge Back Home', exact: true })).toBeVisible();
+    await expect.poll(async () => (await readiness()).stateSubscriptions).toBe(withoutActivity);
+  }
+  await page.getByRole('button', { name: 'Resume A Bridge Back Home', exact: true }).click();
+  await bridge(page, [4, 6], 'click');
+  expect((await readiness()).panel?.dirty).toBe(true);
+  await page.evaluate(() => (globalThis as unknown as FixtureWindow).adventureFixture.holdNext());
+  await page.getByRole('button', { name: 'Check my idea', exact: true }).click();
+  await expect.poll(() => page.evaluate(() => (globalThis as unknown as FixtureWindow).adventureFixture.events().at(-1)?.stage)).toBe('held');
+  expect((await readiness()).panel?.pending).toBe(true);
+  await page.evaluate(() => (globalThis as unknown as FixtureWindow).adventureFixture.remountWorld());
+  await expect(page.getByRole('heading', { name: 'Village Green', exact: true })).toBeVisible();
+  await expect.poll(async () => (await readiness()).panel).toBeNull();
+  await expect.poll(async () => (await readiness()).stateSubscriptions).toBe(withoutActivity);
+  await page.evaluate(() => (globalThis as unknown as FixtureWindow).adventureFixture.release());
+  await expect.poll(async () => Object.values((await snapshot(page)).save.profiles).find(p => p.identity.nickname === 'Second')!.world.completedQuestIds).toEqual(['Q1']);
+  await expect(page.locator('.adventure-celebration, .pip-celebration')).toHaveCount(0);
+  expect((await readiness()).stateSubscriptions).toBe(withoutActivity);
+  expect((await readiness()).facade.ready).toBe(true);
   await evidence(page, info);
 });
 
