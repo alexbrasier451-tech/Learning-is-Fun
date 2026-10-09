@@ -63,3 +63,28 @@ Final hashes, captured after the author's final checks and matching that complet
 | `docs/work-package/execution/D3-AUDIO-HOST-DIAGNOSIS.md` | `cfbca3838064dc48bc9e96af840331d8c9981762e09e629a9463e6ff1a5e56ba` |
 
 Only this addendum and private checks/output were authored. No other file, Git state, external system or chat was changed; no agent, service or browser was started. **Actual Firefox success remains unverified.** Controller must run the complete original flow and review readiness, host/native logs and all ten unchanged results. Setup success alone cannot close the causal loop; any red original result requires tracing the new complete evidence. D1 and broader acceptance boundaries remain unchanged.
+
+## Continuation — PulseAudio module-identity schema correction
+
+9 October 2026. Independently read the actual readiness and cleanup artifacts and failure log from run `37888549520`, candidate `159137b46f21099d7a4c766159ff13828154fdcb`, under `C:/Users/alexb/AppData/Local/Temp/learning-is-fun-d3-run-37888549520`. Native PulseAudio 16.1 installation/startup and all six commands succeeded. The socket belonged to UID 1001; the exact private server reported `d3_output` as default, with an unmuted IDLE sink, `s16le 2ch 44100Hz`, front-left/front-right, driver `module-null-sink.c`, and numeric `owner_module: 0`. Cleanup exited 0. The verifier rejected readiness before any original browser case ran.
+
+**Confirmed prior finding, now corrected:** the readiness producer searched module JSON for `item.index`, but PulseAudio 16.1 omits that field. It therefore falsely rejected the matching sink. My previous synthetic module object supplied `index` and missed this defect; the earlier statement that the JSON contract matched the ownership gate was too broad. The actual run invalidates that assumption. Prior local checks provided no native readiness or Firefox acceptance.
+
+The final correction obtains identity from supported `pactl --server <private-route> --format=text list short modules`. The version-16.1 producer prints a numeric ID, name and arguments separated by tabs in this format, while its module JSON contains name/arguments/metadata without IDs. The correction keeps both records, parses decimal IDs into safe integers, rejects duplicate IDs, and joins the reported ID to the sink's numeric `owner_module`. It does not infer identity from array order or fall back to JSON indices. It also requires the actual captured null-sink driver. [PulseAudio 16.1 producer source](https://raw.githubusercontent.com/pulseaudio/pulseaudio/v16.1/src/utils/pactl.c).
+
+**Correction verdict: PASS; ready for Controller's full original rerun. Current blocking findings: NONE.** The new query uses the same private connection, three-second timeout, output cap and failure-throwing command wrapper. Failed queries, malformed/unsafe/duplicate identities and missing or wrong owners fail readiness. Socket ownership, server/default sink, module name, stereo format/channel map, mute and state gates remain intact. Setup, routing, authentication, cleanup, browser behavior, original assertions, count gates and artifact policy are otherwise unchanged.
+
+Independently parsed the final YAML and syntax-checked the actual extracted producer. Twenty focused replay checks passed: the original producer reproduced the captured failure; the correction accepted the captured JSON with declared source-format identity rows, reordered rows, and reported ID 42; sixteen adverse cases rejected. They cover mismatched ownership, misleading synthetic JSON indices, wrong module/driver, absent/malformed/unsafe/duplicate IDs, failed identity query, suspension, mute, wrong format/channel map/default/server, and wrong socket UID. The unmodified captured JSON supplies server/sink/module data; **added short-list rows are fixtures, not actual output from that failed run**. Native short-list collection remains part of the next execution gate.
+
+Parsed-object comparison proves only the readiness step changed against the attempted candidate. All 157 frozen source/test/dependency/configuration files independently match. Unchanged broader setup checks were reused. Private replay evidence is labelled `LOCAL-REPLAY-NOT-NATIVE-SHORT-LIST-OR-FIREFOX` under `C:/Users/alexb/AppData/Local/Temp/d3-schema-independent-6b0887ae414d4d468af93613e125c08b`.
+
+Final reviewed hashes match the completed author's correction snapshot:
+
+| File | SHA-256 |
+|---|---|
+| `.github/workflows/d3-firefox-smoke.yml` | `280668f6cba300cb5e5bca69adcd104e21dd942551f56e169a5bd00af43de031` |
+| `tests/fixtures/d3-firefox.config.ts` | `6c6db0b3a798e255b1f98105e45a207bbdbae568540a9355db59a796d7c2d191` |
+| `docs/work-package/execution/D3-AUDIO-HOST-DIAGNOSIS.md` | `9705e987c622ae4c574821cce68631291129c833f87396615584ddd160ecfe9f` |
+| Original captured `audio-output/readiness.json` | `6bdc6af081ae807c98296fc225f034d385203b2a9689832924ef1b99bfbeecfd` |
+
+Only this addendum and private probes/output were authored. No external/Git/service/browser action or other shared write occurred. **The original Firefox flow remains unverified:** the next native run must collect real module identities, pass readiness, and run all ten unchanged cases through the existing actual-pass gate. This local correction cannot establish that supplying native output resolves the earlier resume stall. D1 and broader acceptance limits remain unchanged.

@@ -51,3 +51,13 @@ That run completed with the same two audio failures after six adult/Hall passes.
 The passive post-test snapshot reports missing `/dev/snd`, ALSA cards/PCM files, standard Pulse/PipeWire socket paths and corresponding executable commands. Both observed process lists have zero audio matches; relevant user/system units are not-found/inactive/dead. The mixed package query exited 1 and must be read as partial evidence: it reports libasound2t64 installed and several named Pulse/PipeWire packages not found. Sink state remains explicitly unprobed. Native Firefox logs are retained, including teardown warnings; no sandbox override is authorized by them.
 
 Foundation is interpreting these facts and preparing the narrow native-output provisioning repair on the ephemeral Linux runner. This adds no game-source change and grants no Firefox pass until the original complete cases run successfully with a verified real backend.
+
+## Native-output repair candidate
+
+The original tooling owner supplied a private runner-user PulseAudio instance and clocked stereo sink with explicit native readiness checks and scoped cleanup. Independent local review passed. Controller committed/pushed `159137b46f21099d7a4c766159ff13828154fdcb`, verified remote main, and dispatched https://github.com/alexbrasier451-tech/Learning-is-Fun/actions/runs/37888549520 (job `113683998388`).
+
+The original ten browser cases, discovery and pass gates are unchanged. No game, fixture, browser-security or autoplay behavior was altered. Actual native readiness and complete original Firefox results remain pending.
+
+Run `37888549520` stopped at the readiness gate before any browser case. Artifact `11596764569` (11,078 bytes), job log and readiness/cleanup records are retained at `C:/Users/alexb/AppData/Local/Temp/learning-is-fun-d3-run-37888549520`.
+
+Ubuntu PulseAudio 16.1 packages installed; daemon startup, the owned Unix socket, native server connection, and the expected IDLE/unmuted stereo 44100 Hz sink all succeeded. The readiness verifier nevertheless failed. Captured `pactl --format=json list modules` entries have no `index` property, while the verifier tried to match `module.index` with the sink's numeric `owner_module`. Original foundation owner is correcting this verifier against the actual output using supported explicit module identity. This is a new earliest divergence in the same end-to-end loop; no browser pass is inferred from successful backend startup.

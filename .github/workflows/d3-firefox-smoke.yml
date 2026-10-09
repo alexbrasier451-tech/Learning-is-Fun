@@ -145,10 +145,22 @@ jobs:
             report.server = JSON.parse(command('pactl', ['--server', routing.PULSE_SERVER, '--format=json', 'info']));
             report.sinks = JSON.parse(command('pactl', ['--server', routing.PULSE_SERVER, '--format=json', 'list', 'sinks']));
             report.modules = JSON.parse(command('pactl', ['--server', routing.PULSE_SERVER, '--format=json', 'list', 'modules']));
+            // PulseAudio 16.1 module JSON omits IDs; the supported short text list includes them.
+            report.moduleIdentities = command('pactl', ['--server', routing.PULSE_SERVER, '--format=text', 'list', 'short', 'modules'])
+              .trimEnd().split('\n').filter(Boolean).map(row => {
+                const [id, name, argument = ''] = row.split('\t');
+                if (!/^\d+$/.test(id) || !name || !Number.isSafeInteger(Number(id))) {
+                  throw new Error('Malformed native module identity row.');
+                }
+                return { index: Number(id), name, argument };
+              });
+            if (new Set(report.moduleIdentities.map(item => item.index)).size !== report.moduleIdentities.length) {
+              throw new Error('Ambiguous native module identities.');
+            }
             const sink = report.sinks.find(item => item.name === sinkName);
-            const module = report.modules.find(item => item.index === sink?.owner_module);
+            const module = report.moduleIdentities.find(item => item.index === sink?.owner_module);
             if (report.server.default_sink_name !== sinkName || report.server.server_string !== routing.PULSE_SERVER ||
-                !sink || module?.name !== 'module-null-sink' ||
+                !sink || module?.name !== 'module-null-sink' || sink.driver !== 'module-null-sink.c' ||
                 !/\b2ch 44100Hz$/.test(sink.sample_specification) || sink.channel_map !== 'front-left,front-right' ||
                 !['IDLE', 'RUNNING'].includes(sink.state) || sink.mute !== false) {
               throw new Error('Expected private, unmuted, clocked stereo native output is not ready.');
