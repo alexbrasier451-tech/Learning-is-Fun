@@ -51,10 +51,10 @@ export function HallOfChampions({ model, refreshStatus, onRefresh, onOpenHistory
   useEffect(() => { heading.current?.focus(); }, []);
   const pending = refreshStatus === 'loading' || refreshStatus === 'refreshing';
   const freshness = refreshStatus === 'loading' ? 'Loading saved results. No new closed result is confirmed yet.'
-    : refreshStatus === 'refreshing' ? 'Checking the London calendar. Showing the last committed results until the check finishes.'
-    : refreshStatus === 'failed' ? 'The calendar check failed. Showing the last committed results; a new week or closed result has not been confirmed. Try again.'
-    : refreshStatus === 'stale' ? 'Showing the last committed results. Check the calendar to confirm the current week.'
-    : 'Calendar checked. These are committed results.';
+    : refreshStatus === 'refreshing' ? 'Checking the London calendar. Showing your previously saved results until the check finishes.'
+    : refreshStatus === 'failed' ? 'The calendar check failed. Showing your previously saved results; a new week or closed result has not been confirmed. Try again.'
+    : refreshStatus === 'stale' ? 'Showing your previously saved results. Check the calendar to confirm the current week.'
+    : 'Calendar checked. Your saved results are up to date.';
   return <section className="hall" aria-labelledby={titleId} onKeyDown={event => {
     if (event.key === 'Escape' && !event.defaultPrevented) { event.preventDefault(); onClose(); }
   }}>
@@ -85,15 +85,15 @@ export function HallOfChampions({ model, refreshStatus, onRefresh, onOpenHistory
                 <p className="hall-rank">{profile.rank === null ? 'Not yet scored this week' : `Provisional rank ${profile.rank}`}</p></div></div>
               <dl className="hall-points"><div><dt>Weekly points</dt><dd>{profile.competitivePoints}</dd></div>
                 <div><dt>Lifetime points</dt><dd>{profile.lifetimePoints}</dd></div>
-                <div><dt>Weekly slots used</dt><dd>{profile.usedSlots}<span> / 30</span></dd></div></dl>
-              {profile.usedSlots === 30 && <p className="hall-cap">All 30 weekly slots used. Keep learning: lifetime points and adventure progress can continue.</p>}
+                <div><dt>Weekly scoring turns used</dt><dd>{profile.usedSlots}<span> / 30</span></dd></div></dl>
+              {profile.usedSlots === 30 && <p className="hall-cap">All 30 weekly scoring turns used. Keep learning: lifetime points and adventure progress can continue.</p>}
               <button className="hall-button hall-history-link" onClick={() => onOpenHistory(profile.profileId)}>See {profile.nickname}’s history</button>
             </li>)}
           </ol>
         </>}
         <details className="hall-explanation"><summary>How points and shared ranks work</summary>
           <p>A first valid Check earns 5 points. A first correct answer without answer help adds 15; a supported or later success adds 5 instead.</p>
-          <p>The first 30 eligible learning-selected opportunities Checked can count each week. Repeated or child-chosen practice does not create a new weekly slot. Quest completion adds 20 lifetime points, once.</p>
+          <p>Your first 30 scoring turns can add weekly points. A new activity chosen by the game can start a turn when you first Check an answer. A due review chosen by the game in a later week can start another turn. Retries stay in the same turn; repeated or child-chosen practice does not start another. Quest completion adds 20 lifetime points, once.</p>
           <p>Equal positive scores share a rank. A tie at rank 1 means the next rank is 3. Zero points has no rank or medal. Points describe this week’s participation.</p>
           <p>Earned cosmetic choices stay available. Choosing them never spends points.</p>
         </details>

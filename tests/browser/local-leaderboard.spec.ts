@@ -48,7 +48,7 @@ test('20/20/10/0 ties and historical names remain exact', async ({ page }) => {
 
 test('30-slot cap separates weekly and lifetime progress', async ({ page }) => {
   await scenario(page, 'cap'); await expect(page.locator('.hall-player dd')).toHaveText(['600', '620', '30 / 30']);
-  await expect(page.getByText('All 30 weekly slots used.', { exact: false })).toContainText('lifetime points and adventure progress can continue'); await capture(page, 'cap');
+  await expect(page.getByText('All 30 weekly scoring turns used.', { exact: false })).toContainText('lifetime points and adventure progress can continue'); await capture(page, 'cap');
 });
 
 test('selected personal records remain separate and unavailable profile is honest', async ({ page }) => {
@@ -88,7 +88,7 @@ test('52 displayed archives retain 53 lifetime medals and older personal best', 
 test('calendar rollback, loading and failed refresh retain honest prior rows', async ({ page }) => {
   await scenario(page, 'clock'); await expect(page.getByRole('note')).toContainText('clock is earlier'); await capture(page, 'clock');
   const before = await model(page); await page.getByRole('button', { name: 'Check calendar', exact: true }).click();
-  await expect(page.getByRole('status')).toContainText('last committed results'); await expect(page.getByRole('button', { name: 'Checking calendar…' })).toBeDisabled();
+  await expect(page.getByRole('status')).toContainText('previously saved results'); await expect(page.getByRole('button', { name: 'Checking calendar…' })).toBeDisabled();
   await expect(page.locator('.hall-player')).toHaveCount(4); await capture(page, 'refreshing');
   await page.evaluate(() => (globalThis as unknown as BrowserProbe).hallFixture.status('failed'));
   await expect(page.getByRole('status')).toContainText('new week or closed result has not been confirmed'); await capture(page, 'failed');
@@ -177,7 +177,7 @@ test('real facade opening refreshes native committed rollover once before displa
   await page.evaluate(() => { window.realHall.setNow('2026-10-12T12:00:00Z'); window.realHall.hold(); });
   await page.getByRole('button', { name: 'Open Hall' }).click();
   await expect.poll(() => page.evaluate(() => window.realHall.held())).toBe(true);
-  await expect(page.getByRole('status')).toContainText('last committed results');
+  await expect(page.getByRole('status')).toContainText('previously saved results');
   expect(await realModel(page)).toEqual(oldModel); await expect(page.locator('.hall-results li')).toHaveCount(0);
   expect(await page.evaluate(() => window.realHall.nativeRoot())).toEqual({ ...old.token, save: old.save });
   expect(await page.evaluate(() => window.realHall.clockReads())).toBe(clocks + 1);

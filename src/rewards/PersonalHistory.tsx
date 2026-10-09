@@ -24,12 +24,12 @@ export function PersonalHistory({ profileId, model, onBack }: PersonalHistoryPro
         <h1 id={titleId} ref={heading} tabIndex={-1}>{profile ? `${profile.nickname}’s history` : 'Profile unavailable'}</h1>
         <p>{model.localScopeLabel}</p></div><button className="hall-button" onClick={onBack}>Back to Hall</button></header>
     {!profile || !records ? <div className="hall-paper hall-empty"><p>This profile is no longer available. Return to the Hall to choose a saved player.</p></div> : <div className="hall-panels">
-      <section className="hall-paper" aria-labelledby={recordsId}><div className="hall-panel-heading"><p className="hall-kicker">Lasting keepsakes</p><h2 id={recordsId}>Personal records</h2><p>From committed closed weeks, across your whole history.</p></div>
+      <section className="hall-paper" aria-labelledby={recordsId}><div className="hall-panel-heading"><p className="hall-kicker">Lasting keepsakes</p><h2 id={recordsId}>Personal records</h2><p>From saved closed weeks, across your whole history.</p></div>
         <dl className="hall-personal-stats"><div><dt>Lifetime points</dt><dd>{profile.lifetimePoints}</dd></div>
           <div><dt>Best closed week</dt><dd>{records.best ? <>{records.best.points} points<span>Week of <time dateTime={records.best.week}>{records.best.week}</time></span></> : 'No closed personal best yet'}</dd></div></dl>
         <h3>Lifetime medal totals</h3><dl className="hall-medal-totals">{(['gold', 'silver', 'bronze'] as const).map(medal => <div className={`hall-medal-${medal}`} key={medal}><dt>{medal[0].toUpperCase()}{medal.slice(1)} medals</dt><dd>{records.medals[medal]}</dd></div>)}</dl>
         <p className="hall-retention">Your medal collection includes every closed week, even older pages beyond the 52-week display window.</p>
-        <p className="hall-single">Your current week is still open: {profile.competitivePoints} weekly points and {profile.usedSlots} / 30 slots used. It is not a closed medal result.</p>
+        <p className="hall-single">Your current week is still open: {profile.competitivePoints} weekly points and {profile.usedSlots} / 30 scoring turns used. It is not a closed medal result.</p>
       </section>
       <section className="hall-paper" aria-labelledby={weeksId}><div className="hall-panel-heading"><p className="hall-kicker">The pages so far</p><h2 id={weeksId}>Your closed weeks</h2><p>Newest first · within the latest 52 participating weeks.</p></div>
         {weeks.length === 0 ? <div className="hall-empty"><h3>No displayed closed results yet</h3><p>{records.best ? 'Your older personal best and lifetime medals remain saved above.' : 'Keep exploring. A participating closed week will become a page in your journal.'}</p></div> :

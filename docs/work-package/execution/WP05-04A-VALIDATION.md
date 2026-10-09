@@ -261,3 +261,63 @@ the existing required observations; no additional completion gate is invented.
 Final shell/world composition, actual published PC/tablet journeys, M1/M2 and
 acoustic/physical-device/child claims remain outside this technical report.
 Only this validation append and private test output were written.
+
+## Copy-only wording recheck — 9 October 2026
+
+**Verdict: PASS. No new findings.** Reviewed the author's continuation after
+partial commit `12ce0e43741b8622c20ee897fea5036c865955e7`. The technical
+Hall/real-binding verdict remains valid; D1 required construction observations
+and D3 relevant-view smoke remain open as specified above.
+
+Read the exact changed component text, the three affected existing browser
+expectations and the handoff addendum. Without a Git operation, reversed only
+the reported string substitutions in memory and hashed the reconstructed
+component bytes. They exactly reproduce both independently recorded preceding
+component digests: Hall `0ee7c141…7cc6a5`, history `4d2661e4…c0d78e` (full
+digests in the continuation table above). This confirms that the production
+delta consists solely of the inspected text substitutions. CSS still has the
+same full digest `3dc0d9136fe86709f27bf0ee1ce06a7d7ff3d467f2f32b17e3c37f195ab87989`.
+
+Freshness text changes “committed” to “saved”/“previously saved”; pending,
+failure and stale states still identify retained prior results and do not
+confirm a new week or closure. Ready text still follows the same ready status.
+History's records caption uses “saved closed weeks.” All model reads, conditional
+branches, callbacks, focus/DOM structure and adapter/persistence behavior are
+unchanged.
+
+“Weekly scoring turns used,” the 30-turn cap notice and the personal current-week
+sentence still display exactly `usedSlots` against 30. The revised explanation
+preserves the first 30 eligible opportunities counted on their first valid
+Check: it identifies a new game-selected activity or a game-selected due review
+in a later week, says retries remain in the same turn, and excludes repeated or
+child-chosen practice from creating another. The adjacent explanation still
+defines a first valid Check and the same 5/15/5 rewards. It does not recast the
+allowance as 30 attempts, 30 correct answers or a new turn on every retry. The
+once-only 20 lifetime quest reward and cap's continued lifetime/adventure
+progress remain explicit. A narrow read of the accepted eligibility/first-Check
+slot allocation confirms this description matches the unchanged policy.
+
+The test delta changes only the cap-message text expectation and two existing
+pending-result text expectations (frozen refresh and real held rollover).
+Numeric, snapshot, native-root, rank, medal, retry and clock assertions retain
+their original meaning; no test case was added.
+
+Independently inspected the retained existing Edge smoke report:
+`C:/Users/alexb/AppData/Local/Temp/learning-is-fun-hall-4f3a5b4a428d4fe28a08d5351eae05df/results.json`.
+**One passed**, zero unexpected/flaky/skipped or report errors, observed Edge
+154.0.4258.62 D2, 2.335s, starting at 05:00:14 BST. The case is the existing
+calendar rollback/loading/failed/stale flow, including retained-model equality
+and disabled pending check. Reused the author's focused strict ES2022/JSX
+component/spec typecheck PASS. No new test, browser rerun, broad source review,
+configuration or Git operation was performed for this bounded wording review.
+
+Current component digests supersede their earlier fingerprints:
+
+| Source | Lowercase SHA-256 |
+|---|---|
+| `src/rewards/HallOfChampions.tsx` | `e857cdb2dc7e8ef3d8dc74f9e3c6ec879db783b095231bd86148a7388f0c6671` |
+| `src/rewards/PersonalHistory.tsx` | `7912e2c933cfc0543d89cb6e369eafeeba3b14ca92f5628e5fdc6d814cd05cb7` |
+
+Only this validation append was written. No browser substitution, acceptance
+waiver, published-play or whole-child completion claim follows from the copy
+change.

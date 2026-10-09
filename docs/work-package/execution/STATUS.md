@@ -46,6 +46,7 @@ Execution was explicitly requested on 8 October 2026. Required visible worker cr
 | 01a11eb0-ceb8-7492-9d50-f2748fb21d16 | Independent validator | gpt-6.1-sol / xhigh | WP04-06A profile/adult screens | Technical corrections and native-state binding PASS; D1/D3 observations remain |
 | 01a11eb5-e2df-78b2-bea1-cc94798cf27c | Fresh integration reviewer | gpt-6-astra / high | Accepted learning/reward/save core boundary | PASS; fresh native-IDB rollover/retry/records/backup/epoch and pure Hall projection proof |
 | 01a11ec3-ad06-7de3-b4aa-982ca87ad133 | Implementation | gpt-6.1-sol / high | WP02-07A Pip companion and finite creative ending | Running after all art/audio/state/scoring handoffs accepted; port 5187 |
+| 01a11ed4-9169-77c1-a0c1-a50cb117010b | Independent validator | gpt-6.1-sol / xhigh | WP02-07A Pip and creative garden | Reviewing actual state/audio binding and retained 44 browser checks; port 5187 |
 
 ## Accepted implementation boundaries
 
@@ -76,6 +77,9 @@ Execution was explicitly requested on 8 October 2026. Required visible worker cr
 WP01-01A downstream discovery correction independently accepted: all 29 package-declared unit test paths now match Vitest discovery, excluding fixtures and Playwright specs. Original 27 checks, temporary discovery probe and tooling typecheck passed; probes removed. Correction commit: e881253f3c1ad6841cc7ef2f9248ceae78999939. This releases no new dependency beyond the existing foundation acceptance.
 
 ## Evidence and open inputs
+
+- Hall implementation and actual-facade technical binding were independently accepted in partial commit `12ce0e43741b8622c20ee897fea5036c865955e7`. Adult/profile implementation, corrected focus/outcome handling and actual-facade binding were independently accepted in partial commit `100f9055dbccd1da3a297b9afcce3ac76d8e023d`; Controller removed one trailing blank line in its runner before the clean diff check. Neither partial boundary completes its child or releases outgoing edges: the specified D1/D3 observations remain. Hall's subsequent wording-only polish independently passes with no changed behavior.
+- Companion author completed 44 focused browser checks plus one strengthened unavailable-audio recheck and both strict scoped typechecks. Fresh independent validation is running. Foundation's Node-project diagnosis reproduced 12 composite membership errors; a private one-line incremental-checking correction passes while retaining the pure ES2023/Node boundary. The shared writer window was released only after all component authors finished source changes; supported root typecheck is now being performed.
 
 - [Fresh core integration](M1-CORE-INTEGRATION.md) is independently PASS and Controller-accepted at coherent commit 97482c4b791a84c55384c623163664c7d1fdddbc. It reuses chunk evidence and adds one real-IDB cross-boundary case; it does not accept UI/audio, publication, required browser modes, listening or M2. Audio, adult and Hall owners now have their real-facade input released and are completing bounded binding work on ports 5184/5186/5185.
 

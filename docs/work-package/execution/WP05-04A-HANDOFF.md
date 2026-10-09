@@ -193,3 +193,41 @@ Controller owns independent review, acceptance and integration. No remaining
 owned source/contract defect is known. The actual-domain Hall criterion is now
 proved in available modes; exact D1/D3 acceptance, final shell, published game/M1
 and M2 are not claimed. No shared state/config/dependency/status/Git/chat mutation.
+
+## Copy-only polish after independent real-binding PASS
+
+Controller preserved the real binding in partial commit
+`12ce0e43741b8622c20ee897fea5036c865955e7` and requested plain product wording.
+Only component string literals, three affected existing test text expectations
+and this addendum changed. No style, behavior, data, port or policy change; no
+new tests, matrix rerun, shared config or Git operation.
+
+Exact string changes:
+
+| Previous text | Replacement |
+|---|---|
+| `Showing the last committed results` in refreshing/failed/stale messages | `Showing your previously saved results` |
+| `Calendar checked. These are committed results.` | `Calendar checked. Your saved results are up to date.` |
+| `From committed closed weeks, across your whole history.` | `From saved closed weeks, across your whole history.` |
+| `Weekly slots used` | `Weekly scoring turns used` |
+| `All 30 weekly slots used.` | `All 30 weekly scoring turns used.` |
+| ` / 30 slots used.` in personal history | ` / 30 scoring turns used.` |
+
+The weekly-cap explanation now reads exactly:
+
+> Your first 30 scoring turns can add weekly points. A new activity chosen by
+> the game can start a turn when you first Check an answer. A due review chosen
+> by the game in a later week can start another turn. Retries stay in the same
+> turn; repeated or child-chosen practice does not start another. Quest completion
+> adds 20 lifetime points, once.
+
+Pending/failure/stale messages still explain that the current/new week or closed
+result is unconfirmed until the calendar check succeeds. Cap continuation keeps
+the existing lifetime/adventure explanation. Model `usedSlots` and all other
+fields/ports retain their exact original meaning.
+
+Focused strict ES2022/JSX component/spec typecheck: passed. One existing smoke:
+`./tests/fixtures/local-leaderboard-run.ps1 -Filter 'calendar rollback, loading' -Project 'hall-edge-D2'`
+— **1 passed**, 2.3s, observed Edge154.0.4258.62. Root:
+`C:/Users/alexb/AppData/Local/Temp/learning-is-fun-hall-4f3a5b4a428d4fe28a08d5351eae05df`.
+No broader matrix or acceptance claim. D1/D3 gaps remain unchanged.
