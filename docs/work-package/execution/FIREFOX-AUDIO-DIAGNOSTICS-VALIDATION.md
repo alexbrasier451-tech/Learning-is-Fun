@@ -2,7 +2,9 @@
 
 9 October 2026. Report-only review of the fixture instrumentation for the existing active Logic-Flow investigation.
 
-**Verdict: READY for Controller to send these diagnostic observations through the original remote flow. No actionable instrumentation finding remains.** This approves diagnostic readiness only: the Ubuntu Firefox activation failure is unresolved, its cause is not established, and no product repair or target-browser pass is accepted here.
+**Current verdict: the two original D3 audio smoke cases PASS on actual Ubuntu Firefox 157 after native CI output provisioning, independently inspected in run `37889547310`.** The addendum below closes the original activation-stall check for this provisioned runner and records the supported environmental cause. It does not claim a product-code repair, full audio matrix, published playback or acoustic acceptance.
+
+The initial diagnostic-readiness review below is preserved as historical evidence. Its unresolved-failure statements describe that earlier checkpoint and are superseded by the final remote-results addendum.
 
 ## Original failure remains the decision gate
 
@@ -65,3 +67,46 @@ Controller may commit/push/dispatch these observations through the existing boun
 The original Firefox cases must traverse the complete intended flow on the required target before that failure can close. No timeout extension, skip, alternative engine, synthetic ready state or product repair is accepted by this review. Published and actual-listening obligations remain separately owned. The diagnosis report's phrase “physical-device gates” should be read only as a limit on unsupported claims: physical-device and child testing are separate future activities, not new mandatory completion requirements.
 
 Only this validation report and private probes were written. No production/configuration/Git/shared-status change, delegation or other-chat message was made.
+
+## Original remote inputs now green — independently inspected results
+
+9 October 2026. Candidate `18f08b01e7ffc839b0fb14d686ff8341d3fd362e`, run `37889547310`, attempt 1. Evidence root: `C:/Users/alexb/AppData/Local/Temp/learning-is-fun-d3-run-37889547310/`. Read `artifact/run.json`, the four results files, audio JSON attachment and both trace ZIPs, relevant rendered trace frames, `audio/browser.log`, `job.log`, `audio-output/readiness.json`, native configuration, daemon log and cleanup record. Also inspected the earlier diagnostic failure attachments from runs `37885535995` and `37887423464` and the latter's passive host snapshot to assess causality rather than infer it solely from the latest pass.
+
+### Exact original-input outcomes
+
+Both audio results identify project `D3-Firefox`, expectedStatus=passed, actual status=passed, retry=0 and errors=[]. The real-facade/profile/visibility case took 6,893ms; the first-visit/keyboard/independent-silence case took 2,487ms. Audio totals are **2 expected, 0 unexpected, 0 skipped, 0 flaky**. The other result files report adult 3, Hall 3 and creative 2 expected passes with zero unexpected/skipped/flaky; the job's ten-actual-pass gate also completed. Those counts are corroborating suite evidence, not a renewed substantive review of the other components.
+
+The retained trace's complete spec source SHA-256 is `51b93b9951a130a954c0228d680951da8ce5d4d9cc7e80aadfd3db8b062b80d0`, exactly the previously reviewed diagnostic spec. Original inputs, assertions and polling limits therefore remain unchanged. Current production controller/speech hashes also remain the previously accepted values. The provided candidate/run identity is retained in `run.json`; no Git or external action was needed for this review.
+
+The real-facade attachment identifies Firefox **157.0**, one context, acknowledged native/facade state, installation enabled/unlatched at .25/.50, two real profiles with instructionReadAloud=false, no media/persistence error, speaking=false, and fully clean readiness. Its ordered telemetry is:
+
+| Checkpoint | Recorded result |
+|---|---|
+| Enable click, sequence 19, 1449ms | Trusted; visible; active user activation; loaded settings. |
+| Context construction, sequence 26, 1455ms | Native context suspended, 44,100Hz, currentTime=0, destinationChannels=2 and maxChannels=2. |
+| Native resume, sequence 27, 1455ms | Original native call under enabled, unlatched policy. |
+| Fulfillment, sequence 40, 3095ms | Native state running and currentTime≈.0203s. The observer still sees inactive before the controller's subsequent continuation, as expected. |
+| Native statechange, sequence 42, 3102ms | Running context and public activation=ready. |
+| Downstream original lifecycle | Native restoration source starts; injected hide cancels speech/sources; foreground starts only permitted library music; profile change clears output. Final one-context and unchanged-installation assertions pass. |
+
+The first-visit trace independently records the actual activation poll changing from inactive to ready. After explicit Silence all, channel edits and explicit exit, the original music-source poll changes from zero to one; effects volume remains zero and music 26%, with one context and no queued utterance. Intermediate unsuccessful poll iterations appear as inner assertion entries in the trace; the outer original assertions succeed before their unchanged deadline. They are not skipped or accepted failures.
+
+### Native environment and supported causal conclusion
+
+Before the cases, readiness at `2026-10-09T05:39:31.210Z` reports successful installation/startup of PulseAudio 16.1 and successful native server/sink/module queries. It validates the private runner-owned Unix endpoint, authenticated native protocol, default `d3_output`, and a real clocked `module-null-sink` with stereo `s16le 2ch 44100Hz`, front-left/front-right, unmuted and IDLE. Explicit routing reaches the browser steps; client autospawn is disabled. This is native output provisioning, not a JavaScript context mock or forced activation result. The virtual sink consumes audio and supplies no evidence that anyone heard it.
+
+The instrumented predecessor runs `37885535995` and `37887423464` show both original inputs reaching trusted, active, visible Enable, constructing one context and calling resume once. At failure, each native context remains suspended at time zero with maxChannels=0; no resume fulfillment/rejection/throw is recorded. The passive host snapshot in `37887423464` reports missing ALSA device/card/PCM paths, zero matching audio processes in two successful snapshots, and no matching standard Pulse/PipeWire socket in a successfully read, untruncated Unix-socket listing. Its sinks were explicitly not probed. Those observations are bounded host evidence, not a universal proof that every possible output mechanism was absent.
+
+**Supported causal conclusion:** the runner lacked the usable native output path needed for these Firefox activation cases; provisioning that path resolves the native resume stall and allows the unchanged original flows to finish. This is a CI-environment correction at the native output boundary, not an established application consent/generation defect. The combined failing native checkpoints, passive host evidence, explicit readiness and successful unchanged rerun support this attribution. They do not isolate which individual library/server/sink/routing element was independently necessary, reveal an internal Cubeb error not present in the logs, or prove all Firefox/device environments behave identically. The original uninstrumented run alone would not have supported this conclusion.
+
+### Cleanup, warnings and residual scope
+
+`audio-output/cleanup.json` records the targeted native server-exit command succeeding with exitCode=0, no signal/error/stderr, and untruncated daemon log; the retained daemon log is empty. Browser logging records Firefox process exitCode=0 and completed temporary-directory cleanup. Both explicit fixture `cleanup()`/`teardown()` evaluations have successful return records in their traces.
+
+The native browser log is **not warning-free**: it includes the existing namespace/service-settings messages, one `Script terminated by timeout` warning in the fixture's pagehide teardown listener, and Juggler progress-listener removal errors. Retain these observations. They occur around closing the test pages; the explicit cleanup evaluations return, both original test results contain no errors, and the browser/server cleanup records succeed. They do not contradict the observed resume/playback pass or establish a new activation defect. This review does not claim every page-close internal callback completed cleanly.
+
+The final test screenshots are blank after fixture unmount, so they are not used as rendered-control proof. Independently viewed pre-teardown screencast frames from both trace archives: the first-visit panel shows active choices with music 26% and effects zero; the profile case shows Another explorer with settings preserved. These are technical rendered evidence, not auditory observations.
+
+**Disposition:** accept the two original D3 audio smoke outcomes on this actual provisioned Ubuntu/Firefox candidate. The missing-backend activation blocker is resolved for this workflow. Reuse the unchanged component/race/type/layout evidence; no new runtime fix or rerun was needed for this inspection. Broader D3 coverage remains exactly the defined selected smoke scope, not every audio case. No D1, published URL, full-shell/update, real-voice/local-network, heard-quality, physical-device or child-testing claim is made. Physical/child sessions remain separate future activities, not newly imposed gates.
+
+Only this report and `WP02-05A-VALIDATION.md` were updated in this follow-up. No source, workflow, private artifact, Git, external service or browser execution was changed or initiated.

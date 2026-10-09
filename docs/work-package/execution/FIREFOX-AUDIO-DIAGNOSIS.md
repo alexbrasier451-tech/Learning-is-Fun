@@ -1,9 +1,113 @@
-# Firefox audio activation — active diagnosis
+# Firefox audio activation — original native-host loop closed
 
-9 October 2026. **Diagnostic rerun localizes the stall to the native context's
-pending resume, with zero reported output capacity; runner audio-service/device
-cause still needs confirmation.** Production activation/policy/scoring/state is
-unchanged. The Linux original flow remains red; local passes do not close it.
+9 October 2026. **Run 37889547310 passes both original audio cases on actual
+Linux Firefox 157.0 after foundation-owned native output provisioning.** The
+retained real-facade checkpoints show native resume fulfillment, running context
+with advancing time, and public ready status. This closes the narrow original
+native-startup loop. Production audio and the diagnostic fixture/spec remain
+unchanged; broader acceptance gates remain separate.
+
+## Green original-flow rerun 37889547310
+
+Candidate `18f08b01e7ffc839b0fb14d686ff8341d3fd362e`, attempt 1. Evidence root:
+`C:/Users/alexb/AppData/Local/Temp/learning-is-fun-d3-run-37889547310`.
+Inspected retained `artifact/run.json`, `artifact/audio-output/readiness.json`,
+`artifact/audio-output/cleanup.json`, all four suite `results.json` files,
+the real-profile JSON attachment, the first-visit trace, and `job.log`.
+This update changes only this report; no source change, test rerun, Git operation
+or external call was made.
+
+The run records Linux, Node 24.21.0 and 1280×720; the job log identifies matched
+Firefox 157.0/build 1555 for Ubuntu 24.04. Each selected D3-Firefox project used
+one actual worker, zero retries and one repetition.
+
+| Original bounded selection | Passed | Skipped / flaky / unexpected |
+|---|---:|---|
+| Adult | 3 | 0 / 0 / 0 |
+| Hall | 3 | 0 / 0 / 0 |
+| Audio | 2 | 0 / 0 / 0 |
+| Creative | 2 | 0 / 0 / 0 |
+| Total | 10 | 0 / 0 / 0 |
+
+Both original audio titles preserved below have `status=expected` and an actual
+`passed` result. The complete selected real-facade profile/visibility flow and
+first-visit keyboard/Silence-all flow completed, beyond the previously failing
+explicit-enable assertion. This is the bounded ten-case run, not the entire
+audio regression suite or every D3 acceptance check.
+
+### Observed native host and activation checkpoints
+
+Before browser cases, readiness at `2026-10-09T05:39:31.210Z` is true:
+PulseAudio 16.1 is reachable through the configured native Unix socket;
+module ID 0 is `module-null-sink`, module ID 1 is
+`module-native-protocol-unix`; default sink `d3_output` belongs to module 0,
+is unmuted at 100% on both channels and reports stereo 44100Hz. The native
+server and sink are software output infrastructure. Cleanup at
+`2026-10-09T05:40:13.387Z` records exit code 0, no signal/error/stderr and no
+log truncation; this records the cleanup command's success.
+
+The successful `real-profile-and-visibility-forwarding.json` attachment reports
+actual browser version 157.0 and binding `real`. Its fixture-clock checkpoints:
+
+| Checkpoint | Retained observation |
+|---|---|
+| Explicit Enable | Sequence 19, 1449ms; trusted, visible, active user gesture. |
+| Native context | Sequence 26, 1455ms; suspended/time 0, 44100Hz, destination channels 2 and maximum channels 2. Exactly one context. |
+| Native resume call | Sequence 27, 1455ms; loaded, enabled, unlatched, visible and active user gesture. Exactly one call. |
+| Native fulfillment | Sequence 40, 3095ms; running, currentTime 0.0203174603s, maximum channels 2. Exactly one fulfillment; no rejection/throw event. |
+| Public continuation | Sequence 41, 3096ms; activation ready. |
+| Native statechange | Sequence 42, 3102ms; running and public ready. |
+| Subsequent progression | Sequence 43, 3392ms: currentTime 0.3018594104s; sequence 106, 4380ms: 1.3032199546s, still running/ready. |
+| Later flow | Two source-start events; final sources empty, one context, readiness true with no pending/failed command or preference flags. Speech is explicitly fixture-simulated. |
+
+The first-visit trace independently records Enable click `nnum@248` at trace
+time 9982.413ms and native public activation evaluation `nnum@254` returning
+`ready` at 10183.397ms. That successful case has no failure-checkpoint attachment;
+do not infer a separate complete native event ledger for it from the real case.
+
+### Bounded causal conclusion and limits
+
+The earlier captured native resume never settled, the context clock stayed zero
+and maximum output channels were zero despite correct gesture/policy inputs.
+With a verified native server and usable software sink, the same original
+audio inputs now traverse native fulfillment and the unchanged public
+continuation successfully. This supports **runner native-output provisioning
+as the cause of this captured startup failure**, and the foundation-owned
+provisioning as the sufficient repair for the original bounded flow. It does
+not establish the exact internal Firefox/backend failure mechanism or prove
+that one particular service setting alone was necessary. No product activation
+workaround is indicated by these observations.
+
+Read-only hashes of the current controller, speech adapter, fixture, fixture
+API and browser spec still match the earlier source hashes below. There was
+no audio source, expectation, timeout, retry, skip or browser substitution in
+this report update. The prior failed runs remain evidence, not overwritten
+successes.
+
+The job log also retains a Firefox `Script terminated by timeout` warning at
+`05:40:03.037Z`, naming audio fixture `teardown` at served line 512. The audio
+results nevertheless report both cases passed. The warning's cause was not
+investigated in this documentation-only update; neither the pass nor native
+daemon cleanup exit 0 establishes warning-free fixture teardown.
+
+Software sink readiness, native graph progression and browser assertions do
+not establish heard audio quality, actual local speech quality, physical-device
+behavior, published-environment behavior or D1 acceptance. No fresh additional
+case or full audio regression rerun is claimed here. Broader validation remains
+with its existing owners; this closure is limited to the original native-host
+startup failure and returned bounded regression selection.
+
+| Green-run artifact | Lowercase SHA-256 |
+|---|---|
+| `artifact/audio/results.json` | `ce520fd034ad803d11bf56772b91b6a88d283a4270a584d2b872aad0cbffdc3b` |
+| `artifact/audio-output/readiness.json` | `f599508bf70ae2038f5d0e9565ce39e89a9e7b9a08d5d3ff6197c242d831287d` |
+| `artifact/audio-output/cleanup.json` | `9912e27e407ebc427b376442aecee70978d14a1ad1c6f4acb2a17bc1343d6679` |
+
+## Preserved investigation history
+
+The sections below record the earlier failed runs, instrumentation and proposals
+as they stood before the green rerun. Their red-status statements and requested
+next steps are historical; the outcome and limits above supersede them.
 
 ## Diagnostic rerun 37885535995 — native boundary localized
 

@@ -61,3 +61,19 @@ The original ten browser cases, discovery and pass gates are unchanged. No game,
 Run `37888549520` stopped at the readiness gate before any browser case. Artifact `11596764569` (11,078 bytes), job log and readiness/cleanup records are retained at `C:/Users/alexb/AppData/Local/Temp/learning-is-fun-d3-run-37888549520`.
 
 Ubuntu PulseAudio 16.1 packages installed; daemon startup, the owned Unix socket, native server connection, and the expected IDLE/unmuted stereo 44100 Hz sink all succeeded. The readiness verifier nevertheless failed. Captured `pactl --format=json list modules` entries have no `index` property, while the verifier tried to match `module.index` with the sink's numeric `owner_module`. Original foundation owner is correcting this verifier against the actual output using supported explicit module identity. This is a new earliest divergence in the same end-to-end loop; no browser pass is inferred from successful backend startup.
+
+## Corrected native module identity verification
+
+Original author and independent validator reproduced the schema defect from captured native JSON. The reviewed correction reads explicit IDs from PulseAudio's supported short text listing, rejects malformed/duplicate IDs and preserves readiness/ownership gates. Independent focused checks passed; all 157 frozen product/test/config files remained identical.
+
+Controller committed/pushed `18f08b01e7ffc839b0fb14d686ff8341d3fd362e`, verified the exact remote SHA and dispatched https://github.com/alexbrasier451-tech/Learning-is-Fun/actions/runs/37889547310 . Actual native identity output and all original browser results are pending.
+
+Run `37889547310` completed successfully. Artifact `11597771163` (38,454,512 bytes), job `113687120938` log and extracted evidence are retained under `C:/Users/alexb/AppData/Local/Temp/learning-is-fun-d3-run-37889547310`.
+
+Controller inspected the original JSON reports: adult 3, Hall 3, audio 2 and creative 2 expected passes, each with zero skipped, unexpected or flaky results. Native readiness is true with no failure: the actual short-text output identifies module 0 as module-null-sink and module 1 as module-native-protocol-unix. The unmuted stereo 44100 Hz d3_output sink explicitly belongs to module 0. Cleanup targeted the private server and exited 0, with no signal/error and an untruncated log.
+
+The original audio and creative validators are independently inspecting their corresponding actual Firefox results and retained views/checkpoints. Native-output setup success, software-sink execution and browser behavior do not establish heard quality, physical-device use, published-game acceptance or D1 completion. No production audio, original test input/expectation or browser security setting changed during this causal repair.
+
+Original audio and creative independent reviews now both PASS for their selected original D3 cases. Controller accepts their narrow conclusions and the native-host repair closure: actual native resume fulfills and playback becomes ready, committed creative roots match snapshots, failed/conflicting saves preserve unsaved intent, and help commits before explicit Read. Reports retain Firefox unload/fixture-teardown timeout and progress-listener warnings; no warning-free or complete page-close-lifecycle claim is made. Explicit cleanup/browser/server exits and all original assertions passed.
+
+All unaffected work in this branch is complete at this checkpoint. D1 remains the concrete external blocker: the human's pending browser substitution choice has not been answered. Hall/adult/tooling completion and dependent composition/publication remain unreleased; accepted-child count remains 20/49. No Pages URL, whole-package or M1 completion is claimed.

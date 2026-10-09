@@ -1,5 +1,21 @@
 # D3 runner native audio-output diagnosis and repair
 
+## Actual-run closure — 37889547310
+
+9 October 2026. Controller run `37889547310`, candidate `18f08b01e7ffc839b0fb14d686ff8341d3fd362e`, job `113687120938`, completed the unchanged ten-case flow. Artifact `11597771163` (38,454,512 bytes) and job log are retained at `C:/Users/alexb/AppData/Local/Temp/learning-is-fun-d3-run-37889547310`.
+
+Actual readiness is true. PulseAudio 16.1's native short-list output reports module **0** as `module-null-sink` and module **1** as `module-native-protocol-unix`. The default `d3_output` sink has index 0 and `owner_module: 0`, matching the reported null-sink identity; its driver is `module-null-sink.c`, format is `s16le 2ch 44100Hz`, channels are front-left/front-right, state is IDLE, and mute is false. The private socket `unix:/home/runner/work/_temp/d3-pulse-uoz06J/native` belongs to runner UID 1001. This verifies the corrected identity query using actual output rather than fixtures.
+
+The post-case host snapshot retains that private route and PulseAudio PID 4666 under UID 1001 in both process observations. ALSA hardware remains absent and standard user units remain inactive; the provisioned native software output uses the private server instead.
+
+All result files independently satisfy the existing gate: **3 adult + 3 Hall + 2 audio + 2 creative = 10 actual passes**, each with one passed result, no failures, skips, flaky results, or report errors. Discovery counts also match. The job log records all four actual-pass gate messages. Targeted cleanup returned exit code 0 with no error or signal; its daemon log is empty and untruncated.
+
+This closes the selected D3 CI provisioning/readiness failure through the original complete flow. Native software output was exercised; heard audio quality was not measured. Broader browser/M1 acceptance and the separate independent audio/creative evidence reviews remain controller-owned.
+
+Read-only validation is retained at `C:/Users/alexb/AppData/Local/Temp/d3-audio-closure-CQCk1L/actual-run-validation.json`. The workflow and all 157 frozen source/test/dependency/config files remain unchanged. Earlier attempts and their pre-closure conclusions are retained below.
+
+## Prior investigation record
+
 9 October 2026. **Native CI output provisioning succeeded in the actual repair run. A readiness schema defect blocked browser execution and is now narrowly corrected; the Firefox causal loop remains open until the controller reruns the unchanged cases.** No product behavior, browser security, native AudioContext, or assertions were changed.
 
 ## Retained original evidence

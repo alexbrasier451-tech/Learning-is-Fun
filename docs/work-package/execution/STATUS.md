@@ -1,6 +1,12 @@
 # Implementation execution ledger
 
-Status: IN PROGRESS. Controller: 01a11d11-b980-7332-8a57-33fcaf22e390.
+Status: AWAITING HUMAN D1 BROWSER DECISION; implementation incomplete. Controller: 01a11d11-b980-7332-8a57-33fcaf22e390.
+
+Latest checkpoint, 9 October 2026: 20 of 49 execution children accepted. The public repository now contains the implementation source; no Pages deployment or live-game acceptance has occurred. The selected ten-case Firefox CI flow passed on candidate 18f08b01e7ffc839b0fb14d686ff8341d3fd362e in run 37889547310: adult 3, Hall 3, audio 2, creative 2, with zero skipped, unexpected or flaky results. Native audio provisioning and explicit module-identity verification resolved the runner failure without changing game behavior or original tests. See [actual execution evidence](D3-CI-EXECUTION.md).
+
+Original independent audio and creative reviewers inspected the actual results, native save/checkpoint evidence and rendered trace frames and both report PASS for their selected D3 smoke cases. Controller accepts those narrow outcomes and the native-host repair closure. Earlier adult/Hall D3 acceptance remains valid. Firefox unload/fixture-teardown warnings are retained as a limit on clean-console/lifecycle claims; explicit cleanup and all original cases passed. No additional child or broader browser/published acceptance is counted.
+
+The D1 Chrome requirement remains blocked by this Windows host's launch failures. The human's pending choice between authorizing Edge as primary desktop and retaining Chrome has no answer; no substitution is in force. Hall, adult screens and playtest-tooling child completion therefore remain blocked, keeping world/shell/publication and M2 dependencies unreleased. Approved replacement music remains selected; heard-quality and integrated published checks retain their defined downstream scope. Earlier dated progress notes below are historical checkpoints where superseded by this paragraph and final validation addenda.
 
 Execution was explicitly requested on 8 October 2026. Required visible worker creation and coordination were previously authorized by the human. The signed-off package remains authoritative; planning acceptance does not imply implementation acceptance.
 
