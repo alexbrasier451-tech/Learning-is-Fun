@@ -85,10 +85,98 @@ jobs:
           pnpm exec playwright --version | tee "$D3_EVIDENCE_ROOT/playwright-version.txt"
           pnpm exec playwright install --with-deps firefox
       - name: Run D3 views and routes serially
+        shell: bash
+        env:
+          DEBUG: 'pw:browser'
+          LC_ALL: C
         run: |
           for fixture in adult hall audio creative; do
-            D3_FIXTURE="$fixture" pnpm exec playwright test --config tests/fixtures/d3-firefox.config.ts --project D3-Firefox
+            D3_FIXTURE="$fixture" pnpm exec playwright test --config tests/fixtures/d3-firefox.config.ts --project D3-Firefox 2>&1 |
+              awk 'NR <= 256 { print substr($0, 1, 1024) } NR == 257 { print "[browser log truncated: first 256 lines, 1024 bytes per line]" }' |
+              tee "$D3_EVIDENCE_ROOT/$fixture/browser.log"
           done
+      - name: Observe runner audio host without activating services
+        if: ${{ !cancelled() }}
+        timeout-minutes: 2
+        run: |
+          node --input-type=module <<'NODE'
+          import { accessSync, constants, openSync, readSync, closeSync, readdirSync, statSync, writeFileSync } from 'node:fs';
+          import { spawnSync } from 'node:child_process';
+          import { join } from 'node:path';
+          import { userInfo } from 'node:os';
+          const limit = 32_768;
+          const names = ['ps', 'systemctl', 'dpkg-query', 'aplay', 'pulseaudio', 'pactl', 'pw-cli', 'wpctl'];
+          const commands = Object.fromEntries(names.map(name => {
+            let inaccessible = false;
+            for (const dir of (process.env.PATH ?? '').split(':')) {
+              if (!dir) continue;
+              const path = join(dir, name);
+              try { if (!statSync(path).isFile()) continue; accessSync(path, constants.X_OK); return [name, { status: 'available', path }]; }
+              catch (error) { if (error.code !== 'ENOENT' && error.code !== 'ENOTDIR') inaccessible = true; }
+            }
+            return [name, { status: inaccessible ? 'unavailable' : 'missing' }];
+          }));
+          function probe(name, args) {
+            if (commands[name].status !== 'available') return { status: `command-${commands[name].status}`, args };
+            const result = spawnSync(commands[name].path, args, { encoding: 'utf8', timeout: 3000,
+              maxBuffer: limit, killSignal: 'SIGKILL', env: { ...process.env, LC_ALL: 'C', SYSTEMD_COLORS: '0' } });
+            const status = result.error?.code === 'ETIMEDOUT' ? 'timeout' : result.error?.code === 'ENOBUFS' ? 'output-limit' :
+              result.error ? 'spawn-failed' : result.status === 0 ? 'observed' : 'probe-failed';
+            return { status, args, exitCode: result.status, signal: result.signal, error: result.error?.code ?? null,
+              stdout: (result.stdout ?? '').slice(0, limit), stderr: (result.stderr ?? '').slice(0, limit) };
+          }
+          function textFile(path) {
+            let fd;
+            try {
+              fd = openSync(path, 'r'); const buffer = Buffer.alloc(limit + 1);
+              const bytes = readSync(fd, buffer, 0, buffer.length, 0);
+              return { status: 'observed', path, truncated: bytes > limit, text: buffer.subarray(0, Math.min(bytes, limit)).toString('utf8') };
+            } catch (error) { return { status: error.code === 'ENOENT' ? 'missing' : 'unavailable', path, error: error.code }; }
+            finally { if (fd !== undefined) closeSync(fd); }
+          }
+          function pathInfo(path) {
+            try {
+              const s = statSync(path);
+              const permitted = mode => { try { accessSync(path, mode); return true; } catch { return false; } };
+              return { status: 'observed', path, socket: s.isSocket(), characterDevice: s.isCharacterDevice(),
+                uid: s.uid, gid: s.gid, mode: (s.mode & 0o777).toString(8), readable: permitted(constants.R_OK), writable: permitted(constants.W_OK) };
+            } catch (error) { return { status: error.code === 'ENOENT' ? 'missing' : 'unavailable', path, error: error.code }; }
+          }
+          function processes() {
+            const result = probe('ps', ['-eo', 'pid=,ppid=,uid=,stat=,comm=']);
+            const rows = (result.stdout ?? '').split('\n').filter(row => /\b(pulseaudio|pipewire|pipewire-pulse|wireplumber|jackd|jackdbus)\s*$/.test(row));
+            return { ...result, stdout: rows.join('\n'), matchingCount: result.status === 'observed' ? rows.length : null };
+          }
+          let devices;
+          try { const entries = readdirSync('/dev/snd'); devices = { status: 'observed', truncated: entries.length > 64,
+            entries: entries.sort().slice(0, 64).map(name => pathInfo(join('/dev/snd', name))) }; }
+          catch (error) { devices = { status: error.code === 'ENOENT' ? 'missing' : 'unavailable', error: error.code }; }
+          const units = ['pulseaudio.service', 'pulseaudio.socket', 'pipewire.service', 'pipewire.socket',
+            'pipewire-pulse.service', 'pipewire-pulse.socket', 'wireplumber.service'];
+          const properties = '--property=Id,LoadState,ActiveState,SubState,MainPID,Result,Listen';
+          const unixSockets = textFile('/proc/net/unix');
+          if (unixSockets.text) unixSockets.text = unixSockets.text.split('\n').filter(line => /pulse\/native|pipewire-\d+/.test(line)).join('\n');
+          const report = {
+            observedAt: new Date().toISOString(), phase: 'after-original-tests-or-earlier-job-failure',
+            commit: process.env.GITHUB_SHA, runId: process.env.GITHUB_RUN_ID, uid: userInfo().uid,
+            limits: { commandTimeoutMs: 3000, outputBytesPerStream: limit, textFileBytes: limit, deviceEntries: 64 },
+            environment: Object.fromEntries(['XDG_RUNTIME_DIR', 'PULSE_SERVER', 'PULSE_SINK', 'PIPEWIRE_REMOTE',
+              'DBUS_SESSION_BUS_ADDRESS', 'ALSA_CONFIG_PATH', 'SDL_AUDIODRIVER'].map(key => [key, process.env[key] ?? null])),
+            commands, processesBefore: processes(), devices,
+            alsaCards: textFile('/proc/asound/cards'), alsaPcm: textFile('/proc/asound/pcm'), unixSockets,
+            socketFiles: process.env.XDG_RUNTIME_DIR ? ['pulse/native', 'pipewire-0'].map(path => pathInfo(join(process.env.XDG_RUNTIME_DIR, path))) :
+              { status: 'unavailable', reason: 'XDG_RUNTIME_DIR unset; no runtime path guessed' },
+            userUnits: probe('systemctl', ['--user', '--no-pager', 'show', ...units, properties]),
+            systemUnits: probe('systemctl', ['--no-pager', 'show', ...units, properties]),
+            packages: probe('dpkg-query', ['-W', '-f=${Package}\t${Version}\t${db:Status-Status}\n',
+              'pulseaudio', 'pulseaudio-utils', 'libpulse0', 'pipewire', 'pipewire-pulse', 'wireplumber', 'alsa-utils', 'libasound2t64']),
+            alsaHardwareOutputs: probe('aplay', ['-l']),
+            serverSinks: { status: 'not-probed', reason: 'No PulseAudio/PipeWire client connection: avoid autospawn and socket activation' },
+          };
+          report.processesAfter = processes();
+          writeFileSync(join(process.env.D3_EVIDENCE_ROOT, 'audio-host.json'), JSON.stringify(report, null, 2));
+          console.log('Passive audio-host evidence retained; missing or failed probes do not imply no server/device.');
+          NODE
       - name: Require ten actual passes
         run: |
           node --input-type=module <<'NODE'
@@ -119,6 +207,8 @@ jobs:
           path: |
             ${{ runner.temp }}/d3-firefox/run.json
             ${{ runner.temp }}/d3-firefox/playwright-version.txt
+            ${{ runner.temp }}/d3-firefox/audio-host.json
+            ${{ runner.temp }}/d3-firefox/*/browser.log
             ${{ runner.temp }}/d3-firefox/*/discovery.json
             ${{ runner.temp }}/d3-firefox/*/results.json
             ${{ runner.temp }}/d3-firefox/*/playwright/
