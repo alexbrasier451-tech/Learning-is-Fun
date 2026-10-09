@@ -1,11 +1,15 @@
 # WP04-06A — Independent UI validation
 
-9 October 2026. **Correction and technical binding recheck: PASS. F01–F03 are
-closed; no remaining actionable finding in this reviewed UI/binding boundary.**
-The final recheck below supersedes the initial frozen-review verdict. This is
-technical readiness for Controller acceptance, not whole-child/browser-matrix
-or M1 release acceptance. D1 branded Chrome and D3 Firefox remain outstanding;
-the Edge-substitution question remains unanswered.
+9 October 2026. **Final whole-child validation: PASS — ready for Controller
+acceptance.** F01–F03 remain closed. Installed branded Chrome D1 evidence closes
+the last relevant-view gap; accepted D2/T1/T2 and Linux Firefox D3 evidence is
+retained. No actionable finding or required browser-mode gap remains within
+WP04-06A's profile/adult/backup boundary.
+
+The final D1 completion review below supersedes earlier outstanding-mode verdicts;
+those dated reviews remain as history. Controller retains administrative
+acceptance. Final-shell, published/physical, acoustic and M2 obligations retain
+their downstream owners; this verdict does not claim M1 release acceptance.
 
 ## Initial frozen review — historical
 
@@ -509,3 +513,94 @@ owners; none is inflated into a new requirement or closed by this remote smoke.
 Only this report was appended. No browser launch/test rerun, source/shared-file
 edit, Git action, dependency install, port use, delegation or other-chat message
 occurred during this evidence-only review.
+
+## Final D1 completion review — 9 October 2026
+
+**Whole-child result: PASS, ready for Controller acceptance.** Independently
+reviewed the original author's remaining installed-Chrome D1 evidence against
+the profile/adult/backup criteria. Reused the accepted correction/binding,
+D2/T1/T2 and Linux D3 evidence above. No new gap or finding justified a rerun;
+this completion review launched no browser and used no server port.
+
+Retained D1 evidence root:
+
+`C:/Users/alexb/AppData/Local/Temp/learning-is-fun-adult-d1-59c768d38ef64ecbab695c801ff79bb1`
+
+Reviewed `results.json`, private `d1.config.mjs` and `d1-keyboard-setup.mjs`,
+`d1-keyboard-result.json`, `d1-keyboard-trace.zip`, the actual profile/backup
+JSON checkpoint attachments, and relevant retained screenshots. The report
+records **10 expected passes, 0 skipped, 0 unexpected, 0 flaky, 0 report errors**,
+duration **12.648 seconds**. Each case has one passed result, retry 0 and empty
+errors. Passing suite traces were not retained under `retain-on-failure`; the
+separate successful keyboard journey has its own retained trace.
+
+Configuration restricts the run to Playwright `channel: chrome` at **1366×768**.
+The keyboard result reports browser version **155.0.8059.40**, and trace context
+records Chromium engine, Chrome channel, Windows and Playwright **1.64.0**.
+Recorded User-Agent is HeadlessChrome/155.0.0.0. Independently read Windows
+version metadata for `C:/Program Files/Google/Chrome/Application/chrome.exe`:
+product Google Chrome, company Google LLC, version **155.0.8059.40**, matching
+the browser runtime. This is installed branded Chrome in headless desktop mode;
+no Edge substitution or browser-matrix amendment is required.
+
+| D1 criterion | Independently reviewed evidence and result |
+|---|---|
+| Profile chooser and editing | Passed cases cover four portraits, captured pending rename, guarded selection request, nickname validation, avatar keyboard operation, cancellation, capacity and F01 surviving focus fallback. `four-profiles.png` shows distinct portraits, selected state, readable controls and visible adult-entry focus. |
+| Adult entry and focus | Passed case covers the separate explanation/Continue step, initial confirmation focus on Cancel, cancellation and exit focus. The additional trace records keyboard entry, Tab to Continue, Tab to confirmation, Escape cancellation restoring Delete focus, and exit restoring For grown-ups focus. |
+| Truthful evidence and preferences | Passed producer/preference cases retain failure/retry and committed preference behavior. `truthful-progress.png` shows counts 4/3/2/1/1/1, retained help/later-success feedback, familiar independent review, distinct-task evidence and explicit M04/E06 missing evidence. No ability percentage is inferred. |
+| Backup and destructive scopes | Passed frozen and actual cases cover prepare/cancel/stale refresh/failure/recovery, exact prepared-ID retry, repeat selection of the same backup, pending cancellation lock, whole replacement, delete, StartOver and reset. `actual-native-abort.png` visibly retains the saving-failed explanation, unchanged last-committed-save assurance and retry/cancel/backup choices. |
+| Targets, text and reflow | Passed measurements assert visible controls at least 44×44px and no horizontal overflow. The established method doubles root text to 32px and checks 683px width, plus 768×1024 and 1024×768 relevant views. Independently viewed chooser/adult enlarged captures and private inspection crops: titles, labels, disclosures, buttons and backup scopes wrap readably. This is text enlargement/reflow evidence, not operation of Chrome's native zoom menu. |
+| Actual profile and backup round trip | Actual JSON attachments and the separate keyboard result confirm portable-save equality across whole replacement, a new epoch, scoped survivor preservation and exact persisted state after reload. Actual-labelled renders distinguish these outcomes from frozen acknowledgements. |
+
+The separate keyboard journey records **passed**, `keyboard: true` and no page
+errors. Source and trace agree on keyboard activation: 16 focus operations,
+21 keyboard presses, three keyboard typing operations and no mouse click action.
+It creates Maple/Pip and Birch/Rowan, requests selection without optimistic
+publication, renames Maple to Maple Star, enters the adult area, commits both reading
+and motion preferences, downloads a real backup, confirms whole-save replacement,
+cancels deletion with Escape, exits with restored opener focus and reloads.
+`d1-keyboard-backup-confirm.png` shows a strong visible focus outline on Confirm,
+the affected/incoming names and a modal contained within the 1366×768 viewport.
+`d1-keyboard-adult.png` shows both committed preferences and recorded practice.
+
+The journey uses the existing fixture API for practice and explicitly permitted
+shell publication. File input is focused, then Playwright `setInputFiles` selects
+the downloaded backup; native OS picker keyboard operation is explicitly
+unclaimed. These limits do not add a final adventure or physical-device claim.
+
+Independently compared the keyboard result's complete roots: saved and replaced
+portable saves are equal, while epochs change from
+`f34325c6-a42b-4a75-94f1-3ac3e8bd8caa` to
+`0e744ad5-2380-451f-b395-c02bdcbfaa75`; replaced and reloaded roots are exactly
+equal. Maple Star retains Pip, both preferences and 30 points; Birch retains
+Rowan, default preferences and 40 points.
+
+Decoded actual suite checkpoints independently confirm four profiles with points
+30/40/0/0, equal portable saved/replaced roots and changed epochs
+`50ce2e10-d9a6-4b4a-9129-f0eb4d951d40` →
+`852907d0-1d5d-4ecf-85c5-f789ebd01870`. Delete leaves three profiles and Ben's
+full saved profile unchanged; StartOver removes Ben's original identity.
+Backup checkpoints repeat the exact prepared ID
+`8979e448-d5eb-4e35-b224-2f2ad6f96d1c` on retry and preserve portable-save
+equality. The passed actual native-abort case retains assertions for unchanged
+native root after abort/cancel, same-file reselection, disabled cancellation while
+confirmation is pending, and exact final reload.
+
+Keyboard trace contains **zero action errors or page-error/exception events**.
+It does contain one console error: a **404 for the fixture's
+`http://127.0.0.1:5186/favicon.ico`**. This incidental browser favicon request is
+not an adult application exception or failed workflow and does not create a D1
+acceptance gap. No captured network response is HTTP 4xx/5xx; the favicon error
+is retained in console evidence rather than erased by that network observation.
+
+**No remaining owned technical or relevant-view blocker.** D1 is now satisfied
+by actual installed Chrome evidence; D2/T1/T2 and scoped Linux D3 remain accepted.
+The D3 remote job's later unrelated audio failure remains a failed whole job,
+as documented above. Controller may accept WP04-06A as a whole child. Final shell
+guarded journeys, published P4-H/physical PC-tablet paths, acoustic checks and
+WP04-07A/M2 retain their downstream owners and are not accepted by this review.
+
+Only this owned report and private screenshot inspection crops changed. Original
+captures were preserved. No product/permanent-test/config/dependency/shared-status
+or Git write, browser launch/test rerun, server operation, delegation or
+other-chat message occurred during this final evidence-only review.

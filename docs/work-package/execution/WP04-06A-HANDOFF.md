@@ -1,11 +1,15 @@
 # WP04-06A — Profile and adult UI correction/binding handoff
 
-9 October 2026. **F01–F03 corrected and supported-engine actual-facade checks
-passed; ready for the original validator's narrow independent recheck.**
+9 October 2026. **F01–F03 correction/binding evidence remains accepted; remaining
+D1 installed-Chrome checks passed. Ready for the original validator's narrow
+D1 completion recheck.**
 Controller released DEP-048 against accepted facade
 `97482c4b791a84c55384c623163664c7d1fdddbc`. The real UI binding now uses that
-producer. D1 Chrome/D3 Firefox and final administrative acceptance remain open;
-this is not a completed browser matrix, M1 release or published-link claim.
+producer. Adult source remains the accepted `100f9055` implementation. The
+independently accepted Linux D3 relevant-view smoke and accepted D2/T1/T2 evidence
+are retained. D1 evidence below now completes the outstanding owner checks;
+independent D1 recheck and Controller administrative acceptance remain open.
+This is not an M1 release or published-link claim.
 
 Implemented under the current GLOBAL_RULES execution authority and explicit
 sole-author assignment. CON-003 permits this isolated construction. Controller
@@ -178,11 +182,13 @@ Actual mode retains its default release lock; authorized execution used
 `ADULT_REAL_RELEASE=yes`, forwarded to Vite as `VITE_ADULT_REAL_RELEASE=yes`.
 See the actual-binding results below. No alternate persistence was introduced.
 
-Chrome D1 and Firefox D3 remain required unavailable host checks as recorded in
+At the original construction boundary, Chrome D1 and Firefox D3 were unavailable
+host checks as recorded in
 WP01/browser-discovery handoffs. Chromium's matching viewport is supporting
 evidence, not D1 Chrome substitution; Edge and WebKit are attributed by name.
-The proposed Edge-primary change is still pending; no substitution or matrix
-amendment is claimed. No install or security workaround was attempted. Final shell registration,
+The proposed Edge-primary change had no answer; no substitution or matrix
+amendment was claimed. The D1/D3 evidence appended below supersedes the historical
+unavailability. No install or security workaround was attempted. Final shell registration,
 published P4-H/PC-tablet paths, physical observations, WP04-07A/M2 and acoustic
 claims remain downstream. No publication, release acceptance or real saved
 success/deletion/import is inferred from finite frozen-port acknowledgements.
@@ -305,6 +311,78 @@ Frozen/real labels are visible in every fixture capture.
 Focused DOM/React and pure ES2023/Node-only typechecks remain **PASS**. The erased
 API now exposes only data/command types plus fixture abort/native-read methods;
 no TSX/controller implementation or DOM library enters the Node test graph.
-Execution is stopped and port5186 is released. Original-validator narrow recheck
-and Controller acceptance are the next steps; D1/D3, the pending browser amendment,
-final shell, physical/published journeys and M2 remain explicitly unclaimed.
+Execution was stopped and port5186 released. Subsequent independent correction
+and binding acceptance, D3 review, and the D1 completion evidence below supersede
+this run's remaining-browser status. Final shell, physical/published journeys and
+M2 remain downstream.
+
+## Remaining D1 installed-Chrome checks — 9 October 2026
+
+**Owner result: PASS, 10/10 relevant cases plus a separate actual-facade keyboard
+journey.** Installed Google Chrome **155.0.8059.40**, Playwright `channel: 'chrome'`,
+Windows desktop viewport **1366×768**. Executable:
+`C:/Program Files/Google/Chrome/Application/chrome.exe`. The browser's own
+`version()` and recorded User-Agent identify Chrome; this is not the retained
+Chromium supporting project or an Edge substitution.
+
+Private evidence root:
+
+`C:/Users/alexb/AppData/Local/Temp/learning-is-fun-adult-d1-59c768d38ef64ecbab695c801ff79bb1`
+
+`results.json` records **10 expected, 0 skipped, 0 unexpected, 0 flaky**, duration
+12.648 seconds. Coverage: four portraits/captured pending rename/guarded selection
+request; nickname validation/avatar keyboard/cancel/capacity; F01 surviving focus
+fallback; two-step entry/dialog cancellation/exit focus; truthful producer summary;
+captured preference failure/retry; backup preview/cancel/stale/failure/recovery
+labels; 200% text reflow and relevant sizes; actual four-profile preference/reload/
+whole-backup replacement; actual native-abort/exact retry/pending cancellation.
+The two real cases retain the exact profile/backup checkpoint attachments and
+actual-facade labelled renders described above. Other cases retain their frozen
+UI labels and do not assert alternate persistence semantics.
+
+The existing reflow case doubles root text to 32px and checks a 683px layout,
+plus 768×1024 and 1024×768 relevant-view sizes. Assertions verify no horizontal
+overflow and visible targets at least 44×44px. This is the established 200% text
+reflow method, not a claim of operating Chrome's native zoom menu. The chooser
+and adult reflow captures, real adult view and keyboard replacement modal were
+visually inspected: text/control wrapping remains readable and the modal's
+focused confirmation and affected names are visible without clipping.
+
+`d1-keyboard-result.json` records **passed**, Chrome version/channel/viewport,
+`keyboard: true`, no page errors, and exact created/saved/replaced/reloaded roots.
+`d1-keyboard-trace.zip`, `d1-keyboard-adult.png` and
+`d1-keyboard-backup-confirm.png` retain the journey. Keyboard activation creates
+Maple/Pip and Birch/Rowan, requests selection without optimistic publication,
+renames Maple Star, enters through the separate adult explanation/Continue step,
+sets both preferences, downloads the actual backup, confirms whole-save
+replacement, cancels scoped deletion with Escape, exits with restored opener
+focus, and reloads the exact replacement. Saved/replaced portable saves are equal
+and epochs differ. Practice evidence and explicit permitted shell publication use
+the existing fixture API; this does not claim final adventure keyboard behavior.
+File input is focused, then Playwright selects the downloaded file; native OS
+file-picker keyboard operation is explicitly unclaimed in the recorded result.
+
+Only private `d1.config.mjs` and `d1-keyboard-setup.mjs` were added for this run.
+They reuse the owned fixture configuration, teardown and release gate, restrict
+the project to installed Chrome, and retain private cache/output on port5186.
+The keyboard setup closes its browser before the **one** browser worker starts.
+No source, permanent test/config, dependencies, shared status or other report
+changed. No other browser or broad package rerun occurred. Teardown completed;
+the final port5186 listener count is **0**.
+
+## Retained D3 and completion boundary
+
+The [independent validation report](WP04-06A-VALIDATION.md) already accepts the
+Linux Firefox D3 relevant-view obligation: **3/3 scoped adult smoke passes** at
+1280×720, Firefox 157.0 build1555, Ubuntu 24.04.5, from
+[Actions run 37884581632](https://github.com/alexbrasier451-tech/Learning-is-Fun/actions/runs/37884581632).
+Its inspected traces, renders and actual profile checkpoints remain authoritative;
+this worker did not rerun or alter that evidence. The overall remote job's later
+unrelated audio failure remains recorded and is not converted to a whole-job pass.
+
+Installed Chrome now provides the outstanding D1 owner evidence without a browser
+matrix amendment. Accepted D2/T1/T2 and independent D3 conclusions are retained.
+The next step is the original validator's narrow D1 completion recheck, then
+Controller whole-child administrative acceptance. Final shell guarded journeys,
+published/physical PC-tablet paths, hearing/acoustic checks and WP04-07A/M2 retain
+their downstream owners; no whole-game or release acceptance is claimed here.
