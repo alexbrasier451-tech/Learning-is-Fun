@@ -429,3 +429,83 @@ Only this report and private review probes/output were changed; no production,
 permanent test, shared config/status, Git, delegation or other-chat message
 action occurred. Historical red evidence and scoped passing conclusions remain
 retained above.
+
+## Retained remote Firefox D3 adult smoke — 9 October 2026
+
+**D3 relevant-view obligation: SATISFIED for WP04-06A.** Independently inspected
+the three retained adult results, four labelled renders, all three trace ZIPs,
+decoded profile-checkpoint attachment and runner/browser metadata. This is an
+evidence review of the actual remote execution, not a rerun. It supersedes this
+report's earlier D3-unavailable statements for the adult relevant-view boundary.
+The technical correction/binding PASS remains intact; no new adult finding was
+identified.
+
+Run: [GitHub Actions 37884581632](https://github.com/alexbrasier451-tech/Learning-is-Fun/actions/runs/37884581632),
+attempt 1, candidate `b0b36714b0c545173be952d44c445a474b4579d8`.
+Controller reports the adult implementation unchanged since `100f905`; no Git or
+production-source inspection/mutation was performed during this narrow review.
+
+Retained evidence root:
+
+`C:/Users/alexb/AppData/Local/Temp/learning-is-fun-d3-run-37884581632`
+
+Reviewed `artifact/adult/results.json`, its three per-case trace ZIPs and images,
+`artifact/adult/discovery.json`, `artifact/run.json`,
+`artifact/playwright-version.txt`, and the directly relevant portions of
+`job.log`. The discovery JSON represents `--list` and has no executed results;
+its listed/skipped entries are not the acceptance evidence. The separate executed
+adult report records **3 expected passes, 0 skipped, 0 unexpected, 0 flaky, 0
+report errors**, duration **7.436 seconds**. Each case has one passed result,
+retry 0, empty errors/stdout/stderr, and retained trace/render attachments.
+
+The run metadata and checked-out commit in the log agree with the candidate/run
+above. Runner log identifies **Ubuntu 24.04.5 / ubuntu-24.04**; Node is 24.21.0 and
+Playwright is 1.64.0. The log installs the matched **Firefox 157.0, build 1555**.
+Each adult trace independently records browserName `firefox`, platform `linux`,
+viewport **1280×720**, hasTouch=false and isMobile=false. Recorded network
+User-Agent is `Mozilla/5.0 (X11; Linux x86_64; rv:157.0) Gecko/20100101 Firefox/157.0`.
+This is actual remote Firefox desktop engine evidence, with its Linux provenance
+retained; it is not a Chromium viewport substitution or tablet/touch claim.
+
+| Executed adult case | Independently checked coverage |
+|---|---|
+| Two-step adult entry, confirmation cancellation and exit focus | Keyboard entry focuses the explanatory heading then adult heading; confirmation opens on Cancel, Tab/Shift+Tab traverse the controls, Escape cancels without a destructive command and restores opener focus; adult exit restores the entry control. `adult-entry.png` visibly states the accidental-entry/non-authentication distinction; `delete-confirmation.png` shows the named target, focused Cancel and scoped confirmation/backup offer. |
+| Producer progress evidence | `truthful-progress.png` displays M01 counts 4/3/2/1/1/1, retained Hint/later-success feedback, distinct-task evidence, familiar independent review dated 2026-10-12, and M04/E06 missing evidence. The recorded assertions verify the producer DTO, missing-evidence labels and absence of an ability percentage. Counts, help, observations and suggested practice remain distinct in the actual Firefox render. |
+| Actual four-profile preferences/reload/backup | Actual facade creates Pip/Rowan/Iona/Nessa profiles, records separate first-slice progress, keeps the held rename attributed to the original ID through a selection request, saves both reading/motion preferences and reloads exact state. Real file download/prepare/confirmation replaces the whole portable save with a new epoch; scoped delete/StartOver/survivor and final reset assertions pass. `actual-facade-roundtrip.png` is explicitly labelled actual facade/IndexedDB, shows committed preferences, M01 counts 2/1/0/1/1/0 and acknowledged replacement. |
+
+Decoded `actual-profile-checkpoints` independently confirms four distinct avatar
+IDs, practised points **30/40/0/0**, renamed nickname **Star**, and saved preferences
+`instructionReadAloud:true, motion:reduced`. Portable saved/replaced roots are
+equal; epochs differ:
+`d1187aee-ec67-456a-ae27-630291b61626` →
+`7f29710b-1423-474d-ae26-70b6bf44d57f`. Deletion leaves three profiles with Ben's
+full profile equal to its saved value. StartOver removes Ben's original identity;
+Cora's full profile remains equal. The passed traced test includes the final
+empty-profile reset assertion; the checkpoint attachment itself ends at StartOver.
+No native-abort/failure suite is inferred from this three-case smoke.
+
+All three traces contain no recorded action errors, page-error/exception events,
+console errors or warnings, or HTTP 4xx/5xx resource responses. Console records
+are Vite debug, development info and timestamps. Entry/focus, summary and actual
+round-trip renders are readable at the required D3 size without visible text or
+control clipping. These observations provide the remaining DEC-005 Firefox
+1280×720 **smoke** coverage; they do not claim a new full keyboard, touch, 200%
+text, failure-path or physical-device suite.
+
+**Overall remote job: FAILED, not accepted as a whole-job pass.** The job log
+records the three adult passes first, then later failures in separate audio
+Enable cases. This review neither diagnoses nor accepts those audio cases.
+Their failure does not erase the valid scoped adult results; no published,
+listening/acoustic or other-fixture acceptance follows from the adult smoke.
+
+**Exact remaining whole-child blocker: D1 branded Chrome complete keyboard/mouse
+and profile/adult/backup paths remain unavailable/unperformed.** The proposed
+Edge-primary substitution still has no user answer, so no D1 requirement was
+amended or substituted. D3 adult relevant views no longer block WP04-06A.
+Controller retains whole-child administrative acceptance. Existing final-shell,
+published P4-H/physical PC/tablet and M2 obligations keep their prior downstream
+owners; none is inflated into a new requirement or closed by this remote smoke.
+
+Only this report was appended. No browser launch/test rerun, source/shared-file
+edit, Git action, dependency install, port use, delegation or other-chat message
+occurred during this evidence-only review.

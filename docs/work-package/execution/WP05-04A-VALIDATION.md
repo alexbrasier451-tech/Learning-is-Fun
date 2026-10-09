@@ -321,3 +321,58 @@ Current component digests supersede their earlier fingerprints:
 Only this validation append was written. No browser substitution, acceptance
 waiver, published-play or whole-child completion claim follows from the copy
 change.
+
+## Remote D3 Firefox Hall smoke recheck — 9 October 2026
+
+**Verdict: PASS. The existing D3 relevant-view Hall/history smoke obligation is
+SATISFIED. No new Hall finding.** This supersedes this report's earlier
+D3-Hall-smoke-pending statements. **D1 Chrome remains the exact outstanding
+browser blocker for whole WP05-04A acceptance.** The Edge-primary question is
+unanswered; no substitution or waiver is assumed. Controller retains whole-child
+acceptance authority.
+
+Independently inspected only the three retained Hall cases from
+[Actions run 37884581632](https://github.com/alexbrasier451-tech/Learning-is-Fun/actions/runs/37884581632),
+attempt 1, candidate `b0b36714b0c545173be952d44c445a474b4579d8`. Local evidence
+root: `C:/Users/alexb/AppData/Local/Temp/learning-is-fun-d3-run-37884581632`.
+Read `artifact/run.json`, `artifact/playwright-version.txt`, Hall discovery and
+results JSON, all three Hall traces, and the relevant job-log provenance/results.
+The metadata and checkout log agree on the candidate. Runner log identifies
+Ubuntu 24.04.5 / image ubuntu-24.04; Playwright is 1.64.0, with matched Firefox
+157.0 / revision 1555. Actual Hall stdout says `D3-Firefox: running 157.0`.
+Each browser trace independently identifies Firefox on Linux, viewport
+1280×720, desktop mode and `hasTouch: false`.
+
+Hall `results.json` records **three passed**, zero skipped/unexpected/flaky,
+zero report/test errors and no retries; 4.679s, starting at 05:36:06 BST.
+All three traces have no recorded action/page/console error or HTTP failure.
+Actual navigation is to the local bounded Hall fixture under
+`http://127.0.0.1:5185/playtest/`; this is remote-host browser evidence, not
+published-game play.
+
+| D3 case | Independent retained evidence assessment |
+|---|---|
+| 20/20/10/0 ties and historical names | PASS. Decoded source model retains current ranks 1/1/3/unranked and separate weekly/lifetime/turn values. Closed rows retain gold/gold/bronze and Mira before rename/Iona versus current Amira/Pip. Inspected the full-page `ties-render` attachment: local scope, London dates, provisional/closed distinction, scoring explanation and supplied art remain readable with no clipped required content. |
+| History/back focus routes | PASS. Trace records focus on Amira's history control, Enter into personal history, Escape back, and Escape from the adventure-back control. Existing assertions for entry heading focus, visible 3px focus, initiating-control restoration, unchanged model and teardown all pass. Inspected the actual personal-history trace frame, showing readable records/closed result and a visible heading focus ring. The test name includes touch, but the touch branch did not run in this desktop D3 context; no Firefox touch claim is made. |
+| Real opening/rollover/repeated opening | PASS. Native/facade/model attachments match at each checkpoint. Epoch `627596df-1bad-424a-9a45-d6af007c6528` retains revision 4 and 20 weekly / 40 lifetime / one turn while held/pending, with no archive. Acknowledgement advances to revision 5 and active 2026-10-12, displays 0/40/0, archives 2026-10-05 at rank 1/gold/20, and saves best 20 plus one gold. Repeated opening is `already-applied` at the same revision 5 with one archive/one gold. The personal medal assertion and back/reopen routes pass. Inspected acknowledged-closure render: current and closed panels remain visibly distinct and readable. |
+
+Viewed the retained embedded Hall/closure PNGs and the personal-history
+screen-cast frame extracted to a private review directory; no artifact/source
+file was modified. Current Hall/history/CSS hashes still exactly match the
+accepted copy-only digests recorded above. No rerun, new test, source/config
+change, Git operation, delegation or other-chat message occurred.
+
+**The overall Actions job failed later on two audio Enable/control tests.**
+The job log records the three Hall passes before those failures. This report
+accepts only the Hall D3 relevant-view scope; it does not label the job successful,
+resolve the audio findings, establish other lanes' D3 obligations or add an
+audio gate to this child.
+
+D3 smoke does not require every finite Hall fixture or the complete D1/T1
+cross-product. The satisfied three-case scope is the existing relevant-view
+standings/history/focus/real-refresh smoke. D1's specified Chrome 1366×768
+construction states and relevant keyboard/mouse/focus/200% observations remain
+unperformed because Chrome is unavailable. The pending Edge question is neither
+permission nor evidence. Final composition, published PC/tablet journeys,
+M1/M2, acoustic/physical-device/child claims remain outside this conclusion.
+Only this validation append and private extracted viewing files were written.
