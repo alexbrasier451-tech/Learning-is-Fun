@@ -1,5 +1,36 @@
 # Browser capability continuation — 8 October 2026
 
+## Addendum — installed browser availability, 9 October 2026
+
+The human reported Chrome, Firefox, and Edge installed. Fresh native-path inventory and launch evidence now supersede the earlier availability failures below. **The required branded Chrome D1 route is operational; no substitution, optional executable adapter, or root configuration change is needed.** The controller returned independent Hall/tooling confirmation of successful supported `channel: 'chrome'` launches of actual Google Chrome **155.0.8059.40**. This worker did not repeat that launch while their D1 checks were underway.
+
+| Browser | Observed version | Current bounded result |
+|---|---|---|
+| Google Chrome | 155.0.8059.40 | Independent Hall/tooling owners confirmed the ordinary project Chrome channel launch; D1 checks remain separately owned |
+| Microsoft Edge | 154.0.4258.62 | This worker confirmed `channel: 'msedge'`, actual running version, and a usable real adult/IndexedDB fixture context |
+| Mozilla Firefox, Store installation | 157.0 | This worker confirmed native `--version`, an isolated native headless launch, rendered fixture screenshot, and exit 0; no Playwright Firefox transport was attempted |
+
+Locally discovered executable paths:
+
+- Chrome: `C:/Program Files/Google/Chrome/Application/chrome.exe` — file product Google Chrome, version 155.0.8059.40; actual version independently confirmed by the controller's two owners.
+- Edge: `C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe` — file product Microsoft Edge, version 154.0.4258.62; the owned launched process's `spawnfile` and `browser.version()` confirm that path/version.
+- Firefox: `C:/Program Files/WindowsApps/Mozilla.Firefox_157.0.0.0_x64__n80bbvh6b1yt2/VFS/ProgramFiles/Firefox Package Root/firefox.exe` — file product Firefox, version 157.0; native `--version` returned `Mozilla Firefox 157.0` with exit 0. Existing running Firefox processes also identified this Store installation.
+
+The ordinary sandbox account `PC\CodexSandboxOffline` launched Edge far enough to obtain its version, but the browser closed before a page opened; it blocked Store Firefox spawn with EPERM. That attempt is retained separately. A single fresh-profile probe under the normal account `PC\alexb` succeeded. Account-specific probe failures are not current global browser-installation failures.
+
+Edge ran headless with `chromiumSandbox: true` at 1920 × 1080 using a fresh supported BrowserServer/context. It loaded the existing `adult-profiles.html?mode=real` fixture from a private local Vite server, exposed the actual facade/IndexedDB label and a native stored root, and reported a visible secure context. A temporary page-only capability control received trusted click and keyboard events, typed `probe`, and Tab; no page errors were captured. This is capability evidence, not a rerun of the adult or Hall acceptance suite.
+
+Ordinary Firefox used native `--headless --no-remote --profile <fresh-private-profile> --window-size 1280,720 --screenshot <private-output> <localhost-fixture>`. The 16,667-byte screenshot visibly renders the neutral fixture, and the owned process exited 0. Its asynchronous IndexedDB receipt was not captured before screenshot-mode exit; the private report's combined `success: false` refers to that unmet receipt check, not a failed native launch. This does not verify ordinary Firefox through Playwright's incompatible Juggler transport or supersede the already accepted Linux D3 ten-case result.
+
+Private evidence:
+
+- Sandbox attempt: `C:/Users/alexb/AppData/Local/Temp/d1-installed-browser-2EIsQi/launch-report.json`.
+- Normal-account probe: `C:/Users/alexb/AppData/Local/Temp/d1-browser-normal-user-4dbUTH`, containing `launch-report.json`, `firefox-version.json`, native/Vite logs, and `edge-fixture.png` / `firefox-native.png`.
+
+Owned contexts, browser processes, and temporary servers were closed; existing user sessions were not attached to or targeted. No installation, registry, vendor file, browser setting, security control, root configuration, source, or Git change was made. Only this addendum and private probe outputs were authored. D1 availability is established; published play, case acceptance, heard quality, and broader browser/M1 acceptance remain with the original owners. Earlier failed attempts below remain historical evidence.
+
+## Historical recovery record — 8 October 2026
+
 The final addendum corrects the worker's earlier categorical exclusion of Chrome for Testing: the controller accepts Google's official current Stable Chrome for Testing as a branded Chrome route. That route was investigated below; its Windows launch still failed, and configuration remains unchanged.
 
 Chrome stable D1 and version-matched Playwright Firefox D3 remain unavailable for launch. This bounded continuation established concrete Windows failure evidence and tried two supported recovery paths. Neither browser has an observed running version. Later mandatory published D1/D3 sessions still require action; other engines cannot substitute for them.

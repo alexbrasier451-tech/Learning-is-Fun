@@ -5,9 +5,11 @@ calendar, backup `ae50dbe641d9b4957a7f8a1be1ac3500e7c295c3`, additive recovery
 `05df90d73706c3c4f2f115b053a067294006b2ce`, preferences `acf7d6166e039855bb0b1442a835c2327302a5de`
 and widgets `30d95efa0c6822f8255d7791b4a39b5233e8f932`. This is sole-author
 implementation/proof evidence for independent review; Controller owns acceptance
-and integration. **Helpers and M1/M2 definitions are delivered; complete toolkit
-readiness remains blocked on the real D1 launch/checkpoint rehearsal.** There is
-no published candidate/play pass or M2 execution claim.
+and integration. **Helpers, M1/M2 definitions and actual D1/T1 checkpoint
+rehearsals are now delivered for narrow independent recheck.** The D1
+continuation below supersedes the earlier D1 launch/rehearsal blocker; foundation
+owns D3's current verification. Listening remains unverified. There is no
+published candidate/play pass or M2 execution claim.
 
 ## Deliverables and interfaces
 
@@ -99,23 +101,24 @@ the verified route and retains no compiler/runtime adapter in production.
 
 | Matrix mode | Actual engine/version and launch | Observation/action route; limits |
 |---|---|---|
-| D1 Chrome 1366×768 | **Blocked**, no observed running branded Stable version; see current BROWSER-CAPABILITY. | Persistent native Playwright keyboard/mouse + screenshot/DOM route defined, but actual branded launch and agent-chosen early-host checkpoint are **not rehearsed**. Pending human Chrome-open input remains open. Bundled Chromium/T1 or Edge cannot substitute. No adapter/install authorized here. |
+| D1 Chrome 1366×768 | **155.0.8059.40**, actual installed branded `channel:chrome` launch; actual D1 rehearsal completed in this continuation. | Persistent native Playwright inspect→choose keyboard source→observe→choose mouse placement→observe actual `[3]`. Executable `C:/Program Files/Google/Chrome/Application/chrome.exe`; fresh desktop context, retained screenshots/DOM/trace. Ordinary shell channel selection also works. No Edge/Chromium substitution or root configuration adapter. Ready for narrow independent recheck, not published acceptance. |
 | D2 Edge 1920×1080 | **154.0.4258.62**, fixture proof launches. | Native Test runner evidence/DOM/screenshot and mouse/keyboard API available; no full published smoke or agent adventure claimed. |
-| D3 matched Firefox 1280×720 | **Blocked**, no running version; matched archive metadata 157.0 is not launch evidence. | Native Playwright route conditional on actual launch. Documented Windows mozglue side-by-side failure remains; possible later approved CI route not executed. |
+| D3 matched Firefox 1280×720 | Last accepted snapshot **blocked**, no running version; matched archive metadata 157.0 was not launch evidence. Foundation owner is verifying the human's new installation. | No fresh D3 launch or rehearsal in this D1-only continuation. Follow the foundation-owned BROWSER-CAPABILITY addendum for any new supported launch result; the older mozglue failure is retained as history, never waived or relabelled. |
 | T1 Chromium 1024×768 | **156.0.8078.4**, launched and actually rehearsed. | Persistent native Playwright step/observe/choose/resume plus screenshot/DOM/trace and native CDP touch drag/cancel/taps proved. No physical device or published game pass. |
 | T2 WebKit 768×1024 | **27.2**, fixture proof launches. | Native taps on all three widgets and viewport rotation proved; screenshot/DOM report available. CDP drag explicitly rejects; no trusted WebKit-drag, Safari or physical-device claim. |
 | Listening/loopback | **Unverified**, no established route in current task tools. | Two joins per approved theme, five individual cues, speech/mix/comfort and published Silence all still require actual listener observations. Track selection approval is settled, no new audition requested. |
 
-Controller subsequently assigned the foundation owner read-only diagnosis of
-the existing Stable CfT/Firefox Windows failures. This task neither owns nor
-predicts a repair. The now-retained
-[activation diagnosis](BROWSER-ACTIVATION-DIAGNOSIS.md) establishes no supported
-correction or running browser and leaves those gates open. D1/D3 remain blocked
-unless new actual supported launch evidence supersedes this table. Existing
-branded gaps are not waived. Criterion
-2/6 D1 rehearsal remains open; T1 route/helper proof is ready for independent
-review. Acoustic unverified status is a permitted foundation handoff, not release
-audio acceptance. M1 helper completion does not authorize M2 implementation.
+The earlier [activation diagnosis](BROWSER-ACTIVATION-DIAGNOSIS.md) established
+no supported correction for the then-existing Stable CfT/Firefox failures.
+After the human reported installing Chrome/Firefox/Edge, this continuation
+actually launched installed branded Chrome and completed D1's agent-directed
+early-host rehearsal. That new evidence addresses criteria 2/6 for independent
+recheck, without claiming a repair to the older CfT binary or a D3 result.
+The foundation owner separately verifies current channel/matched-browser
+availability and owns its BROWSER-CAPABILITY addendum. No gap is waived from
+installation claims alone. Acoustic unverified status is a permitted foundation
+handoff, not release audio acceptance. M1 helper completion does not authorize
+M2 implementation.
 
 ## Receiving producer boundaries
 
@@ -162,6 +165,74 @@ accepted M1-HELP-RESUME producer oracle, plus owned-document whitespace/link
 checks. Helpers retain the independently reviewed SHA-256 values
 `5bcf1d66fbca5daf3d4cc019364f23a3545eea5a531e20fca084feb731a770f3`
 (touch) and `03b0d3996f7758fb9c39aaa950463205b33f4c05cb5eb1490ad734af4694c9a4`
-(evidence). Definitions await the original validator's narrow recheck. Whole
-WP06-01A remains **blocked on actual D1 criteria 2/6**; D3 and acoustic gaps
-remain explicit. No game/release or M2 implementation claim is added.
+(evidence). At this correction's review snapshot, whole WP06-01A remained
+**blocked on actual D1 criteria 2/6**. The later D1 continuation below supersedes
+that D1 limitation with actual rehearsal evidence; D3 verification and acoustic
+limits remain explicit. No game/release or M2 implementation claim is added.
+
+## D1 continuation after human browser installation
+
+9 October 2026, completed at **09:29 BST**. Controller authorized only the
+remaining original D1 readiness rehearsal after the human reported installing
+Chrome, Firefox and Edge. This author changed only this handoff and private
+evidence outputs. Existing helper/scenario source and accepted T1 proof were
+reused unchanged; no unaffected browser suite was repeated.
+
+**Observed browser:** installed Google Chrome at
+`C:/Program Files/Google/Chrome/Application/chrome.exe`, Playwright
+`channel: 'chrome'`, actual `browser.version()` **155.0.8059.40** and native CDP
+`Browser.getVersion` product **Chrome/155.0.8059.40**. Executable metadata names
+Google Chrome. Ordinary project Node `chromium.launch({channel:'chrome'})`
+also returned that version and closed successfully. No install, channel/engine
+substitution, dependency change, launch-flag change or root config adapter.
+
+The persistent `node_repl` tool's automatic channel resolution initially lacked
+a drive prefix (`undefined\\Program Files\\Google\\Chrome...`). Its transient
+launch uses the exact already-installed executable with `channel:'chrome'`:
+`chromium.launch({channel:'chrome', executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'})`.
+This is a supported Playwright option scoped to this session, not a change to
+WP01 configuration or an alternate browser. CDP command-line enumeration was
+unavailable without an automation flag; none was added. The exact path above is
+the actual explicit launch target, backed by runtime product/version evidence.
+
+The existing project Vite host ran programmatically under ordinary project Node,
+with the existing root configuration, a unique **5193** strict port and private
+cache at the evidence root. No repository probe/config file was created. A Vite
+import inside `node_repl` could not resolve `rolldown/parseAst`; ordinary project
+Node `createServer` worked. The accepted evidence helper was emitted to that
+private root using a scoped TypeScript compile. The single fresh browser context
+used **1366×768**, desktop keyboard/mouse, Europe/London, and native tracing with
+screenshots/snapshots. Its URL was
+`http://127.0.0.1:5193/playtest/tests/fixtures/interaction.html`.
+
+| Actual bounded agent sequence | Observed result |
+|---|---|
+| Step 0: return screenshot and bridge ARIA snapshot; inspect before choosing any action. | Visible M1 native construction fixture, labelled sources and empty response; heading explicitly names absent Check/evaluator/help/reward/speech/saved-state ports. This is fixture identity, not a published build. |
+| Step 1, a subsequent tool call: after inspecting step 0, choose the three-metre source with locator focus and native Enter. Return screenshot/DOM before the next choice. | Source `aria-pressed:true`, amber selected state and visible focus; bridge response remains `{"kind":"bridge","planks":[]}`. |
+| Step 2, a subsequent tool call: after inspecting the selected state, choose native mouse click on the labelled placement target. Return screenshot/DOM. | Real placed three-metre plank and `{"kind":"bridge","planks":[3]}`; fixture action kinds exactly `["select","place"]`. No hidden answer, Check or progress hook. |
+
+This used one persistent actual branded Chrome Page across inspect/choice/observe
+boundaries, not a fixed journey script labelled agent play. `captureCheckpoint`
+retained the original per-step screenshot, accessible DOM and full metadata
+schema, with actual runtime capture facts. Browser/context and private Vite host
+were closed after native trace retention.
+
+Primary evidence root:
+[D1 rehearsal summary](C:/Users/alexb/AppData/Local/Temp/learning-is-fun-wp06-d1-3c4a5ba2-c266-43fd-885a-d4d6250db094/D1-REHEARSAL.json),
+[launch record](C:/Users/alexb/AppData/Local/Temp/learning-is-fun-wp06-d1-3c4a5ba2-c266-43fd-885a-d4d6250db094/launch.json),
+[session header](C:/Users/alexb/AppData/Local/Temp/learning-is-fun-wp06-d1-3c4a5ba2-c266-43fd-885a-d4d6250db094/session-header.json),
+[native choice trace](C:/Users/alexb/AppData/Local/Temp/learning-is-fun-wp06-d1-3c4a5ba2-c266-43fd-885a-d4d6250db094/D1-agent-choice.trace.zip).
+Original checkpoint metadata and adjacent `screen.png`/`visible-state.txt`:
+[step 0](C:/Users/alexb/AppData/Local/Temp/learning-is-fun-wp06-d1-3c4a5ba2-c266-43fd-885a-d4d6250db094/artifacts/playtests/M1/local-wp06-d1/D1/M1-TOOLING-D1-CHOICE/step-0/checkpoint.json),
+[step 1](C:/Users/alexb/AppData/Local/Temp/learning-is-fun-wp06-d1-3c4a5ba2-c266-43fd-885a-d4d6250db094/artifacts/playtests/M1/local-wp06-d1/D1/M1-TOOLING-D1-CHOICE/step-1/checkpoint.json),
+[step 2](C:/Users/alexb/AppData/Local/Temp/learning-is-fun-wp06-d1-3c4a5ba2-c266-43fd-885a-d4d6250db094/artifacts/playtests/M1/local-wp06-d1/D1/M1-TOOLING-D1-CHOICE/step-2/checkpoint.json).
+
+The original independent validator can now narrowly recheck D1 criteria 2/6
+against these new artifacts and accepted T1/helper/scenario evidence. Earlier
+SCENARIOS capability-limit statements describe the original blocked rehearsal
+snapshot; this current handoff supersedes only that D1 limitation. D3's new
+installation is not automatically accepted by this author. Acoustic listening
+remains **unverified**, with no established listener/loopback route; fixture
+construction rows have no acoustic criterion. No actual published game, complete
+adventure, physical device, child session, source-track reselection, M2 execution
+or release acceptance is claimed.
