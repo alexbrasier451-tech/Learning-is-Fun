@@ -1,25 +1,18 @@
-import { useEffect, useReducer, useRef } from 'react';
-import { APP_ID, BASE_URL, BUILD_ID } from '../platform/appIdentity';
-import { navigationReducer, type AppView, type NavigationPort } from './navigation';
+import { useSyncExternalStore } from 'react';
+import { AudioControls } from '../audio/AudioControls';
+import { BackupPanel } from '../adult/BackupPanel';
+import type { AppRuntime } from './createAppRuntime';
+import { StateControllerProvider } from './StateControllerProvider';
+import { AppShell } from './AppShell';
+import './shell.css';
 
-/** Early neutral shell. Domain panels and leave guards arrive in WP01-02A. */
-export function App() {
-  const [view, navigate] = useReducer(navigationReducer, { kind: 'profiles' });
-  const heading = useRef<HTMLHeadingElement>(null);
-  const navigation: NavigationPort = { navigate };
-  useEffect(() => { heading.current?.focus(); }, [view]);
-  const destinations: AppView[] = [{ kind: 'profiles' }, { kind: 'world' }, { kind: 'help' }];
-  return (
-    <main style={{ fontFamily: 'system-ui, sans-serif', margin: '2rem', maxWidth: '60rem', fontSize: '18px' }}>
-      <h1 ref={heading} tabIndex={-1}>Learning is Fun — {view.kind}</h1>
-      <p>The platform is ready for adventure panels.</p>
-      <nav aria-label="Platform views" style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
-        {destinations.map(destination => (
-          <button key={destination.kind} style={{ minHeight: '44px', padding: '0.5rem 1rem', font: 'inherit' }}
-            onClick={() => navigation.navigate(destination)}>{destination.kind}</button>
-        ))}
-      </nav>
-      <p><small>{APP_ID} · {BASE_URL} · {BUILD_ID}</small></p>
-    </main>
-  );
+export function App({ runtime }: { runtime: AppRuntime }) {
+  const load = useSyncExternalStore(runtime.state.subscribe, runtime.state.getLoadState, runtime.state.getLoadState);
+  if (load.status === 'ready' || load.status === 'new') return <StateControllerProvider controller={runtime.state}><AppShell runtime={runtime} /></StateControllerProvider>;
+  return <div className="app-shell"><header className="shell-header"><span className="shell-brand">Learning is Fun</span><AudioControls controller={runtime.audio} /></header>
+    <main className="shell-paper recovery"><h1>{load.status === 'loading' ? 'Opening your story…' : 'Your saved story needs a little care'}</h1>
+      <p role="status">{load.status === 'loading' ? 'Everything stays quiet while your saved stories and sound choices load.' : 'reason' in load ? load.reason.message : 'Your saved story is unavailable. Retry opening it or recover from a backup.'}</p>
+      {load.status !== 'loading' && <><button onClick={() => { void runtime.state.refresh(); }}>Retry opening saved stories</button>
+        <BackupPanel backupActions={{ ...runtime.state.backupActions, exportRawRecoveryData: runtime.state.exportRawRecoveryData }} saveStatus={{ token: null, profileNames: [], pending: false, failed: true }} /></>}
+    </main></div>;
 }

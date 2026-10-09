@@ -57,8 +57,10 @@ Shell integration exposed a producer-owned session lifecycle defect under the ex
 | 01a11ed4-9169-77c1-a0c1-a50cb117010b | Independent validator | gpt-6.1-sol / xhigh | WP02-07A Pip and creative garden | PASS, no findings; five fresh cases and both scoped typechecks |
 | 01a11fd0-2521-7fc1-87cc-43d4c52e7995 | Implementation | gpt-6-astra / high | WP02-06A M1 committed adventure | Whole child accepted after F01 correction and actual D3; available for corrections |
 | 01a11ff1-b321-7d32-898b-4aad7a6c65b7 | Independent validator | gpt-6-astra / high | WP02-06A M1 adventure | Whole child PASS; F01 closed and actual D3 independently inspected |
-| 01a12006-2ada-7081-a177-ce4799da0f2d | Fresh bounded integration author | gpt-6.1-sol / high | WP01-02A final shell/single runtime | Local implementation complete and frozen; port5195 released for review |
-| 01a12025-a68f-75e0-b9c7-574993834af7 | Fresh independent shell/integration reviewer | gpt-6-astra / high | WP01-02A assembled M1 UI/runtime | Reviewing frozen source and real integrated paths; owns5195 |
+| 01a12006-2ada-7081-a177-ce4799da0f2d | Fresh bounded integration author | gpt-6.1-sol / high | WP01-02A final shell/single runtime | F01 corrected; frozen after 16 local browser passes; port5195 released |
+| 01a12025-a68f-75e0-b9c7-574993834af7 | Fresh independent shell/integration reviewer | gpt-6-astra / high | WP01-02A assembled M1 UI/runtime | Technical PASS; F01 closed by three complete fresh rechecks; D3 pending |
+
+Fresh shell review found F01 (P2): Save progress and same-view Adventure navigation correctly suspended the activity but retained the suspended editor, making later edits/Check ineffective. The original shell author corrected successful routing to the overview and existing producer-owned Resume route. All 16 corrected local browser cases pass. The reviewer independently reran both original complete paths plus failed save/exact retry/partial flush, preserving encounter, opportunity, episode, attempts and help; F01 is closed and technical review passes. See [independent review](WP01-02A-VALIDATION.md). Controller's combined project typecheck and whitespace check pass. No shell acceptance yet. The separate four-case D3 tooling extension independently passed and is committed as5e2427a; actual shell D3 is the remaining child gate.
 
 ## Accepted implementation boundaries
 
