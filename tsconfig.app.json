@@ -13,6 +13,6 @@
     "verbatimModuleSyntax": true,
     "types": []
   },
-  "include": ["src", "tests/fixtures/**/*.tsx"],
+  "include": ["src", "tests/fixtures/**/*.tsx", "tests/fixtures/*-api.ts"],
   "exclude": ["src/sw.ts"]
 }
