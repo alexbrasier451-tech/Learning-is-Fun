@@ -13,11 +13,6 @@ jobs:
     env:
       CI: 'true'
       NODE_DISABLE_COMPILE_CACHE: '1'
-      D3_EVIDENCE_ROOT: ${{ runner.temp }}/d3-firefox
-      ADULT_VERIFY_ROOT: ${{ runner.temp }}/d3-firefox/adult
-      HALL_VERIFY_ROOT: ${{ runner.temp }}/d3-firefox/hall
-      AUDIO_VERIFY_ROOT: ${{ runner.temp }}/d3-firefox/audio
-      CREATIVE_VERIFY_ROOT: ${{ runner.temp }}/d3-firefox/creative
       ADULT_REAL_RELEASE: 'yes'
     steps:
       - uses: actions/checkout@v7
@@ -35,13 +30,25 @@ jobs:
       - name: Prepare private evidence
         run: |
           node --input-type=module <<'NODE'
-          import { mkdirSync, writeFileSync } from 'node:fs';
+          import { appendFileSync, mkdirSync, writeFileSync } from 'node:fs';
           import { join } from 'node:path';
           import { platform, release } from 'node:os';
-          for (const key of ['ADULT_VERIFY_ROOT', 'HALL_VERIFY_ROOT', 'AUDIO_VERIFY_ROOT', 'CREATIVE_VERIFY_ROOT']) {
-            mkdirSync(process.env[key], { recursive: true });
+          if (!process.env.RUNNER_TEMP || !process.env.GITHUB_ENV) {
+            throw new Error('Runner temporary directory and environment file are required.');
           }
-          writeFileSync(join(process.env.D3_EVIDENCE_ROOT, 'run.json'), JSON.stringify({
+          const root = join(process.env.RUNNER_TEMP, 'd3-firefox');
+          const roots = {
+            D3_EVIDENCE_ROOT: root,
+            ADULT_VERIFY_ROOT: join(root, 'adult'),
+            HALL_VERIFY_ROOT: join(root, 'hall'),
+            AUDIO_VERIFY_ROOT: join(root, 'audio'),
+            CREATIVE_VERIFY_ROOT: join(root, 'creative'),
+          };
+          for (const [key, value] of Object.entries(roots)) {
+            mkdirSync(value, { recursive: true });
+            appendFileSync(process.env.GITHUB_ENV, `${key}=${value}\n`);
+          }
+          writeFileSync(join(root, 'run.json'), JSON.stringify({
             commit: process.env.GITHUB_SHA, runId: process.env.GITHUB_RUN_ID,
             attempt: process.env.GITHUB_RUN_ATTEMPT, os: platform(), release: release(),
             node: process.version, viewport: { width: 1280, height: 720 },

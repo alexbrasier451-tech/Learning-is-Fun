@@ -8,6 +8,8 @@
 - `tests/fixtures/d3-firefox.config.ts`: selects one existing owned config with D3_FIXTURE; preserves its server, baseURL, testMatch/testDir, private output/report locations and teardown; replaces its project array with only D3-Firefox (Firefox,1280×720, no touch/mobile). One worker, no retries, forbidOnly, five-minute per-invocation global timeout, trace/screenshot capture. Grep selection lives in this adapter, so CI commands need no duplicated grep. Invalid selector or adult release=no fails configuration loading.
 - This handoff only. No package/lock/workspace, original fixture/config/spec, production source, shared status or root compiler config was edited. Before/after hashes verify **156 pre-existing source/test/config/dependency files unchanged**, including the frozen Node/app refinement and root/worker scheduling.
 
+The initial local implementation evidence below is retained. A later Controller dispatch encountered HTTP422 before any runner; the owner repair and current recheck boundary are recorded at the end.
+
 ## Official action versions
 
 The current official tagged action definitions were read on 9 October 2026. Implemented versions supersede the earlier feasibility proposal: checkout@v7, setup-node@v7, pnpm/action-setup@v6 and upload-artifact@v7. Each tagged definition uses Node 24. Explicit package-manager-cache=false, pnpm cache=false and run_install=false keep the frozen install as its own step; retention-days=1 is supported.
@@ -107,9 +109,55 @@ A reviewed remote pass can support these ten bounded D3 component view/route obs
 
 No published/offline/service-worker, final full-game relevant-view D3, D1 agent journey or Edge-primary substitution, OS speech/listening, Windows Firefox recovery, physical-device/child testing or whole-package claim follows. These fixtures simulate speech explicitly. Final-shell published D3 smoke still follows real deployment; this CI supplies no browser/package waiver or fake journey. Network access to registry/browser CDN/Linux packages and remaining free artifact allowance are the other concrete remote dependencies.
 
-| Authored file | SHA-256 |
+| Initially reviewed authored file | SHA-256 |
 |---|---|
 | `.github/workflows/d3-firefox-smoke.yml` | `43c9ee6f1474827a8fd9394b77afbb0469e807386adf564cedeeb88d7c696e5a` |
 | `tests/fixtures/d3-firefox.config.ts` | `6c6db0b3a798e255b1f98105e45a207bbdbae568540a9355db59a796d7c2d191` |
 
-**Disposition: three requested local files complete and reviewable; focused local checks PASS; no remote execution or D3 acceptance claimed.**
+**Initial disposition before remote dispatch: local implementation checks PASS; no remote execution or D3 acceptance claimed.**
+
+## Remote dispatch HTTP422 — original-owner infrastructure repair
+
+9 October 2026. Controller reports public main was pushed successfully at `46214efbf8fbb76126991d742c98405e5cce5176`, then POST workflow dispatch failed with **HTTP422 before any runner**. This worker did not fetch or retry that request. Retained Controller-reported original error:
+
+```text
+Invalid Argument - failed to parse workflow: (Line:16,Col:25) Unrecognized named-value: runner. Located at position1 within expression: runner.temp
+```
+
+The same diagnostic was reported for original lines 17–20. These are exactly the five private-root definitions in `jobs.firefox.env`. The original HTTP response body was not independently available; `controller-reported-422.json` explicitly identifies this as Controller-supplied evidence. No successful runner/browser result follows from the published commit.
+
+**Causal defect:** job-level env is processed with contexts that exclude runner. The initial local YAML parse and contract assertions did not validate this field-specific context restriction; that was a verification gap. GitHub’s official availability table permits runner in `jobs.<job_id>.steps.with`, but not in `jobs.<job_id>.env`. [Context availability](https://docs.github.com/en/actions/reference/workflows-and-actions/contexts#context-availability).
+
+**Narrow correction:** removed only those five job-env entries and expanded the existing Prepare private evidence runner-step program. It reads built-in RUNNER_TEMP, derives the same `d3-firefox` root and four separate fixture subdirectories with Node path.join, creates them, and appends the five application variables to the step’s GITHUB_ENV file as UTF-8 `KEY=value` lines. It writes initial metadata using its local root variable because exported environment values become available to subsequent steps. Built-in GITHUB_/RUNNER_ variables are read, never overwritten; no machine-specific path, secret, retry or paid scope was introduced. [Environment propagation](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands#setting-an-environment-variable), [built-in variables](https://docs.github.com/en/actions/reference/workflows-and-actions/variables).
+
+All other workflow steps are unchanged at the parsed-object level, including matched installation, discovery/results gates and exact trace/screenshot artifact paths. Dispatch-only, standard Ubuntu job, read-only contents, separate roots and retention 1 day remain intact. Adapter, compiler configs and dependencies are unchanged. Only workflow + this handoff were authored in this repair.
+
+| Expression/default-variable location | Before / after validation |
+|---|---|
+| `jobs.firefox.env` | Before: five forbidden runner.temp expressions; after: only constant CI, compile-cache and adult-release values |
+| Artifact `steps.with.path` | Five remaining runner.temp expressions, allowed here by the official table; paths still equal derived private layout |
+| Artifact `steps.with.name` | github.run_id / github.run_attempt, allowed here |
+| Artifact `steps.if` | !cancelled(), supported status function at this location |
+| Preparation `steps.run` | RUNNER_TEMP / GITHUB_ENV are runner environment variables; no Actions context interpolation is required |
+
+Private repair evidence: `C:/Users/alexb/AppData/Local/Temp/d3-runner-env-repair-34d8Xr`. Retains before-workflow.yml, before-handoff.md, reported 422, parsed before/after job objects, context-location audit, extracted preparation/gate programs, simulated environment file, initial metadata, downstream discovery JSON/output and narrow hashes. No permanent test/framework or dependency was added.
+
+| Proportionate private verification | Result |
+|---|---|
+| Native installed pnpm YAML parse of before/after | PASS; reproduced five unsupported job-env contexts, now zero |
+| All remaining expression locations checked against official availability table | PASS; only supported artifact step.with and step.if expressions remain |
+| Changed preparation Node program syntax | PASS, node --check exit 0 |
+| Execute extracted preparation with a simulated RUNNER_TEMP containing spaces and a private GITHUB_ENV file | PASS, exit 0; five distinct directories/exports and initial commit/run/OS/Node/viewport metadata preserved |
+| Load exported GITHUB_ENV values into subsequent processes; actual list-only adapter discovery and private output graph | PASS: adult 3, Hall 3, audio 2, creative 2, exits 0; each selected outputDir is its separate derived private root |
+| Original workflow discovery gate on those actual downstream lists | PASS, exit 0 |
+| Non-preparation workflow steps / adapter + compiler/dependency frozen hashes | Unchanged |
+
+The simulation is explicitly labelled LOCAL-SIMULATION and records local Windows OS; it is neither a GitHub runner nor Firefox evidence. It tests the actual changed program and downstream environment contract without launching any browser/server. No broad compiler/build/matrix rerun occurred.
+
+| Workflow evidence | SHA-256 |
+|---|---|
+| Before repair | `43c9ee6f1474827a8fd9394b77afbb0469e807386adf564cedeeb88d7c696e5a` |
+| After repair | `bcc588c18bdcc45fe3aa5465b4a171e93e3e457498a6b9f0f2153c08ad208f19` |
+| Unchanged adapter | `6c6db0b3a798e255b1f98105e45a207bbdbae568540a9355db59a796d7c2d191` |
+
+**Current disposition: minimal owner repair locally verified and ready for the original independent recheck. Controller owns commit/push and retry of the original complete dispatch → runner → matched Firefox → ten-case evidence flow. Remote schema acceptance and D3 completion remain unverified until that original flow succeeds; no remote action was performed here.**
