@@ -1,0 +1,76 @@
+.iw-widget {
+  --iw-paper: #fff6e5; --iw-ink: #263d38; --iw-teal: #24665e; --iw-amber: #f4b85a;
+  color: var(--iw-ink); background: var(--iw-paper); border: 2px solid #d6c7aa;
+  border-radius: 24px; padding: 24px; margin-block: 24px;
+  font: 1.125rem/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  max-inline-size: 64rem; box-sizing: border-box;
+  box-shadow: 0 8px 20px rgb(38 61 56 / 12%);
+}
+.iw-widget *, .iw-instructions * { box-sizing: border-box; }
+.iw-widget h2 { font-size: 1.5rem; line-height: 1.25; margin: 0 0 16px; }
+.iw-widget p { max-inline-size: 60ch; overflow-wrap: anywhere; }
+.iw-widget button, .iw-instructions button {
+  min-inline-size: 44px; min-block-size: 48px; border: 2px solid var(--iw-teal, #24665e);
+  border-radius: 14px; padding: 10px 14px; color: var(--iw-ink, #263d38);
+  background: var(--iw-paper, #fff6e5); font: inherit; font-weight: 650;
+  line-height: 1.35; white-space: normal; overflow-wrap: anywhere; cursor: pointer;
+}
+.iw-widget button:disabled { cursor: default; border-style: dashed; }
+.iw-widget button:focus-visible, .iw-instructions button:focus-visible {
+  outline: 3px solid #24665e; outline-offset: 3px; box-shadow: 0 0 0 3px #fff6e5;
+}
+.iw-widget button[aria-pressed="true"] { background: var(--iw-amber); border-width: 3px; }
+.iw-widget button[aria-pressed="true"] .iw-selected-label::before { content: '✓ '; }
+.iw-palette, .iw-toolbar, .iw-move-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.iw-palette { margin-block: 20px; }
+.iw-piece { display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 0 1 9rem; }
+.iw-selected-label { font-size: 1rem; font-weight: 500; }
+/* Scroll remains native everywhere except the explicit draggable handles. */
+.iw-drag-handle { touch-action: none; user-select: none; -webkit-user-select: none; }
+.iw-drag-ghost {
+  position: fixed; z-index: 1000; pointer-events: none; max-width: 18rem;
+  background: #f4b85a; color: #263d38; border: 2px solid #24665e; border-radius: 14px;
+  padding: 12px; box-shadow: 0 8px 20px rgb(38 61 56 / 20%);
+  font: 650 18px/1.35 system-ui, sans-serif;
+}
+.iw-bridge { container-type: inline-size; }
+/* cqi resolves to this single bridge container for all descendants. Absolute
+ * limits keep a useful scale while wrapping whole controls instead of resizing
+ * individual plank art to the available width of its card. */
+.iw-bridge .iw-timber, .iw-bridge .iw-plank-card { --iw-plank-unit: clamp(24px, 6cqi, 48px); }
+.iw-bridge .iw-piece { flex: 0 0 auto; inline-size: max-content; align-self: flex-start; }
+.iw-timber { display: block; flex: none; }
+.iw-timber-art { display: block; inline-size: 100%; block-size: auto; max-inline-size: none; pointer-events: none; }
+.iw-timber-label { background: #fff6e5; padding: 2px 10px; border-radius: 6px; }
+.iw-river { background: linear-gradient(135deg, #cbe5da, #87bab0); padding: 20px; border-radius: 20px; }
+.iw-placed { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 16px; }
+.iw-plank-card { display: flex; flex-direction: column; gap: 10px; flex: 0 0 auto; min-width: 0; }
+.iw-plank-card .iw-piece { flex-basis: auto; }
+.iw-move-row > button { flex: 1 1 5rem; }
+.iw-drop { width: 100%; min-block-size: 72px !important; border-style: dashed !important; }
+.iw-mark { font-size: 2rem; line-height: 1.2; min-inline-size: 44px; min-block-size: 44px; display: grid; place-items: center; }
+.iw-sentences { display: grid; gap: 16px; }
+.iw-sentence { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 16px; background: #f0e6d2; border-radius: 16px; }
+.iw-sentence p { flex: 1 1 20rem; margin: 0; }
+.iw-slot { display: flex; flex-direction: column; align-items: center; min-inline-size: 9rem !important; }
+.iw-fruit-art { width: 64px; height: 64px; object-fit: contain; pointer-events: none; }
+.iw-basket { background: #f2dfbd !important; box-shadow: inset 0 -8px 0 #dfbd88; }
+.iw-basket-fruit { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; margin-bottom: 10px; }
+.iw-basket-fruit:empty { min-height: 48px; }
+.iw-basket-fruit .iw-fruit-art { width: 44px; height: 44px; }
+.iw-counts { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 20px; }
+.iw-counts fieldset { min-width: 0; flex: 1 1 20rem; border: 2px solid #d6c7aa; border-radius: 16px; padding: 16px; }
+.iw-counts legend { font-weight: 700; padding-inline: 8px; }
+.iw-counts output { display: block; margin-bottom: 12px; font-size: 1.5rem; }
+.iw-summary { border-left: 4px solid #24665e; padding-left: 16px; }
+.iw-footer { margin-top: 24px; }
+.iw-instructions { color: #263d38; background: #fff6e5; border: 2px solid #24665e; border-radius: 24px; padding: 24px; max-width: min(36rem, calc(100% - 32px)); max-height: calc(100% - 32px); overflow: auto; font: 1.125rem/1.5 system-ui, sans-serif; }
+.iw-instructions::backdrop { background: rgb(38 61 56 / 45%); }
+@media (max-width: 800px) {
+  .iw-widget { padding: 16px; }
+  .iw-river { padding: 12px; }
+  .iw-piece { flex-grow: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .iw-widget *, .iw-drag-ghost { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
