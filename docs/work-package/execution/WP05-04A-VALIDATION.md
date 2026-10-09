@@ -2,7 +2,14 @@
 
 9 October 2026. Independent report-only review of the Hall/history construction.
 
-**Verdict: TECHNICALLY READY within the frozen read-model UI scope. Open UI
+**Current whole-child verdict: PASS for WP05-04A's implemented bounded-host
+scope. Open findings and remaining child verification gaps: NONE. Ready for
+Controller administrative acceptance and dependency release to world/shell
+consumers.** The final D1 addendum below closes the last named browser gap;
+real-facade binding and the defined D1–T2 observations are covered. Published
+whole-game/M1/M2 acceptance remains downstream.
+
+**Initial frozen-review verdict (historical): TECHNICALLY READY within the frozen read-model UI scope. Open UI
 findings: NONE. Full WP05-04A acceptance: PENDING.** DEP-053 release and the
 real-facade refresh/closure sequence have not been completed by this evidence.
 Required D1 Chrome and D3 Firefox observations remain outstanding. Controller
@@ -376,3 +383,85 @@ unperformed because Chrome is unavailable. The pending Edge question is neither
 permission nor evidence. Final composition, published PC/tablet journeys,
 M1/M2, acoustic/physical-device/child claims remain outside this conclusion.
 Only this validation append and private extracted viewing files were written.
+
+## Final D1 Chrome review and whole-child verdict — 9 October 2026
+
+**Verdict: PASS. D1's remaining observations are SATISFIED. WP05-04A is ready for
+Controller administrative acceptance and dependency release. Open findings:
+NONE. Remaining verification gap within this child's implemented bounded-host
+scope: NONE.** This supersedes the report's earlier D1/whole-child-pending
+statements. Genuine branded Chrome evidence completes D1 without an Edge
+substitution; no unanswered Edge-primary question is used as permission.
+
+Read the author's final D1 handoff and independently inspected the private
+config, all nine results, engine stdout, exact source-model and native/facade
+attachments, and retained renders at:
+`C:/Users/alexb/AppData/Local/Temp/learning-is-fun-hall-d1-46cf443edf7b49d59b877c4fc02b710c`.
+The D1-only temporary config imports the accepted Hall configuration and sets
+browserName `chromium`, channel **`chrome`**, viewport **1366×768** desktop.
+It supplies no executable override or custom launch flags, retains the real
+owned host and port 5185, one worker and no retries. Actual test stdout records
+`hall-chrome-D1: running 155.0.8059.40`. This is the installed branded Chrome
+channel, not a relabelled supporting Chromium project. The author's separate
+metadata launch reports CDP product `Chrome/155.0.8059.40` and the installed
+`C:/Program Files/Google/Chrome/Application/chrome.exe`; that metadata launch
+was not rerun for this review.
+
+`results.json` records **nine passed**, zero skipped/unexpected/flaky, zero
+report/test errors and zero retries; 7.292s, starting 09:27:51 BST. The nine
+existing cases are the eight relevant frozen construction/control/layout cases
+and the real opening/rollover case. No broad rerun or new independent browser
+execution was needed or performed.
+
+| Remaining D1 criterion | Independent coverage conclusion |
+|---|---|
+| Empty household, unscored and one real player | PASS. Decoded fixtures have zero rows, one unranked zero, and one actual 20 weekly/20 lifetime/one turn. Single-player history has no fabricated closed best or medals. |
+| Positive ties and separate score fields | PASS. 20/20/10/0 remains 1/1/3/unranked. Closed gold/gold/bronze and historical identity snapshots remain separate from current names/avatars. Weekly points, lifetime points and 30-turn use have individual labels. |
+| Full weekly allowance | PASS. Actual cap-model values are 600 weekly, 620 lifetime and 30 turns. Existing assertions preserve the explanation that lifetime/adventure progress can continue. The accepted copy review remains valid. |
+| Closed-history gap and retention | PASS. Cleo retains original rank 3/bronze after omissions; the emptied dated week remains. D1 personal-history assertions show 52 displayed entries, 53 lifetime gold medals and the older 2025-09-29 best. These remain independent saved records. |
+| Clock notice and refresh failure | PASS. The accepted selector identifies the rollback while preserving active 2026-10-05. Independently decoded refreshing/failed/loading/stale models are exactly equal to the prior clock model. Pending check is disabled; failed/stale text does not confirm new results. |
+| Keyboard/mouse/focus | PASS. Existing native click/activation routes and Enter/Escape history/back paths pass, including heading focus, 3px visible control focus, initiating-control restoration, unchanged model and teardown. Desktop Chrome does not execute the conditional touch branch; accepted T1 evidence supplies touch. |
+| Body/targets/art/200% reflow | PASS. The existing layout case checks loaded SVGs, 18px body, at least 44px targets, 36px body at 200%, 683px reflow and portrait/landscape resizing without horizontal overflow. The full enlarged render independently shows readable whole words, wrapping scoring-turn labels, intact controls and current/closed distinctions. |
+| Opening refreshes actual saved calendar once | PASS. Real facade/native-IDB checkpoints retain 20/40/one turn and no archive during the held refresh; acknowledgement opens the new week and saves the old result. Personal medal/history and repeated open assertions pass without duplicate closure. |
+
+Decoded real D1 epoch `7c869b02-7b28-4acc-a74f-f736302d342b` confirms revision
+4→5. Pending retains revision 4, active 2026-10-05 and displayed 20/40/1, with
+one additional facade clock read. Acknowledgement at revision 5 opens
+2026-10-12, displays 0/40/0, and archives 2026-10-05 at rank 1/gold/20 with best
+20 and one cumulative gold. Repeated opening is `already-applied` at the same
+revision 5, with one archive and one gold. Native and facade saves match at all
+four labelled checkpoints. This is actual fixture persistence/display evidence,
+not inferred scoring from a screenshot. D1's displayed failure fixture does not
+claim an unperformed full D1 native-abort/conflict cross-product; accepted
+real-abort/conflict checks in other modes remain available.
+
+Independently viewed `layout-baseline-render`, `text-200-reflow-render` at
+original resolution, `failed-render`, `omitted-render` and
+`real-acknowledged-closed-render` (PNG contents retained without filename
+extensions). Supplied art, local/date labels, failure/clock/omission notices,
+provisional ranks, history controls and acknowledged new/closed panels remain
+readable. No clipping, overlap or new visual defect was found.
+
+Current Hall/history/CSS hashes exactly match the preceding accepted copy-only
+fingerprints. The current browser spec digest is
+`5c795a3f2dd6d22e653715fd195932b55a38bd314507ad0e945b0dddc755b282`, matching
+the D1 handoff. No product, owned test or repository configuration was changed
+for this D1 continuation. Prior independent source/type/binding review,
+D2/T1/T2 construction and real-facade evidence, and the accepted Linux D3
+relevant-view smoke therefore remain valid and were reused.
+
+The accumulated evidence now covers this child's two controlled surfaces,
+read-model fidelity, finite required PC/tablet states, accessibility targets,
+supplied-art rendering, accepted real-facade adapter and actual closure/reset/
+repeat-open host sequence. All incoming inputs were released before real
+integration; no open source, dependency or child-browser gap remains in this
+reviewed scope. Controller may administratively accept the child and release
+its finished components to the registered world/shell consumers.
+
+Final world/shell composition, WP06's actual published PC/tablet game and
+standings journeys, WP06-04A M1 acceptance and later M2 observations retain
+their existing owners and gates. No whole-game, published-play, acoustic,
+physical-device, child or screen-reader certification claim follows from this
+child PASS. The earlier remote job's unrelated audio failures are not erased.
+Only this validation report was updated; no rerun, Git/shared-status/source/
+configuration change, delegation or other-chat message occurred.

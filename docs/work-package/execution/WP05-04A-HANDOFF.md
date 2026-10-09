@@ -1,8 +1,10 @@
 # WP05-04A Hall/history author handoff
 
-9 October 2026. **Author implementation and real-facade binding verification
-complete in the available, explicitly attributed modes. Independent recheck and
-acceptance remain Controller-owned; required D1/D3 browser gaps remain open.**
+9 October 2026. **Author implementation, real-facade binding and remaining D1
+Chrome checks complete. Independent D1 recheck and whole-child acceptance remain
+Controller-owned.** The previously outstanding D3 relevant-view Hall/history
+smoke was independently accepted in `WP05-04A-VALIDATION.md`; the new D1 proof is
+recorded below. Earlier pending-mode statements are historical and superseded.
 Controller released DEP-053 against accepted facade commit
 `97482c4b791a84c55384c623163664c7d1fdddbc` and fresh core integration PASS.
 The prior frozen-port handoff was independently technically PASS with no findings.
@@ -231,3 +233,74 @@ Focused strict ES2022/JSX component/spec typecheck: passed. One existing smoke:
 — **1 passed**, 2.3s, observed Edge154.0.4258.62. Root:
 `C:/Users/alexb/AppData/Local/Temp/learning-is-fun-hall-4f3a5b4a428d4fe28a08d5351eae05df`.
 No broader matrix or acceptance claim. D1/D3 gaps remain unchanged.
+
+## Remaining D1 branded Chrome proof — 9 October 2026
+
+Human reported installation; the supported Playwright `chromium.launch({
+channel: 'chrome' })` route now successfully launches branded Chrome. Actual
+running version **155.0.8059.40**, CDP product **Chrome/155.0.8059.40**, executable
+**`C:\Program Files\Google\Chrome\Application\chrome.exe`**. Path was returned by
+CDP browser command-line metadata, not guessed. That metadata-only launch added
+`--enable-automation` to expose the command line; the actual tests below use the
+normal `chrome` channel with no executable override or custom flags. No browser
+installation, dependency, global configuration or security setting was changed.
+
+A private temporary D1-only config imports the existing Hall config and replaces
+only its project list with `hall-chrome-D1`, browserName=chromium, channel=chrome,
+**1366×768 desktop**, no touch/mobile. It retains the accepted host, exact port
+**5185**, isolated cache/output, one worker and no retry. An initial temporary
+config loader failed before test collection because the temp directory lacked
+ES-module classification; a temp-only `package.json` fixed that. No repository
+source/config/test/support file changed in this continuation.
+
+Final command: bundled Node24 runs installed
+`node_modules/@playwright/test/cli.js test --config <private-root>/hall-d1.config.ts`
+with exact existing-case grep:
+
+```text
+empty, unscored|20/20/10/0|30-slot|closed deletion|52 displayed|calendar rollback|keyboard and touch|rendered art|real facade opening
+```
+
+**9 passed**, 7.3s, zero unexpected/skipped/flaky/retries/report errors. Actual
+test stdout: `hall-chrome-D1: running 155.0.8059.40`. Evidence/config/report root:
+`C:/Users/alexb/AppData/Local/Temp/learning-is-fun-hall-d1-46cf443edf7b49d59b877c4fc02b710c`.
+`results.json` retains named source-model/native/facade receipts and PNGs.
+
+| D1 required observation | Expected = observed |
+|---|---|
+| Empty, unscored, single | Honest zero/one-player state, 20 weekly/20 lifetime/1 turn; no invented history/opponents |
+| Positive ties | 20/20/10/0 → 1/1/3/unranked; closed gold/gold/bronze; historical name/avatar snapshots unchanged |
+| Full allowance | 600 weekly/620 lifetime/30 scoring turns; continuing lifetime/adventure copy |
+| Historical omissions / retention | Rank3/bronze retained after deletion, omission notice and empty retained week; 52 archives versus 53 lifetime gold medals/older best |
+| Clock / loading / failed / stale fixture | Actual selector rollback notice; prior rows/models retained, new closed result unconfirmed, pending control disabled |
+| Keyboard/mouse/focus | Native activation, Enter into history, Escape/back, visible3px focus and initiating-control restoration; no model mutation |
+| Readability/reflow | Ready M1 SVGs loaded, 18px default body, ≥44px controls, 200% text/36px body, 683px reflow and resize checks without horizontal overflow |
+| Real native-IDB rollover / repeated opening | Held refresh retains20/40/1 and no archive; acknowledged week reset displays0/40/0 and old rank1/gold20; repeated open already-applied at same revision, one archive/medal |
+
+Actual D1 rollover epoch **`7c869b02-7b28-4acc-a74f-f736302d342b`**, revision4→5;
+closed week2026-10-05, active week2026-10-12. Native root, facade snapshot and
+read model agree; repeated opening remains revision5/gold1. The personal-history
+gold total and back/reopen routes pass. This is real fixture persistence, not
+published-game evidence. The fixture failure state is distinct from previously
+retained real-abort/conflict checks in other modes; no unperformed D1 error-flow
+cross-product is claimed.
+
+Inspected actual D1 acknowledged-closure and 200%-reflow PNGs: current versus
+closed panels remain readable, scoring-turn copy wraps and required controls
+are visible; no new visual finding. Source fingerprints remain exactly:
+
+| File | Lowercase SHA-256 |
+|---|---|
+| HallOfChampions.tsx | `e857cdb2dc7e8ef3d8dc74f9e3c6ec879db783b095231bd86148a7388f0c6671` |
+| PersonalHistory.tsx | `7912e2c933cfc0543d89cb6e369eafeeba3b14ca92f5628e5fdc6d814cd05cb7` |
+| leaderboard.css | `3dc0d9136fe86709f27bf0ee1ce06a7d7ff3d467f2f32b17e3c37f195ab87989` |
+| local-leaderboard.spec.ts | `5c795a3f2dd6d22e653715fd195932b55a38bd314507ad0e945b0dddc755b282` |
+
+Only this handoff was edited in the repository. Private artifacts were written;
+port5185 is released. No source finding, source mutation or new tests required.
+Accepted T1/T2/D2 evidence was not repeated. Independently accepted Linux D3
+smoke stays as recorded in `WP05-04A-VALIDATION.md` (run37884581632, Firefox157.0,
+three Hall passes); it is not a new Windows Firefox claim. D1 is now ready for
+the original validator's independent recheck and Controller's whole-child gate.
+Final shell/full-game/published, physical tablet, child and acoustic acceptance
+remain outside this evidence.
