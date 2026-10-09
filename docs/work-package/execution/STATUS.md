@@ -34,7 +34,11 @@ Execution was explicitly requested on 8 October 2026. Required visible worker cr
 | 01a11e4b-463d-7c11-8f05-2598df7b55bd | Independent validator | gpt-6.1-sol / xhigh | WP04-03A backup validation/recovery | PASS; original IDB gates and final Node/API checks green |
 | 01a11e66-e29f-7fc2-aec5-ec45e9ba8c57 | Implementation | gpt-6-astra / xhigh | WP04-04A sole state facade and atomic integration | Running; all incoming handoffs released; port 5182 |
 | 01a11e66-fbe8-7943-bef1-8d50d414d479 | Implementation | gpt-6.1-sol / high | WP06-01A agent-directed playtest tooling | Helpers/scenarios delivered for review; whole readiness blocked on D1 |
-| 01a11e76-6ee8-7072-adf2-259040e9b594 | Independent validator | gpt-6.1-sol / xhigh | WP06-01A helpers and scenarios | Running; retains D1 criteria 2/6 blocker |
+| 01a11e76-6ee8-7072-adf2-259040e9b594 | Independent validator | gpt-6.1-sol / xhigh | WP06-01A helpers and scenarios | Technical deliverables PASS after F1/F2; whole child blocked by D1 |
+| 01a11e7d-7a7f-7373-a051-49101ee58c0c | Bounded amendment author | gpt-6-astra / high | Multi-required verification allocation | Independently accepted and committed |
+| 01a11e80-d041-7a23-99b6-a1361bd86591 | Independent amendment reviewer | gpt-6.1-sol / xhigh | Multi-required verification allocation | Accepted; no substantive findings |
+| 01a11e89-673e-77b0-a853-4789422223c5 | Implementation | gpt-6-astra / high | WP02-05A audio runtime and controls | CON-003 frozen-port construction; actual-facade completion awaits acceptance; port 5184 |
+| 01a11e8e-6d93-7b92-87af-e0ffeb6a6ce9 | Implementation | gpt-6.1-sol / high | WP05-04A Hall and personal history | CON-003 frozen-port construction; actual-facade completion awaits acceptance; port 5185 |
 
 ## Accepted implementation boundaries
 
@@ -63,6 +67,10 @@ Execution was explicitly requested on 8 October 2026. Required visible worker cr
 WP01-01A downstream discovery correction independently accepted: all 29 package-declared unit test paths now match Vitest discovery, excluding fixtures and Playwright specs. Original 27 checks, temporary discovery probe and tooling typecheck passed; probes removed. Correction commit: e881253f3c1ad6841cc7ef2f9248ceae78999939. This releases no new dependency beyond the existing foundation acceptance.
 
 ## Evidence and open inputs
+
+- The bounded [multi-binding amendment](MULTI-BINDING-AMENDMENT.md) was independently reviewed and Controller-accepted; commit 01ae1fdd6950a72dbea7843d421d9a231fa678c5. Deterministic package validation remains PASS: 49 children, 60 coverage IDs, 148 edges, six concurrency groups. M1 helper/singleton evidence remains distinct from retained actual M2 partial multi-required persistence proof. No product/browser/audio obligation waived.
+- Integrated review selection and same-week educational review decoder corrections both independently pass. See WP03-04A-INTEGRATION-VALIDATION.md and WP04-03A-REVIEW-VALIDATION.md. Exact producer tests now import the new facade, so their commit boundary waits for coherent facade acceptance; no incomplete production boundary is staged. The final learning test/guidance recheck also passes. Facade author continues its own retry/readiness verification; no facade acceptance yet.
+- WP06-01A helper/scenario technical deliverables independently pass after F1/F2 correction and exact narrow recheck. Controller accepts these five deliverable files for a truthful partial commit, not child completion or dependency release. Whole toolkit readiness remains blocked by real D1 criteria 2/6. D3 launch and detailed acoustics remain open. Helper/scenario construction is not published-game acceptance; accepted-child count remains 17.
 
 - Planning evidence: ../evidence/SIGNOFF.md and ../evidence/VALIDATION.md.
 - Intake confirmed docs-only greenfield, no Git repository (branch/commit/dirty state unavailable rather than clean), no material conflict, and package validation PASS (55 documents, 49 execution children, 60 coverage IDs, 148 edges, six concurrency groups). Node 24.19.0 and pnpm 11.25.0 were found. Browser binary presence is not a launch claim.
