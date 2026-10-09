@@ -20,10 +20,24 @@ const adventure = adventureRoot ? defineConfig({
     env: { APP_BASE: '/playtest/', APP_BUILD_ID: 'local-adventure', ADVENTURE_VERIFY_ROOT: adventureRoot },
   },
 }) : undefined;
-const fixtures = { adult, hall, audio, creative, adventure };
+const shellRoot = process.env.SHELL_VERIFY_ROOT;
+const shell = shellRoot ? defineConfig({
+  testDir: '../platform', testMatch: 'shell.spec.ts', outputDir: `${shellRoot}/playwright`,
+  timeout: 40_000,
+  reporter: [['list'], ['json', { outputFile: `${shellRoot}/results.json` }]],
+  globalTeardown: './shell-teardown.ts',
+  use: { baseURL: 'http://127.0.0.1:5195/playtest/' },
+  webServer: {
+    command: 'node node_modules/vite/bin/vite.js --config tests/fixtures/shell.vite.config.ts --configLoader runner --port 5195 --strictPort',
+    url: 'http://127.0.0.1:5195/playtest/', reuseExistingServer: false,
+    cwd: fileURLToPath(new URL('../..', import.meta.url)),
+    env: { APP_BASE: '/playtest/', APP_BUILD_ID: 'local-wp01-02a', SHELL_VERIFY_ROOT: shellRoot },
+  },
+}) : undefined;
+const fixtures = { adult, hall, audio, creative, adventure, shell };
 const selection = process.env.D3_FIXTURE;
 if (!selection || !Object.hasOwn(fixtures, selection)) {
-  throw new Error('Set D3_FIXTURE to adult, hall, audio, creative or adventure.');
+  throw new Error('Set D3_FIXTURE to adult, hall, audio, creative, adventure or shell.');
 }
 const fixture = selection as keyof typeof fixtures;
 if (fixture === 'adult' && process.env.ADULT_REAL_RELEASE !== 'yes') {
@@ -35,9 +49,10 @@ const grep = {
   audio: /first visit is silent; keyboard controls|real facade profiles and visibility hook/,
   creative: /scarf: free preview|approved help remains hidden/,
   adventure: /.*/,
+  shell: /.*/,
 }[fixture];
 const base = fixtures[fixture];
-if (!base) throw new Error('D3 adventure requires ADVENTURE_VERIFY_ROOT to be a private temporary directory.');
+if (!base) throw new Error(`D3 ${fixture} requires ${fixture.toUpperCase()}_VERIFY_ROOT to be a private temporary directory.`);
 
 export default defineConfig({
   ...base,
