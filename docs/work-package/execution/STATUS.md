@@ -54,6 +54,7 @@ Execution was explicitly requested on 8 October 2026. Required visible worker cr
 | 01a11ec3-ad06-7de3-b4aa-982ca87ad133 | Implementation | gpt-6.1-sol / high | WP02-07A Pip companion and finite creative ending | Component accepted after independent real-state/audio and visual review |
 | 01a11ed4-9169-77c1-a0c1-a50cb117010b | Independent validator | gpt-6.1-sol / xhigh | WP02-07A Pip and creative garden | PASS, no findings; five fresh cases and both scoped typechecks |
 | 01a11fd0-2521-7fc1-87cc-43d4c52e7995 | Implementation | gpt-6-astra / high | WP02-06A M1 committed adventure | All inputs accepted; active author, port5194 |
+| 01a11ff1-b321-7d32-898b-4aad7a6c65b7 | Independent validator | gpt-6-astra / high | WP02-06A M1 adventure | Technical PASS; F01 closed by fresh actual Chrome probe; D3 pending |
 
 ## Accepted implementation boundaries
 
@@ -88,6 +89,9 @@ Execution was explicitly requested on 8 October 2026. Required visible worker cr
 WP01-01A downstream discovery correction independently accepted: all 29 package-declared unit test paths now match Vitest discovery, excluding fixtures and Playwright specs. Original 27 checks, temporary discovery probe and tooling typecheck passed; probes removed. Correction commit: e881253f3c1ad6841cc7ef2f9248ceae78999939. This releases no new dependency beyond the existing foundation acceptance.
 
 ## Evidence and open inputs
+
+- WP02-06A is a reviewed technical candidate, not yet an accepted child. Author's six cases passed across D1/D2/T1/T2 (24 results); four focused world checks and scoped typechecks passed. Independent F01 identified missing optional-transfer access after leave/reload/compaction; original author corrected the world projection, reran the original complete flows and all24 browser cases, and fresh independent Chrome proof closed the finding. Final source hashes match. Controller full-root `tsc -b` also passed. Source/visual review is technical PASS with only actual D3 six-case execution pending.
+- Foundation's adventure-only D3 workflow selection is independently PASS; the default ten-case component flow and accepted native audio setup are preserved. Controller will commit a coherent reviewed candidate, run `selection=adventure`, inspect actual evidence and request the narrow final world verdict. No world-to-shell dependency is released before that acceptance; count remains23/49.
 
 - Reviewed source and manual CI setup were pushed to public `alexbrasier451-tech/Learning-is-Fun` at `46214efbf8fbb76126991d742c98405e5cce5176`. No Pages deployment/live game exists. First explicit workflow dispatch returned HTTP 422 before any runner because `runner.temp` is unavailable in job-level env. Original author is repairing that workflow scope and original validator rechecks it before the complete remote retry. [Execution record](D3-CI-EXECUTION.md) separates local setup checks from actual browser observations; no D3 pass is claimed.
 

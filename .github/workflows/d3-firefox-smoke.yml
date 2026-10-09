@@ -2,6 +2,15 @@ name: D3 Firefox fixture smoke
 
 on:
   workflow_dispatch:
+    inputs:
+      selection:
+        description: Run the accepted component smoke or only the M1 adventure cases
+        type: choice
+        required: true
+        default: components
+        options:
+          - components
+          - adventure
 
 permissions:
   contents: read
@@ -14,6 +23,7 @@ jobs:
       CI: 'true'
       NODE_DISABLE_COMPILE_CACHE: '1'
       ADULT_REAL_RELEASE: 'yes'
+      D3_SELECTION: ${{ inputs.selection }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -36,6 +46,11 @@ jobs:
           if (!process.env.RUNNER_TEMP || !process.env.GITHUB_ENV) {
             throw new Error('Runner temporary directory and environment file are required.');
           }
+          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 6 } };
+          const selection = process.env.D3_SELECTION;
+          if (!selection || !Object.hasOwn(selections, selection)) throw new Error('D3_SELECTION must be components or adventure.');
+          const expected = selections[selection];
+          appendFileSync(process.env.GITHUB_ENV, `D3_FIXTURES=${Object.keys(expected).join(' ')}\n`);
           const root = join(process.env.RUNNER_TEMP, 'd3-firefox');
           const roots = {
             D3_EVIDENCE_ROOT: root,
@@ -43,6 +58,7 @@ jobs:
             HALL_VERIFY_ROOT: join(root, 'hall'),
             AUDIO_VERIFY_ROOT: join(root, 'audio'),
             CREATIVE_VERIFY_ROOT: join(root, 'creative'),
+            ADVENTURE_VERIFY_ROOT: join(root, 'adventure'),
           };
           for (const [key, value] of Object.entries(roots)) {
             mkdirSync(value, { recursive: true });
@@ -52,6 +68,7 @@ jobs:
             commit: process.env.GITHUB_SHA, runId: process.env.GITHUB_RUN_ID,
             attempt: process.env.GITHUB_RUN_ATTEMPT, os: platform(), release: release(),
             node: process.version, viewport: { width: 1280, height: 720 },
+            selection, expected,
           }, null, 2));
           NODE
       - name: Install frozen dependencies
@@ -60,13 +77,15 @@ jobs:
         run: pnpm typecheck
       - name: Verify bounded discovery
         run: |
-          for fixture in adult hall audio creative; do
+          for fixture in $D3_FIXTURES; do
             D3_FIXTURE="$fixture" pnpm exec playwright test --config tests/fixtures/d3-firefox.config.ts --project D3-Firefox --list --reporter=json > "$D3_EVIDENCE_ROOT/$fixture/discovery.json"
           done
           node --input-type=module <<'NODE'
           import { readFileSync } from 'node:fs';
           import { join } from 'node:path';
-          const expected = { adult: 3, hall: 3, audio: 2, creative: 2 };
+          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 6 } };
+          if (!Object.hasOwn(selections, process.env.D3_SELECTION ?? '')) throw new Error('Unknown D3 selection.');
+          const expected = selections[process.env.D3_SELECTION];
           const tests = suites => suites.flatMap(suite => [
             ...(suite.specs ?? []).flatMap(spec => spec.tests ?? []),
             ...tests(suite.suites ?? []),
@@ -176,7 +195,7 @@ jobs:
           DEBUG: 'pw:browser'
           LC_ALL: C
         run: |
-          for fixture in adult hall audio creative; do
+          for fixture in $D3_FIXTURES; do
             D3_FIXTURE="$fixture" pnpm exec playwright test --config tests/fixtures/d3-firefox.config.ts --project D3-Firefox 2>&1 |
               awk 'NR <= 256 { print substr($0, 1, 1024) } NR == 257 { print "[browser log truncated: first 256 lines, 1024 bytes per line]" }' |
               tee "$D3_EVIDENCE_ROOT/$fixture/browser.log"
@@ -263,12 +282,14 @@ jobs:
           writeFileSync(join(process.env.D3_EVIDENCE_ROOT, 'audio-host.json'), JSON.stringify(report, null, 2));
           console.log('Passive audio-host evidence retained; missing or failed probes do not imply no server/device.');
           NODE
-      - name: Require ten actual passes
+      - name: Require selected actual passes
         run: |
           node --input-type=module <<'NODE'
           import { readFileSync } from 'node:fs';
           import { join } from 'node:path';
-          const expected = { adult: 3, hall: 3, audio: 2, creative: 2 };
+          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 6 } };
+          if (!Object.hasOwn(selections, process.env.D3_SELECTION ?? '')) throw new Error('Unknown D3 selection.');
+          const expected = selections[process.env.D3_SELECTION];
           const tests = suites => suites.flatMap(suite => [
             ...(suite.specs ?? []).flatMap(spec => spec.tests ?? []),
             ...tests(suite.suites ?? []),
@@ -319,7 +340,7 @@ jobs:
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v7
         with:
-          name: d3-firefox-${{ github.run_id }}-${{ github.run_attempt }}
+          name: d3-firefox-${{ inputs.selection }}-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
             ${{ runner.temp }}/d3-firefox/run.json
             ${{ runner.temp }}/d3-firefox/playwright-version.txt

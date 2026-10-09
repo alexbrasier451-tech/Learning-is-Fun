@@ -1,14 +1,29 @@
 import { defineConfig } from '@playwright/test';
+import { fileURLToPath } from 'node:url';
 import adult from './adult-profiles.config';
 import hall from './local-leaderboard.config';
 import audio from './audio.config';
 import creative from './creative.config';
 
 // Keep each owner's server, private output paths and teardown together.
-const fixtures = { adult, hall, audio, creative };
+const adventureRoot = process.env.ADVENTURE_VERIFY_ROOT;
+const adventure = adventureRoot ? defineConfig({
+  testDir: '../browser', testMatch: 'experience.spec.ts', outputDir: `${adventureRoot}/playwright`,
+  timeout: 45_000,
+  reporter: [['list'], ['json', { outputFile: `${adventureRoot}/results.json` }]],
+  globalTeardown: './adventure-teardown.ts',
+  use: { baseURL: 'http://127.0.0.1:5194/playtest/' },
+  webServer: {
+    command: 'node node_modules/vite/bin/vite.js --config tests/fixtures/adventure.vite.config.ts --configLoader runner --port 5194 --strictPort',
+    url: 'http://127.0.0.1:5194/playtest/', reuseExistingServer: false,
+    cwd: fileURLToPath(new URL('../..', import.meta.url)),
+    env: { APP_BASE: '/playtest/', APP_BUILD_ID: 'local-adventure', ADVENTURE_VERIFY_ROOT: adventureRoot },
+  },
+}) : undefined;
+const fixtures = { adult, hall, audio, creative, adventure };
 const selection = process.env.D3_FIXTURE;
 if (!selection || !Object.hasOwn(fixtures, selection)) {
-  throw new Error('Set D3_FIXTURE to adult, hall, audio or creative.');
+  throw new Error('Set D3_FIXTURE to adult, hall, audio, creative or adventure.');
 }
 const fixture = selection as keyof typeof fixtures;
 if (fixture === 'adult' && process.env.ADULT_REAL_RELEASE !== 'yes') {
@@ -19,8 +34,10 @@ const grep = {
   hall: /20\/20\/10\/0 ties|keyboard and touch history\/back|real facade opening refreshes/,
   audio: /first visit is silent; keyboard controls|real facade profiles and visibility hook/,
   creative: /scarf: free preview|approved help remains hidden/,
+  adventure: /.*/,
 }[fixture];
 const base = fixtures[fixture];
+if (!base) throw new Error('D3 adventure requires ADVENTURE_VERIFY_ROOT to be a private temporary directory.');
 
 export default defineConfig({
   ...base,
