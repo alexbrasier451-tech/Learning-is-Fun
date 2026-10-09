@@ -1,0 +1,119 @@
+name: D3 Firefox fixture smoke
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  firefox:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      CI: 'true'
+      NODE_DISABLE_COMPILE_CACHE: '1'
+      D3_EVIDENCE_ROOT: ${{ runner.temp }}/d3-firefox
+      ADULT_VERIFY_ROOT: ${{ runner.temp }}/d3-firefox/adult
+      HALL_VERIFY_ROOT: ${{ runner.temp }}/d3-firefox/hall
+      AUDIO_VERIFY_ROOT: ${{ runner.temp }}/d3-firefox/audio
+      CREATIVE_VERIFY_ROOT: ${{ runner.temp }}/d3-firefox/creative
+      ADULT_REAL_RELEASE: 'yes'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - uses: pnpm/action-setup@v6
+        with:
+          version: '11.25.0'
+          run_install: false
+          cache: false
+      - name: Prepare private evidence
+        run: |
+          node --input-type=module <<'NODE'
+          import { mkdirSync, writeFileSync } from 'node:fs';
+          import { join } from 'node:path';
+          import { platform, release } from 'node:os';
+          for (const key of ['ADULT_VERIFY_ROOT', 'HALL_VERIFY_ROOT', 'AUDIO_VERIFY_ROOT', 'CREATIVE_VERIFY_ROOT']) {
+            mkdirSync(process.env[key], { recursive: true });
+          }
+          writeFileSync(join(process.env.D3_EVIDENCE_ROOT, 'run.json'), JSON.stringify({
+            commit: process.env.GITHUB_SHA, runId: process.env.GITHUB_RUN_ID,
+            attempt: process.env.GITHUB_RUN_ATTEMPT, os: platform(), release: release(),
+            node: process.version, viewport: { width: 1280, height: 720 },
+          }, null, 2));
+          NODE
+      - name: Install frozen dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Typecheck supported projects
+        run: pnpm typecheck
+      - name: Verify bounded discovery
+        run: |
+          for fixture in adult hall audio creative; do
+            D3_FIXTURE="$fixture" pnpm exec playwright test --config tests/fixtures/d3-firefox.config.ts --project D3-Firefox --list --reporter=json > "$D3_EVIDENCE_ROOT/$fixture/discovery.json"
+          done
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          import { join } from 'node:path';
+          const expected = { adult: 3, hall: 3, audio: 2, creative: 2 };
+          const tests = suites => suites.flatMap(suite => [
+            ...(suite.specs ?? []).flatMap(spec => spec.tests ?? []),
+            ...tests(suite.suites ?? []),
+          ]);
+          for (const [fixture, count] of Object.entries(expected)) {
+            const report = JSON.parse(readFileSync(join(process.env.D3_EVIDENCE_ROOT, fixture, 'discovery.json'), 'utf8'));
+            const found = tests(report.suites ?? []);
+            if (report.errors?.length || found.length !== count || found.some(test => test.projectName !== 'D3-Firefox')) {
+              throw new Error(`${fixture}: expected ${count} D3 tests; discovered ${found.length}.`);
+            }
+            console.log(`${fixture}: ${count} D3 tests discovered`);
+          }
+          NODE
+      - name: Install matched Firefox and Linux dependencies
+        run: |
+          pnpm exec playwright --version | tee "$D3_EVIDENCE_ROOT/playwright-version.txt"
+          pnpm exec playwright install --with-deps firefox
+      - name: Run D3 views and routes serially
+        run: |
+          for fixture in adult hall audio creative; do
+            D3_FIXTURE="$fixture" pnpm exec playwright test --config tests/fixtures/d3-firefox.config.ts --project D3-Firefox
+          done
+      - name: Require ten actual passes
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          import { join } from 'node:path';
+          const expected = { adult: 3, hall: 3, audio: 2, creative: 2 };
+          const tests = suites => suites.flatMap(suite => [
+            ...(suite.specs ?? []).flatMap(spec => spec.tests ?? []),
+            ...tests(suite.suites ?? []),
+          ]);
+          for (const [fixture, count] of Object.entries(expected)) {
+            const report = JSON.parse(readFileSync(join(process.env.D3_EVIDENCE_ROOT, fixture, 'results.json'), 'utf8'));
+            const found = tests(report.suites ?? []);
+            if (report.errors?.length || found.length !== count || report.stats?.expected !== count ||
+                report.stats.unexpected !== 0 || report.stats.flaky !== 0 || report.stats.skipped !== 0 ||
+                found.some(test => test.projectName !== 'D3-Firefox' || test.expectedStatus !== 'passed' ||
+                  test.results.length !== 1 || test.results[0].status !== 'passed')) {
+              throw new Error(`${fixture}: requires ${count} actual passes, no skipped, failed or flaky results.`);
+            }
+            console.log(`${fixture}: ${count} actual D3 passes`);
+          }
+          NODE
+      - name: Retain compact evidence including failures
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: d3-firefox-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/d3-firefox/run.json
+            ${{ runner.temp }}/d3-firefox/playwright-version.txt
+            ${{ runner.temp }}/d3-firefox/*/discovery.json
+            ${{ runner.temp }}/d3-firefox/*/results.json
+            ${{ runner.temp }}/d3-firefox/*/playwright/
+          retention-days: 1
+          if-no-files-found: warn
