@@ -1,0 +1,3 @@
+# Preserve retained third-party evidence bytes across Windows and Linux checkouts.
+assets/source/audio/licensed/*.html -text
+assets/source/audio/licensed/creator-license.txt -text

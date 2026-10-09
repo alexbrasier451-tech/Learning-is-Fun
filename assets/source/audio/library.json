@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "production": "licensed-recording",
+  "kind": "loop",
+  "sampleRate": 44100,
+  "loopStartFrame": 0,
+  "loopEndFrame": 3386880,
+  "title": "Sunset Walk",
+  "assetId": "library-loop",
+  "frameCount": 3386880,
+  "sourceTitle": "Sunset Walk",
+  "author": "Kilua Boy (KiluaBoy)",
+  "sourceUrl": "https://opengameart.org/content/sunset-walk-ambient-quiet-sweet-loop",
+  "licence": "CC0 1.0",
+  "masterPath": "assets/source/audio/licensed/sunset-walk.wav",
+  "masterFormat": "pcm16-wav-stereo",
+  "masterSha256": "384b82d97ce9651579944c9741ba61bf7a2519d5d777a59bbe3b79510c9c26bd",
+  "sourceStartFrame": 0,
+  "sourceEndFrame": 3386880,
+  "masterGain": 0.16,
+  "loopEvidence": "Complete creator-supplied 76.8-second WAV; smpl start 0 and inclusive end 3386879 match the complete data chunk. No shortening, tempo change or new seam fade."
+}

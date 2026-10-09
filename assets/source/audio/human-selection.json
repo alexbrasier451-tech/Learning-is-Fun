@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-09",
+  "source": "Human feedback conveyed by Controller in this audio-owner chat",
+  "heardArtifact": "Replacement music comparison",
+  "quote": "Much better—use these tracks",
+  "accepted": ["Market on the Sea — Jonathan Shaw", "Sunset Walk — Kilua Boy / KiluaBoy"],
+  "scope": "Chosen pair / musical preference accepted; preserve these tracks",
+  "notSupplied": ["device", "player", "volume", "complete-theme observations", "two joins per theme", "individual cue observations", "integrated speech-mix observations"],
+  "nextApproval": "No additional selection approval requested now; detailed acoustic and published controls evidence belongs to integration"
+}

@@ -1,0 +1,128 @@
+{
+  "browser": "Headless Chromium 156.0.8078.4",
+  "method": "Native HTML media metadata and AudioContext.decodeAudioData at requested 44100 Hz. No audible playback or loopback assessment.",
+  "players": [
+    {
+      "src": "music-preview.wav",
+      "volume": 1,
+      "paused": true,
+      "autoplay": false,
+      "error": null
+    },
+    {
+      "src": "audition.wav",
+      "volume": 1,
+      "paused": true,
+      "autoplay": false,
+      "error": null
+    },
+    {
+      "src": "../../../public/assets/audio/village-loop.wav",
+      "volume": 0.25,
+      "paused": true,
+      "autoplay": false,
+      "error": null
+    },
+    {
+      "src": "../../../public/assets/audio/library-loop.wav",
+      "volume": 0.25,
+      "paused": true,
+      "autoplay": false,
+      "error": null
+    },
+    {
+      "src": "../../../public/assets/audio/pickup.wav",
+      "volume": 0.5,
+      "paused": true,
+      "autoplay": false,
+      "error": null
+    },
+    {
+      "src": "../../../public/assets/audio/placement.wav",
+      "volume": 0.5,
+      "paused": true,
+      "autoplay": false,
+      "error": null
+    },
+    {
+      "src": "../../../public/assets/audio/support.wav",
+      "volume": 0.5,
+      "paused": true,
+      "autoplay": false,
+      "error": null
+    },
+    {
+      "src": "../../../public/assets/audio/success.wav",
+      "volume": 0.5,
+      "paused": true,
+      "autoplay": false,
+      "error": null
+    },
+    {
+      "src": "../../../public/assets/audio/restoration.wav",
+      "volume": 0.5,
+      "paused": true,
+      "autoplay": false,
+      "error": null
+    }
+  ],
+  "decoded": [
+    {
+      "assetId": "village-loop",
+      "sampleRate": 44100,
+      "frameCount": 3086846,
+      "channels": 1,
+      "seconds": 69.99650793650794,
+      "peak": 0.2296822965145111
+    },
+    {
+      "assetId": "library-loop",
+      "sampleRate": 44100,
+      "frameCount": 3386880,
+      "channels": 1,
+      "seconds": 76.8,
+      "peak": 0.134124755859375
+    },
+    {
+      "assetId": "pickup",
+      "sampleRate": 44100,
+      "frameCount": 37485,
+      "channels": 1,
+      "seconds": 0.85,
+      "peak": 0.13989683985710144
+    },
+    {
+      "assetId": "placement",
+      "sampleRate": 44100,
+      "frameCount": 35280,
+      "channels": 1,
+      "seconds": 0.8,
+      "peak": 0.11801507323980331
+    },
+    {
+      "assetId": "support",
+      "sampleRate": 44100,
+      "frameCount": 72765,
+      "channels": 1,
+      "seconds": 1.65,
+      "peak": 0.09814453125
+    },
+    {
+      "assetId": "success",
+      "sampleRate": 44100,
+      "frameCount": 94815,
+      "channels": 1,
+      "seconds": 2.15,
+      "peak": 0.14764854311943054
+    },
+    {
+      "assetId": "restoration",
+      "sampleRate": 44100,
+      "frameCount": 198450,
+      "channels": 1,
+      "seconds": 4.5,
+      "peak": 0.14337158203125
+    }
+  ],
+  "acousticAcceptance": "UNVERIFIED"
+}

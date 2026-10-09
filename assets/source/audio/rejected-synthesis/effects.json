@@ -1,0 +1,308 @@
+{
+  "schemaVersion": 1,
+  "sampleRate": 44100,
+  "tempo": 60,
+  "instruments": {
+    "pluck": {
+      "partials": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0.2
+        ],
+        [
+          3,
+          0.055
+        ]
+      ],
+      "attackSeconds": 0.009,
+      "releaseSeconds": 0.32,
+      "decayPerSecond": 2.4,
+      "noise": 0
+    },
+    "bell": {
+      "partials": [
+        [
+          1,
+          1
+        ],
+        [
+          2.002,
+          0.13
+        ],
+        [
+          3.99,
+          0.022
+        ]
+      ],
+      "attackSeconds": 0.018,
+      "releaseSeconds": 0.7,
+      "decayPerSecond": 1.65,
+      "noise": 0
+    },
+    "warm": {
+      "partials": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0.13
+        ],
+        [
+          3,
+          0.035
+        ]
+      ],
+      "attackSeconds": 0.42,
+      "releaseSeconds": 1.15,
+      "decayPerSecond": 0.09,
+      "noise": 0
+    },
+    "wood": {
+      "partials": [
+        [
+          1,
+          1
+        ],
+        [
+          1.48,
+          0.1
+        ]
+      ],
+      "attackSeconds": 0.006,
+      "releaseSeconds": 0.07,
+      "decayPerSecond": 26,
+      "noise": 0.08
+    }
+  },
+  "reverb": [
+    {
+      "seconds": 0.087,
+      "gain": 0.1
+    },
+    {
+      "seconds": 0.193,
+      "gain": 0.04
+    }
+  ],
+  "cues": [
+    {
+      "assetId": "pickup",
+      "kind": "effect",
+      "frameCount": 37485,
+      "masterGain": 0.6,
+      "description": "Small open fifth, a light object becoming held.",
+      "events": [
+        {
+          "beat": 0,
+          "note": 74,
+          "duration": 0.18,
+          "instrument": "pluck",
+          "level": 0.2,
+          "seed": 9001
+        },
+        {
+          "beat": 0.1,
+          "note": 81,
+          "duration": 0.18,
+          "instrument": "pluck",
+          "level": 0.115,
+          "seed": 16920
+        }
+      ]
+    },
+    {
+      "assetId": "placement",
+      "kind": "effect",
+      "frameCount": 35280,
+      "masterGain": 0.6,
+      "description": "Low wooden touch and settled open fifth.",
+      "events": [
+        {
+          "beat": 0,
+          "note": 57,
+          "duration": 0.1,
+          "instrument": "wood",
+          "level": 0.09,
+          "seed": 9001
+        },
+        {
+          "beat": 0.025,
+          "note": 62,
+          "duration": 0.16,
+          "instrument": "pluck",
+          "level": 0.19,
+          "seed": 16920
+        },
+        {
+          "beat": 0.055,
+          "note": 69,
+          "duration": 0.14,
+          "instrument": "pluck",
+          "level": 0.075,
+          "seed": 24839
+        }
+      ]
+    },
+    {
+      "assetId": "support",
+      "kind": "effect",
+      "frameCount": 72765,
+      "masterGain": 0.6,
+      "description": "Gentle turning phrase with an open ending; no failure buzzer.",
+      "events": [
+        {
+          "beat": 0,
+          "note": 66,
+          "duration": 0.35,
+          "instrument": "pluck",
+          "level": 0.16,
+          "seed": 9001
+        },
+        {
+          "beat": 0.28,
+          "note": 64,
+          "duration": 0.4,
+          "instrument": "pluck",
+          "level": 0.12,
+          "seed": 16920
+        },
+        {
+          "beat": 0.55,
+          "note": 69,
+          "duration": 0.42,
+          "instrument": "pluck",
+          "level": 0.12,
+          "seed": 24839
+        }
+      ]
+    },
+    {
+      "assetId": "success",
+      "kind": "effect",
+      "frameCount": 94815,
+      "masterGain": 0.6,
+      "description": "Compact shared-motif arrival, without a fanfare.",
+      "events": [
+        {
+          "beat": 0,
+          "note": 66,
+          "duration": 0.36,
+          "instrument": "pluck",
+          "level": 0.15,
+          "seed": 9001
+        },
+        {
+          "beat": 0.2,
+          "note": 69,
+          "duration": 0.4,
+          "instrument": "pluck",
+          "level": 0.135,
+          "seed": 16920
+        },
+        {
+          "beat": 0.43,
+          "note": 74,
+          "duration": 0.62,
+          "instrument": "bell",
+          "level": 0.12,
+          "seed": 24839
+        },
+        {
+          "beat": 0.44,
+          "note": 62,
+          "duration": 0.55,
+          "instrument": "pluck",
+          "level": 0.095,
+          "seed": 32758
+        }
+      ]
+    },
+    {
+      "assetId": "restoration",
+      "kind": "effect",
+      "frameCount": 198450,
+      "masterGain": 0.6,
+      "description": "Shared motif opens into D; also the village welcome cue.",
+      "events": [
+        {
+          "beat": 0,
+          "note": 50,
+          "duration": 2.1,
+          "instrument": "warm",
+          "level": 0.08,
+          "seed": 9001
+        },
+        {
+          "beat": 0.025,
+          "note": 57,
+          "duration": 2.1,
+          "instrument": "warm",
+          "level": 0.05,
+          "seed": 16920
+        },
+        {
+          "beat": 0.05,
+          "note": 62,
+          "duration": 2.1,
+          "instrument": "warm",
+          "level": 0.045,
+          "seed": 24839
+        },
+        {
+          "beat": 0.12,
+          "note": 66,
+          "duration": 0.55,
+          "instrument": "pluck",
+          "level": 0.14,
+          "seed": 32758
+        },
+        {
+          "beat": 0.5,
+          "note": 69,
+          "duration": 0.55,
+          "instrument": "pluck",
+          "level": 0.12,
+          "seed": 40677
+        },
+        {
+          "beat": 0.9,
+          "note": 71,
+          "duration": 0.48,
+          "instrument": "pluck",
+          "level": 0.1,
+          "seed": 48596
+        },
+        {
+          "beat": 1.35,
+          "note": 69,
+          "duration": 0.48,
+          "instrument": "pluck",
+          "level": 0.095,
+          "seed": 56515
+        },
+        {
+          "beat": 1.85,
+          "note": 74,
+          "duration": 0.9,
+          "instrument": "bell",
+          "level": 0.12,
+          "seed": 64434
+        },
+        {
+          "beat": 2.1,
+          "note": 66,
+          "duration": 0.65,
+          "instrument": "pluck",
+          "level": 0.065,
+          "seed": 72353
+        }
+      ]
+    }
+  ]
+}

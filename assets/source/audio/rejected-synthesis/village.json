@@ -1,0 +1,1355 @@
+{
+  "schemaVersion": 1,
+  "title": "The Green Wakes Slowly",
+  "assetId": "village-loop",
+  "kind": "loop",
+  "sampleRate": 44100,
+  "frameCount": 3136000,
+  "loopStartFrame": 0,
+  "loopEndFrame": 3136000,
+  "tempo": 54,
+  "beatsPerBar": 4,
+  "totalBeats": 64,
+  "key": "D major; shared F#–A–B / A–E motif",
+  "masterGain": 0.82,
+  "instruments": {
+    "pluck": {
+      "partials": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0.2
+        ],
+        [
+          3,
+          0.055
+        ]
+      ],
+      "attackSeconds": 0.009,
+      "releaseSeconds": 0.32,
+      "decayPerSecond": 2.4,
+      "noise": 0
+    },
+    "bell": {
+      "partials": [
+        [
+          1,
+          1
+        ],
+        [
+          2.002,
+          0.13
+        ],
+        [
+          3.99,
+          0.022
+        ]
+      ],
+      "attackSeconds": 0.018,
+      "releaseSeconds": 0.7,
+      "decayPerSecond": 1.65,
+      "noise": 0
+    },
+    "warm": {
+      "partials": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0.13
+        ],
+        [
+          3,
+          0.035
+        ]
+      ],
+      "attackSeconds": 0.42,
+      "releaseSeconds": 1.15,
+      "decayPerSecond": 0.09,
+      "noise": 0
+    },
+    "wood": {
+      "partials": [
+        [
+          1,
+          1
+        ],
+        [
+          1.48,
+          0.1
+        ]
+      ],
+      "attackSeconds": 0.006,
+      "releaseSeconds": 0.07,
+      "decayPerSecond": 26,
+      "noise": 0.08
+    }
+  },
+  "reverb": [
+    {
+      "seconds": 0.127,
+      "gain": 0.12
+    },
+    {
+      "seconds": 0.271,
+      "gain": 0.065
+    },
+    {
+      "seconds": 0.433,
+      "gain": 0.035
+    }
+  ],
+  "sections": [
+    {
+      "startBar": 1,
+      "bars": 4,
+      "description": "Question; Dadd9 to Bm7, motif with breathing room"
+    },
+    {
+      "startBar": 5,
+      "bars": 4,
+      "description": "Answer; Gmaj7/6 through suspended A to A"
+    },
+    {
+      "startBar": 9,
+      "bars": 4,
+      "description": "Variation; higher D answer and quicker harmonic movement"
+    },
+    {
+      "startBar": 13,
+      "bars": 4,
+      "description": "Return; G to A, descending motif to Dadd9, sustained turnaround"
+    }
+  ],
+  "events": [
+    {
+      "beat": 0,
+      "note": 50,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.067,
+      "seed": 1009
+    },
+    {
+      "beat": 0.027,
+      "note": 57,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 8928
+    },
+    {
+      "beat": 0.054,
+      "note": 61,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 16847
+    },
+    {
+      "beat": 0.081,
+      "note": 64,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 24766
+    },
+    {
+      "beat": 0.5,
+      "note": 66,
+      "duration": 1,
+      "instrument": "pluck",
+      "level": 0.15,
+      "seed": 32685
+    },
+    {
+      "beat": 2,
+      "note": 69,
+      "duration": 0.65,
+      "instrument": "pluck",
+      "level": 0.12449999999999999,
+      "seed": 40604
+    },
+    {
+      "beat": 3,
+      "note": 71,
+      "duration": 0.7,
+      "instrument": "pluck",
+      "level": 0.12449999999999999,
+      "seed": 48523
+    },
+    {
+      "beat": 1.35,
+      "note": 61,
+      "duration": 0.7,
+      "instrument": "pluck",
+      "level": 0.05,
+      "seed": 56442
+    },
+    {
+      "beat": 3.25,
+      "note": 64,
+      "duration": 0.5,
+      "instrument": "pluck",
+      "level": 0.042,
+      "seed": 64361
+    },
+    {
+      "beat": 2.6,
+      "note": 74,
+      "duration": 1.2,
+      "instrument": "bell",
+      "level": 0.044,
+      "seed": 72280
+    },
+    {
+      "beat": 0,
+      "note": 57,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.035,
+      "seed": 80199
+    },
+    {
+      "beat": 2,
+      "note": 62,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.025,
+      "seed": 88118
+    },
+    {
+      "beat": 4,
+      "note": 50,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.067,
+      "seed": 96037
+    },
+    {
+      "beat": 4.027,
+      "note": 57,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 103956
+    },
+    {
+      "beat": 4.054,
+      "note": 61,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 111875
+    },
+    {
+      "beat": 4.081,
+      "note": 64,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 119794
+    },
+    {
+      "beat": 4.5,
+      "note": 69,
+      "duration": 1.5,
+      "instrument": "pluck",
+      "level": 0.15,
+      "seed": 127713
+    },
+    {
+      "beat": 6.75,
+      "note": 64,
+      "duration": 0.75,
+      "instrument": "pluck",
+      "level": 0.12449999999999999,
+      "seed": 135632
+    },
+    {
+      "beat": 5.35,
+      "note": 61,
+      "duration": 0.7,
+      "instrument": "pluck",
+      "level": 0.05,
+      "seed": 143551
+    },
+    {
+      "beat": 7.25,
+      "note": 64,
+      "duration": 0.5,
+      "instrument": "pluck",
+      "level": 0.042,
+      "seed": 151470
+    },
+    {
+      "beat": 4,
+      "note": 57,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.035,
+      "seed": 159389
+    },
+    {
+      "beat": 6,
+      "note": 62,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.025,
+      "seed": 167308
+    },
+    {
+      "beat": 8,
+      "note": 47,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.067,
+      "seed": 175227
+    },
+    {
+      "beat": 8.027,
+      "note": 54,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 183146
+    },
+    {
+      "beat": 8.054,
+      "note": 57,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 191065
+    },
+    {
+      "beat": 8.081,
+      "note": 62,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 198984
+    },
+    {
+      "beat": 8.5,
+      "note": 66,
+      "duration": 0.8,
+      "instrument": "pluck",
+      "level": 0.15,
+      "seed": 206903
+    },
+    {
+      "beat": 9.75,
+      "note": 62,
+      "duration": 1.4,
+      "instrument": "pluck",
+      "level": 0.12449999999999999,
+      "seed": 214822
+    },
+    {
+      "beat": 9.35,
+      "note": 57,
+      "duration": 0.7,
+      "instrument": "pluck",
+      "level": 0.05,
+      "seed": 222741
+    },
+    {
+      "beat": 11.25,
+      "note": 62,
+      "duration": 0.5,
+      "instrument": "pluck",
+      "level": 0.042,
+      "seed": 230660
+    },
+    {
+      "beat": 8,
+      "note": 57,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.035,
+      "seed": 238579
+    },
+    {
+      "beat": 10,
+      "note": 62,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.025,
+      "seed": 246498
+    },
+    {
+      "beat": 12,
+      "note": 47,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.067,
+      "seed": 254417
+    },
+    {
+      "beat": 12.027,
+      "note": 54,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 262336
+    },
+    {
+      "beat": 12.054,
+      "note": 57,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 270255
+    },
+    {
+      "beat": 12.081,
+      "note": 62,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 278174
+    },
+    {
+      "beat": 13,
+      "note": 64,
+      "duration": 1,
+      "instrument": "pluck",
+      "level": 0.15,
+      "seed": 286093
+    },
+    {
+      "beat": 14.5,
+      "note": 66,
+      "duration": 0.8,
+      "instrument": "pluck",
+      "level": 0.12449999999999999,
+      "seed": 294012
+    },
+    {
+      "beat": 13.35,
+      "note": 57,
+      "duration": 0.7,
+      "instrument": "pluck",
+      "level": 0.05,
+      "seed": 301931
+    },
+    {
+      "beat": 16,
+      "note": 43,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.067,
+      "seed": 309850
+    },
+    {
+      "beat": 16.027,
+      "note": 55,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 317769
+    },
+    {
+      "beat": 16.054,
+      "note": 59,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 325688
+    },
+    {
+      "beat": 16.081,
+      "note": 66,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 333607
+    },
+    {
+      "beat": 16.5,
+      "note": 67,
+      "duration": 1.2,
+      "instrument": "pluck",
+      "level": 0.15,
+      "seed": 341526
+    },
+    {
+      "beat": 18.25,
+      "note": 71,
+      "duration": 1,
+      "instrument": "pluck",
+      "level": 0.12449999999999999,
+      "seed": 349445
+    },
+    {
+      "beat": 17.35,
+      "note": 59,
+      "duration": 0.7,
+      "instrument": "pluck",
+      "level": 0.05,
+      "seed": 357364
+    },
+    {
+      "beat": 19.25,
+      "note": 66,
+      "duration": 0.5,
+      "instrument": "pluck",
+      "level": 0.042,
+      "seed": 365283
+    },
+    {
+      "beat": 18.6,
+      "note": 78,
+      "duration": 1.2,
+      "instrument": "bell",
+      "level": 0.044,
+      "seed": 373202
+    },
+    {
+      "beat": 16,
+      "note": 57,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.035,
+      "seed": 381121
+    },
+    {
+      "beat": 18,
+      "note": 62,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.025,
+      "seed": 389040
+    },
+    {
+      "beat": 20,
+      "note": 43,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.067,
+      "seed": 396959
+    },
+    {
+      "beat": 20.027,
+      "note": 55,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 404878
+    },
+    {
+      "beat": 20.054,
+      "note": 59,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 412797
+    },
+    {
+      "beat": 20.081,
+      "note": 64,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 420716
+    },
+    {
+      "beat": 21,
+      "note": 69,
+      "duration": 0.8,
+      "instrument": "pluck",
+      "level": 0.15,
+      "seed": 428635
+    },
+    {
+      "beat": 22.5,
+      "note": 66,
+      "duration": 1,
+      "instrument": "pluck",
+      "level": 0.12449999999999999,
+      "seed": 436554
+    },
+    {
+      "beat": 21.35,
+      "note": 59,
+      "duration": 0.7,
+      "instrument": "pluck",
+      "level": 0.05,
+      "seed": 444473
+    },
+    {
+      "beat": 23.25,
+      "note": 64,
+      "duration": 0.5,
+      "instrument": "pluck",
+      "level": 0.042,
+      "seed": 452392
+    },
+    {
+      "beat": 20,
+      "note": 57,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.035,
+      "seed": 460311
+    },
+    {
+      "beat": 22,
+      "note": 62,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.025,
+      "seed": 468230
+    },
+    {
+      "beat": 24,
+      "note": 45,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.067,
+      "seed": 476149
+    },
+    {
+      "beat": 24.027,
+      "note": 57,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 484068
+    },
+    {
+      "beat": 24.054,
+      "note": 59,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 491987
+    },
+    {
+      "beat": 24.081,
+      "note": 64,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 499906
+    },
+    {
+      "beat": 24.5,
+      "note": 64,
+      "duration": 1.3,
+      "instrument": "pluck",
+      "level": 0.15,
+      "seed": 507825
+    },
+    {
+      "beat": 26.5,
+      "note": 62,
+      "duration": 0.8,
+      "instrument": "pluck",
+      "level": 0.12449999999999999,
+      "seed": 515744
+    },
+    {
+      "beat": 25.35,
+      "note": 59,
+      "duration": 0.7,
+      "instrument": "pluck",
+      "level": 0.05,
+      "seed": 523663
+    },
+    {
+      "beat": 27.25,
+      "note": 64,
+      "duration": 0.5,
+      "instrument": "pluck",
+      "level": 0.042,
+      "seed": 531582
+    },
+    {
+      "beat": 24,
+      "note": 57,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.035,
+      "seed": 539501
+    },
+    {
+      "beat": 26,
+      "note": 62,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.025,
+      "seed": 547420
+    },
+    {
+      "beat": 28,
+      "note": 45,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.067,
+      "seed": 555339
+    },
+    {
+      "beat": 28.027,
+      "note": 57,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 563258
+    },
+    {
+      "beat": 28.054,
+      "note": 61,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 571177
+    },
+    {
+      "beat": 28.081,
+      "note": 64,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 579096
+    },
+    {
+      "beat": 29,
+      "note": 61,
+      "duration": 1,
+      "instrument": "pluck",
+      "level": 0.15,
+      "seed": 587015
+    },
+    {
+      "beat": 30.5,
+      "note": 64,
+      "duration": 0.7,
+      "instrument": "pluck",
+      "level": 0.12449999999999999,
+      "seed": 594934
+    },
+    {
+      "beat": 29.35,
+      "note": 61,
+      "duration": 0.7,
+      "instrument": "pluck",
+      "level": 0.05,
+      "seed": 602853
+    },
+    {
+      "beat": 32,
+      "note": 50,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.067,
+      "seed": 610772
+    },
+    {
+      "beat": 32.027,
+      "note": 57,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 618691
+    },
+    {
+      "beat": 32.054,
+      "note": 61,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 626610
+    },
+    {
+      "beat": 32.081,
+      "note": 66,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 634529
+    },
+    {
+      "beat": 32.5,
+      "note": 66,
+      "duration": 0.8,
+      "instrument": "pluck",
+      "level": 0.15,
+      "seed": 642448
+    },
+    {
+      "beat": 33.75,
+      "note": 69,
+      "duration": 0.65,
+      "instrument": "pluck",
+      "level": 0.12449999999999999,
+      "seed": 650367
+    },
+    {
+      "beat": 34.75,
+      "note": 74,
+      "duration": 0.8,
+      "instrument": "pluck",
+      "level": 0.12449999999999999,
+      "seed": 658286
+    },
+    {
+      "beat": 33.35,
+      "note": 61,
+      "duration": 0.7,
+      "instrument": "pluck",
+      "level": 0.05,
+      "seed": 666205
+    },
+    {
+      "beat": 35.25,
+      "note": 66,
+      "duration": 0.5,
+      "instrument": "pluck",
+      "level": 0.042,
+      "seed": 674124
+    },
+    {
+      "beat": 34.6,
+      "note": 76,
+      "duration": 1.2,
+      "instrument": "bell",
+      "level": 0.044,
+      "seed": 682043
+    },
+    {
+      "beat": 32,
+      "note": 57,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.035,
+      "seed": 689962
+    },
+    {
+      "beat": 34,
+      "note": 62,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.025,
+      "seed": 697881
+    },
+    {
+      "beat": 36,
+      "note": 47,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.067,
+      "seed": 705800
+    },
+    {
+      "beat": 36.027,
+      "note": 54,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 713719
+    },
+    {
+      "beat": 36.054,
+      "note": 57,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 721638
+    },
+    {
+      "beat": 36.081,
+      "note": 62,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 729557
+    },
+    {
+      "beat": 37,
+      "note": 71,
+      "duration": 1.5,
+      "instrument": "pluck",
+      "level": 0.15,
+      "seed": 737476
+    },
+    {
+      "beat": 39,
+      "note": 69,
+      "duration": 0.6,
+      "instrument": "pluck",
+      "level": 0.12449999999999999,
+      "seed": 745395
+    },
+    {
+      "beat": 37.35,
+      "note": 57,
+      "duration": 0.7,
+      "instrument": "pluck",
+      "level": 0.05,
+      "seed": 753314
+    },
+    {
+      "beat": 39.25,
+      "note": 62,
+      "duration": 0.5,
+      "instrument": "pluck",
+      "level": 0.042,
+      "seed": 761233
+    },
+    {
+      "beat": 36,
+      "note": 57,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.035,
+      "seed": 769152
+    },
+    {
+      "beat": 38,
+      "note": 62,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.025,
+      "seed": 777071
+    },
+    {
+      "beat": 40,
+      "note": 43,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.067,
+      "seed": 784990
+    },
+    {
+      "beat": 40.027,
+      "note": 55,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 792909
+    },
+    {
+      "beat": 40.054,
+      "note": 59,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 800828
+    },
+    {
+      "beat": 40.081,
+      "note": 64,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 808747
+    },
+    {
+      "beat": 40.5,
+      "note": 67,
+      "duration": 1.5,
+      "instrument": "pluck",
+      "level": 0.15,
+      "seed": 816666
+    },
+    {
+      "beat": 42.75,
+      "note": 66,
+      "duration": 0.8,
+      "instrument": "pluck",
+      "level": 0.12449999999999999,
+      "seed": 824585
+    },
+    {
+      "beat": 41.35,
+      "note": 59,
+      "duration": 0.7,
+      "instrument": "pluck",
+      "level": 0.05,
+      "seed": 832504
+    },
+    {
+      "beat": 43.25,
+      "note": 64,
+      "duration": 0.5,
+      "instrument": "pluck",
+      "level": 0.042,
+      "seed": 840423
+    },
+    {
+      "beat": 40,
+      "note": 57,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.035,
+      "seed": 848342
+    },
+    {
+      "beat": 42,
+      "note": 62,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.025,
+      "seed": 856261
+    },
+    {
+      "beat": 44,
+      "note": 45,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.067,
+      "seed": 864180
+    },
+    {
+      "beat": 44.027,
+      "note": 57,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 872099
+    },
+    {
+      "beat": 44.054,
+      "note": 59,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 880018
+    },
+    {
+      "beat": 44.081,
+      "note": 64,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 887937
+    },
+    {
+      "beat": 44.75,
+      "note": 64,
+      "duration": 1,
+      "instrument": "pluck",
+      "level": 0.15,
+      "seed": 895856
+    },
+    {
+      "beat": 46.5,
+      "note": 69,
+      "duration": 0.9,
+      "instrument": "pluck",
+      "level": 0.12449999999999999,
+      "seed": 903775
+    },
+    {
+      "beat": 45.35,
+      "note": 59,
+      "duration": 0.7,
+      "instrument": "pluck",
+      "level": 0.05,
+      "seed": 911694
+    },
+    {
+      "beat": 48,
+      "note": 43,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.067,
+      "seed": 919613
+    },
+    {
+      "beat": 48.027,
+      "note": 55,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 927532
+    },
+    {
+      "beat": 48.054,
+      "note": 59,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 935451
+    },
+    {
+      "beat": 48.081,
+      "note": 66,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 943370
+    },
+    {
+      "beat": 48.5,
+      "note": 71,
+      "duration": 1.1,
+      "instrument": "pluck",
+      "level": 0.15,
+      "seed": 951289
+    },
+    {
+      "beat": 50.25,
+      "note": 69,
+      "duration": 1,
+      "instrument": "pluck",
+      "level": 0.12449999999999999,
+      "seed": 959208
+    },
+    {
+      "beat": 49.35,
+      "note": 59,
+      "duration": 0.7,
+      "instrument": "pluck",
+      "level": 0.05,
+      "seed": 967127
+    },
+    {
+      "beat": 51.25,
+      "note": 66,
+      "duration": 0.5,
+      "instrument": "pluck",
+      "level": 0.042,
+      "seed": 975046
+    },
+    {
+      "beat": 50.6,
+      "note": 74,
+      "duration": 1.2,
+      "instrument": "bell",
+      "level": 0.044,
+      "seed": 982965
+    },
+    {
+      "beat": 48,
+      "note": 57,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.035,
+      "seed": 990884
+    },
+    {
+      "beat": 50,
+      "note": 62,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.025,
+      "seed": 998803
+    },
+    {
+      "beat": 52,
+      "note": 45,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.067,
+      "seed": 1006722
+    },
+    {
+      "beat": 52.027,
+      "note": 57,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 1014641
+    },
+    {
+      "beat": 52.054,
+      "note": 61,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 1022560
+    },
+    {
+      "beat": 52.081,
+      "note": 64,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 1030479
+    },
+    {
+      "beat": 52.75,
+      "note": 64,
+      "duration": 1.2,
+      "instrument": "pluck",
+      "level": 0.15,
+      "seed": 1038398
+    },
+    {
+      "beat": 54.5,
+      "note": 61,
+      "duration": 0.8,
+      "instrument": "pluck",
+      "level": 0.12449999999999999,
+      "seed": 1046317
+    },
+    {
+      "beat": 53.35,
+      "note": 61,
+      "duration": 0.7,
+      "instrument": "pluck",
+      "level": 0.05,
+      "seed": 1054236
+    },
+    {
+      "beat": 55.25,
+      "note": 64,
+      "duration": 0.5,
+      "instrument": "pluck",
+      "level": 0.042,
+      "seed": 1062155
+    },
+    {
+      "beat": 52,
+      "note": 57,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.035,
+      "seed": 1070074
+    },
+    {
+      "beat": 54,
+      "note": 62,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.025,
+      "seed": 1077993
+    },
+    {
+      "beat": 56,
+      "note": 50,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.067,
+      "seed": 1085912
+    },
+    {
+      "beat": 56.027,
+      "note": 57,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 1093831
+    },
+    {
+      "beat": 56.054,
+      "note": 61,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 1101750
+    },
+    {
+      "beat": 56.081,
+      "note": 64,
+      "duration": 3.35,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 1109669
+    },
+    {
+      "beat": 56.5,
+      "note": 66,
+      "duration": 1,
+      "instrument": "pluck",
+      "level": 0.15,
+      "seed": 1117588
+    },
+    {
+      "beat": 58,
+      "note": 64,
+      "duration": 0.8,
+      "instrument": "pluck",
+      "level": 0.12449999999999999,
+      "seed": 1125507
+    },
+    {
+      "beat": 57.35,
+      "note": 61,
+      "duration": 0.7,
+      "instrument": "pluck",
+      "level": 0.05,
+      "seed": 1133426
+    },
+    {
+      "beat": 59.25,
+      "note": 64,
+      "duration": 0.5,
+      "instrument": "pluck",
+      "level": 0.042,
+      "seed": 1141345
+    },
+    {
+      "beat": 56,
+      "note": 57,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.035,
+      "seed": 1149264
+    },
+    {
+      "beat": 58,
+      "note": 62,
+      "duration": 0.1,
+      "instrument": "wood",
+      "level": 0.025,
+      "seed": 1157183
+    },
+    {
+      "beat": 60,
+      "note": 50,
+      "duration": 4.2,
+      "instrument": "warm",
+      "level": 0.067,
+      "seed": 1165102
+    },
+    {
+      "beat": 60.027,
+      "note": 57,
+      "duration": 4.2,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 1173021
+    },
+    {
+      "beat": 60.054,
+      "note": 62,
+      "duration": 4.2,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 1180940
+    },
+    {
+      "beat": 60.081,
+      "note": 64,
+      "duration": 4.2,
+      "instrument": "warm",
+      "level": 0.04,
+      "seed": 1188859
+    },
+    {
+      "beat": 60.5,
+      "note": 62,
+      "duration": 1.8,
+      "instrument": "pluck",
+      "level": 0.15,
+      "seed": 1196778
+    },
+    {
+      "beat": 61.35,
+      "note": 62,
+      "duration": 0.7,
+      "instrument": "pluck",
+      "level": 0.05,
+      "seed": 1204697
+    }
+  ]
+}

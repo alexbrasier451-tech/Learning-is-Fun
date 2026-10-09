@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-09",
+  "authority": "Controller explicitly released DEP-037 in this chat before the register write.",
+  "unrelatedRecords": 64,
+  "nonAudioRecordsSha256": "198263dd17c0d6b00e6e28854cf1e990172ccdf5292bc3c9f5c389113bb07bd1",
+  "registerContractSha256": "a7cc6ebb87bf8829a3ccdff1734a14108a807e0d151a71a3653c8b5aaa00dad6",
+  "sameBeforeAfter": true
+}

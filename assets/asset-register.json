@@ -1599,127 +1599,179 @@
       "id": "village-loop",
       "kind": "audio-loop",
       "milestone": "M1",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/audio/village.json",
+        "assets/source/audio/licensed/market-on-the-sea-loop.f32",
+        "assets/source/audio/licensed/market-on-the-sea.mp3",
+        "assets/source/audio/licensed/decode-sources.mjs",
         "tools/render-audio.mjs"
       ],
       "runtimePath": "assets/audio/village-loop.wav",
-      "author": "Unassigned (WP02-03A)",
+      "author": "Jonathan Shaw (InspectorJ)",
       "permission": {
-        "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original note/envelope composition and local PCM synthesis required; retain creator permission. No external samples assumed."
-      }
+        "kind": "reused",
+        "licence": "CC BY",
+        "version": "3.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+        "retainedLicencePath": "assets/source/audio/licensed/market-on-the-sea-LICENSE.md"
+      },
+      "attribution": "\"Market on the Sea\" Composed by Jonathan Shaw (www.jshaw.co.uk). CC BY 3.0.",
+      "modifications": "Complete 69.996508-second repeated phrase extracted from the second pass of the supplied MP3; mono 44.1 kHz PCM16, gain 0.35. No tempo/pitch change, added instruments, seam crossfade or inserted silence.",
+      "sampleRate": 44100,
+      "frameCount": 3086846,
+      "bytes": 6173736,
+      "loopStartFrame": 0,
+      "loopEndFrame": 3086846,
+      "sourceUrl": "https://opengameart.org/content/market-on-the-sea-rpg-orchestral-essentials-village-music"
     },
     {
       "id": "library-loop",
       "kind": "audio-loop",
       "milestone": "M1",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/audio/library.json",
+        "assets/source/audio/licensed/sunset-walk.wav",
         "tools/render-audio.mjs"
       ],
       "runtimePath": "assets/audio/library-loop.wav",
-      "author": "Unassigned (WP02-03A)",
+      "author": "Kilua Boy (KiluaBoy)",
       "permission": {
-        "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original note/envelope composition and local PCM synthesis required; retain creator permission. No external samples assumed."
-      }
+        "kind": "reused",
+        "licence": "CC0",
+        "version": "1.0",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "retainedLicencePath": "assets/source/audio/licensed/sunset-walk-LICENSE.md"
+      },
+      "attribution": "\"Sunset Walk\" by Kilua Boy / KiluaBoy. CC0 1.0 Universal.",
+      "modifications": "Complete creator-supplied 76.8-second loop; stereo mean downmix to mono 44.1 kHz PCM16, gain 0.16. No trimming, tempo/pitch change, seam crossfade or inserted silence.",
+      "sampleRate": 44100,
+      "frameCount": 3386880,
+      "bytes": 6773804,
+      "loopStartFrame": 0,
+      "loopEndFrame": 3386880,
+      "sourceUrl": "https://opengameart.org/content/sunset-walk-ambient-quiet-sweet-loop"
     },
     {
       "id": "pickup",
       "kind": "audio-effect",
       "milestone": "M1",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/audio/effects.json",
         "tools/render-audio.mjs"
       ],
       "runtimePath": "assets/audio/pickup.wav",
-      "author": "Unassigned (WP02-03A)",
+      "author": "OpenAI Codex, original score and offline synthesis for the project requester",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original note/envelope composition and local PCM synthesis required; retain creator permission. No external samples assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (commissioned AI-generated output)",
+        "statement": "Original score, envelopes and local PCM synthesis produced under the human-authorized WP02-03A instruction for project use, modification and distribution. No third-party samples or recordings; no CC0/GPL dedication, human-authorship, exclusivity or copyright-eligibility claim.",
+        "evidencePath": "assets/source/audio/PROVENANCE.md"
+      },
+      "attribution": "Original soundtrack created with OpenAI Codex for Learning is Fun.",
+      "modifications": "Original JSON score rendered directly to mono 44.1 kHz 16-bit PCM; loop releases and finite reflections folded into the phrase period.",
+      "sampleRate": 44100,
+      "frameCount": 37485,
+      "bytes": 75014
     },
     {
       "id": "placement",
       "kind": "audio-effect",
       "milestone": "M1",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/audio/effects.json",
         "tools/render-audio.mjs"
       ],
       "runtimePath": "assets/audio/placement.wav",
-      "author": "Unassigned (WP02-03A)",
+      "author": "OpenAI Codex, original score and offline synthesis for the project requester",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original note/envelope composition and local PCM synthesis required; retain creator permission. No external samples assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (commissioned AI-generated output)",
+        "statement": "Original score, envelopes and local PCM synthesis produced under the human-authorized WP02-03A instruction for project use, modification and distribution. No third-party samples or recordings; no CC0/GPL dedication, human-authorship, exclusivity or copyright-eligibility claim.",
+        "evidencePath": "assets/source/audio/PROVENANCE.md"
+      },
+      "attribution": "Original soundtrack created with OpenAI Codex for Learning is Fun.",
+      "modifications": "Original JSON score rendered directly to mono 44.1 kHz 16-bit PCM; loop releases and finite reflections folded into the phrase period.",
+      "sampleRate": 44100,
+      "frameCount": 35280,
+      "bytes": 70604
     },
     {
       "id": "support",
       "kind": "audio-effect",
       "milestone": "M1",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/audio/effects.json",
         "tools/render-audio.mjs"
       ],
       "runtimePath": "assets/audio/support.wav",
-      "author": "Unassigned (WP02-03A)",
+      "author": "OpenAI Codex, original score and offline synthesis for the project requester",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original note/envelope composition and local PCM synthesis required; retain creator permission. No external samples assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (commissioned AI-generated output)",
+        "statement": "Original score, envelopes and local PCM synthesis produced under the human-authorized WP02-03A instruction for project use, modification and distribution. No third-party samples or recordings; no CC0/GPL dedication, human-authorship, exclusivity or copyright-eligibility claim.",
+        "evidencePath": "assets/source/audio/PROVENANCE.md"
+      },
+      "attribution": "Original soundtrack created with OpenAI Codex for Learning is Fun.",
+      "modifications": "Original JSON score rendered directly to mono 44.1 kHz 16-bit PCM; loop releases and finite reflections folded into the phrase period.",
+      "sampleRate": 44100,
+      "frameCount": 72765,
+      "bytes": 145574
     },
     {
       "id": "success",
       "kind": "audio-effect",
       "milestone": "M1",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/audio/effects.json",
         "tools/render-audio.mjs"
       ],
       "runtimePath": "assets/audio/success.wav",
-      "author": "Unassigned (WP02-03A)",
+      "author": "OpenAI Codex, original score and offline synthesis for the project requester",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original note/envelope composition and local PCM synthesis required; retain creator permission. No external samples assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (commissioned AI-generated output)",
+        "statement": "Original score, envelopes and local PCM synthesis produced under the human-authorized WP02-03A instruction for project use, modification and distribution. No third-party samples or recordings; no CC0/GPL dedication, human-authorship, exclusivity or copyright-eligibility claim.",
+        "evidencePath": "assets/source/audio/PROVENANCE.md"
+      },
+      "attribution": "Original soundtrack created with OpenAI Codex for Learning is Fun.",
+      "modifications": "Original JSON score rendered directly to mono 44.1 kHz 16-bit PCM; loop releases and finite reflections folded into the phrase period.",
+      "sampleRate": 44100,
+      "frameCount": 94815,
+      "bytes": 189674
     },
     {
       "id": "restoration",
       "kind": "audio-effect",
       "milestone": "M1",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/audio/effects.json",
         "tools/render-audio.mjs"
       ],
       "runtimePath": "assets/audio/restoration.wav",
-      "author": "Unassigned (WP02-03A)",
+      "author": "OpenAI Codex, original score and offline synthesis for the project requester",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original note/envelope composition and local PCM synthesis required; retain creator permission. No external samples assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (commissioned AI-generated output)",
+        "statement": "Original score, envelopes and local PCM synthesis produced under the human-authorized WP02-03A instruction for project use, modification and distribution. No third-party samples or recordings; no CC0/GPL dedication, human-authorship, exclusivity or copyright-eligibility claim.",
+        "evidencePath": "assets/source/audio/PROVENANCE.md"
+      },
+      "attribution": "Original soundtrack created with OpenAI Codex for Learning is Fun.",
+      "modifications": "Original JSON score rendered directly to mono 44.1 kHz 16-bit PCM; loop releases and finite reflections folded into the phrase period.",
+      "sampleRate": 44100,
+      "frameCount": 198450,
+      "bytes": 396944
     }
   ]
 }

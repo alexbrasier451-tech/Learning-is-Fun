@@ -1,0 +1,41 @@
+{
+  "decoder": "Chromium 156.0.8078.4 AudioContext.decodeAudioData",
+  "source": "assets/source/audio/licensed/market-on-the-sea.mp3",
+  "originalBytes": 2341274,
+  "originalSha256": "8c7b6db9dd571cb1ec6eea6c7b035f2c0541c37d95d10f868bc38fe87eff6d8d",
+  "decodedFrameCount": 6445440,
+  "decodedChannels": 2,
+  "sampleRate": 44100,
+  "downmix": "Arithmetic mean of decoded channels in float32; selected period stored float32 little-endian without gain",
+  "sourceStartFrame": 3086846,
+  "sourceEndFrame": 6173692,
+  "master": "assets/source/audio/licensed/market-on-the-sea-loop.f32",
+  "masterBytes": 12347384,
+  "masterSha256": "6f468380a131eb0990af0ef7158a44a5a5b3aef0fbf6d3a5d1d9fc1e0f059ca3",
+  "alignment": [
+    {
+      "templateStartSeconds": 8,
+      "templateLengthSeconds": 1,
+      "correlation": 0.9948829318781803,
+      "lagFrames": 3086846
+    },
+    {
+      "templateStartSeconds": 20,
+      "templateLengthSeconds": 1,
+      "correlation": 0.9988460629104245,
+      "lagFrames": 3086846
+    },
+    {
+      "templateStartSeconds": 35,
+      "templateLengthSeconds": 1,
+      "correlation": 0.9975483098692088,
+      "lagFrames": 3086846
+    },
+    {
+      "templateStartSeconds": 50,
+      "templateLengthSeconds": 1,
+      "correlation": 0.9971576659264862,
+      "lagFrames": 3086846
+    }
+  ]
+}

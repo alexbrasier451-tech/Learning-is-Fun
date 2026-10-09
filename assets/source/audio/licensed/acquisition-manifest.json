@@ -1,0 +1,54 @@
+{
+  "retrieved": "2026-10-09",
+  "method": "Public creator-posted download URLs and linked Creative Commons legal code; no account/payment/trial",
+  "files": [
+    {
+      "file": "market-on-the-sea.zip",
+      "source": "https://opengameart.org/sites/default/files/market_on_the_sea_mp3.zip",
+      "bytes": 2791122,
+      "sha256": "5e5234c7a7b40d48e3c60a91b324f2a0bdcb89028b6bc95bcd686ae49c387d7a"
+    },
+    {
+      "file": "market-on-the-sea.mp3",
+      "source": "Extracted unmodified from market-on-the-sea.zip",
+      "bytes": 2341274,
+      "sha256": "8c7b6db9dd571cb1ec6eea6c7b035f2c0541c37d95d10f868bc38fe87eff6d8d"
+    },
+    {
+      "file": "market-on-the-sea-source.html",
+      "source": "https://opengameart.org/content/market-on-the-sea-rpg-orchestral-essentials-village-music",
+      "bytes": 32615,
+      "sha256": "b5c8f135861cdd9709f8778c96d4069f903f2250ccc69407a144480b9c039f94"
+    },
+    {
+      "file": "sunset-walk.wav",
+      "source": "https://opengameart.org/sites/default/files/SunsetWalk.wav",
+      "bytes": 13547666,
+      "sha256": "384b82d97ce9651579944c9741ba61bf7a2519d5d777a59bbe3b79510c9c26bd"
+    },
+    {
+      "file": "sunset-walk-source.html",
+      "source": "https://opengameart.org/content/sunset-walk-ambient-quiet-sweet-loop",
+      "bytes": 24494,
+      "sha256": "d2729f1260a616410c454e216653191b84d18bf5f7b9868406b39c9ab6a0589d"
+    },
+    {
+      "file": "cc-by-3.0-legalcode.html",
+      "source": "https://creativecommons.org/licenses/by/3.0/legalcode.en",
+      "bytes": 51105,
+      "sha256": "967a3670bcbfdc50614e71062b18effed899007a0e364541328ebdb863520132"
+    },
+    {
+      "file": "cc0-1.0-legalcode.html",
+      "source": "https://creativecommons.org/publicdomain/zero/1.0/legalcode.en",
+      "bytes": 32223,
+      "sha256": "b43732f4c1463b087cf10d4daf8d8766514b2bf8f21bc5ef50905f95be227726"
+    },
+    {
+      "file": "creator-license.pdf",
+      "source": "Extracted unmodified from market-on-the-sea.zip",
+      "bytes": 491117,
+      "sha256": "10a7ac194bb5d0c63687468d366639e3540ec33b7ed7a393a9c98dcbae067d3a"
+    }
+  ]
+}

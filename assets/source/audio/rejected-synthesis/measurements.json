@@ -1,0 +1,301 @@
+{
+  "node": "v24.19.0",
+  "mode": "byte-identical check",
+  "measurements": [
+    {
+      "assetId": "village-loop",
+      "sampleRate": 44100,
+      "frameCount": 3136000,
+      "seconds": 71.11111111111111,
+      "bytes": 6272044,
+      "sha256": "abbbd9a9a330830ec989e9c34d43964cd6ee79d6daae3eba659c057301903b6c",
+      "peakPcm": 6973,
+      "peakDbfs": -13.440605395095993,
+      "rmsDbfs": -27.214003524982008,
+      "dcPcm": -0.027811224489795918,
+      "maxStepPcm": 521,
+      "eventCount": 153,
+      "loopStartFrame": 0,
+      "loopEndFrame": 3136000,
+      "joinStepPcm": 45,
+      "joinWindowMaxStepPcm": 108,
+      "joinWindowRmsDbfs": -28.249223629322245,
+      "joinWindowMilliseconds": 20,
+      "firstPcm": 411,
+      "lastPcm": 456
+    },
+    {
+      "assetId": "library-loop",
+      "sampleRate": 44100,
+      "frameCount": 3528000,
+      "seconds": 80,
+      "bytes": 7056044,
+      "sha256": "0002856a9682ee4fb6747415b5569f030c16e0c919a854b9b930d06f7c15fd12",
+      "peakPcm": 5095,
+      "peakDbfs": -16.166114932345454,
+      "rmsDbfs": -31.411288235116427,
+      "dcPcm": -0.0051947278911564625,
+      "maxStepPcm": 307,
+      "eventCount": 102,
+      "loopStartFrame": 0,
+      "loopEndFrame": 3528000,
+      "joinStepPcm": 36,
+      "joinWindowMaxStepPcm": 62,
+      "joinWindowRmsDbfs": -33.77294189636465,
+      "joinWindowMilliseconds": 20,
+      "firstPcm": -41,
+      "lastPcm": -5
+    },
+    {
+      "assetId": "pickup",
+      "sampleRate": 44100,
+      "frameCount": 37485,
+      "seconds": 0.85,
+      "bytes": 75014,
+      "sha256": "c5f6ee2b39abed7c1e773925e45ab0ef1137277fd658563526c5fdb41e7db1ad",
+      "peakPcm": 4584,
+      "peakDbfs": -17.084106520007687,
+      "rmsDbfs": -29.24065628812197,
+      "dcPcm": -0.004455115379485127,
+      "maxStepPcm": 637,
+      "eventCount": 2
+    },
+    {
+      "assetId": "placement",
+      "sampleRate": 44100,
+      "frameCount": 35280,
+      "seconds": 0.8,
+      "bytes": 70604,
+      "sha256": "479c83f90df5e741808783ba60903fa08ead34f1c6fa355ce1ccb92c2a8699ba",
+      "peakPcm": 3867,
+      "peakDbfs": -18.56151525773305,
+      "rmsDbfs": -30.811719674732533,
+      "dcPcm": -0.14591836734693878,
+      "maxStepPcm": 204,
+      "eventCount": 3
+    },
+    {
+      "assetId": "support",
+      "sampleRate": 44100,
+      "frameCount": 72765,
+      "seconds": 1.65,
+      "bytes": 145574,
+      "sha256": "cd01e9f619d909c75fcf9ce6ca4192c1bdfa94d30b2a2291cc670908cc079427",
+      "peakPcm": 3216,
+      "peakDbfs": -20.162677897666086,
+      "rmsDbfs": -31.428904112233916,
+      "dcPcm": -0.03086648800934515,
+      "maxStepPcm": 248,
+      "eventCount": 3
+    },
+    {
+      "assetId": "success",
+      "sampleRate": 44100,
+      "frameCount": 94815,
+      "seconds": 2.15,
+      "bytes": 189674,
+      "sha256": "b78976b285f354b20c34fdd81997244266b5057d05e9813a7edc7f0b53357630",
+      "peakPcm": 4838,
+      "peakDbfs": -16.61568141867714,
+      "rmsDbfs": -30.8038083275735,
+      "dcPcm": -0.014385909402520698,
+      "maxStepPcm": 316,
+      "eventCount": 4
+    },
+    {
+      "assetId": "restoration",
+      "sampleRate": 44100,
+      "frameCount": 198450,
+      "seconds": 4.5,
+      "bytes": 396944,
+      "sha256": "29b0dbdff31a83bccc9d3b22e3848e834603e20ea53cb15d59a2f804eb92d7b2",
+      "peakPcm": 4698,
+      "peakDbfs": -16.870738450362616,
+      "rmsDbfs": -29.909295063116357,
+      "dcPcm": -0.007351977828168305,
+      "maxStepPcm": 283,
+      "eventCount": 9
+    }
+  ],
+  "largestBytes": 7056044,
+  "totalBytes": 14205898,
+  "acousticAcceptance": "UNVERIFIED — numeric measurements are not listening",
+  "sourceMixBound": {
+    "assumption": "Both themes and at most four effect voices; linear gains each <= 1; no speech included",
+    "fullGainPeakUpperBound": 0.9588623046875,
+    "defaultGainPeakUpperBound": 0.387359619140625
+  },
+  "independentHeaderChecks": [
+    {
+      "assetId": "village-loop",
+      "riff": "PCM mono 44100 Hz 16-bit; exact sizes",
+      "peakPcm": 6973,
+      "maxZeroRunFrames": 4
+    },
+    {
+      "assetId": "library-loop",
+      "riff": "PCM mono 44100 Hz 16-bit; exact sizes",
+      "peakPcm": 5095,
+      "maxZeroRunFrames": 8
+    },
+    {
+      "assetId": "pickup",
+      "riff": "PCM mono 44100 Hz 16-bit; exact sizes",
+      "peakPcm": 4584,
+      "maxZeroRunFrames": 3807
+    },
+    {
+      "assetId": "placement",
+      "riff": "PCM mono 44100 Hz 16-bit; exact sizes",
+      "peakPcm": 3867,
+      "maxZeroRunFrames": 5358
+    },
+    {
+      "assetId": "support",
+      "riff": "PCM mono 44100 Hz 16-bit; exact sizes",
+      "peakPcm": 3216,
+      "maxZeroRunFrames": 9045
+    },
+    {
+      "assetId": "success",
+      "riff": "PCM mono 44100 Hz 16-bit; exact sizes",
+      "peakPcm": 4838,
+      "maxZeroRunFrames": 13223
+    },
+    {
+      "assetId": "restoration",
+      "riff": "PCM mono 44100 Hz 16-bit; exact sizes",
+      "peakPcm": 4698,
+      "maxZeroRunFrames": 42783
+    }
+  ],
+  "registerPreservation": {
+    "date": "2026-10-09",
+    "authority": "Controller explicitly released DEP-037 in this chat before the register write.",
+    "unrelatedRecords": 64,
+    "nonAudioRecordsSha256": "198263dd17c0d6b00e6e28854cf1e990172ccdf5292bc3c9f5c389113bb07bd1",
+    "registerContractSha256": "a7cc6ebb87bf8829a3ccdff1734a14108a807e0d151a71a3653c8b5aaa00dad6",
+    "sameBeforeAfter": true
+  },
+  "audition": {
+    "file": "assets/source/audio/audition.wav",
+    "bytes": 8105624,
+    "frameCount": 4052790,
+    "seconds": 91.9,
+    "sha256": "8b9220a6ed4ddec36a1da9cfc73d892c1d2e89d517f80538e2d8192ba0e130f1",
+    "timeline": [
+      {
+        "label": "village-loop: join 1",
+        "startSeconds": 0,
+        "endSeconds": 12,
+        "joinSeconds": 6,
+        "musicGain": 0.25,
+        "effectsGain": 0
+      },
+      {
+        "label": "village-loop: join 2",
+        "startSeconds": 13,
+        "endSeconds": 25,
+        "joinSeconds": 19,
+        "musicGain": 0.25,
+        "effectsGain": 0
+      },
+      {
+        "label": "library-loop: join 1",
+        "startSeconds": 26,
+        "endSeconds": 38,
+        "joinSeconds": 32,
+        "musicGain": 0.25,
+        "effectsGain": 0
+      },
+      {
+        "label": "library-loop: join 2",
+        "startSeconds": 39,
+        "endSeconds": 51,
+        "joinSeconds": 45,
+        "musicGain": 0.25,
+        "effectsGain": 0
+      },
+      {
+        "label": "pickup: alone",
+        "startSeconds": 52,
+        "endSeconds": 52.85,
+        "musicGain": 0,
+        "effectsGain": 0.5
+      },
+      {
+        "label": "placement: alone",
+        "startSeconds": 53.85,
+        "endSeconds": 54.65,
+        "musicGain": 0,
+        "effectsGain": 0.5
+      },
+      {
+        "label": "support: alone",
+        "startSeconds": 55.65,
+        "endSeconds": 57.3,
+        "musicGain": 0,
+        "effectsGain": 0.5
+      },
+      {
+        "label": "success: alone",
+        "startSeconds": 58.3,
+        "endSeconds": 60.45,
+        "musicGain": 0,
+        "effectsGain": 0.5
+      },
+      {
+        "label": "restoration: alone",
+        "startSeconds": 61.45,
+        "endSeconds": 65.95,
+        "musicGain": 0,
+        "effectsGain": 0.5
+      },
+      {
+        "label": "pickup: over village-loop",
+        "startSeconds": 66.95,
+        "endSeconds": 69.8,
+        "cueSeconds": 67.95,
+        "musicGain": 0.25,
+        "effectsGain": 0.5
+      },
+      {
+        "label": "placement: over library-loop",
+        "startSeconds": 70.8,
+        "endSeconds": 73.6,
+        "cueSeconds": 71.8,
+        "musicGain": 0.25,
+        "effectsGain": 0.5
+      },
+      {
+        "label": "support: over village-loop",
+        "startSeconds": 74.6,
+        "endSeconds": 78.25,
+        "cueSeconds": 75.6,
+        "musicGain": 0.25,
+        "effectsGain": 0.5
+      },
+      {
+        "label": "success: over library-loop",
+        "startSeconds": 79.25,
+        "endSeconds": 83.4,
+        "cueSeconds": 80.25,
+        "musicGain": 0.25,
+        "effectsGain": 0.5
+      },
+      {
+        "label": "restoration: over village-loop",
+        "startSeconds": 84.4,
+        "endSeconds": 90.9,
+        "cueSeconds": 85.4,
+        "musicGain": 0.25,
+        "effectsGain": 0.5
+      }
+    ]
+  },
+  "listening": {
+    "status": "UNVERIFIED",
+    "method": "No exposed acoustic-listening or browser-loopback assessment tool. No human listening report received.",
+    "reviewOwner": "Project requester (human source-audio reviewer), coordinated by Controller; WP02-05A owns speech/mix integration and WP06 owns published listening."
+  }
+}
