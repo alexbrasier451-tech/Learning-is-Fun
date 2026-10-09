@@ -172,12 +172,19 @@ export function selectNextActivity(request: SelectionRequest): SelectionResult {
     };
   };
   if (!intent.binding && intent.kind === 'adaptive-practice' && !request.suppressDueReviewForVisit) {
+    // ReviewReference describes this canonical task's actual prior success.
+    // Unseen work remains first practice; it cannot inherit another task's
+    // provenance merely because their skill/band has a due date.
+    const reviewPool = pool.filter(task => {
+      const prior = history(task.canonicalQuestionId);
+      return prior?.previousSuccessWeek != null && prior.previousSuccessLocalDate != null;
+    });
     const due = SKILLS.flatMap(skill => BANDS.flatMap(band => {
       const date = evidence[skill.skillId]?.bands[band].reviewDueLocalDate;
-      return date && date <= calendar.todayDate && pool.some(task => task.skillId === skill.skillId && task.band === band)
+      return date && date <= calendar.todayDate && reviewPool.some(task => task.skillId === skill.skillId && task.band === band)
         ? [{ skillId: skill.skillId, band, date }] : [];
     })).sort((a, b) => compare(a.date, b.date));
-    if (due[0]) return select(order(pool.filter(task => task.skillId === due[0].skillId && task.band === due[0].band))[0], 'due-review', null, due[0].date);
+    if (due[0]) return select(order(reviewPool.filter(task => task.skillId === due[0].skillId && task.band === due[0].band))[0], 'due-review', null, due[0].date);
   }
   const skillId = intent.skillId ?? SKILLS.find(skill => pool.some(task => task.skillId === skill.skillId))?.skillId;
   if (!skillId) return unavailable('No delivered skill is available.');

@@ -8,6 +8,9 @@ was performed.
 
 The original author snapshot below is retained. The F01/F02 correction section
 at the end supersedes its initial completeness assessment and test totals.
+The later integration correction and same-week follow-up below supersede the
+original review-provenance convention. Current consumer guidance is maintained
+in the Consumer expectations section and the learning policy.
 
 ## Changed files and behavior
 
@@ -98,11 +101,13 @@ availability is derived from supplied tasks, never registry declarations.
 Date-only DTOs have no global within-day cross-band sequence. The policy uses the
 latest completed date with higher-band tie-break; within a band array order is
 authoritative. Review/episode/retained-success-ID windows are bounded to four per
-band; aggregates are cumulative. An unseen task selected for a due skill/band has
-`reason=due-review` and null `reviewReference` because it has no canonical previous
-success week. The reason still drives +7/+3 scheduling. A familiar review reference
-uses that selected canonical's actual previous success week. These conventions
-are documented and fixture-tested without extending the frozen DTOs.
+band; aggregates are cumulative. A due review selects a task with an actual
+canonical previous-success date and week, and retains a non-null reference for
+that same task. Unseen tasks remain ordinary adaptive practice. Suppressing review
+restores unseen-first selection and preserves the due date. Genuine same-week
+educational review is valid and nonrewardable; the later-week condition belongs
+only to reward eligibility. See the integration correction below for evidence
+superseding the original unseen-task/null-reference assumption.
 
 WP04-04A must supply sticky cumulative facts after completion, including the
 exact DEC-024 fixture above; filter duplicate finish/Check once before invoking
@@ -203,3 +208,32 @@ Final exact eight-owned-path whitespace/conflict-marker scan passed.
 No correction check remains red. These are author results for a narrow independent
 recheck of F01/F02; the validator's historical verdict is deliberately unchanged.
 All original downstream integration limits remain in force.
+
+## Accepted selector integration correction and same-week follow-up
+
+On 9 October 2026, Controller reported independent acceptance of the selector
+correction described in
+[WP03-04A-INTEGRATION-CORRECTION](WP03-04A-INTEGRATION-CORRECTION.md).
+The historical implementation had labelled unseen total-10 as due-review with
+null reference after Q1 total-12 success; full-save validation correctly rejected
+that mismatch. The corrected optional review selects total-12 with its actual
+prior-success reference. Skip-review still selects unseen total-10 as ordinary
+practice. No shared DTO or downstream relabelling was used.
+
+The separate backup owner then corrected same-week completed-review validation.
+The owned rejection-characterization test has now been replaced with desired
+full-path assertions: Q1 success on 2026-10-05 → genuine review on 2026-10-08 →
+correct Check commits with zero lifetime/competitive delta and no new receipt,
+slot or opportunity → learning review due 2026-10-15 → ordinary facade export
+and decode produce a save equal to the committed save. Real review provenance
+is preserved throughout. The in-memory repository fixture makes no IndexedDB
+or browser persistence claim.
+
+This follow-up changed only `tests/learning/selection.test.ts`,
+`docs/content-review/learning-policy.md`, this handoff and the integration report.
+No production selector, backup, facade or other owner's files were edited.
+The affected test passed (1 passed / 79 skipped); the scoped TypeScript check
+of the selection test and its imported production modules passed. Exact commands
+and original/corrected outcomes are in the integration report. Earlier broad
+totals are retained as historical evidence, not a claim of a new broad run.
+The backup owner's independent recheck remains separately controlled.

@@ -94,7 +94,8 @@ after an offer or skip until the next visit, so the pure selector offers at most
 the one review represented by this request. Explicit story, transfer, revisit,
 easier and repeat routes never receive unsolicited review.
 
-Within the selected band, prefer unseen tasks, then stable canonical string order.
+For ordinary adaptive practice within the selected band, prefer unseen tasks,
+then stable canonical string order.
 An explicit repeat prefers familiar tasks. Exhausted unbound suggested practice
 is labelled `repeat-practice` with `familiar=true`. Bound work retains its binding
 reason. Child-easier chooses the nearest delivered lower band (or lowest available)
@@ -107,11 +108,22 @@ The reducer uses WP05 `addCalendarDays`, never elapsed 72/168-hour arithmetic or
 an ambient clock. Selection compares the supplied date/week context. Missed days
 simply leave review due, with no penalty.
 
-Due review prefers unseen tasks in the due band. If the selected task has no
-previous canonical success, `reviewReference` is null rather than a fabricated
-success week; `reason=due-review` still identifies the educational review and
-drives its next date. A familiar review reference describes the selected task's
-actual previous success week. Its familiar flag stays explicit in evidence.
+Due review selects from approved tasks in the due band with an actual canonical
+previous-success date and week in committed history. The selected familiar task
+retains a non-null `reviewReference` identifying that same canonical task, the
+band's due date and its actual previous success week. Choose the oldest available
+due skill/band, then stable canonical order. An unseen task cannot acquire review
+provenance from another task. Skipping review restores ordinary unseen-first
+practice; absent usable review provenance also falls through to ordinary practice
+without inventing a reference. Review remains optional and visit suppression does
+not erase the due date.
+
+Same-week educational review retains its genuine reason/reference and can complete,
+update evidence and export/decode successfully with zero award. Only reward
+eligibility requires a later competition week. The former unseen-task/null-reference
+review convention was rejected during integration and is superseded by this rule;
+the original failure and full-path correction evidence are retained in
+[WP03-04A-INTEGRATION-CORRECTION](../work-package/execution/WP03-04A-INTEGRATION-CORRECTION.md).
 
 ## Provenance and reward advisory boundary
 
@@ -166,6 +178,7 @@ support/stretch tasks. All rows are asserted in the owned tests.
 | Supported missed review 2026-11-05 | Due 2026-11-08; support suggested |
 | Unsuccessful finished review 2026-11-09 | Due 2026-11-12; wrong open Check alone did not reschedule |
 | First success Monday 2026-10-19; review due 2026-10-22 within same week | Familiar educational review; no new reward candidate |
+| Q1 success 2026-10-05; same-week review completes 2026-10-08 | Zero award/new receipts, no new slot/opportunity; next due 2026-10-15; backup decode equals committed save |
 | A actual success week 2026-10-19, due review 2026-10-26 | Same canonical A, familiar; later-week candidate only |
 | A old earning week 2026-10-19 but actual success week 2026-10-26 | Review in 2026-10-26 has no new candidate |
 | Source A compacted, permanent story completion retained | Transfer selects B/C; never source A |

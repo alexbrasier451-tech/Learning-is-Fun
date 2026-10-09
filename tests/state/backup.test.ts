@@ -2,12 +2,15 @@ import { describe, expect, it } from 'vitest';
 import { BACKUP_FORMAT, createImportSession, decodeBackup, decodeBackupFile, exportBackup, exportFromController, measureBackupBudget, prepareImport, confirmPreparedImport, validateSave } from '../../src/state/backup';
 import type { BackupEnvelopeV1 } from '../../src/state/backup';
 import { migrateSupportedSave } from '../../src/state/migrations';
-import type { SaveDataV1 } from '../../src/state/contracts';
+import type { EncounterSave, SaveDataV1, StateCommand, StoredRoot } from '../../src/state/contracts';
 import { SAVE_LIMITS } from '../../src/state/contracts';
 import { BACKUP_CATALOGUE, BACKUP_DATE, compactCapacityBackupSave, emptyBackupSave, multiProfileBackupSave, resumedTransferBackupSave } from '../fixtures/backup-data';
 import { resolveBindingIntent } from '../../src/learning/select';
 import { QUEST_ACTIVITY_BINDINGS } from '../../src/content/quest-bindings';
 import { continueFreshWrongBackupSave, evictedPriorSuccessBackupSave, freshLearningBackupSave } from '../fixtures/backup-learning-regressions';
+import { createStateController } from '../../src/state/controller';
+import { createInitialSave } from '../../src/state/transition';
+import type { SaveRepository } from '../../src/state/repository';
 
 type Mutable<T> = T extends readonly (infer E)[] ? Mutable<E>[] : T extends object ? { -readonly [K in keyof T]: Mutable<T[K]> } : T;
 const snapshot = (save = multiProfileBackupSave(), revision = 0) => ({ save, token: { epoch: 'local-epoch', revision } });
@@ -15,6 +18,112 @@ const envelope = (save: SaveDataV1 = multiProfileBackupSave()): BackupEnvelopeV1
 const decode = (v: unknown) => decodeBackup(JSON.stringify(v), BACKUP_CATALOGUE);
 const mutable = () => structuredClone(envelope()) as Mutable<BackupEnvelopeV1>;
 function valid(v: unknown) { const result = decode(v); expect(result).toMatchObject({ status: 'valid' }); if (result.status !== 'valid') throw new Error(JSON.stringify(result)); return result.envelope; }
+
+/** Actual facade/reducer/export path; isolated in-memory writer validates every
+ * proposed root. This does not claim browser or IndexedDB durability. */
+async function educationalReviewHarness(startDate = '2026-10-05') {
+  let root: StoredRoot = { epoch: 'backup-review', revision: 0, save: createInitialSave() };
+  let sequence = 0, writes = 0, now = Date.parse(`${startDate}T12:00:00Z`);
+  const current = () => structuredClone({ token: { epoch: root.epoch, revision: root.revision }, save: root.save });
+  const repository: SaveRepository = {
+    async loadRoot() { return { status: 'ready', snapshot: current() }; },
+    async commitCommand(command, ports) {
+      if (command.expected.epoch !== root.epoch || command.expected.revision !== root.revision) return { status: 'conflict', snapshot: current() };
+      const decision = ports.reduce(root, command, ports.context);
+      if (decision.status === 'already-applied') return { status: 'already-applied', snapshot: current() };
+      if (decision.status !== 'changed') return { status: decision.status, reason: decision.reason };
+      const checked = validateSave(decision.save, BACKUP_CATALOGUE);
+      if (checked.status !== 'valid') return { status: checked.status, reason: checked.issues[0] };
+      root = { ...root, revision: root.revision + 1, save: checked.save }; writes++;
+      return { status: 'committed', snapshot: current(), changes: decision.changes };
+    },
+    async readExportSnapshot() { return current(); },
+    async readRecoveryExport() { return { status: 'unavailable', cause: 'absent-database', message: 'In-memory test only.' }; },
+    async replaceSave() { throw new Error('Replacement is outside this review test.'); },
+    subscribeInvalidation() { return () => {}; }, notifySilence() {}, close() {},
+  };
+  const controller = createStateController({ repository, catalogue: BACKUP_CATALOGUE, questBindings: QUEST_ACTIVITY_BINDINGS,
+    milestone: 'M1', clock: { nowEpochMs: () => now }, allocateId: () => `backup-review-id-${++sequence}`,
+    preferenceGate: { applyLiveIntent() {} }, readTransientReadiness: () => ({ dirty: false, pending: false, failed: false }) });
+  expect((await controller.ready).status).toBe('ready');
+  const act = (kind: StateCommand['kind'], payload: unknown, profileId: string | null = 'ada') => controller.dispatch({ kind, payload,
+    actionId: `backup-review-action-${++sequence}`, expected: controller.getSnapshot().token, ...(profileId ? { profileId } : {}) } as StateCommand);
+  const profile = () => controller.getSnapshot().save.profiles.ada;
+  const active = () => Object.values(profile().encounters).reverse().find(e => e.learningEpisode.status === 'open')!;
+  const check = (e: EncounterSave, wrong = false) => act('SubmitCheck', { encounterId: e.encounterId,
+    learningEpisodeOrdinal: e.learningEpisode.ordinal, submissionId: `backup-review-check-${++sequence}`, checkSequence: e.validChecks + 1,
+    response: { kind: 'bridge', planks: wrong ? [1] : [6, 6] } });
+  expect((await act('CreateProfile', { newProfileId: 'ada', nickname: 'Ada', avatarId: 'pip' }, null)).status).toBe('committed');
+  expect((await act('OpenEncounter', { route: { kind: 'quest', questId: 'Q1' }, suppressDueReviewForVisit: false })).status).toBe('committed');
+  expect((await check(active())).status).toBe('committed');
+  return { controller, act, profile, active, check, writes: () => writes, setDate: (date: string) => { now = Date.parse(`${date}T12:00:00Z`); } };
+}
+
+describe('same-week educational review decoder correction', () => {
+  it.each(['independent', 'hinted', 'unsuccessful'] as const)('Monday Q1 → Thursday %s review completes through facade/save/export/decode', async mode => {
+    const h = await educationalReviewHarness();
+    try {
+      h.setDate('2026-10-08');
+      expect((await h.act('OpenEncounter', { route: { kind: 'practice', skillId: 'M01', mode: 'suggested' }, suppressDueReviewForVisit: false })).status).toBe('committed');
+      const e = h.active(), beforeRewards = h.profile().rewards, beforeCompetition = h.controller.getSnapshot().save.competition;
+      expect(e).toMatchObject({ canonicalQuestionId: 'lif.math.bridge.r1.total-12', selectionReason: 'due-review', familiar: true,
+        opportunityId: null, eligibility: { kind: 'practice-only' }, reviewReference: { canonicalQuestionId: 'lif.math.bridge.r1.total-12', dueLocalDate: '2026-10-08', previousSuccessWeek: '2026-10-05' } });
+      if (mode === 'hinted') {
+        const task = BACKUP_CATALOGUE.find(t => t.canonicalQuestionId === e.canonicalQuestionId)!;
+        expect((await h.act('RecordAssistance', { encounterId: e.encounterId, assistanceKind: 'answer-hint', hintId: task.hints[0].id })).status).toBe('committed');
+      }
+      const result = await h.check(h.active(), mode === 'unsuccessful');
+      expect(result).toMatchObject({ status: 'committed', changes: { earnedPoints: { lifetimeDelta: 0, competitiveDelta: 0, consumedSlot: null } } });
+      if (mode === 'unsuccessful') expect((await h.act('FinishPractice', { encounterId: e.encounterId, learningEpisodeOrdinal: 1 })).status).toBe('committed');
+      expect(h.profile().rewards).toMatchObject({ lifetimePoints: beforeRewards.lifetimePoints, questReceipts: beforeRewards.questReceipts });
+      expect(h.controller.getSnapshot().save.competition).toEqual(beforeCompetition);
+      const band = h.profile().learning.evidence.M01!.bands.support, completed = band.recentCompletedEpisodes.find(x => x.encounterId === e.encounterId)!;
+      expect(completed).toMatchObject({ competitionWeekId: '2026-10-05', reviewReference: e.reviewReference,
+        outcome: mode === 'unsuccessful' ? 'deliberate-unsuccessful' : 'success' });
+      expect(band).toMatchObject({ validChecks: 2, completedEpisodes: 2, independentSuccesses: mode === 'independent' ? 2 : 1,
+        supportedSuccesses: mode === 'hinted' ? 1 : 0 });
+      const out = await h.controller.backupActions.export('flushed'); expect(out.status).toBe('ready');
+      if (out.status !== 'ready') throw new Error('Original full review export must succeed');
+      const restored = valid(JSON.parse(out.backup.json)); expect(restored.save).toEqual(h.controller.getSnapshot().save);
+      expect(migrateSupportedSave(restored, 'm1').status).toBe('valid');
+    } finally { h.controller.dispose(); }
+  });
+  it.each([{ start: '2026-10-05', open: '2026-10-09', check: '2026-10-09', week: '2026-10-05', award: 0 },
+    { start: '2026-10-12', open: '2026-10-15', check: '2026-10-08', week: '2026-10-12', award: 0 },
+    { start: '2026-10-05', open: '2026-10-12', check: '2026-10-12', week: '2026-10-12', award: 20 }])
+  ('preserves fresh/later-week/rollback semantics for $start → $open → $check', async dates => {
+    const h = await educationalReviewHarness(dates.start);
+    try {
+      h.setDate(dates.open); expect((await h.act('OpenEncounter', { route: { kind: 'practice', skillId: 'M01', mode: 'suggested' }, suppressDueReviewForVisit: false })).status).toBe('committed');
+      const e = h.active(); expect(e.eligibility.kind).toBe(dates.award ? 'eligible-review' : 'practice-only');
+      h.setDate(dates.check); expect(await h.check(e)).toMatchObject({ status: 'committed', changes: { earnedPoints: { lifetimeDelta: dates.award, competitiveDelta: dates.award } } });
+      expect(h.profile().learning.evidence.M01!.bands.support.recentCompletedEpisodes.at(-1)).toMatchObject({ localDate: dates.check, competitionWeekId: dates.week, reviewReference: e.reviewReference });
+      const out = await h.controller.backupActions.export('flushed'); expect(out.status).toBe('ready');
+      if (out.status === 'ready') expect(valid(JSON.parse(out.backup.json)).save).toEqual(h.controller.getSnapshot().save);
+    } finally { h.controller.dispose(); }
+  });
+  it('retains canonical/future-week rejection and strict later-week reward opportunity eligibility', async () => {
+    const h = await educationalReviewHarness();
+    try {
+      h.setDate('2026-10-08'); expect((await h.act('OpenEncounter', { route: { kind: 'practice', skillId: 'M01', mode: 'suggested' }, suppressDueReviewForVisit: false })).status).toBe('committed');
+      const e = h.active(); expect((await h.check(e)).status).toBe('committed');
+      const original = h.controller.getSnapshot();
+      for (const patch of [{ canonicalQuestionId: 'lif.math.bridge.r1.total-10' }, { previousSuccessWeek: '2026-10-12' }]) {
+        const corrupt = structuredClone(original.save) as Mutable<SaveDataV1>;
+        const completed = corrupt.profiles.ada.learning.evidence.M01!.bands.support.recentCompletedEpisodes.find(x => x.encounterId === e.encounterId)!;
+        Object.assign(completed.reviewReference!, patch);
+        expect(validateSave(corrupt, BACKUP_CATALOGUE)).toMatchObject({ status: 'invalid', issues: [{ message: 'Completed review provenance has a mismatched identity/week.' }] });
+        expect(decode(envelope(corrupt)).status).toBe('invalid');
+      }
+      const rewarded = multiProfileBackupSave(false, false, true) as Mutable<SaveDataV1>;
+      const opportunity = Object.values(rewarded.profiles.ada.rewards.tracksByCanonical).map(t => t.recentCompletedOpportunity)
+        .find(o => o?.selectionFacts.candidate === 'later-week-due-review')!;
+      expect(opportunity).toBeDefined(); opportunity.selectionFacts.previousSuccessWeek = opportunity.earningWeek!;
+      expect(validateSave(rewarded, BACKUP_CATALOGUE).status).toBe('invalid');
+      expect(h.controller.getSnapshot()).toBe(original);
+    } finally { h.controller.dispose(); }
+  });
+});
 
 describe('independent decoder findings F01/F02', () => {
   it.each([[true], [false, false], [false, true], [true, false], [true, true]].map(hints => ({ hints })))('F01: accepts original and mixed success hints $hints', ({ hints }) => {

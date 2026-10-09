@@ -222,7 +222,9 @@ function semantic(save: SaveDataV1, catalogue: readonly TaskDefinition[]) {
     issueFacts(e.issues, task, p);
     if ('localDate' in e) {
       checkDateWeek(e.localDate, e.competitionWeekId, p);
-      if (e.reviewReference) requireFact(e.reviewReference.canonicalQuestionId === e.canonicalQuestionId && e.reviewReference.previousSuccessWeek < e.competitionWeekId, p, 'Completed review provenance has a mismatched identity/week.');
+      // Educational review may be due within the success week. The separate
+      // reward opportunity validator retains its strict later-week condition.
+      if (e.reviewReference) requireFact(e.reviewReference.canonicalQuestionId === e.canonicalQuestionId && e.reviewReference.previousSuccessWeek <= e.competitionWeekId, p, 'Completed review provenance has a mismatched identity/week.');
       if (e.outcome === 'deliberate-unsuccessful') requireFact(!e.firstCheckCorrect, p, 'An unsuccessful episode cannot have a first-Check success.');
     }
   };

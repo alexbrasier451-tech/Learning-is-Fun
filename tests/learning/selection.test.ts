@@ -4,6 +4,14 @@ import { applyLearningObservation } from '../../src/learning/evidence';
 import { canonicalQuestionId } from '../../src/learning/identity';
 import { summarizeLearning } from '../../src/learning/summarize';
 import { SKILLS } from '../../src/content/skills';
+import { listTasks } from '../../src/content/catalogue';
+import { QUEST_ACTIVITY_BINDINGS } from '../../src/content/quest-bindings';
+import { createStateController, selectCommittedActivity } from '../../src/state/controller';
+import { createInitialSave } from '../../src/state/transition';
+import { decodeBackup, validateSave } from '../../src/state/backup';
+import type { SaveRepository } from '../../src/state/repository';
+import type { ActivityResponse } from '../../src/learning/contracts';
+import type { EncounterSave, StateCommand, StoredRoot } from '../../src/state/contracts';
 import type { CanonicalLearningHistory, DifficultyBand, LearningAssistance, LearningObservation,
   LearningRouteIntent, QuestActivityBinding, ResolvedSelectionIntent, SelectionEncounter,
   SelectionRequest, SkillEvidence, SkillId, TaskDefinition } from '../../src/learning/contracts';
@@ -287,23 +295,42 @@ describe('review, reward advisory boundary and retained encounters', () => {
     expect(selectNextActivity(request({ catalogue: [A], canonicalHistory: [known], calendar: nextWeek })))
       .toMatchObject({ reason: 'repeat-practice', rewardCandidate: 'none' });
   });
-  it('prefers unseen tasks for review; an unseen task has no invented previous canonical success reference', () => {
+  it('offers genuine canonical review before unseen practice; skipping review restores unseen-first choice', () => {
     expect(selectNextActivity(request({ catalogue: [A, B], evidence, canonicalHistory: [known], calendar: nextWeek })))
-      .toMatchObject({ canonicalQuestionId: B.canonicalQuestionId, reason: 'due-review', familiar: false, reviewReference: null, rewardCandidate: 'first-encounter' });
+      .toMatchObject({ canonicalQuestionId: A.canonicalQuestionId, reason: 'due-review', familiar: true,
+        reviewReference: { canonicalQuestionId: A.canonicalQuestionId, dueLocalDate: '2026-10-26', previousSuccessWeek: '2026-10-19' }, rewardCandidate: 'later-week-due-review' });
+    expect(selectNextActivity(request({ catalogue: [A, B], evidence, canonicalHistory: [known], calendar: nextWeek, suppressDueReviewForVisit: true })))
+      .toMatchObject({ canonicalQuestionId: B.canonicalQuestionId, reason: 'adaptive-practice', familiar: false, reviewReference: null, rewardCandidate: 'first-encounter' });
+  });
+  it.each([
+    { canonicalHistory: [] }, { canonicalHistory: [history(A, { everChecked: true })] },
+    { canonicalHistory: [{ ...known, previousSuccessLocalDate: null }] },
+  ])('never manufactures review provenance without a usable previous success: $canonicalHistory', ({ canonicalHistory }) => {
+    const result = selectNextActivity(request({ catalogue: [A, B], evidence, canonicalHistory, calendar: nextWeek }));
+    expect(result).toMatchObject({ reason: 'adaptive-practice', reviewReference: null, rewardCandidate: 'first-encounter' });
+  });
+  it('keeps educational same-week review while unseen work exists, without a new reward candidate', () => {
+    const sameWeekEvidence = completed([[A, { localDate: '2026-10-19' }]]);
+    expect(selectNextActivity(request({ catalogue: [A, B], evidence: sameWeekEvidence,
+      canonicalHistory: [{ ...known, previousSuccessLocalDate: '2026-10-19' }] })))
+      .toMatchObject({ canonicalQuestionId: A.canonicalQuestionId, reason: 'due-review', familiar: true,
+        reviewReference: { canonicalQuestionId: A.canonicalQuestionId, previousSuccessWeek: '2026-10-19', dueLocalDate: '2026-10-22' }, rewardCandidate: 'none' });
   });
   it('oldest due skill wins when unspecified; explicit skill, bound routes and visit suppression constrain review', () => {
     const twoSkills = { ...completed([[P, { localDate: '2026-10-20' }]]), ...evidence };
-    expect(selectNextActivity(request({ evidence: twoSkills, calendar: nextWeek, intent: { ...intent, skillId: null } })))
+    const canonicalHistory = [known, history(P, { everChecked: true, previousSuccessLocalDate: '2026-10-20', previousSuccessWeek: '2026-10-19' })];
+    expect(selectNextActivity(request({ evidence: twoSkills, canonicalHistory, calendar: nextWeek, intent: { ...intent, skillId: null } })))
       .toMatchObject({ canonicalQuestionId: P.canonicalQuestionId, reason: 'due-review' });
-    expect(selectNextActivity(request({ evidence: twoSkills, calendar: nextWeek }))).toMatchObject({ reason: 'due-review', canonicalQuestionId: A.canonicalQuestionId });
+    expect(selectNextActivity(request({ evidence: twoSkills, canonicalHistory, calendar: nextWeek }))).toMatchObject({ reason: 'due-review', canonicalQuestionId: A.canonicalQuestionId });
     const before = JSON.stringify(twoSkills);
     for (let visitRequest = 0; visitRequest < 2; visitRequest++) expect(selectNextActivity(request({ evidence: twoSkills, calendar: nextWeek, suppressDueReviewForVisit: true }))).toMatchObject({ reason: 'adaptive-practice' });
     expect(JSON.stringify(twoSkills)).toBe(before);
     expect(selectNextActivity(request({ evidence: twoSkills, calendar: nextWeek, intent: resolved({ kind: 'revisit', bindingId: 'revisit' }) })))
       .toMatchObject({ reason: 'adaptive-practice', bindingProvenance: { role: 'revisit' } });
   });
-  it('supported review suggests support even when it used an unseen task with no canonical review reference', () => {
-    const reviewed = applyLearningObservation(evidence, observation(B, 'review', { selectionReason: 'due-review', assistance: hinted, localDate: '2026-10-26' }));
+  it('supported genuine canonical review suggests support', () => {
+    const reviewed = applyLearningObservation(evidence, observation(A, 'review', { selectionReason: 'due-review', assistance: hinted, localDate: '2026-10-26', familiar: true,
+      reviewReference: { canonicalQuestionId: A.canonicalQuestionId, dueLocalDate: '2026-10-26', previousSuccessWeek: '2026-10-19' } }));
     expect(selectNextActivity(request({ evidence: reviewed, calendar: nextWeek }))).toMatchObject({ band: 'support' });
   });
   it.each(['open', 'suspended', 'completed-unsuccessful'] as const)('resumes %s original work, retaining reason/provenance across another route/week', episodeStatus => {
@@ -375,5 +402,124 @@ describe('review, reward advisory boundary and retained encounters', () => {
     expect(summarizeLearning(readingEvidence, catalogue, '2026-10-27')[0]).toMatchObject({ validChecks: 3, completedEpisodes: 3,
       independentSuccesses: 2, supportedSuccesses: 1, laterDistinctSuccesses: 1, label: 'practising', reviewDueLocalDate: '2026-11-03',
       latestReview: { outcome: 'independent-success', familiar: true } });
+  });
+});
+
+/** Actual facade/reducer/decoder with an isolated in-memory repository port.
+ * This tests producer integration, not IndexedDB persistence or browser reload. */
+async function reviewFacadeHarness(startDate = '2026-10-09') {
+  const catalogue = listTasks();
+  let root: StoredRoot = { epoch: 'review-integration', revision: 0, save: createInitialSave() };
+  let sequence = 0, writes = 0, now = Date.parse(`${startDate}T12:00:00Z`);
+  const snapshot = () => structuredClone({ token: { epoch: root.epoch, revision: root.revision }, save: root.save });
+  const repository: SaveRepository = {
+    async loadRoot() { return { status: 'ready', snapshot: snapshot() }; },
+    async commitCommand(command, ports) {
+      if (command.expected.epoch !== root.epoch || command.expected.revision !== root.revision) return { status: 'conflict', snapshot: snapshot() };
+      const decision = ports.reduce(root, command, ports.context);
+      if (decision.status === 'already-applied') return { status: 'already-applied', snapshot: snapshot() };
+      if (decision.status !== 'changed') return { status: decision.status, reason: decision.reason };
+      const checked = validateSave(decision.save, catalogue);
+      if (checked.status !== 'valid') return { status: checked.status, reason: checked.issues[0] };
+      root = { ...root, revision: root.revision + 1, save: checked.save }; writes++;
+      return { status: 'committed', snapshot: snapshot(), changes: decision.changes };
+    },
+    async readExportSnapshot() { return snapshot(); },
+    async readRecoveryExport() { return { status: 'unavailable', cause: 'absent-database', message: 'In-memory fixture only.' }; },
+    async replaceSave() { throw new Error('Not used in this producer fixture.'); },
+    subscribeInvalidation() { return () => {}; }, notifySilence() {}, close() {},
+  };
+  const controller = createStateController({ repository, catalogue, questBindings: QUEST_ACTIVITY_BINDINGS,
+    milestone: 'M1', clock: { nowEpochMs: () => now }, allocateId: () => `review-id-${++sequence}`,
+    preferenceGate: { applyLiveIntent() {} }, readTransientReadiness: () => ({ dirty: false, pending: false, failed: false }) });
+  expect((await controller.ready).status).toBe('ready');
+  const act = (kind: StateCommand['kind'], payload: unknown, profileId: string | null = 'ada') =>
+    controller.dispatch({ kind, payload, actionId: `review-action-${++sequence}`, expected: controller.getSnapshot().token,
+      ...(profileId ? { profileId } : {}) } as StateCommand);
+  const profile = () => controller.getSnapshot().save.profiles.ada;
+  const active = () => Object.values(profile().encounters).reverse().find(e => e.learningEpisode.status === 'open')!;
+  const check = (e: EncounterSave, response: ActivityResponse) => act('SubmitCheck', { encounterId: e.encounterId,
+    learningEpisodeOrdinal: e.learningEpisode.ordinal, submissionId: `review-submission-${++sequence}`, checkSequence: e.validChecks + 1, response });
+  expect((await act('CreateProfile', { newProfileId: 'ada', nickname: 'Ada', avatarId: 'pip' }, null)).status).toBe('committed');
+  expect((await act('OpenEncounter', { route: { kind: 'quest', questId: 'Q1' }, suppressDueReviewForVisit: false })).status).toBe('committed');
+  expect(active().canonicalQuestionId).toBe('lif.math.bridge.r1.total-12');
+  expect((await check(active(), { kind: 'bridge', planks: [6, 6] })).status).toBe('committed');
+  return { controller, catalogue, act, profile, active, check, writes: () => writes,
+    setDate: (date: string) => { now = Date.parse(`${date}T12:00:00Z`); } };
+}
+
+describe('review producer through the actual facade and decoder', () => {
+  it('9 October Q1 success → 12 October genuine review opens, completes, exports and decodes', async () => {
+    const h = await reviewFacadeHarness();
+    try {
+      h.setDate('2026-10-12');
+      const opened = await h.act('OpenEncounter', { route: { kind: 'practice', skillId: 'M01', mode: 'suggested' }, suppressDueReviewForVisit: false });
+      expect(opened).toMatchObject({ status: 'committed' });
+      const e = h.active();
+      expect(e).toMatchObject({ canonicalQuestionId: 'lif.math.bridge.r1.total-12', selectionReason: 'due-review', familiar: true,
+        reviewReference: { canonicalQuestionId: 'lif.math.bridge.r1.total-12', dueLocalDate: '2026-10-12', previousSuccessWeek: '2026-10-05' },
+        eligibility: { kind: 'eligible-review' } });
+      expect(selectCommittedActivity(h.controller.getSnapshot(), h.catalogue, { profileId: 'ada', encounterId: e.encounterId }))
+        .toMatchObject({ status: 'ready', activity: { selectionReason: 'due-review', reviewReference: e.reviewReference } });
+      expect(validateSave(h.controller.getSnapshot().save, h.catalogue).status).toBe('valid');
+      expect(await h.check(e, { kind: 'bridge', planks: [6, 6] })).toMatchObject({ status: 'committed',
+        changes: { earnedPoints: { lifetimeDelta: 20, competitiveDelta: 20 } } });
+      expect(h.profile().learning.evidence.M01?.bands.support).toMatchObject({ validChecks: 2, completedEpisodes: 2,
+        independentSuccesses: 2, laterDistinctSuccesses: 0, reviewDueLocalDate: '2026-10-19' });
+      const exported = await h.controller.backupActions.export('flushed');
+      expect(exported.status).toBe('ready');
+      if (exported.status !== 'ready') throw new Error('Expected valid backup');
+      const decoded = decodeBackup(exported.backup.json, h.catalogue);
+      expect(decoded.status).toBe('valid');
+      if (decoded.status === 'valid') expect(decoded.envelope.save).toEqual(h.controller.getSnapshot().save);
+    } finally { h.controller.dispose(); }
+  });
+  it('skip-review selects unseen total-10 as ordinary practice and preserves the due date through Check/export', async () => {
+    const h = await reviewFacadeHarness();
+    try {
+      h.setDate('2026-10-12');
+      expect((await h.act('OpenEncounter', { route: { kind: 'practice', skillId: 'M01', mode: 'suggested' }, suppressDueReviewForVisit: true })).status).toBe('committed');
+      const e = h.active();
+      expect(e).toMatchObject({ canonicalQuestionId: 'lif.math.bridge.r1.total-10', selectionReason: 'adaptive-practice', familiar: false, reviewReference: null });
+      expect((await h.check(e, { kind: 'bridge', planks: [6, 4] })).status).toBe('committed');
+      expect(h.profile().learning.evidence.M01?.bands.support.reviewDueLocalDate).toBe('2026-10-12');
+      const exported = await h.controller.backupActions.export('flushed');
+      expect(exported.status).toBe('ready');
+      if (exported.status === 'ready') expect(decodeBackup(exported.backup.json, h.catalogue).status).toBe('valid');
+    } finally { h.controller.dispose(); }
+  });
+  it('same-week educational review completes with zero award and export/decode equality', async () => {
+    const h = await reviewFacadeHarness('2026-10-05');
+    try {
+      h.setDate('2026-10-08');
+      expect((await h.act('OpenEncounter', { route: { kind: 'practice', skillId: 'M01', mode: 'suggested' }, suppressDueReviewForVisit: false })).status).toBe('committed');
+      const e = h.active();
+      expect(e).toMatchObject({ canonicalQuestionId: 'lif.math.bridge.r1.total-12', selectionReason: 'due-review', familiar: true,
+        reviewReference: { canonicalQuestionId: 'lif.math.bridge.r1.total-12', dueLocalDate: '2026-10-08', previousSuccessWeek: '2026-10-05' },
+        opportunityId: null, eligibility: { kind: 'practice-only' } });
+      expect(validateSave(h.controller.getSnapshot().save, h.catalogue).status).toBe('valid');
+      const before = h.controller.getSnapshot(), writes = h.writes();
+      expect(await h.check(e, { kind: 'bridge', planks: [6, 6] })).toMatchObject({ status: 'committed',
+        changes: { earnedPoints: { lifetimeDelta: 0, competitiveDelta: 0, newReceiptKeys: [] } } });
+      expect(h.controller.getSnapshot()).not.toBe(before);
+      expect(h.writes()).toBe(writes + 1);
+      expect(h.profile().rewards.lifetimePoints).toBe(40);
+      expect(h.controller.getSnapshot().save.competition.currentScores.ada).toBe(20);
+      expect(h.controller.getSnapshot().save.competition.currentSlots.ada).toHaveLength(1);
+      expect(h.profile().rewards.tracksByCanonical[e.canonicalQuestionId].lastAllocatedOrdinal).toBe(1);
+      expect(h.profile().learning.evidence.M01?.bands.support).toMatchObject({ validChecks: 2, completedEpisodes: 2,
+        independentSuccesses: 2, laterDistinctSuccesses: 0, reviewDueLocalDate: '2026-10-15' });
+      expect(h.profile().learning.evidence.M01?.bands.support.reviewResults.at(-1)).toMatchObject({
+        canonicalQuestionId: e.canonicalQuestionId, localDate: '2026-10-08', competitionWeekId: '2026-10-05',
+        outcome: 'independent-success', familiar: true });
+      expect(h.profile().encounters[e.encounterId]).toMatchObject({ selectionReason: 'due-review',
+        reviewReference: e.reviewReference, opportunityId: null, learningEpisode: { status: 'completed-success' } });
+      const exported = await h.controller.backupActions.export('flushed');
+      expect(exported.status).toBe('ready');
+      if (exported.status !== 'ready') throw new Error('Expected valid same-week backup');
+      const decoded = decodeBackup(exported.backup.json, h.catalogue);
+      expect(decoded.status).toBe('valid');
+      if (decoded.status === 'valid') expect(decoded.envelope.save).toEqual(h.controller.getSnapshot().save);
+    } finally { h.controller.dispose(); }
   });
 });
