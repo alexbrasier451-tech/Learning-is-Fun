@@ -9,6 +9,15 @@ declare const document: { documentElement: { scrollWidth: number } };
 declare const innerWidth: number;
 declare function getComputedStyle(element: unknown): { fontSize: string };
 
+test.afterEach(async ({ page }, info) => {
+  if (info.status === info.expectedStatus) return;
+  const diagnostic = await page.evaluate(() => window.audioFixture?.diagnostics())
+    .catch(error => ({ captureError: String(error) }));
+  await info.attach('audio-failure-checkpoints.json', { body: JSON.stringify({
+    browserVersion: page.context().browser()?.version(), diagnostic,
+  }, null, 2), contentType: 'application/json' });
+});
+
 async function bootReal(page: Page, namespace = randomUUID(), corrupt = false) {
   await page.goto(`tests/fixtures/audio.html?binding=real&speech=fake&namespace=${namespace}${corrupt ? '&corrupt=yes' : ''}`);
   await page.waitForFunction(() => !!window.audioFixture);

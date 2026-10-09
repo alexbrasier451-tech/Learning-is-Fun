@@ -25,6 +25,18 @@ let committed: CommittedSnapshot = { token: { epoch: 'audio-fixture', revision: 
 let failNext = false, failNextHandoff = false, holdNext = false, release: (() => void) | null = null;
 const events: Array<Record<string, unknown>> = [];
 let context: AudioContext | null = null, createdContexts = 0;
+let stopContextDiagnostics = () => {};
+function browserGate() {
+  return { hidden: document.hidden, visibilityState: document.visibilityState,
+    userActivation: { isActive: navigator.userActivation?.isActive ?? null, hasBeenActive: navigator.userActivation?.hasBeenActive ?? null } };
+}
+function contextState() {
+  return context ? { state: context.state, currentTime: context.currentTime, sampleRate: context.sampleRate,
+    baseLatency: context.baseLatency, destinationChannels: context.destination.channelCount, maxChannels: context.destination.maxChannelCount } : null;
+}
+function checkpoint(stage: string, details: Record<string, unknown> = {}) {
+  events.push({ stage, sequence: events.length, atMs: performance.now(), ...details });
+}
 const sources: { source: AudioBufferSourceNode; started: boolean; stopped: boolean; loop: boolean }[] = [];
 const utterances: SpeechSynthesisUtterance[] = [];
 let currentUtterance: SpeechSynthesisUtterance | null = null;
@@ -39,6 +51,7 @@ const speech = params.get('speech') === 'fake'
   : createSpeechAdapter();
 const audio = createAudioController({ assetResolver: assetUrl, speechAdapter: speech,
   persistPreferences: intent => {
+    checkpoint('preference-handoff', { intent, live: audio.getSnapshot(), browser: browserGate() });
     if (failNextHandoff) { failNextHandoff = false; throw new Error('Fixture handoff fails before helper.'); }
     preferences.setAudioPreferences(intent);
   },
@@ -46,6 +59,22 @@ const audio = createAudioController({ assetResolver: assetUrl, speechAdapter: sp
     createdContexts++;
     try { context = new AudioContext(); }
     catch (error) { events.push({ stage: 'context-unavailable', error: String(error), constructorType: typeof AudioContext }); throw error; }
+    checkpoint('native-context-created', { context: contextState(), browser: browserGate(), live: audio.getSnapshot() });
+    const created = context, resume = created.resume.bind(created);
+    // Observe the real promise without resolving, replacing, timing out or
+    // retrying it. These fixture checkpoints never set runtime activation.
+    created.resume = () => {
+      checkpoint('native-resume-call', { context: contextState(), browser: browserGate(), live: audio.getSnapshot() });
+      try {
+        const pending = resume();
+        void pending.then(() => checkpoint('native-resume-fulfilled', { context: contextState(), browser: browserGate(), live: audio.getSnapshot() }),
+          error => checkpoint('native-resume-rejected', { error: String(error), context: contextState(), live: audio.getSnapshot() }));
+        return pending;
+      } catch (error) { checkpoint('native-resume-threw', { error: String(error), context: contextState() }); throw error; }
+    };
+    const nativeStateChange = () => checkpoint('native-statechange', { context: contextState(), browser: browserGate(), live: audio.getSnapshot() });
+    created.addEventListener('statechange', nativeStateChange);
+    stopContextDiagnostics = () => { created.removeEventListener('statechange', nativeStateChange); };
     const createSource = context.createBufferSource.bind(context);
     context.createBufferSource = () => {
       const source = createSource(), item = { source, started: false, stopped: false, loop: false };
@@ -60,6 +89,14 @@ const audio = createAudioController({ assetResolver: assetUrl, speechAdapter: sp
     return context;
   },
 });
+const stopAudioDiagnostics = audio.subscribe(() => checkpoint('audio-status', { live: audio.getSnapshot(), browser: browserGate(), context: contextState() }));
+function recordClick(event: MouseEvent) {
+  const button = event.target instanceof Element ? event.target.closest('button') : null;
+  if (button && /^(Enable sound|Retry sound|Exit Silence all)$/.test(button.textContent?.trim() ?? '')) {
+    checkpoint('explicit-activation-click', { label: button.textContent?.trim(), trusted: event.isTrusted, browser: browserGate(), live: audio.getSnapshot() });
+  }
+}
+document.addEventListener('click', recordClick, true);
 const nativePut = IDBObjectStore.prototype.put;
 if (realBinding) IDBObjectStore.prototype.put = function (...args: Parameters<IDBObjectStore['put']>) {
   const request = nativePut.apply(this, args);
@@ -112,7 +149,7 @@ const unsubscribe = preferences.subscribe(() => {
   if (realBinding) events.push({ stage: 'preference-status', status: preferences.getStatus() });
 });
 audio.applyPreferenceState(preferences.getStatus()); audio.setSceneTheme('village');
-function visibility() { audio.setVisible(!document.hidden); }
+function visibility() { checkpoint('visibility-forward', { browser: browserGate() }); audio.setVisible(!document.hidden); }
 document.addEventListener('visibilitychange', visibility);
 visibility();
 function snapshot() { return facade ? facade.getSnapshot() : committed; }
@@ -126,6 +163,8 @@ const api = {
   namespace, binding: realBinding ? 'real' as const : 'fake' as const,
   ready: () => facade?.ready ?? Promise.resolve({ status: 'ready' as const, snapshot: committed }),
   audio, events: () => events, createdContexts: () => createdContexts,
+  diagnostics: () => ({ binding: realBinding ? 'real' : 'fake', browser: browserGate(), userAgent: navigator.userAgent,
+    context: contextState(), createdContexts, live: audio.getSnapshot(), preferenceStatus: preferences.getStatus(), events }),
   activeSources: () => sources.filter(s => s.started && !s.stopped).map(s => ({ loop: s.loop, duration: s.source.buffer?.duration })),
   committed: snapshot, preferences,
   flush: () => facade ? facade.flush() : preferences.flush(),
@@ -163,7 +202,8 @@ const api = {
   utteranceCount: () => utterances.length,
   teardown() {
     if (tornDown) return; tornDown = true;
-    unsubscribe(); document.removeEventListener('visibilitychange', visibility); audio.dispose(); facade?.dispose();
+    unsubscribe(); stopAudioDiagnostics(); stopContextDiagnostics(); document.removeEventListener('click', recordClick, true);
+    document.removeEventListener('visibilitychange', visibility); audio.dispose(); facade?.dispose();
     if (realBinding) IDBObjectStore.prototype.put = nativePut;
     mounted.unmount();
   },

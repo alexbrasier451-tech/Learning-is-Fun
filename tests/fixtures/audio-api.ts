@@ -20,6 +20,7 @@ export type AudioFixtureApi = {
     stopReading(): void;
   };
   events(): Array<Record<string, unknown>>;
+  diagnostics(): Record<string, unknown>;
   createdContexts(): number;
   activeSources(): Array<{ loop: boolean; duration: number | undefined }>;
   committed(): CommittedSnapshot;
