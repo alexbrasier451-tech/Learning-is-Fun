@@ -1,5 +1,7 @@
 # Shared decisions
 
+Execution clarification to DEC-034, accepted 9 October 2026: the [independently reviewed multi-binding verification allocation](execution/MULTI-BINDING-AMENDMENT.md) separates WP04-04A's real helper and singleton M1 persistence evidence from WP04-07A's retained integrated partial multi-required M2 proof. The required-binding rule, original content and milestone gates are unchanged; the amendment is not runtime acceptance.
+
 Accepted Controller decisions consolidated through the independent-review corrections. These resolve cross-lane choices; named owning chunks retain exact contract definitions, detailed content and acceptance. Earlier stage proposals are historical and superseded where these rows settle them. All production paths are future implementation targets, not existing application files.
 
 | Decision ID | Accepted decision | Rationale/source | Affected chunks |

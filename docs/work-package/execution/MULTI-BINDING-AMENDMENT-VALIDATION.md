@@ -1,0 +1,37 @@
+# Multi-required-binding amendment — independent Final Chunk Review
+
+Date: 9 October 2026. Role: fresh independent Sol/xhigh Final Chunk Review. Scope: the proposed [amendment](MULTI-BINDING-AMENDMENT.md) and affected [WP04-04A](../chunks/WP04-04A.md)/[WP04-07A](../chunks/WP04-07A.md) verification allocation only.
+
+**Disposition: ACCEPTED. No substantive findings.** The proposal resolves the demonstrated M1 fixture contradiction with a minimal allocation to existing work. This is independent acceptance of the specification proposal, not Controller administrative acceptance, facade implementation acceptance, executed M2 evidence, or release acceptance. Controller retains shared-document integration and dependency release.
+
+## Established conflict
+
+[WP03-05A](../chunks/WP03-05A.md#produced-outputsinterfaces) specifies exactly nine M1 rows and one required story anchor for each of Q1–Q3. Transfer/revisit rows cannot supply required completion. Its helper is general, but the released M1 registry has no nonempty proper subset of required successes for any quest. The prior sentence retained in the amendment therefore cannot be demonstrated as an integrated partial multi-required M1 full-save fixture while preserving that producer contract.
+
+Read-only source inspection corroborates the [facade handoff](WP04-04A-HANDOFF.md): `src/content/quest-bindings.ts` fixes the nine rows, rejects unknown M1 IDs and released-meaning/pool changes, and rejects retrospective M2 story requirements on Q1–Q3. `src/state/controller.ts` validates supplied bindings. `src/state/transition.ts` calls the real nonempty/all-required helper, checks prerequisites, composes binding/quest/reward changes and validates the complete candidate. `src/state/backup.ts` resolves permanent IDs and encounter provenance against the actual `QUEST_ACTIVITY_BINDINGS`, validates prerequisite/completion consistency and requires quest receipts to match completed quests. A synthetic reducer registry does not replace that decoder registry. Changing these boundaries merely to admit the impossible M1 fixture would alter the signed-off product or validation contract.
+
+## Verification obligations retained
+
+| Proof | Existing accountable chunk and required evidence | Assessment |
+|---|---|---|
+| General nonempty/all-required helper | WP04-04A invokes the actual producer helper with already specified identities; missing/empty and proper subsets are false, the complete nonempty set is true, including completion-set JSON round-trip. The fixture is explicitly helper input rather than an admitted registry/full save. | Appropriate bounded M1 contract evidence; it makes no integrated partial-persistence claim. |
+| Actual M1 durable integration | WP04-04A retains the real Q1–Q3 command → full-root validation → commit → supported compaction/reload path, actual helper use, permanent singleton/quest facts and once-only rewards. Existing transfer/resume/duplicate/backup and abort/retry obligations remain. | Preserves all released M1 content and its durable verification; no extra required beat is introduced. |
+| Integrated partial multi-required full save | WP04-07A explicitly carries the former obligation into its already required compact M2 partial-progress case. It uses delivered WP03-13A multibeat bindings/tasks with satisfied prerequisites, a committed proper subset and no quest receipt/bonus, supported encounter compaction, reload and full export/import, rejection of optional work as missing-ID evidence, then final required completion with one quest award and duplicate/reload idempotence. Legitimate learning/question rewards remain eligible. | Retains the complete integrated obligation with a feasible producer contract; helper-only or fabricated-M1 evidence cannot discharge it. |
+
+[WP03-13A](../chunks/WP03-13A.md#produced-outputsinterfaces) already specifies `q9-story-m08-clock` and `q9-story-m08-sequence`; its acceptance oracle already requires clock-only incompletion, later sequence completion and no substitution by optional M08 work. WP04-07A's existing produced interface already requires partial multi-binding progress through reload/round-trip and final completion once. The amendment makes that existing case explicitly cover intermediate compaction and the full-save obligation; it creates no child, task bank, question/binding identity, new interface or second test programme.
+
+The real WP06-04A accepted M1 export remains immutable and separate from the compact expanded fixture. Current M1 validator inspection does not establish M2 compatibility. Actual delivered M2 content and any necessary validator/compatibility adaptations must be verified by the existing producer/compatibility owners. A failure there leaves this carried obligation unmet; this review supplies no waiver.
+
+## Product and boundary preservation
+
+The allocation agrees with [REQUEST](../evidence/REQUEST.md), [DEC-001/034](../DECISIONS.md) and the [Stage 10 recheck](../evidence/STAGE10-RECHECK.md#local): the first adventure remains bridge, spellbook and merchant with optional transfer, followed by the scoped expansion. All nine M1 rows, fixed anchors and Q1–Q3 completion meanings remain unchanged in M2. The original M1 arithmetic oracle, profile isolation, atomic failure/retry, learning provenance, compaction guards, rewards, readiness and committed activity projection obligations remain present.
+
+The affected chunks still match the authoritative [coverage](../COVERAGE.md) relationships and [dependencies](../DEPENDENCIES.md). WP04-04A retains DEP-029–034, including the actual M1 registry from DEP-031. WP04-07A retains DEP-116–119 for the produced M2 catalogue, completed M1 facade/adult boundary and genuine accepted M1 export. M1 does not await M2. No dependency edge, coverage ID/disposition/relationship, acceptance-table ID, chunk/interface ownership, concurrency permission or model assignment is changed: WP04-04A remains Astra/xhigh and WP04-07A remains Sol/high, consistent with the historical sizing assignment. WP06-04A and WP06-07A retain sole milestone release acceptance.
+
+D1–T2 browser requirements, actual published PC/tablet play, listening, independent remembered music/effects controls, Silence all/Stop and the accepted [licensed-music amendment](MUSIC-REVISION.md) remain required. No browser/audio gap or unrelated facade defect is waived by this proposal.
+
+## Review checks and limits
+
+Read the amendment and both changed chunks, the fixed M1 and existing M2 binding contracts, and the focused authority/handoff/source material cited above. Supporting reads established the contradiction, existing M2 owner and unchanged product/release boundaries; they did not reopen package design. A focused read-only document check found 18 unique required schema headings in each affected chunk, the prescribed implementation models/reasoning, and all 41 relative links across the three proposal files resolving. Protected relationships and acceptance IDs were checked against their current authoritative records; no historical byte-for-byte comparison is claimed.
+
+Only this validation report was authored. No runtime/source or other package-document fix, shared status/decision edit, Git operation, delegation, other-chat message, application test or browser/audio observation was performed. Controller may accept and integrate the allocation; affected facade execution/validation and the later actual M2 integrated proof remain outstanding.

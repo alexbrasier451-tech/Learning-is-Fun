@@ -10,6 +10,10 @@ During execution the Controller owns shared package/status documents, dispatch, 
 
 On 9 October 2026 the human rejected the first synthesized music audition and requested existing free online music instead. [MUSIC-REVISION](execution/MUSIC-REVISION.md) records this direct scope amendment. It supersedes original-only music composition/source clauses where they conflict; two appropriate themes, controls, local/offline delivery, provenance and real listening remain required. Historical planning and rejected-production evidence are retained without representing acceptance.
 
+### Execution clarification: multi-binding verification
+
+The independently reviewed [multi-binding verification amendment](execution/MULTI-BINDING-AMENDMENT.md), accepted by Controller on 9 October 2026, resolves a demonstrated impossible M1 fixture. WP04-04A proves the real all-required helper and actual singleton M1 persistence separately; WP04-07A retains the complete integrated partial multi-required persistence proof with actual M2 content. No product, coverage, dependency, browser or audio requirement is waived, and M2 remains gated on accepted M1.
+
 ## Historical package-building rules
 
 Only the Controller writes shared documents. Lane workers write only assigned chunk documents; one writer per chunk. Review workers are report-only except trivial clerical chunk corrections allowed by the builder skill. No worker creates/delegates to or messages another chat. Direct human authorization for Controller-created visible workers is recorded in [REQUEST](evidence/REQUEST.md).
