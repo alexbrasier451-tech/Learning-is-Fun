@@ -6,6 +6,10 @@ On 8 October 2026 the human instructed: “Restart as the controller. Use the Wo
 
 During execution the Controller owns shared package/status documents, dispatch, integration and commits. Implementation workers own only their explicitly assigned production files and chunk-specific execution evidence. Validators are independent and report-only. Workers must not create/delegate to or message other chats. Follow accepted dependencies and prescribed models/reasoning; release dependent work only after independent validation and administrative acceptance. Preserve unrelated files. The execution ledger distinguishes implementation acceptance from specification acceptance. No product scope or signed-off contract is changed by this authority note.
 
+### Human execution amendment: licensed music
+
+On 9 October 2026 the human rejected the first synthesized music audition and requested existing free online music instead. [MUSIC-REVISION](execution/MUSIC-REVISION.md) records this direct scope amendment. It supersedes original-only music composition/source clauses where they conflict; two appropriate themes, controls, local/offline delivery, provenance and real listening remain required. Historical planning and rejected-production evidence are retained without representing acceptance.
+
 ## Historical package-building rules
 
 Only the Controller writes shared documents. Lane workers write only assigned chunk documents; one writer per chunk. Review workers are report-only except trivial clerical chunk corrections allowed by the builder skill. No worker creates/delegates to or messages another chat. Direct human authorization for Controller-created visible workers is recorded in [REQUEST](evidence/REQUEST.md).

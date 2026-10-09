@@ -18,10 +18,13 @@ Execution was explicitly requested on 8 October 2026. Required visible worker cr
 | 01a11dce-7f46-7d43-9b38-537e7299848a | Independent validator | gpt-6.1-sol / xhigh | WP05-03A weekly closure/ranks | Accepted after both P2 findings resolved |
 | 01a11dcf-7e94-7423-a998-7edac8488c00 | Implementation | gpt-6.1-sol / high | WP04-01A save and command contracts | Accepted; available for next bounded state work |
 | 01a11dcf-9383-7713-abee-d0c0e67c65f3 | Implementation | gpt-6-astra / high | WP02-02A finished M1 art and preview | Accepted; register handed to audio author |
-| 01a11de0-4402-7d40-885f-dcadaadf0bed | Implementation | gpt-6-astra / high | WP03-04A adaptive learning and review policy | Running; DEP-012/013/014 released |
-| 01a11de1-555a-7b00-be1a-ab9fc5a6872d | Independent validator | gpt-6-astra / high | WP02-02A artwork | Accepted; no substantive findings |
-| 01a11de7-98e9-7c21-9cb6-d174fabaa1bf | Implementation | gpt-6-astra / high | WP02-03A original music and effects | Running; DEP-036/037 released, owns audio register rows |
-| 01a11de8-47cb-7422-9b0c-d6ecf8ea0e4c | Implementation | gpt-6-astra / high | WP03-03A reviewed spellbook punctuation | Running; DEP-010/011 released |
+| 01a11de0-4402-7d40-885f-dcadaadf0bed | Implementation | gpt-6-astra / high | WP03-04A adaptive learning and review policy | Accepted after both P2 corrections |
+| 01a11de1-555a-7b00-be1a-ab9fc5a6872d | Independent validator | gpt-6-astra / high | WP02-02A accepted; WP02-03A rejected synthesis | Technical review retained; old music not accepted |
+| 01a11de7-98e9-7c21-9cb6-d174fabaa1bf | Implementation | gpt-6-astra / high | WP02-03A music and effects | Replacing rejected synthesis with licensed free music per human amendment |
+| 01a11de8-47cb-7422-9b0c-d6ecf8ea0e4c | Implementation | gpt-6-astra / high | WP03-03A reviewed spellbook punctuation | Correcting two P2 malformed-content findings |
+| 01a11dec-81cc-7451-9067-d901c26c6cd5 | Independent validator | gpt-6-astra / high | WP03-04A adaptive policy | Accepted after narrow independent recheck |
+| 01a11df3-1792-7d20-861a-19a381693780 | Independent validator | gpt-6-astra / high | WP03-03A spellbook | Two P2 findings returned to original author |
+| 01a11df8-dbd7-7491-aead-c17b930aae06 | Implementation | gpt-6-astra / high | WP05-02A scoring and entitlements | Running; DEP-018/019/020 released |
 
 ## Accepted implementation boundaries
 
@@ -35,8 +38,9 @@ Execution was explicitly requested on 8 October 2026. Required visible worker cr
 | WP04-01A | [Handoff](WP04-01A-HANDOFF.md), [validation](WP04-01A-VALIDATION.md): ACCEPTED; no findings | Controller checked 30 focused passes, 21 compile-time rejection examples, scoped typechecks and exact ownership | 85ec7099d58e9ecde0681f1e266c23903fb06f87 | Early contract chain complete; adaptive learning, repository and preference producers now runnable |
 | WP03-02A | [Handoff](WP03-02A-HANDOFF.md), [validation](WP03-02A-VALIDATION.md): ACCEPTED; no findings | Controller checked 24-task bank, 70 author checks, 68 fresh reviewer checks and scoped typechecks | 32bd8acdfa9523f12b7eeb42748c41062871dfc4 | Starter maths input ready for catalogue assembly after other prerequisites |
 | WP02-02A | [Handoff](WP02-02A-HANDOFF.md), [validation](WP02-02A-VALIDATION.md): PASS; no substantive defects | Controller checked 36 exports, measured mappings, three-size preview and independent visual findings | 9da250c955b4d6c0f7cb986de2bc23c2cad91b46 | DEP-037 exclusive asset-register writer handoff released to audio; visual consumers await other inputs |
+| WP03-04A | [Handoff](WP03-04A-HANDOFF.md), [validation](WP03-04A-VALIDATION.md): ACCEPTED after two P2 corrections | Controller checked 279 relevant passes, unchanged reviewer harness 11/11, 21 focused rechecks and fresh E06 path | 04760c0e6ecc3cdbdd3b2fda33f1dd9c49a032b9 | Adaptive input ready for starter catalogue after spellbook acceptance |
 
-8 of 49 children accepted. Active work: WP03-04A adaptive learning, WP02-03A original audio, WP03-03A spellbook content. Other ready content/widget/scoring producers are queued for free worker capacity; none is claimed complete. No shared source/config writer overlap. The retained verbatim upstream licence appendix contains original trailing whitespace; commit checking reported that evidence-only whitespace, with no source change warranted. No browser capability gap is waived.
+9 of 49 children accepted. Active work: WP05-02A scoring, WP02-03A licensed music replacement, WP03-03A spellbook corrections. Other ready content/widget/scoring producers are queued for free worker capacity; none is claimed complete. No shared source/config writer overlap. The retained verbatim upstream licence appendix contains original trailing whitespace; commit checking reported that evidence-only whitespace, with no source change warranted. No browser capability gap is waived.
 
 WP01-01A downstream discovery correction independently accepted: all 29 package-declared unit test paths now match Vitest discovery, excluding fixtures and Playwright specs. Original 27 checks, temporary discovery probe and tooling typecheck passed; probes removed. Correction commit: e881253f3c1ad6841cc7ef2f9248ceae78999939. This releases no new dependency beyond the existing foundation acceptance.
 
@@ -52,3 +56,7 @@ WP01-01A downstream discovery correction independently accepted: all 29 package-
 - Foundation handoff: WP01-01A-HANDOFF.md (summary before the long retained licence appendix). Author reports frozen install/typecheck/root and project builds/27 unit checks/one neutral browser fixture pass. Edge, Chromium and WebKit launches pass; Chrome install and Firefox launch gaps remain for later mandatory playtesting.
 
 Catalogue planned-to-ready lifecycle correction independently accepted and committed as a2017a3aafca140b22bcd25eb8f5ceccdfad7d9f. Twenty focused author checks, three affected independent checks and scoped typechecks pass. This removes a temporary all-planned assumption while verifying ready artifacts against actual files and metadata; no product criterion waived.
+
+Source audio listening request is pending with the human. The concrete 91.90-second audition reel and full-theme page were delivered. Two joins per theme and every cue require real observations, device/player details and comfort assessment; numeric PCM/loop checks are not listening. No acoustic criterion passed yet. Independent source technical review may release runtime construction while acoustic uncertainty remains a release input.
+
+Human rejected the initial synthesized music and explicitly requested free online replacements. [MUSIC-REVISION](MUSIC-REVISION.md) governs the amendment. The previous pending source-listening request is superseded by this rejection; no old soundtrack acceptance or downstream audio dependency release is claimed. Original owner now has exclusive audio writer handoff after technical reviewer stopped.
