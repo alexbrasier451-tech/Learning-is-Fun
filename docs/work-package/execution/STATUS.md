@@ -1,6 +1,6 @@
 # Implementation execution ledger
 
-Status: IN PROGRESS; the assembled M1 shell is accepted and offline implementation is the next runnable child. Controller: 01a11d11-b980-7332-8a57-33fcaf22e390.
+Status: IN PROGRESS; the assembled M1 shell is accepted and offline implementation is active. Controller: 01a11d11-b980-7332-8a57-33fcaf22e390.
 
 Latest checkpoint, 9 October 2026: **25 of 49 execution children accepted.** Controller accepts WP01-02A after F01 correction, 16 corrected local browser passes, three fresh independent complete-path rechecks, focused state/audio checks, build/typecheck and four actual Firefox cases on candidate b85df192a949c9e276b230dcefd02bfbe6272569. The original independent shell/integration reviewer inspected all four D3 receipts, renders, exact source identity and actual cleanup evidence and reports whole-child technical PASS with no actionable findings. See [D3 shell execution](D3-SHELL-EXECUTION.md) and [final validation](WP01-02A-VALIDATION.md). DEP-064 is released, completing the incoming set for Astra/high WP01-03A offline caching and safe next-launch updates. No Pages deployment, live-game acceptance or M1 release is claimed. Earlier checkpoint paragraphs below remain history where superseded by this checkpoint.
 
@@ -57,8 +57,9 @@ Shell integration exposed a producer-owned session lifecycle defect under the ex
 | 01a11ed4-9169-77c1-a0c1-a50cb117010b | Independent validator | gpt-6.1-sol / xhigh | WP02-07A Pip and creative garden | PASS, no findings; five fresh cases and both scoped typechecks |
 | 01a11fd0-2521-7fc1-87cc-43d4c52e7995 | Implementation | gpt-6-astra / high | WP02-06A M1 committed adventure | Whole child accepted after F01 correction and actual D3; available for corrections |
 | 01a11ff1-b321-7d32-898b-4aad7a6c65b7 | Independent validator | gpt-6-astra / high | WP02-06A M1 adventure | Whole child PASS; F01 closed and actual D3 independently inspected |
-| 01a12006-2ada-7081-a177-ce4799da0f2d | Fresh bounded integration author | gpt-6.1-sol / high | WP01-02A final shell/single runtime | F01 corrected; frozen after 16 local browser passes; port5195 released |
-| 01a12025-a68f-75e0-b9c7-574993834af7 | Fresh independent shell/integration reviewer | gpt-6-astra / high | WP01-02A assembled M1 UI/runtime | Technical PASS; F01 closed by three complete fresh rechecks; D3 pending |
+| 01a12006-2ada-7081-a177-ce4799da0f2d | Fresh bounded integration author | gpt-6.1-sol / high | WP01-02A final shell/single runtime | Whole child accepted; available for ordered offline presentation handoff |
+| 01a12025-a68f-75e0-b9c7-574993834af7 | Fresh independent shell/integration reviewer | gpt-6-astra / high | WP01-02A assembled M1 UI/runtime | Whole child PASS after F01 and actual D3 inspection |
+| 01a1203e-df35-7f31-9a43-b048c3b4ee83 | Implementation | gpt-6-astra / high | WP01-03A offline cache and native waiting updates | All incoming children accepted; active, production-origin port5196 |
 
 Fresh shell review found F01 (P2): Save progress and same-view Adventure navigation correctly suspended the activity but retained the suspended editor, making later edits/Check ineffective. The original shell author corrected successful routing to the overview and existing producer-owned Resume route. All 16 corrected local browser cases pass. The reviewer independently reran both original complete paths plus failed save/exact retry/partial flush, preserving encounter, opportunity, episode, attempts and help; F01 is closed and technical review passes. See [independent review](WP01-02A-VALIDATION.md). Controller's combined project typecheck and whitespace check pass. No shell acceptance yet. The separate four-case D3 tooling extension independently passed and is committed as5e2427a; actual shell D3 is the remaining child gate.
 
