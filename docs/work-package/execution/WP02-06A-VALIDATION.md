@@ -1,6 +1,6 @@
 # WP02-06A independent validation
 
-9 October 2026. Independent reviewer; no implementation authorship. **Technical PASS on the final frozen candidate, with only actual Linux D3 six-case execution pending. F01 is independently CLOSED; no open technical finding.** This permits Controller's coherent reviewed-candidate commit/check/CI execution, not whole-child administrative acceptance. Controller owns dispatch, corrections, integration, Git and acceptance. This reviewer wrote only this report and private probes/evidence.
+9 October 2026. Independent reviewer; no implementation authorship. **Final whole-child independent PASS on candidate `263d3bd3b1c4450778d120bc91243ceb9f155154`, including actual Linux D3 execution. F01 is independently CLOSED; no open technical finding or remaining WP02-06A evidence gate.** Ready for Controller administrative acceptance and dependency release to shell composition. Controller owns dispatch, integration, Git and acceptance. This reviewer wrote only this report and private probes/evidence. This is not M1 release, published-game or acoustic acceptance.
 
 ## F01 — closed original-author correction
 
@@ -12,7 +12,7 @@ Verified original red evidence: `results-f01-before.json`, one failed D1 transfe
 
 Independent fresh counterexample recheck: `probe-results.json`, **1 passed** in actual Chrome **155.0.8059.40**, one worker/no retries. Visible DOM created Juniper, completed Q1, reloaded, returned to River Bridge and opened the now-present transfer. Actual native facade snapshot has `q1-transfer-m01`, a canonical task distinct from total-12, `completedStoryBindingIds=['q1-story-m01']` and exactly one quest receipt. Captured semantic button/text state and actual screenshot show both the optional challenge and separate revisit practice. This closes F01 against final source, not an author declaration alone.
 
-## Evidence inspected so far
+## Initial source and local evidence review
 
 - Complete WP02-06A criteria 1–12, overview/current execution authority, and directly relevant accepted public producer handoffs/contracts; production world/activity/adapter/style/motion, actual browser spec and native-IDB host/API. No producer source changed or reaccepted.
 - Author `results-closure.json`: 24 expected passes, zero skipped/unexpected/flaky/errors, one attempt per case; six cases each D1 Chrome, D2 Edge, T1 Chromium touch, T2 WebKit touch.
@@ -39,7 +39,7 @@ No additional actionable source issue was established. Mismatched binding, unava
 
 Private evidence root: `C:/Users/alexb/.codex/visualizations/2026/10/09/01a11ff1-b321-7d32-898b-4aad7a6c65b7`. `review-evidence.mjs` extracts the original author JSON/PNG attachments without modifying them. Author root: `C:/Users/alexb/.codex/visualizations/2026/10/09/01a11fd0-2521-7fc1-87cc-43d4c52e7995`.
 
-## Frozen identity and remaining D3 boundary
+## Frozen identity
 
 The initial final handoff arrived while this review was in progress, then F01 reopened affected owner scope. One initial independent Vite startup stopped at its strict-port check (5194 already in use); no browser launched in that attempt and the owning server was not stopped/reused. After explicit author release, the independent probe used its own server on 5194, private Vite/output paths and build ID `local-wp02-06a-independent`. The owned server was closed through its teardown endpoint and its process exited 0; port 5194 is released again.
 
@@ -60,4 +60,31 @@ Final author manifest captured **2026-10-09T09:24:29.6687580Z**, base HEAD `2064
 | tests/fixtures/adventure-api.ts | `4ab9e77ffa07df28a3330690dd84dcac85592660ddf547eceb35d8921943eb2d` |
 | docs/work-package/execution/WP02-06A-HANDOFF.md | `2bc6723d1199e948957a328b8a23f0341aa1edea7579d4f07f8cac8b0f554a4c` |
 
-Actual Linux D3 six-case execution is the **only remaining WP02-06A acceptance boundary**. Review its actual commit/run identity and all six results/receipts/captures when supplied; do not reopen unchanged checks. Foundation configuration review and Controller's full-root typecheck are separately reported PASS, not tests performed by this reviewer. Whole-child acceptance awaits real D3 evidence. No final shell, publication, M1/M2 acceptance, physical-device, child-duration or acoustic-listening claim.
+At the initial technical verdict, actual Linux D3 six-case execution was the only remaining WP02-06A boundary. It is now closed by the review below. Foundation configuration review and Controller's full-root typecheck are separately reported PASS, not tests performed by this reviewer. No final shell, publication, M1/M2 acceptance, physical-device, child-duration or acoustic-listening claim.
+
+## Actual D3 final evidence — PASS
+
+Reviewed [GitHub Actions run 37911487661](https://github.com/alexbrasier451-tech/Learning-is-Fun/actions/runs/37911487661), attempt 1, job `113757448829`, through its downloaded run metadata, discovery, results, traces, native receipts, captures and job/browser logs. Artifact `11606497212`, `d3-firefox-adventure-37911487661-1`, is 29,711,141 bytes. Evidence root: `C:/Users/alexb/AppData/Local/Temp/learning-is-fun-d3-run-37911487661/artifact`; accompanying `job.log` is one directory above. Extracted inspection copies and `summary.json` / `trace-cleanup.json` are in the existing private review root's `d3-evidence` directory. No browser or producer suite was rerun for this closure.
+
+`run.json` identifies exact reviewed commit `263d3bd3b1c4450778d120bc91243ceb9f155154`, `selection=adventure`, expected adventure count 6, Linux `6.17.0-1022-azure`, Node `v24.21.0`, and initial 1280×720 viewport. Playwright is **1.64.0**; job installation and launch records identify matched **Firefox 157.0 / firefox-1555**. Trace contexts independently identify Firefox on Linux, normal desktop input, the 1280×720 initial viewport and `http://127.0.0.1:5194/playtest/`; the portrait case changes viewport/media as authored. All 12 previously frozen source/handoff hashes were rechecked after receipt: **zero mismatches**. The current local HEAD equals the run commit. Root checks/local browser evidence were not reopened.
+
+Discovery contains exactly the six existing adventure cases, each only `D3-Firefox`; actual results contain the same six, each expected `passed` with one passed result at retry 0. **6 expected, 0 unexpected, 0 skipped, 0 flaky, 0 report errors; one worker, zero retries; 31.148 seconds.** `adventure/results.json` SHA-256: `419cade904bf0ce49748029e3ee8cf4efda84b12596267cae4b123375bf7cb85`. The job's unchanged selected-count/no-error gate also completed successfully. This is actual browser execution, not discovery or synthetic gate data.
+
+| Actual D3 case | Independent receipt/capture checks |
+|---|---|
+| Ordinary Q1→Q2→Q3, creative, reload, Hall and review | Three committed story IDs/quests, 120 lifetime points, three quest receipts, saved gold planter at plot-2. After later-week review: 140 lifetime, original Q1 story encounter absent, same reviewed canonical with a different opportunity, permanent world and quest receipts unchanged. After reload/return, actual `q1-transfer-m01` total-10 opens, distinct from the compacted total-12 source. F01 remains closed. |
+| Supported keyboard journey | Q1 retains its encounter/opportunity and ends at ordinal 2 / two cumulative Checks with committed `bridge-look`; actual duplicate Finish is already-applied. Q2 calm full-stop ending and Q3 supported 6/3 end with all three quests, three quest receipts, lifetime 90, violet planter at plot-3. |
+| Third bridge and transfer/resume | Actual `[5,4,3]` story success followed by distinct total-10 `[6,4]` transfer; `q1-story-m01` remains the only completed story binding, one quest receipt and lifetime 60. Existing assertions exercise decline/return/reload and retained transfer provenance/draft. |
+| Native failures, retry, discard and lost acknowledgement | Native aborts, held command, real suspension conflict and lost acknowledgement are present in ordered events. Hint retry and last two SubmitCheck envelopes compare exactly equal. Final SubmitCheck is already-applied; Q1/lifetime 30 with committed help and two Checks. Final facade/panel readiness is clean; no failure is converted to an extra quest receipt. |
+| Pending Check / two profiles | First child Q1/lifetime 40; second child empty world/lifetime 0, suspended `[2]` draft with zero Checks. Native held/aborted events and successful guarded retry remain tied to the intended child. |
+| Silent reduced-motion 200% portrait | Committed Q1/lifetime 40 with saved silence, source/test assertions for reduced-motion state, ≥44px controls and no horizontal overflow. Actual enlarged portrait inspected: chapter labels and task prose wrap normally, full scene and feedback remain visible, and controls remain reachable. |
+
+Viewed D3's actual embedded village-before, bridge/library/market-restored, explicit-ending and enlarged portrait captures. They retain the established art/style, meaningful committed transformations, live task/feedback text, saved planter and complete ending controls. No new layout defect was established. These are rendered early-host Firefox captures, not mockups, physical-device observations or published-site acceptance.
+
+### Cleanup, retained warnings and limits
+
+All six traces contain the explicit `adventureFixture.close()` evaluation and a matching completed `after` record without an error. Browser log then records graceful Firefox exit **code 0, no signal**, followed by completed temporary-directory cleanup. Accepted fixture teardown closes its owned Vite server; the run finishes without a teardown/test error. Native `audio-output/readiness.json` reports `ready:true` for the private runner-user PulseAudio route and unmuted 44.1kHz stereo **virtual null sink**. `cleanup.json` records targeted native-server termination **exit 0**, no signal/error/stderr and no truncated log. This proves technical backend readiness/cleanup, not audible listening or physical audio hardware.
+
+The log is **not warning-free**. It retains Firefox user-namespace `EPERM`, internal settings/wallpaper/backup-service diagnostics, Juggler `removeProgressListener` errors, and two fixture EventListener “Script terminated by timeout” warnings attributed to served `adventure.tsx:525`. Those warnings were inspected alongside actual trace completion: all six explicit close evaluations returned without error, all six original cases passed on first attempt, persisted receipts/reloads and F01 behaved correctly, and the browser/native processes closed successfully. No associated failed assertion, missing commit or actionable product defect was established; no warning was deleted, relabelled as a pass, or used to alter security/settings. The fixture warning remains an evidence limitation and does not justify reopening unchanged product scope or inventing another acceptance gate.
+
+**Final disposition:** WP02-06A independent whole-child PASS, ready for Controller administrative acceptance/dependency release. The final shell, published PC/tablet journey, WP02-12A visual/acoustic findings, physical devices, child duration, audible listening and sole M1 acceptance remain with their named downstream owners.
