@@ -14,6 +14,7 @@ const fixtureSave: SaveDataV1 = {
 const context: TransitionContext = { nowEpochMs: 0, catalogue: [], questBindings: [], milestone: 'M1', allocatedIds: {} };
 const changes = { earnedPoints: { lifetimeDelta: 0, competitiveDelta: 0, consumedSlot: null, newReceiptKeys: [], newEntitlementIds: [] }, unlockedIds: [], restorationIds: [], closedWeekIds: [] } as const;
 let validatorMode = 'valid';
+let validationCalls = 0;
 let reduceCalls = 0;
 let lastReadStore: IDBObjectStore | undefined;
 function queuePartialRootAndThrow() {
@@ -22,8 +23,12 @@ function queuePartialRootAndThrow() {
   throw new Error('Fixture port exception after queuing a partial root in the active transaction');
 }
 const validate: ValidateSave = candidate => {
+  validationCalls++;
+  if (validatorMode === 'throw-always') throw new Error('Recovery must not call the validator.');
   const save = candidate as SaveDataV1;
   if (!save || save.schemaVersion !== 1) return { status: 'unsupported', issues: [{ path: 'schemaVersion', code: 'unsupported-schema', message: 'Fixture unsupported schema.' }] };
+  if (save.contentVersion === 'future-content') return { status: 'unsupported', issues: [{ path: 'contentVersion', code: 'unsupported-content', message: 'Fixture unsupported content.' }] };
+  if (save.rewardPolicyVersion === 'future-policy') return { status: 'unsupported', issues: [{ path: 'rewardPolicyVersion', code: 'unsupported-policy', message: 'Fixture unsupported policy.' }] };
   if (validatorMode === 'queue-and-throw' && save.contentVersion !== 'fixture-initial') queuePartialRootAndThrow();
   if (validatorMode === 'async-next' && save.contentVersion !== 'fixture-initial') return Promise.resolve({ status: 'valid', save }) as never;
   if (validatorMode === 'throw-next' && save.contentVersion !== 'fixture-initial') throw new Error('Fixture validator exception');
@@ -46,24 +51,66 @@ let signals: RepositoryInvalidation[] = [];
 let observed: Array<{ value: unknown; duringCompletion: boolean }> = [];
 let completed = true;
 let releaseUpgrade: (() => Promise<void>) | undefined;
+let recoveryAudit: Array<{ kind: string; databaseName: string; requestedVersion?: number;
+  mode?: string; oldVersion?: number; newVersion?: number | null }> = [];
+const connectionIds = new WeakMap<IDBDatabase, number>();
+let connectionSequence = 0, requestSequence = 0;
+let lifecycleAudit: Array<{ event: string; requestId?: number; version?: number; connectionId?: number; requestedVersion?: number }> = [];
+function connectionId(database: IDBDatabase) {
+  if (!connectionIds.has(database)) connectionIds.set(database, ++connectionSequence);
+  return connectionIds.get(database)!;
+}
+const nativeClose = IDBDatabase.prototype.close;
+IDBDatabase.prototype.close = function() {
+  lifecycleAudit.push({ event: 'close', connectionId: connectionId(this), version: this.version });
+  return nativeClose.call(this);
+};
+if (typeof BroadcastChannel !== 'undefined') {
+  const nativeBroadcast = BroadcastChannel.prototype.postMessage;
+  BroadcastChannel.prototype.postMessage = function(message: unknown) {
+    recoveryAudit.push({ kind: 'broadcast', databaseName: this.name });
+    return nativeBroadcast.call(this, message);
+  };
+}
+const nativeOpen = IDBFactory.prototype.open;
+IDBFactory.prototype.open = function(name: string, version?: number) {
+  const requestId = ++requestSequence;
+  lifecycleAudit.push({ event: 'request', requestId, requestedVersion: version });
+  recoveryAudit.push({ kind: 'open', databaseName: name, requestedVersion: version });
+  const request = nativeOpen.call(this, name, version);
+  request.addEventListener('success', () => {
+    lifecycleAudit.push({ event: 'success', requestId, connectionId: connectionId(request.result), version: request.result.version });
+  });
+  request.addEventListener('upgradeneeded', event => {
+    recoveryAudit.push({ kind: 'upgrade', databaseName: name, oldVersion: event.oldVersion, newVersion: event.newVersion });
+  });
+  return request;
+};
 const nativePut = IDBObjectStore.prototype.put;
 const nativeGet = IDBObjectStore.prototype.get;
+let failRecoveryRead = false;
 const nativeTransaction = IDBDatabase.prototype.transaction;
 // Observe completion before idb registers its tx.done listener. Browsers may
 // run promise microtasks between event listeners; a later observer would falsely
 // label the already-completed transaction's acknowledgement as premature.
 IDBDatabase.prototype.transaction = function(...args: Parameters<IDBDatabase['transaction']>) {
   const tx = nativeTransaction.apply(this, args);
+  recoveryAudit.push({ kind: 'transaction', databaseName: this.name, mode: tx.mode });
   tx.addEventListener('complete', () => { completed = true; });
   tx.addEventListener('abort', () => { completed = true; });
   return tx;
 };
 IDBObjectStore.prototype.get = function(key: IDBValidKey | IDBKeyRange) {
   if (this.name === 'records' && key === 'root') lastReadStore = this;
+  if (failRecoveryRead && this.name === 'records' && key === 'root') {
+    failRecoveryRead = false;
+    throw new DOMException('Fixture forced unreadable request.', 'UnknownError');
+  }
   return nativeGet.call(this, key);
 };
 let putFault: 'none' | 'abort' | 'throw-after-put' | 'uncloneable' = 'none';
 IDBObjectStore.prototype.put = function(value: unknown, key?: IDBValidKey) {
+  recoveryAudit.push({ kind: 'put', databaseName: this.transaction.db.name });
   if (this.name !== 'records' || key !== 'root') return nativePut.call(this, value, key);
   const fault = putFault;
   putFault = 'none';
@@ -199,6 +246,97 @@ const api: RepositoryFixture = {
       request.onupgradeneeded = () => request.result.createObjectStore('unknown');
       request.onsuccess = () => resolve(request.result);
     });
+    db.close();
+  },
+  validationCalls: () => validationCalls,
+  prepareRecovery(suffix: string) {
+    repository?.close();
+    namespace = `${APP_NAMESPACE}:repository-${suffix}`;
+    signals = []; observed = []; validationCalls = 0; validatorMode = 'valid';
+    repository = openSaveRepository({ appNamespace: namespace, initialSave: fixtureSave, validateSave: validate });
+    repository.subscribeInvalidation(signal => signals.push(signal));
+  },
+  async recoveryProbe() {
+    const validations = validationCalls;
+    const signalCount = signals.length;
+    recoveryAudit = [];
+    const result = await repository!.readRecoveryExport();
+    return { result, validationDelta: validationCalls - validations, signalsDelta: signals.length - signalCount,
+      audit: structuredClone(recoveryAudit) };
+  },
+  async hasDatabase() {
+    return (await indexedDB.databases()).some(database => database.name === `${namespace}:save`);
+  },
+  failRecoveryRead() { failRecoveryRead = true; },
+  async queuedRecovery(suffix: string, mode: 'original' | 'close' | 'timeout') {
+    const rootBefore = { epoch: 'blocked-token', revision: 58,
+      save: { schemaVersion: 7, calendar: { futureWeek: '3099-11-02' } }, unknown: 'keep' };
+    await api.seedUnknown(suffix, rootBefore, 3);
+    const held = await rawOpen(namespace);
+    const upgrade = indexedDB.open(`${namespace}:save`, 4);
+    const upgraded = new Promise<void>((resolve, reject) => {
+      upgrade.onsuccess = () => { upgrade.result.close(); resolve(); };
+      upgrade.onerror = () => reject(upgrade.error);
+    });
+    await new Promise<void>(resolve => { upgrade.onblocked = () => resolve(); });
+    api.prepareRecovery(suffix);
+    api.validator('throw-always');
+    lifecycleAudit = [];
+    const began = performance.now();
+    let settled = false, settlementMs = 0, closeAt: number | undefined, closeSettlementMs: number | null = null;
+    let outcome: Awaited<ReturnType<typeof api.recoveryProbe>> | undefined;
+    const pending = api.recoveryProbe().then(result => {
+      outcome = result; settled = true; settlementMs = performance.now() - began;
+      if (closeAt !== undefined) closeSettlementMs = performance.now() - closeAt;
+      return result;
+    });
+    let queuedSettled = false;
+    let queuedResult: Awaited<ReturnType<SaveRepository['readRecoveryExport']>> | undefined;
+    const queued = mode === 'close' ? repository!.readRecoveryExport().then(result => {
+      queuedSettled = true; queuedResult = result; return result;
+    }) : undefined;
+    const delay = (ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms));
+    await delay(mode === 'close' ? 100 : 1500);
+    const beforeClose = { settled, cause: outcome?.result.status === 'unavailable' ? outcome.result.cause : undefined };
+    if (mode !== 'timeout') { closeAt = performance.now(); api.close(); }
+    await delay(250);
+    const afterClose = { settled, cause: outcome?.result.status === 'unavailable' ? outcome.result.cause : undefined, queuedSettled };
+    const pendingRequest = lifecycleAudit.find(event => event.event === 'request' && event.requestedVersion === undefined);
+    held.close();
+    await upgraded;
+    const completedProbe = await pending;
+    if (queued) await queued;
+    // Let the late open's idb promise handler run before checking its cleanup.
+    await delay(0);
+    const lateAudit = structuredClone(recoveryAudit);
+    const priorValidatorCalls = validationCalls;
+    const priorSignalCount = signals.length;
+    api.prepareRecovery(suffix);
+    api.validator('throw-always');
+    const retry = await api.recoveryProbe();
+    const lateSuccess = lifecycleAudit.find(event => event.event === 'success' && event.requestId === pendingRequest?.requestId);
+    const lateConnectionClosed = !!lateSuccess && lifecycleAudit.some(event => event.event === 'close' && event.connectionId === lateSuccess.connectionId);
+    const cleanupBegan = performance.now();
+    const cleanupDatabase = await rawOpen(namespace, 5);
+    const cleanupUpgradeMs = performance.now() - cleanupBegan;
+    cleanupDatabase.close();
+    const rootAfter = await api.rawRead();
+    return { beforeClose, afterClose, result: completedProbe.result, queuedResult, settlementMs,
+      closeSettlementMs, retry: retry.result, rootBefore, rootAfter, lateConnectionClosed, cleanupUpgradeMs,
+      validatorCalls: priorValidatorCalls + validationCalls, signalCount: priorSignalCount + signals.length,
+      audit: completedProbe.audit, lateAudit, lifecycle: structuredClone(lifecycleAudit) };
+  },
+  async seedUnknown(suffix: string, value: unknown, version = 1) {
+    repository?.close();
+    namespace = `${APP_NAMESPACE}:repository-${suffix}`;
+    const request = indexedDB.open(`${namespace}:save`, version);
+    const db = await new Promise<IDBDatabase>((resolve, reject) => {
+      request.onupgradeneeded = () => { if (!request.result.objectStoreNames.contains('records')) request.result.createObjectStore('records'); };
+      request.onsuccess = () => resolve(request.result); request.onerror = () => reject(request.error);
+    });
+    const tx = db.transaction('records', 'readwrite');
+    tx.objectStore('records').put(value, 'root');
+    await new Promise<void>((resolve, reject) => { tx.oncomplete = () => resolve(); tx.onabort = () => reject(tx.error); });
     db.close();
   },
 };

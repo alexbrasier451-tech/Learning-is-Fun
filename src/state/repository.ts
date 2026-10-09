@@ -1,5 +1,6 @@
 import { openDB } from 'idb';
 import type { DBSchema, IDBPDatabase } from 'idb';
+import { SAVE_LIMITS } from './contracts';
 import type {
   CommitChanges, CommitResult, CommittedSnapshot, LoadResult, ReduceCommand, SaveDataV1,
   SaveToken, StateCommand, StateReason, StoredRoot, TransitionContext, ValidateSave,
@@ -10,6 +11,17 @@ interface SaveDatabase extends DBSchema {
 }
 
 export type RepositoryInvalidation = Readonly<{ kind: 'committed'; token: SaveToken } | { kind: 'silence' }>;
+export type RecoveryExportUnavailable = 'closed' | 'absent-database' | 'missing-store' | 'missing-root'
+  | 'blocked' | 'unreadable' | 'non-json' | 'capacity-exceeded';
+/** Open deadline after recovery reaches the serial queue head. Browser timer
+ * scheduling can delay settlement; this does not bound root materialization. */
+export const RECOVERY_OPEN_TIMEOUT_MS = 1000;
+/** Raw logical IndexedDB data, not a compatible backup or validated snapshot.
+ * json encodes exactly the existing records/root value, including unknown fields. */
+export type RecoveryExportResult = Readonly<{
+  status: 'available'; representation: 'raw-indexeddb-root-json'; databaseName: string;
+  structuralVersion: number; store: 'records'; key: 'root'; json: string; byteLength: number;
+}> | Readonly<{ status: 'unavailable'; cause: RecoveryExportUnavailable; message: string }>;
 /** Domain-owned retained identical-delivery test. Must be synchronous/read-only,
  * compare the complete identity/payload, and return false for expired receipts. */
 export type RecognizeDuplicate = (root: StoredRoot, command: StateCommand, context: TransitionContext) => boolean;
@@ -20,6 +32,7 @@ export type SaveRepository = Readonly<{
   loadRoot(): Promise<LoadResult>;
   commitCommand(command: StateCommand, ports: CommitPorts): Promise<CommitResult>;
   readExportSnapshot(): Promise<CommittedSnapshot>;
+  readRecoveryExport(): Promise<RecoveryExportResult>;
   replaceSave(input: Readonly<{ expected: SaveToken; validatedSave: SaveDataV1; replacementEpoch: string }>): Promise<CommitResult>;
   subscribeInvalidation(listener: (signal: RepositoryInvalidation) => void): () => void;
   notifySilence(): void;
@@ -58,6 +71,64 @@ const noChanges: CommitChanges = {
   unlockedIds: [], restorationIds: [], closedWeekIds: [],
 };
 
+/** Bounded JSON-only inspection. Reject values JSON.stringify would transform
+ * or drop; never decode, normalize, strip fields or invoke a toJSON method. */
+function recoveryJson(value: unknown): { json: string; byteLength: number } | 'non-json' | 'capacity-exceeded' {
+  const frames: Array<{ value: unknown; depth: number; exit?: boolean }> = [{ value, depth: 0 }];
+  const ancestors = new Set<object>();
+  let visited = 0;
+  let bytes = 0;
+  const stringBytes = (text: string) => {
+    if (text.length > SAVE_LIMITS.backupBytes - bytes) return SAVE_LIMITS.backupBytes + 1;
+    let count = 2;
+    for (const character of text) {
+      const code = character.codePointAt(0)!;
+      count += code === 34 || code === 92 || code === 8 || code === 9 || code === 10 || code === 12 || code === 13 ? 2
+        : code < 32 || (code >= 0xd800 && code <= 0xdfff) ? 6
+        : code < 0x80 ? 1 : code < 0x800 ? 2 : code < 0x10000 ? 3 : 4;
+      if (count > SAVE_LIMITS.backupBytes) break;
+    }
+    return count;
+  };
+  while (frames.length) {
+    const frame = frames.pop()!;
+    const item = frame.value;
+    if (frame.exit) { ancestors.delete(item as object); continue; }
+    if (++visited > SAVE_LIMITS.visitedValues || frame.depth > SAVE_LIMITS.nesting) return 'capacity-exceeded';
+    if (item === null) bytes += 4;
+    else if (typeof item === 'string') bytes += stringBytes(item);
+    else if (typeof item === 'boolean') bytes += item ? 4 : 5;
+    else if (typeof item === 'number') {
+      if (!Number.isFinite(item) || Object.is(item, -0)) return 'non-json';
+      bytes += JSON.stringify(item).length;
+    } else if (typeof item === 'object') {
+      if (ancestors.has(item)) return 'non-json';
+      const array = Array.isArray(item);
+      if (!array && Object.getPrototypeOf(item) !== Object.prototype && Object.getPrototypeOf(item) !== null) return 'non-json';
+      const keys = Object.keys(item);
+      if (keys.length > SAVE_LIMITS.visitedValues) return 'capacity-exceeded';
+      if (Reflect.ownKeys(item).length !== keys.length + (array ? 1 : 0)) return 'non-json';
+      if (array && (keys.length !== item.length || !keys.every((key, index) => key === String(index)))) return 'non-json';
+      bytes += 2 + Math.max(0, keys.length - 1);
+      ancestors.add(item);
+      frames.push({ value: item, depth: frame.depth, exit: true });
+      for (let index = keys.length - 1; index >= 0; index--) {
+        const key = keys[index];
+        const descriptor = Object.getOwnPropertyDescriptor(item, key)!;
+        if (!('value' in descriptor)) return 'non-json';
+        if (!array) bytes += stringBytes(key) + 1;
+        if (bytes > SAVE_LIMITS.backupBytes) return 'capacity-exceeded';
+        frames.push({ value: descriptor.value, depth: frame.depth + 1 });
+      }
+    } else return 'non-json';
+    if (bytes > SAVE_LIMITS.backupBytes) return 'capacity-exceeded';
+  }
+  const json = JSON.stringify(value);
+  const byteLength = new TextEncoder().encode(json).byteLength;
+  if (byteLength > SAVE_LIMITS.backupBytes) return 'capacity-exceeded';
+  return { json, byteLength };
+}
+
 /** Sole durable save authority. Connection recovery means explicitly reopening
  * a repository; an unreadable/terminated/missing root never initializes a save. */
 export function openSaveRepository(options: Readonly<{
@@ -71,6 +142,7 @@ export function openSaveRepository(options: Readonly<{
   let connection: IDBPDatabase<SaveDatabase> | undefined;
   let failure: RepositoryError | undefined;
   let closed = false;
+  let cancelRecoveryOpen: (() => void) | undefined;
   let created = false;
   let queue: Promise<unknown> = Promise.resolve();
   let cached: CommittedSnapshot | undefined;
@@ -196,6 +268,72 @@ export function openSaveRepository(options: Readonly<{
     return { status: 'save-failed', retryable: !closed && !failure,
       reason: issue?.reason ?? problem('storage-write-failed', 'Saving failed. Your last committed save is unchanged; retry the action.') };
   }
+  async function recover(): Promise<RecoveryExportResult> {
+    const unavailable = (cause: RecoveryExportUnavailable): RecoveryExportResult => ({
+      status: 'unavailable', cause,
+      message: cause === 'blocked' ? 'Close other game tabs and retry the recovery export.'
+        : cause === 'non-json' ? 'The stored value cannot be exported as JSON without changing data.'
+        : cause === 'capacity-exceeded' ? 'The stored value exceeds the bounded recovery export limits; no data was changed.'
+        : 'Raw recovery data is unavailable; no save was created or changed.',
+    });
+    if (closed) return unavailable('closed');
+    const name = `${options.appNamespace}:save`;
+    let recoveryConnection: IDBPDatabase | undefined;
+    let cause: RecoveryExportUnavailable = 'unreadable';
+    let cancelled = false;
+    try {
+      recoveryConnection = await new Promise<IDBPDatabase>((resolve, reject) => {
+        let settled = false;
+        const finish = () => {
+          globalThis.clearTimeout(timer);
+          if (cancelRecoveryOpen === cancel) cancelRecoveryOpen = undefined;
+        };
+        const rejectPending = (nextCause: RecoveryExportUnavailable) => {
+          if (settled) return;
+          settled = true; cancelled = true; cause = nextCause;
+          finish();
+          reject(new Error('Recovery connection unavailable.'));
+        };
+        const cancel = () => rejectPending('closed');
+        cancelRecoveryOpen = cancel;
+        // An unversioned request queued behind an earlier blocked upgrade may
+        // emit no blocked event. Settle our operation without waiting for it.
+        const timer = globalThis.setTimeout(() => rejectPending('blocked'), RECOVERY_OPEN_TIMEOUT_MS);
+        // Omit a requested version: inspect the current structure, never upgrade.
+        try {
+          const opening = openDB(name, undefined, {
+            upgrade(_database, _oldVersion, _newVersion, tx) {
+              cause = 'absent-database';
+              void tx.done.catch(() => {});
+              tx.abort(); // Abort the browser's attempted creation of a missing DB.
+            },
+            blocked() { rejectPending('blocked'); },
+            blocking() { recoveryConnection?.close(); },
+            terminated() { rejectPending('unreadable'); },
+          });
+          void opening.then(database => {
+            // Native IDB open requests cannot be cancelled. A late success owns
+            // only connection cleanup, never a read, validation or publication.
+            if (cancelled || closed) { database.close(); rejectPending(closed ? 'closed' : cause); }
+            else { settled = true; finish(); resolve(database); }
+          }, () => rejectPending(cause));
+        } catch { rejectPending(cause); }
+      });
+      if (closed) return unavailable('closed');
+      if (!recoveryConnection.objectStoreNames.contains('records')) return unavailable('missing-store');
+      const tx = recoveryConnection.transaction('records', 'readonly');
+      void tx.done.catch(() => {});
+      const existing: unknown = await tx.store.get('root');
+      await tx.done;
+      if (existing === undefined) return unavailable('missing-root');
+      // Inspection/serialization runs after the read-only transaction completes.
+      const encoded = recoveryJson(existing);
+      if (typeof encoded === 'string') return unavailable(encoded);
+      return immutable({ status: 'available', representation: 'raw-indexeddb-root-json', databaseName: name,
+        structuralVersion: recoveryConnection.version, store: 'records', key: 'root', ...encoded });
+    } catch { return unavailable(closed ? 'closed' : cause); }
+    finally { recoveryConnection?.close(); }
+  }
   async function mutate(expected: SaveToken, operation: (value: StoredRoot) =>
     { status: 'write'; root: StoredRoot; changes: CommitChanges } | CommitResult): Promise<CommitResult> {
     try {
@@ -236,6 +374,7 @@ export function openSaveRepository(options: Readonly<{
   if (typeof document !== 'undefined') document.addEventListener('visibilitychange', visible);
   return {
     loadRoot: () => serial(load),
+    readRecoveryExport: () => serial(recover),
     readExportSnapshot: () => serial(async () => {
       const result = await load();
       if (result.status === 'ready' || result.status === 'new') return result.snapshot;
@@ -284,6 +423,7 @@ export function openSaveRepository(options: Readonly<{
     notifySilence() { if (!closed) { emit({ kind: 'silence' }); broadcast({ kind: 'silence' }); } },
     close() {
       closed = true;
+      cancelRecoveryOpen?.();
       connection?.close();
       channel?.close();
       listeners.clear();

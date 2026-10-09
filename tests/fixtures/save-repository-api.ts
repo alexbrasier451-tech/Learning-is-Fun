@@ -1,6 +1,11 @@
 import type { CommitResult, CommittedSnapshot, LoadResult, SaveToken, StoredRoot } from '../../src/state/contracts';
 
 type FixtureInvalidation = { kind: 'committed'; token: SaveToken } | { kind: 'silence' };
+type FixtureRecovery = { status: 'available'; representation: 'raw-indexeddb-root-json'; databaseName: string;
+  structuralVersion: number; store: 'records'; key: 'root'; json: string; byteLength: number }
+  | { status: 'unavailable'; cause: string; message: string };
+type RecoveryAudit = { kind: string; databaseName: string; requestedVersion?: number;
+  mode?: string; oldVersion?: number; newVersion?: number | null };
 
 /** Type-only fixture boundary, usable by the DOM entry and Node Playwright
  * project without importing React/TSX or ambient browser globals into Node. */
@@ -30,4 +35,20 @@ export type RepositoryFixture = {
   expired(expected: SaveToken): Promise<CommitResult>;
   invalidReplacement(expected: SaveToken): Promise<CommitResult>;
   unknownStore(suffix: string): Promise<void>;
+  seedUnknown(suffix: string, value: unknown, version?: number): Promise<void>;
+  validationCalls(): number;
+  prepareRecovery(suffix: string): void;
+  recoveryProbe(): Promise<{ result: FixtureRecovery; validationDelta: number; signalsDelta: number; audit: RecoveryAudit[] }>;
+  hasDatabase(): Promise<boolean>;
+  failRecoveryRead(): void;
+  queuedRecovery(suffix: string, mode: 'original' | 'close' | 'timeout'): Promise<{
+    beforeClose: { settled: boolean; cause?: string };
+    afterClose: { settled: boolean; cause?: string; queuedSettled: boolean };
+    result: FixtureRecovery; queuedResult?: FixtureRecovery; settlementMs: number;
+    closeSettlementMs: number | null; retry: FixtureRecovery; rootBefore: unknown; rootAfter: unknown;
+    lateConnectionClosed: boolean; cleanupUpgradeMs: number; validatorCalls: number; signalCount: number;
+    audit: RecoveryAudit[];
+    lateAudit: RecoveryAudit[];
+    lifecycle: Array<{ event: string; requestId?: number; version?: number; connectionId?: number; requestedVersion?: number }>;
+  }>;
 };

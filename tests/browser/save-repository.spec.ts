@@ -36,6 +36,11 @@ test('commit, acknowledgement, immutable snapshots and reload retain one complet
   expect(after.snapshot.save.contentVersion).toBe('success');
   const raw = await page.evaluate(() => window.saveRepositoryFixture.rawRead());
   expect(raw).toEqual({ ...after.snapshot.token, save: after.snapshot.save });
+  const recovery = await page.evaluate(() => window.saveRepositoryFixture.recoveryProbe());
+  expect(recovery.result.status).toBe('available');
+  if (recovery.result.status !== 'available') throw new Error('Expected raw export of an existing committed root');
+  expect(JSON.parse(recovery.result.json)).toEqual(raw);
+  expect(recovery.validationDelta).toBe(0); expect(recovery.signalsDelta).toBe(0);
   expect(await page.evaluate(() => window.saveRepositoryFixture.observations().every(item => !item.duringCompletion))).toBe(true);
   expect(await page.evaluate(async () => {
     const a = await window.saveRepositoryFixture.snapshot(); const b = await window.saveRepositoryFixture.snapshot();
@@ -44,7 +49,7 @@ test('commit, acknowledgement, immutable snapshots and reload retain one complet
   await page.reload();
   const reload = ready(await page.evaluate(suffix => window.saveRepositoryFixture.open(suffix), info.testId));
   expect(reload).toEqual(after.snapshot);
-  await evidence(info, { namespace: await page.evaluate(() => window.saveRepositoryFixture.namespace), before, after, raw, reload });
+  await evidence(info, { namespace: await page.evaluate(() => window.saveRepositoryFixture.namespace), before, after, raw, recovery, reload });
 });
 
 test('reducer/validator rejection and faults after queued put preserve paired root/token and publish nothing', async ({ page }, info) => {
@@ -262,3 +267,196 @@ for (const frozenParent of ['save', 'nested'] as const) {
     }
   });
 }
+
+test('recovery gap: normal validated export refuses readable unsupported roots without changing them', async ({ page }, info) => {
+  const initial = await open(page, info.testId);
+  const outcomes = [];
+  for (const unsupported of ['schema', 'content', 'policy'] as const) {
+    const suffix = `${info.testId}-${unsupported}`;
+    const raw = { ...initial.token, revision: 37, unknownRoot: { keep: ['future', null] }, save: {
+      ...initial.save, schemaVersion: unsupported === 'schema' ? 2 : 1,
+      contentVersion: unsupported === 'content' ? 'future-content' : initial.save.contentVersion,
+      rewardPolicyVersion: unsupported === 'policy' ? 'future-policy' : initial.save.rewardPolicyVersion,
+      unknownSave: { doNotStrip: true },
+    } };
+    await page.evaluate(({ suffix, raw }) => window.saveRepositoryFixture.seedUnknown(suffix, raw), { suffix, raw });
+    const loaded = await page.evaluate(suffix => window.saveRepositoryFixture.open(suffix), suffix);
+    expect(loaded.status).toBe('unsupported');
+    const rejected = await page.evaluate(async () => {
+      try { await window.saveRepositoryFixture.snapshot(); return 'unexpected export'; }
+      catch (error) { return (error as Error).message; }
+    });
+    expect(rejected).toMatch(/Fixture unsupported/);
+    expect(await page.evaluate(() => window.saveRepositoryFixture.rawRead())).toEqual(raw);
+    outcomes.push({ unsupported, raw, loaded, rejected });
+  }
+  await evidence(info, { outcomes });
+});
+
+test('raw recovery exports unsupported schema/content/policy and newer structure without validation or mutation', async ({ page }, info) => {
+  const initial = await open(page, info.testId);
+  await page.evaluate(() => window.saveRepositoryFixture.sentinel());
+  const outcomes = [];
+  for (const unsupported of ['schema', 'content', 'policy', 'structure'] as const) {
+    const suffix = `${info.testId}-${unsupported}`;
+    const raw = { ...initial.token, revision: 37, unknownRoot: { keep: ['future', null], text: 'é🙂\n"\\' }, save: {
+      ...initial.save, schemaVersion: unsupported === 'schema' ? 2 : 1,
+      contentVersion: unsupported === 'content' ? 'future-content' : initial.save.contentVersion,
+      rewardPolicyVersion: unsupported === 'policy' ? 'future-policy' : initial.save.rewardPolicyVersion,
+      installation: { ...initial.save.installation, timezone: 'Etc/Future' },
+      competition: { ...initial.save.competition, latestOpenedWeek: '3026-12-28', unknownCalendar: { retain: true } },
+      unknownSave: { doNotStrip: true },
+    } };
+    const version = unsupported === 'structure' ? 7 : 1;
+    await page.evaluate(({ suffix, raw, version }) => window.saveRepositoryFixture.seedUnknown(suffix, raw, version), { suffix, raw, version });
+    const normal = await page.evaluate(suffix => window.saveRepositoryFixture.open(suffix), suffix);
+    expect(normal.status).toBe('unsupported');
+    const probe = await page.evaluate(() => window.saveRepositoryFixture.recoveryProbe());
+    expect(probe.result.status).toBe('available');
+    if (probe.result.status !== 'available') throw new Error('Expected raw recovery');
+    expect(probe.result.representation).toBe('raw-indexeddb-root-json');
+    expect(probe.result.structuralVersion).toBe(version);
+    expect(probe.result.databaseName).toBe(`learning-is-fun:/playtest/:repository-${suffix}:save`);
+    expect(JSON.parse(probe.result.json)).toEqual(raw);
+    expect(probe.result.byteLength).toBe(Buffer.byteLength(probe.result.json, 'utf8'));
+    expect(probe.validationDelta).toBe(0); expect(probe.signalsDelta).toBe(0);
+    expect(probe.audit.map(event => event.kind)).toEqual(['open', 'transaction']);
+    expect(probe.audit[0].requestedVersion).toBeUndefined();
+    expect(probe.audit[1].mode).toBe('readonly');
+    const after = await page.evaluate(() => window.saveRepositoryFixture.rawRead());
+    expect(after).toEqual(raw);
+    expect(await page.evaluate(() => window.saveRepositoryFixture.readSentinel())).toEqual({ marker: 'untouched' });
+    expect((await page.evaluate(() => window.saveRepositoryFixture.load())).status).toBe('unsupported');
+    outcomes.push({ unsupported, normal, before: raw, probe, after });
+  }
+  await evidence(info, { outcomes, sentinel: { marker: 'untouched' } });
+});
+
+test('raw recovery does not create missing databases or fill absent roots/stores', async ({ page }, info) => {
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto(fixture);
+  const absentSuffix = `${info.testId}-absent`;
+  await page.evaluate(suffix => window.saveRepositoryFixture.prepareRecovery(suffix), absentSuffix);
+  expect(await page.evaluate(() => window.saveRepositoryFixture.hasDatabase())).toBe(false);
+  const absent = await page.evaluate(() => window.saveRepositoryFixture.recoveryProbe());
+  expect(absent.result).toMatchObject({ status: 'unavailable', cause: 'absent-database' });
+  expect(absent.validationDelta).toBe(0); expect(absent.signalsDelta).toBe(0);
+  expect(absent.audit.map(event => event.kind)).toEqual(['open', 'upgrade']);
+  expect(await page.evaluate(() => window.saveRepositoryFixture.hasDatabase())).toBe(false);
+  const missingSuffix = `${info.testId}-missing-root`;
+  await page.evaluate(suffix => window.saveRepositoryFixture.open(suffix), missingSuffix);
+  await page.evaluate(() => window.saveRepositoryFixture.seed(null));
+  await page.evaluate(suffix => window.saveRepositoryFixture.prepareRecovery(suffix), missingSuffix);
+  const missing = await page.evaluate(() => window.saveRepositoryFixture.recoveryProbe());
+  expect(missing.result).toMatchObject({ status: 'unavailable', cause: 'missing-root' });
+  expect(await page.evaluate(() => window.saveRepositoryFixture.rawRead())).toBeUndefined();
+  const unknownSuffix = `${info.testId}-missing-store`;
+  await page.evaluate(suffix => window.saveRepositoryFixture.unknownStore(suffix), unknownSuffix);
+  await page.evaluate(suffix => window.saveRepositoryFixture.prepareRecovery(suffix), unknownSuffix);
+  const unknown = await page.evaluate(() => window.saveRepositoryFixture.recoveryProbe());
+  expect(unknown.result).toMatchObject({ status: 'unavailable', cause: 'missing-store' });
+  await page.evaluate(() => window.saveRepositoryFixture.close());
+  const closed = await page.evaluate(() => window.saveRepositoryFixture.recoveryProbe());
+  expect(closed.result).toMatchObject({ status: 'unavailable', cause: 'closed' });
+  expect(closed.audit).toEqual([]);
+  expect(errors).toEqual([]);
+  await evidence(info, { absent, missing, unknown, closed });
+});
+
+test('raw recovery reports unreadable requests and retries without changing the native root', async ({ page }, info) => {
+  const initial = await open(page, info.testId);
+  const before = await page.evaluate(() => window.saveRepositoryFixture.rawRead());
+  await page.evaluate(() => window.saveRepositoryFixture.failRecoveryRead());
+  const failed = await page.evaluate(() => window.saveRepositoryFixture.recoveryProbe());
+  expect(failed.result).toMatchObject({ status: 'unavailable', cause: 'unreadable' });
+  expect(failed.validationDelta).toBe(0); expect(failed.signalsDelta).toBe(0);
+  expect(failed.audit.map(event => event.kind)).toEqual(['open', 'transaction']);
+  const retry = await page.evaluate(() => window.saveRepositoryFixture.recoveryProbe());
+  expect(retry.result.status).toBe('available');
+  if (retry.result.status !== 'available') throw new Error('Expected recovery retry');
+  expect(JSON.parse(retry.result.json)).toEqual(before);
+  const after = await page.evaluate(() => window.saveRepositoryFixture.rawRead());
+  expect(after).toEqual(before);
+  await evidence(info, { initial, before, failed, retry, after });
+});
+
+for (const mode of ['original', 'close', 'timeout'] as const) {
+  test(`queued recovery settles ${mode} behind a genuinely blocked earlier upgrade and cleans up late connections`, async ({ page }, info) => {
+    const errors: string[] = [];
+    page.on('pageerror', error => errors.push(error.message));
+    await page.goto(fixture);
+    const result = await page.evaluate(({ suffix, mode }) => window.saveRepositoryFixture.queuedRecovery(suffix, mode), { suffix: info.testId, mode });
+    await evidence(info, { mode, result });
+    if (mode === 'close') {
+      expect(result.beforeClose.settled).toBe(false);
+      expect(result.afterClose).toMatchObject({ settled: true, cause: 'closed', queuedSettled: true });
+      expect(result.result).toMatchObject({ status: 'unavailable', cause: 'closed' });
+      expect(result.queuedResult).toMatchObject({ status: 'unavailable', cause: 'closed' });
+      expect(result.closeSettlementMs).toBeLessThan(250);
+    } else {
+      expect(result.beforeClose).toMatchObject({ settled: true, cause: 'blocked' });
+      expect(result.afterClose.settled).toBe(true);
+      expect(result.result).toEqual({ status: 'unavailable', cause: 'blocked', message: 'Close other game tabs and retry the recovery export.' });
+      expect(result.settlementMs).toBeLessThan(1500);
+    }
+    expect(result.rootAfter).toEqual(result.rootBefore);
+    expect(result.retry).toMatchObject({ status: 'available', structuralVersion: 4 });
+    if (result.retry.status !== 'available') throw new Error('Expected fresh recovery retry');
+    expect(JSON.parse(result.retry.json)).toEqual(result.rootBefore);
+    expect(result.validatorCalls).toBe(0);
+    expect(result.signalCount).toBe(0);
+    expect(result.audit.map(event => event.kind)).toEqual(['open']);
+    // The version-4 upgrade is the already queued external probe; recovery
+    // performs no transaction or publication when its own open arrives late.
+    expect(result.lateAudit.filter(event => event.kind !== 'upgrade').map(event => event.kind)).toEqual(['open']);
+    expect(result.lateConnectionClosed).toBe(true);
+    expect(result.cleanupUpgradeMs).toBeLessThan(1500);
+    expect(errors).toEqual([]);
+  });
+}
+
+test('raw recovery reports non-JSON and bounded-capacity values without rewriting them', async ({ page }, info) => {
+  await page.goto(fixture);
+  const outcomes = await page.evaluate(async suffix => {
+    const api = window.saveRepositoryFixture;
+    const results = [];
+    for (const kind of ['date', 'map', 'bigint', 'undefined', 'nonfinite', 'negative-zero', 'sparse-array', 'cycle', 'depth', 'values', 'bytes']) {
+      const caseSuffix = `${suffix}-${kind}`;
+      let extra: unknown;
+      if (kind === 'date') extra = new Date('2026-10-09T00:00:00Z');
+      if (kind === 'map') extra = new Map([['retain', 'unchanged']]);
+      if (kind === 'bigint') extra = 9007199254740993n;
+      if (kind === 'undefined') extra = undefined;
+      if (kind === 'nonfinite') extra = Infinity;
+      if (kind === 'negative-zero') extra = -0;
+      if (kind === 'sparse-array') extra = new Array(2);
+      if (kind === 'cycle') { const cycle: { self?: unknown } = {}; cycle.self = cycle; extra = cycle; }
+      if (kind === 'depth') { extra = null; for (let depth = 0; depth < 34; depth++) extra = { child: extra }; }
+      if (kind === 'values') extra = Array(250_001).fill(0);
+      if (kind === 'bytes') extra = 'x'.repeat(16 * 1024 * 1024);
+      const root = { epoch: `recovery-${kind}`, revision: 91, extra };
+      await api.seedUnknown(caseSuffix, root);
+      api.prepareRecovery(caseSuffix);
+      const probe = await api.recoveryProbe();
+      const after = await api.rawRead() as unknown as typeof root;
+      const type = (value: unknown) => Object.prototype.toString.call(value);
+      const preserved = after.epoch === root.epoch && after.revision === root.revision && type(after.extra) === type(extra)
+        && (kind !== 'negative-zero' || Object.is(after.extra, -0))
+        && (kind !== 'bigint' || after.extra === extra)
+        && (kind !== 'cycle' || (after.extra as { self: unknown }).self === after.extra)
+        && (kind !== 'values' || (after.extra as unknown[]).length === 250_001)
+        && (kind !== 'bytes' || (after.extra as string).length === 16 * 1024 * 1024);
+      results.push({ kind, probe, preserved, token: { epoch: after.epoch, revision: after.revision }, valueType: type(after.extra) });
+    }
+    return results;
+  }, info.testId);
+  await evidence(info, { outcomes });
+  for (const outcome of outcomes) {
+    expect(outcome.probe.result).toMatchObject({ status: 'unavailable', cause: ['depth', 'values', 'bytes'].includes(outcome.kind) ? 'capacity-exceeded' : 'non-json' });
+    expect(outcome.preserved).toBe(true);
+    expect(outcome.probe.validationDelta).toBe(0); expect(outcome.probe.signalsDelta).toBe(0);
+    expect(outcome.probe.audit.map(event => event.kind)).toEqual(['open', 'transaction']);
+    expect(outcome.probe.audit[1].mode).toBe('readonly');
+  }
+});
