@@ -9,7 +9,7 @@ Execution was explicitly requested on 8 October 2026. Required visible worker cr
 | Chat | Role | Model / reasoning | Scope | State |
 |---|---|---|---|---|
 | 01a11d96-31d2-7270-9908-8a1a5157db38 | Intake and execution planning | gpt-6.1-sol / high | Read-only baseline reconciliation and runnable graph | Accepted intake; available for planning |
-| 01a11d98-5787-7d20-8603-8829b864b348 | Implementation | gpt-6.1-sol / high | WP01-01A, idb, browser discovery and activation diagnosis | Accepted implementation; bounded activation diagnosis found no supported correction |
+| 01a11d98-5787-7d20-8603-8829b864b348 | Implementation | gpt-6.1-sol / high | WP01-01A tooling refinements | Node file-list cause reproduced; private one-line correction passes; awaiting serialized shared writer window |
 | 01a11da4-fab1-7742-987c-1fadce218b5d | Independent validator | gpt-6.1-sol / xhigh | WP01-01A; idb/evidence packaging and browser discovery | Accepted; no findings |
 | 01a11da8-33bd-75c1-b66f-23c87c96600d | Implementation | gpt-6.1-sol / high | WP03-01A/02A/05A | Accepted; available for corrections |
 | 01a11daf-7049-7a81-b793-57ed7dc35964 | Independent validator | gpt-6.1-sol / xhigh | Early domain contracts/content and WP03-05A assembly | Accepted |
@@ -18,7 +18,7 @@ Execution was explicitly requested on 8 October 2026. Required visible worker cr
 | 01a11dce-7f46-7d43-9b38-537e7299848a | Independent validator | gpt-6.1-sol / xhigh | WP05-03A weekly closure/ranks | Accepted after both P2 findings resolved |
 | 01a11dcf-7e94-7423-a998-7edac8488c00 | Implementation | gpt-6.1-sol / high | WP04-01A and WP04-05A preferences | Accepted after two causal corrections |
 | 01a11dcf-9383-7713-abee-d0c0e67c65f3 | Implementation | gpt-6-astra / high | WP02-02A finished M1 art and preview | Accepted; register handed to audio author |
-| 01a11de0-4402-7d40-885f-dcadaadf0bed | Implementation | gpt-6-astra / high | WP03-04A adaptive learning and review policy | Original acceptance retained; integrated due-review correction running |
+| 01a11de0-4402-7d40-885f-dcadaadf0bed | Implementation | gpt-6-astra / high | WP03-04A adaptive learning and review policy | Integrated due-review correction independently accepted in coherent facade commit |
 | 01a11de1-555a-7b00-be1a-ab9fc5a6872d | Independent validator | gpt-6-astra / high | WP02-02A/03A finished media | Replacement technical handoff PASS; detailed acoustics remain downstream |
 | 01a11de7-98e9-7c21-9cb6-d174fabaa1bf | Implementation | gpt-6-astra / high | WP02-03A music and effects | Human-approved licensed pair; technical handoff accepted |
 | 01a11de8-47cb-7422-9b0c-d6ecf8ea0e4c | Implementation | gpt-6-astra / high | WP03-03A reviewed spellbook punctuation | Accepted after two P2 corrections |
@@ -43,7 +43,7 @@ Execution was explicitly requested on 8 October 2026. Required visible worker cr
 | 01a11e9a-9ab6-7431-b770-2ffb57ff3cf9 | Implementation | gpt-6.1-sol / high | WP04-06A profiles/adult/backup UI | Original findings corrected and real-facade binding delivered; narrow independent recheck running |
 | 01a11e9a-a8ad-7d13-b351-beadcd47e0f0 | Independent validator | gpt-6-astra / high | WP02-05A audio component | Component PASS including actual-facade binding; downstream shell/matrix/acoustics remain |
 | 01a11ea6-23b5-73d3-a305-c1496c735bf9 | Independent validator | gpt-6.1-sol / xhigh | WP05-04A Hall/history | Frozen and actual-facade binding PASS; fresh T1 closure/repeat-open and typechecks pass; D1/D3 remain |
-| 01a11eb0-ceb8-7492-9d50-f2748fb21d16 | Independent validator | gpt-6.1-sol / xhigh | WP04-06A frozen profile/adult screens | Running; real-facade completion remains separate |
+| 01a11eb0-ceb8-7492-9d50-f2748fb21d16 | Independent validator | gpt-6.1-sol / xhigh | WP04-06A profile/adult screens | Technical corrections and native-state binding PASS; D1/D3 observations remain |
 | 01a11eb5-e2df-78b2-bea1-cc94798cf27c | Fresh integration reviewer | gpt-6-astra / high | Accepted learning/reward/save core boundary | PASS; fresh native-IDB rollover/retry/records/backup/epoch and pure Hall projection proof |
 | 01a11ec3-ad06-7de3-b4aa-982ca87ad133 | Implementation | gpt-6.1-sol / high | WP02-07A Pip companion and finite creative ending | Running after all art/audio/state/scoring handoffs accepted; port 5187 |
 
