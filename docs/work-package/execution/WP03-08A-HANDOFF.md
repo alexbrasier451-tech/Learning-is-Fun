@@ -1,8 +1,9 @@
 # WP03-08A private candidate handoff
 
-Status: F1 demand repair authored and checked; independent narrow semantic
-recheck and Controller acceptance pending. 11 October 2026. The original
-independent review rejected one core demand; its evidence is preserved.
+Status: diagram coordinate/legibility repair checked; independent narrow
+recheck and Controller integration pending. 11 October 2026. The earlier F1
+demand repair was independently closed in the main validation report. Original
+rejections and both preceding freezes are preserved.
 
 Base commit: `5a9f131e29f0c12717abbeb2f0e6a18fbeaf5f26`.
 Candidate: `artifacts/wp03-08a-20261011/candidate`, created with a per-command
@@ -98,11 +99,12 @@ the existing state/reward policies; this family emits no history or receipts.
 Run from the private candidate using the existing Node/runtime dependencies:
 
 ```powershell
-node ../../../node_modules/vitest/vitest.mjs run --config vitest.config.ts --configLoader runner --no-cache --maxWorkers 1 --no-file-parallelism tests/learning
-node ../../../node_modules/typescript/bin/tsc --ignoreConfig --noEmit --strict --skipLibCheck --target ES2022 --module ESNext --moduleResolution Bundler --verbatimModuleSyntax src/content/expansion-maths/time-space-data.ts src/learning/evaluators/expansion-time-space-data.ts tests/learning/expansion-time-space-data.test.ts
+node ../../../node_modules/vitest/vitest.mjs run --config vitest.config.ts --configLoader runner --no-cache --maxWorkers 1 --no-file-parallelism tests/learning tests/interaction/draft.test.ts
+node ../../../node_modules/typescript/bin/tsc --ignoreConfig --noEmit --strict --skipLibCheck --target ES2022 --module ESNext --moduleResolution Bundler --verbatimModuleSyntax --jsx react-jsx --types vite/client src/content/expansion-maths/time-space-data.ts src/learning/evaluators/expansion-time-space-data.ts tests/learning/expansion-time-space-data.test.ts
+node --import ../independent-validation/ts-loader.mjs ../diagram-repair/render-check.mjs after
 ```
 
-F1 repair checks: 11 learning test files / 811 tests passed, including all 111 new
+Historical F1 checks: 11 learning test files / 811 tests passed, including all 111 new
 family tests; focused TypeScript passed. New tests enumerate all 1,440 clock
 values for each clock task and independently specify thirty exact answers,
 thirty rejected examples, bands, every chart dataset, both additional legitimate
@@ -163,8 +165,65 @@ grade all four offered options; only right-scalene is correct. Partial and
 malformed choices remain unscored; the old option ID is invalid for the new
 task. New tests check independent 3/4/5 properties and old-ID removal from every
 manifest/binding pool. All existing geometry, identity, domain and alternative
-checks run in the complete learning suite. Independent recheck is still needed;
-the author is not converting a green runtime check into accepted demand evidence.
+checks ran in the complete learning suite. F1 was subsequently independently
+closed in main `docs/work-package/execution/WP03-08A-VALIDATION.md`; its retained
+evidence predates the separate display-coordinate repair below.
+
+## Assembly-returned diagram contract repair
+
+WP03-13A found negative coordinates in four compass tasks and the rotated-square
+task. Reproduction against the actual accepted main `TaskStimulus` yielded five
+`Malformed TaskStimulus producer metadata` exceptions. The remaining diagrams
+rendered at only 13.18–19.76 pixels wide in a 448-pixel SVG; a before screenshot
+confirmed overlapping point and length labels. The family source violated the
+frozen 0–100 display square, and its validator had not checked that domain before
+trusting exported data. The renderer correctly enforced the contract.
+
+Only this producer was repaired. All ten diagram records now use centred
+coordinates within 10–90. Each source arrangement uses a single positive uniform
+scale/translation, preserving directions, side ratios, angles, closure and
+symmetry. The [review](../../content-review/expansion-time-space-data.md) records
+all six exact transforms. Given rectangle/square lengths are explicit edge
+labels; the 3–4–5 triangle retains its labels. Text alternatives distinguish
+given lengths from display coordinates and retain source arrangements without
+computed classifications. A display radius is no longer presented as a measured
+length in the rotated-square alternative. No renderer or shared contract changed.
+
+All 30 canonical IDs/descriptors, mathematical answers, prompts, objectives,
+bands, hints and worked support are unchanged. All seven binding proposals and
+all 122 manifest cases compare exactly with the accepted pre-repair exports.
+The twenty non-diagram records compare exactly in full. The ten diagrams have
+contentRevision 2; a display correction does not create new reward identity.
+The evaluator checks finite x/y in 0–100 before the trusted-record fast path;
+altered/unreviewed layouts still return unavailable-content without coordinate
+grading. The original F1 obsolete tuple remains unavailable as before.
+
+Private evidence under `artifacts/wp03-08a-20261011/diagram-repair`:
+
+- `before/` contains the exact five-file accepted snapshot, ten original
+  rendering HTML/PNG captures and structured source/renderer results;
+  `owned-files-before.json` freezes that accepted snapshot.
+- `before-render.log` records the reproduced producer fault and tiny extents.
+- `after/` contains all ten repaired source/rendering results and HTML/PNG
+  captures. `after-render-final.log` verifies unchanged identities/meaning,
+  unchanged proposals/manifest, uniform transforms and actual rendering.
+- `render-check.mjs` imports the real main renderer read-only, transforms its
+  JSX in memory, renders it with React and loads the result into Chromium with
+  the real widget CSS. Source/CSS hashes are in both results files. There is
+  no app build or shared cache/output.
+- `focused.log`: 114 family tests passed. `regression.log`: 12 files / 856 tests
+  passed (814 complete learning-suite tests plus 42 interaction draft/stimulus
+  tests). `typecheck.log`: focused TypeScript passed with JSX/CSS support.
+
+At viewport 1366×900, the normal SVG is 448×448. Geometry is now 263.53 pixels
+wide and 131.76–263.53 pixels high. All point/edge text lies inside the SVG.
+The author inspected all six distinct diagram screenshots at that size and
+confirmed readable directions, vertices and given lengths; the other four
+tasks use identical reviewed geometry. All ten task→producer validation→real
+TaskStimulus→browser display routes are green. All accepted mathematical
+responses remain correct. A fresh in-domain but non-uniform triangle mutation
+also returned unavailable-content, proving numeric bounds alone cannot approve
+an altered reviewed source. Independent narrow recheck is pending.
 
 ## Review boundaries
 
@@ -174,8 +233,9 @@ recognition attribution to earlier Year 2 consolidation; repeated-turn stretch
 is honestly mapped to additional reasoning using Year 3 content. It does not
 claim a new statutory Year 4 repeated-turn objective.
 
-Only author/content and pure-function evidence is delivered. Independent
-review, WP03-13A assembly/dispatch, WP02 rendering/accessibility, WP04 save and
+Author/content, pure-function and the explicit normal-size real-component
+rendering evidence above are delivered. Independent narrow recheck,
+WP03-13A assembly/dispatch, broader WP02 interaction/accessibility, WP04 save and
 action compatibility, actual published play and deferred final acoustic review
 remain downstream. There is no qualified educator or efficacy claim. Main
 remains unmodified by this worker; hand off to the Controller, then idle.

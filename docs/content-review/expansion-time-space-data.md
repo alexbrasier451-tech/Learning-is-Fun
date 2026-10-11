@@ -65,7 +65,7 @@ never part of a learner's source-data alternative. S/C/X mean support/core/stret
 | north-quarter-clockwise | M09 S; G3 | North, one clockwise quarter turn | east; reject west | Labelled compass; alternative gives cardinal arrangement. Hints locate start/follow clockwise. |
 | rectangle-right-angles | M09 S; G3 | Count horizontal/vertical corners | four; reject two | 6-by-3 boundary; alternative gives positions/lengths, not angles. Hints inspect each corner. |
 | rectangle-symmetry | M09 C; G4 | Reflection symmetry of non-square rectangle | two; reject four | Same meaningful source, different assessed property/key. Hints test central/diagonal folds; support explains unequal sides. |
-| triangle-side-angle-classification | M09 C; G4 | Classify the whole triangle by BOTH side equality and angle type | right-scalene; reject right-isosceles, acute-scalene and acute-isosceles | A(0,0), B(4,0), C(0,3); AB4/BC5/CA3 shown as edge labels and repeated in alternative. Hints inspect equality and corners separately without supplying either classification. |
+| triangle-side-angle-classification | M09 C; G4 | Classify the whole triangle by BOTH side equality and angle type | right-scalene; reject right-isosceles, acute-scalene and acute-isosceles | Display A(10,20), B(90,20), C(10,80); given AB4/BC5/CA3 shown as edge labels and repeated in alternative. Display coordinates do not measure those lengths. Hints inspect equality and corners separately without supplying either classification. |
 | two-turn-map | M09 C; G3 | East, clockwise half, anticlockwise quarter | south; reject north | Compass. Hints retain intermediate orientation and turn direction; support East→West→South. |
 | rotated-square-symmetry | M09 C; G4 | Reflection lines under changed orientation | four; reject two | Vertices top/right/bottom/left equidistant from centre. Hints consider vertex and midpoint folds. |
 | reverse-turns | M09 X; G3 | Unknown start; clockwise quarter then half ends West | north; reject south | Compass. Hints reverse instruction order and turn direction; worked reverse path. |
@@ -105,7 +105,9 @@ four distinct event IDs and require all of them; initial presentation order is
 not identity or grading. Repeated/unknown IDs are invalid; partial known sets
 are incomplete; complete wrong permutations are judged.
 
-All geometry uses equal horizontal/vertical coordinate units. Closed shapes
+All geometry uses finite x/y in the frozen 0–100 display square, with equal
+horizontal/vertical display units. Given mathematical lengths come from source
+labels, not numeric display coordinates. Closed shapes
 have a single connected boundary with named vertices and explicit edge IDs;
 the compass is an open four-spoke diagram. Coordinates describe source geometry
 only. Fixed choice IDs carry named shape, turn or property answers. The diagonal
@@ -135,7 +137,8 @@ and does not pretend to assess independent reading.
 
 `validateTimeSpaceDataTask` checks finite membership and agreement of all
 reviewed fields, canonical identity and representation. Deeply frozen exported
-records are trusted only because this complete inventory is tested/reviewed;
+records also pass the explicit diagram coordinate-domain check before the
+trusted-record fast path; this complete inventory is tested/reviewed and
 reconstructed content traverses comparison. Object key order, option/tile
 presentation order and a positive content revision do not change meaning.
 The finite structural comparison rejects NaN, Infinity and undefined before
@@ -202,7 +205,9 @@ bank remains exactly 30 tasks with 4 core/3 support/3 stretch per skill.
 Fresh F1 verification repeats the original frozen task/response route, verifies
 its rejection by the replacement bank, and evaluates every replacement option
 through the actual exports. The complete learning suite and focused TypeScript
-check are rerun; independent semantic recheck remains pending.
+check were rerun; F1 was subsequently independently closed in the main validation
+report. Its evidence remains historical. The later diagram repair below has its
+own pending narrow recheck.
 
 ## Binding and downstream limits
 
@@ -219,3 +224,74 @@ WP03-13A owns catalogue, dispatch and final bindings; WP02 owns actual controls,
 equal-scale rendering and keyboard/tap accessibility; WP04 owns atomic commit,
 saved identity/assistance and learning observations; WP06 owns published play.
 There is no integration, deployment or complete-game acceptance claim here.
+
+## Diagram contract repair returned by assembly
+
+The accepted mathematical review missed a producer/renderer contract fault.
+Four compass tasks and `rotated-square-symmetry` contained negative coordinates,
+contrary to WP03-01A's explicit 0–100 square. The family validator compared
+reviewed data but did not independently enforce that bound before its trusted
+record path. The unchanged real `TaskStimulus` correctly rejected all five.
+The five other diagram tasks passed its numeric check but occupied only
+13.18–19.76 CSS pixels horizontally in the normal 448-pixel widget, with
+overlapping labels. This source display placement, not renderer behaviour or
+mathematical answers, was the first incorrect checkpoint.
+
+The full accepted five-file freeze and its hashes remain in
+`artifacts/wp03-08a-20261011/diagram-repair/before` and
+`diagram-repair/owned-files-before.json`. `before-render.log` and
+`before/results.json` retain the actual ten source inputs, producer results,
+five renderer exceptions and measured display sizes. Before PNGs show the
+rejected or illegible results. No renderer, central contract or other-family
+source was edited.
+
+Fixed reviewed coordinates apply one positive uniform scale and translation
+per original diagram, so orientation, angles, relative lengths, incidence and
+reflection lines do not change:
+
+| Source arrangement / affected tasks | Display transform from retained before coordinates | Final extent |
+|---|---|---|
+| Introductory triangle | x′=20x+10, y′=20y+20 | 80 by 60 |
+| Compass, all four turn tasks | x′=20x+50, y′=20y+50 | 80 by 80 |
+| Rectangle, both property tasks | x′=(40/3)x+10, y′=(40/3)y+30 | 80 by 40 |
+| 3–4–5 classification triangle | x′=20x+10, y′=20y+20 | 80 by 60 |
+| Rotated square | x′=(40/3)x+50, y′=(40/3)y+50 | 80 by 80 |
+| Square before proposed diagonal cut | x′=20x+10, y′=20y+10 | 80 by 80 |
+
+All resulting points lie between 10 and 90. Rectangle and square side lengths
+are explicit edge labels; the classification triangle retains its 4/5/3 labels.
+The rotated-square alternative now states the same equal radial distances
+without treating its former display radius 3 as a measured length. Rectangle
+and square alternatives distinguish given lengths from display coordinates.
+They do not reveal angles, symmetry counts, classifications or turn answers.
+All ten diagram records use contentRevision 2. Every canonical ID, descriptor,
+prompt, objective, band, answer, hint and worked explanation remains unchanged;
+so do all seven binding pools and all 122 family manifest cases. The twenty
+non-diagram records are exactly unchanged.
+
+The validator now checks each x/y is finite and in 0–100 before trusting even
+an exported record. Out-of-domain reconstructed sources are unavailable-content.
+Being in the numeric domain alone does not approve a changed arrangement: the
+reviewed membership check still rejects source changes and never computes an
+answer from geometry. Tests retain 0/100 boundary checks, both axes, NaN/infinity,
+uniform-transform proofs and every actual diagram through `TaskStimulus`.
+
+Real-component verification uses the accepted main `TaskStimulus.tsx` and
+`widgets.css` read-only, with their hashes recorded in `after/results.json`.
+Its original JSX is transformed in memory, rendered by React server rendering
+and inspected in Chromium with the actual widget stylesheet. At viewport
+1366×900 and its normal 448×448 SVG size, all ten sources render without error;
+geometry is 263.53 pixels wide and 131.76–263.53 pixels high. Every SVG text
+label fits within the SVG. The author visually inspected PNGs for all six
+distinct arrangements: vertices, compass directions, edges and given units are
+readable; shape and label collisions from the tiny baseline are resolved.
+The other four tasks reuse those exact arrangements. This is specific normal-size
+component rendering evidence, not mobile/accessibility certification or full
+published interaction/state acceptance.
+
+Final verification: 114 family tests; 856 tests across the complete candidate
+learning suite plus existing interaction draft/stimulus tests; focused TypeScript
+with JSX/CSS type support; all passed. The original ten source→validation→real
+renderer→browser routes were rerun after repair. A fresh in-domain non-uniform
+triangle change (C display y=60) correctly returned unavailable-content instead
+of inheriting the original answer. Independent narrow recheck is pending.

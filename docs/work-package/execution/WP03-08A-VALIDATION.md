@@ -1,10 +1,13 @@
-# WP03-08A independent validation — scoped PASS after F1 repair
+# WP03-08A independent validation — scoped PASS after F1 and diagram repairs
 
 11 October 2026. Independent Codex validator; not the candidate author. **Scoped
-PASS for the refrozen candidate below: F1 closed by narrow independent semantic
-recheck.** The replacement now supplies the fourth substantiated M09 core task.
-Earlier passing grading, boundary, representation and support-selection evidence
-is retained for the unchanged content. Controller retains acceptance and
+PASS for the refrozen candidate below: F1 and the assembly-returned diagram
+contract defect are closed by narrow independent rechecks.** The replacement
+supplies the fourth substantiated M09 core task. My earlier review missed the
+frozen diagram coordinate bounds and did not exercise the real renderer; its
+diagram-compliance conclusion was insufficient and is superseded below. Earlier
+passing grading and support-selection evidence is retained where unchanged.
+Controller retains acceptance and
 integration authority; this is not integrated/published or final acoustic
 acceptance. The original rejection remains preserved below and in the author's
 [before snapshot](../../../artifacts/wp03-08a-20261011/f1-repair/WP03-08A-VALIDATION-before.md).
@@ -18,11 +21,11 @@ was checked against all five files; exact byte lengths and SHA-256 values agree:
 
 | Candidate-relative path | Bytes | SHA-256 |
 |---|---:|---|
-| src/content/expansion-maths/time-space-data.ts | 39201 | 5f2710d3f58d4253b071c545cffc5690cf15448a07c38515e0c60add02dfe353 |
-| src/learning/evaluators/expansion-time-space-data.ts | 8956 | fd1f0402563eadd5d5af738f437a63cf00757c4b43c9f26102185df5cd9dea49 |
-| tests/learning/expansion-time-space-data.test.ts | 21728 | b493d4e5c55c1a42a540baf4e5faed0a28873ee07fa46c5802575a4da8e2fa81 |
-| docs/content-review/expansion-time-space-data.md | 18114 | cc091271cbc9d74c11afd0d0c9603b04f4349f9aa04299512a9074c41e080b44 |
-| docs/work-package/execution/WP03-08A-HANDOFF.md | 12199 | 4cedacce2a50113460524b81db8a1d7e1fd6d609da52f8241a803241cd27db44 |
+| src/content/expansion-maths/time-space-data.ts | 40037 | d2ca82c13ee18984c6231409b92bb0f806b8f0bd933090745db7f35ea8e3772c |
+| src/learning/evaluators/expansion-time-space-data.ts | 9650 | d280f8c1d328ff8891acee6d8fe1c4959139148d125cc71aefb704dd51676248 |
+| tests/learning/expansion-time-space-data.test.ts | 25778 | 5dc7bc2448f15409447d6dfb40f0dc4a29ee49383735fa075688027661599442 |
+| docs/content-review/expansion-time-space-data.md | 22997 | ba601f0c5a5d8bfa0a73481d51b6f0fad7e6283cab200793cc910f2a7151af96 |
+| docs/work-package/execution/WP03-08A-HANDOFF.md | 16263 | 77af62331681f7dcb2ccdd2c80f0c0c94b702dd168b895f38a5ad4b47e08c8cf |
 
 Read the candidate handoff and per-item review, WP03-08A, WP03-01A, the frozen
 contracts/identity/skills and registry review, WP03-13A required/optional binding
@@ -38,7 +41,129 @@ All 36 starter IDs reconstruct unchanged, no new ID collides, and the nine M1
 bindings remain in their untouched source. New tasks do not count starters or
 additional accepted answers toward their floor.
 
-## F1 closure — fresh narrow recheck of the refrozen replacement
+## Diagram contract closure — independent source and actual-render recheck
+
+**Scoped PASS, with the earlier review omission explicitly acknowledged.**
+WP03-01A's stimulus table requires finite display coordinates in 0–100, equal
+x/y scale and explicit labels for given lengths; coordinates are not measured
+lengths. My original topology/equal-unit checks did not enforce the first of
+those requirements. The negative compass/rotated-square sources therefore should
+not have passed content review. The first-pass answer-space results remain valid
+as grading evidence, but did not prove renderer compatibility or usable geometry.
+
+The immediate pre-repair five-file snapshot is preserved under
+[diagram-repair/before](../../../artifacts/wp03-08a-20261011/diagram-repair/before/),
+with its [manifest](../../../artifacts/wp03-08a-20261011/diagram-repair/owned-files-before.json).
+Fresh independent reproduction through the real `TaskStimulus` produced:
+
+- Four compass tasks (`north-quarter-clockwise`, `two-turn-map`, `reverse-turns`,
+  `alternating-turn-pattern`) with N y=-2/W x=-2, and `rotated-square-symmetry`
+  with top y=-3/left x=-3: exactly five `TypeError: Malformed TaskStimulus producer
+  metadata.` exceptions.
+- The other five diagrams rendered into a 448×448 SVG but their geometry was
+  only 13.18–19.76 pixels wide; fresh browser measurements showed overlapping
+  vertex labels, plus overlapping 3/4/5 length labels in the classification task.
+  This was a producer placement defect; the unchanged renderer's rejection was
+  correct. Original source inputs, failures and screenshots remain preserved.
+
+The current source corrects all ten placements within 10–90. Independent
+pre/post comparison verified these exact positive uniform transforms, preserving
+orientation, angles, relative lengths, incidence, closure and reflection symmetry:
+
+| Distinct arrangement | Transform of old display points | Normal / compact geometry extent (pixels) |
+|---|---|---|
+| Introductory triangle | x′=20x+10, y′=20y+20 | 263.53×197.65 / 148.24×111.18 |
+| Compass (four tasks) | x′=20x+50, y′=20y+50 | 263.53×263.53 / 148.24×148.24 |
+| Rectangle (two tasks) | x′=(40/3)x+10, y′=(40/3)y+30 | 263.53×131.76 / 148.24×74.12 |
+| 3–4–5 classification triangle | x′=20x+10, y′=20y+20 | 263.53×197.65 / 148.24×111.18 |
+| Rotated square | x′=(40/3)x+50, y′=(40/3)y+50 | 263.53×263.53 / 148.24×148.24 |
+| Square before proposed cut | x′=20x+10, y′=20y+10 | 263.53×263.53 / 148.24×148.24 |
+
+All point/edge identities and endpoint relationships are unchanged. The rectangle
+now has explicit 6/3/6/3 unit edge labels, the classification triangle retains
+4/5/3 and the square has four explicit 4-unit labels. These are educational
+givens; an 80-display-unit side does not mean an 80-unit measured length. The
+accessible alternatives retain those givens and arrangements without supplying
+the requested property, count or destination. The rotated-square alternative
+now states equal radial distances instead of giving its old display radius as
+a measured length. The proposed diagonal AC remains explicit in prompt/caption;
+it is not invented as an additional boundary edge. All six distinct alternatives
+were read against the rendered source and assessed question.
+
+The validator change is exactly a finite 0–100 x/y guard before the trusted
+export fast path (`expansion-time-space-data.ts:35–43`). Removing just that new
+guard from the current evaluator reproduces the previous file byte-for-byte;
+all response parsing and grading code is unchanged. Fresh checks verified all
+ten exported and reconstructed records, their accepted answers, and 180 coordinate
+probes across both axes. Negative/over-100, NaN/Infinity, null/undefined inputs
+produce `diagram-coordinate-bounds` and unavailable-content. Coordinates 0, 100
+and fractional 50.5 do not trigger that domain issue; their altered unreviewed
+arrangements still produce unavailable-content through exact membership. A
+valid numeric domain alone therefore cannot approve a geometry change or change
+an answer. Nothing derives a grade from source or pointer coordinates.
+
+All thirty IDs/descriptors, prompts, objectives, bands, answers, options, hints
+and worked support are unchanged from the F1-accepted snapshot. All twenty
+non-M09 records are deeply identical. All seven binding proposals and all 122
+manifest cases are deeply identical. Only the ten diagrams' stimulus data and
+contentRevision (1→2) changed in task exports. The F1 replacement canonical ID
+below remains current. The earlier answer-space and support-selection proof is
+reused on that evidence, rather than replaying the whole bank or broad tests.
+
+Fresh execution used the real main `src/interaction/TaskStimulus.tsx`, transformed
+from JSX in memory, React static rendering and headless Chromium with the actual
+`widgets.css`. No renderer substitute, app build or shared output was used.
+Renderer SHA-256: `3542c6ea2a4caca12871e37266a503a1fb654583ef4255f1d96a048ee75111c4`;
+CSS SHA-256: `724acc295dfd04f7c508a872ad4624a9ec5b99ddf80f9fe73a1b8decb63c1cb6`.
+Every original diagram was reproduced at 1366×900; every repaired diagram then
+traversed producer validation → actual component → browser at both 1366×900 and
+320×900. The SVG sizes were respectively 448×448 and 252×252. All twenty repaired
+render cases passed: equal screen x/y scale, all text inside the SVG, no pair of
+text labels overlapping and no horizontal page overflow.
+
+I visually inspected the six distinct repaired arrangements at both widths,
+not just their bounding boxes. Vertices, orientation, proportions and given
+lengths remain discernible; the original collapsed-label defect is resolved.
+Screenshots at each width:
+
+| Arrangement | Normal | Compact |
+|---|---|---|
+| Triangle | [PNG](../../../artifacts/wp03-08a-20261011/independent-validation/diagram-recheck/after-1366-triangle-boundary.png) | [PNG](../../../artifacts/wp03-08a-20261011/independent-validation/diagram-recheck/after-320-triangle-boundary.png) |
+| Compass | [PNG](../../../artifacts/wp03-08a-20261011/independent-validation/diagram-recheck/after-1366-north-quarter-clockwise.png) | [PNG](../../../artifacts/wp03-08a-20261011/independent-validation/diagram-recheck/after-320-north-quarter-clockwise.png) |
+| Rectangle | [PNG](../../../artifacts/wp03-08a-20261011/independent-validation/diagram-recheck/after-1366-rectangle-symmetry.png) | [PNG](../../../artifacts/wp03-08a-20261011/independent-validation/diagram-recheck/after-320-rectangle-symmetry.png) |
+| Classification triangle | [PNG](../../../artifacts/wp03-08a-20261011/independent-validation/diagram-recheck/after-1366-triangle-side-angle-classification.png) | [PNG](../../../artifacts/wp03-08a-20261011/independent-validation/diagram-recheck/after-320-triangle-side-angle-classification.png) |
+| Rotated square | [PNG](../../../artifacts/wp03-08a-20261011/independent-validation/diagram-recheck/after-1366-rotated-square-symmetry.png) | [PNG](../../../artifacts/wp03-08a-20261011/independent-validation/diagram-recheck/after-320-rotated-square-symmetry.png) |
+| Square/cut | [PNG](../../../artifacts/wp03-08a-20261011/independent-validation/diagram-recheck/after-1366-square-diagonal-pieces.png) | [PNG](../../../artifacts/wp03-08a-20261011/independent-validation/diagram-recheck/after-320-square-diagonal-pieces.png) |
+
+Visual limits: existing renderer labels sometimes sit on shape strokes, and its
+fixed SVG font scales to approximately 9.3 CSS pixels at the compact width
+(16.5 at normal width). The screenshots retain discernible labels and full-size
+source text repeats the givens, but this is not certification of compact-label
+readability for every learner or a screen-reader/interaction/zoom audit. Broader
+widget accessibility, integrated save/resume, assembly, world and published play
+remain downstream. This scoped producer correction requires no new source fix.
+
+Independent [runner](../../../artifacts/wp03-08a-20261011/independent-validation/diagram-recheck.mjs),
+[log](../../../artifacts/wp03-08a-20261011/independent-validation/diagram-recheck.log)
+and [structured before/after evidence](../../../artifacts/wp03-08a-20261011/independent-validation/diagram-recheck/results.json)
+are private and reproducible with `node artifacts/wp03-08a-20261011/independent-validation/diagram-recheck.mjs`.
+The first launch used one excess parent traversal for the main renderer path and
+stopped at ENOENT before rendering; its
+[script](../../../artifacts/wp03-08a-20261011/independent-validation/diagram-recheck-attempt-01.mjs)
+and [log](../../../artifacts/wp03-08a-20261011/independent-validation/diagram-recheck-attempt-01.log)
+are preserved as a validator harness path failure. After the private path fix,
+the complete bounded recheck exited successfully. The author-reported 114 family
+tests, 856 related tests and focused TypeScript remain separately labelled author
+evidence; none was broadly replayed here. Final five-file hashes above were
+independently verified. Controller alone may integrate before assembly refresh.
+
+## Retained F1 closure — narrow recheck before the later diagram repair
+
+This section preserves the F1 repair evidence as executed. Its display-point
+positions and unchanged-evaluator observation describe that earlier snapshot;
+the subsequent display coordinates and evaluator guard are superseded by the
+diagram closure above. Its mathematical classification and final identity remain
+unchanged and F1 remains closed.
 
 Final task: `triangle-side-angle-classification`, M09 core,
 `src/content/expansion-maths/time-space-data.ts:67–68` and content-review row 68.
@@ -343,5 +468,6 @@ message occurred. This validator wrote only this report and private evidence.
 Rendering, actual pointer/keyboard/tap equivalence, state/save compatibility,
 world assembly, published play and final listening remain downstream. F1 has now
 been repaired by its original author and independently closed as recorded above.
-Only this report changed during the recheck; Controller acceptance/integration
-remain pending, with no broader regression or acceptance claim made here.
+The F1 recheck changed only this report; the later diagram recheck changed this
+report and private evidence only. Controller acceptance/integration remain
+pending, with no broader regression or acceptance claim made here.

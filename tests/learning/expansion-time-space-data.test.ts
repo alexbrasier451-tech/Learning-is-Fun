@@ -1,4 +1,7 @@
 import { describe, expect, it } from 'vitest';
+import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { TaskStimulus } from '../../src/interaction/TaskStimulus';
 import type { ActivityResponse, TaskDefinition } from '../../src/learning/contracts';
 import { canonicalQuestionId } from '../../src/learning/identity';
 import { TIME_SPACE_DATA_BINDING_PROPOSALS, TIME_SPACE_DATA_MANIFEST, TIME_SPACE_DATA_TASKS } from '../../src/content/expansion-maths/time-space-data';
@@ -183,7 +186,7 @@ describe('representation source, labels, scale and accessible givens', () => {
       const ids = stimulus.points.map(point => point.id);
       expect(new Set(ids).size).toBe(ids.length);
       expect(stimulus.labels).toContain('Equal horizontal and vertical coordinate units');
-      for (const point of stimulus.points) { expect(Number.isFinite(point.x)).toBe(true); expect(Number.isFinite(point.y)).toBe(true); expect(point.label).toBeTruthy(); }
+      for (const point of stimulus.points) { expect(Number.isFinite(point.x) && point.x >= 0 && point.x <= 100).toBe(true); expect(Number.isFinite(point.y) && point.y >= 0 && point.y <= 100).toBe(true); expect(point.label).toBeTruthy(); }
       for (const edge of stimulus.edges) { expect(ids).toContain(edge.from); expect(ids).toContain(edge.to); expect(edge.from).not.toBe(edge.to); }
       if (stimulus.closed) {
         expect(stimulus.edges.length).toBe(stimulus.points.length);
@@ -193,8 +196,61 @@ describe('representation source, labels, scale and accessible givens', () => {
       expect(stimulus.accessibleDescription).not.toMatch(/isosceles|perpendicular|right angle|lines of symmetry|triangle|rectangle|square/);
       expect(evaluate(row, { kind: 'choice', choices: { answer: { x: 0, y: 0 } } }).status).toBe('invalid-response');
     }
-    expect(task('triangle-side-angle-classification').stimulus).toMatchObject({ points: [{ id: 'A', x: 0, y: 0 }, { id: 'B', x: 4, y: 0 }, { id: 'C', x: 0, y: 3 }] });
-    expect(task('rotated-square-symmetry').stimulus).toMatchObject({ points: [{ id: 'A', x: 0, y: -3 }, { id: 'B', x: 3, y: 0 }, { id: 'C', x: 0, y: 3 }, { id: 'D', x: -3, y: 0 }] });
+    expect(task('triangle-side-angle-classification').stimulus).toMatchObject({ points: [{ id: 'A', x: 10, y: 20 }, { id: 'B', x: 90, y: 20 }, { id: 'C', x: 10, y: 80 }] });
+    expect(task('rotated-square-symmetry').stimulus).toMatchObject({ points: [{ id: 'A', x: 50, y: 10 }, { id: 'B', x: 90, y: 50 }, { id: 'C', x: 50, y: 90 }, { id: 'D', x: 10, y: 50 }] });
+  });
+  it('every actual diagram traverses the real TaskStimulus renderer with its source labels intact', () => {
+    const diagrams = TIME_SPACE_DATA_TASKS.filter(row => row.stimulus?.kind === 'diagram');
+    expect(diagrams).toHaveLength(10);
+    for (const row of diagrams) {
+      expect(validate(row)).toEqual([]);
+      const html = renderToStaticMarkup(createElement(TaskStimulus, { stimulus: row.stimulus }));
+      expect(html).toContain('data-stimulus-kind="diagram"');
+      expect(html).toContain('viewBox="-18 -18 136 136"');
+      expect(html).toContain('preserveAspectRatio="xMidYMid meet"');
+      if (row.stimulus?.kind !== 'diagram') throw Error('diagram expected');
+      for (const point of row.stimulus.points) expect(html).toContain(`>${point.label}</text>`);
+      for (const edge of row.stimulus.edges) if (edge.label) expect(html).toContain(`>${edge.label}</text>`);
+      expect(row.contentRevision).toBe('2');
+    }
+  });
+  it('reviewed display placements are uniform positive scale/translations of the unchanged geometry', () => {
+    const fixtures: readonly (readonly [string, number, number, number, readonly (readonly [string, number, number])[]])[] = [
+      ['triangle-boundary', 20, 10, 20, [['A', 0, 0], ['B', 4, 0], ['C', 2, 3]]],
+      ['north-quarter-clockwise', 20, 50, 50, [['N', 0, -2], ['E', 2, 0], ['S', 0, 2], ['W', -2, 0], ['O', 0, 0]]],
+      ['rectangle-right-angles', 40 / 3, 10, 30, [['A', 0, 0], ['B', 6, 0], ['C', 6, 3], ['D', 0, 3]]],
+      ['triangle-side-angle-classification', 20, 10, 20, [['A', 0, 0], ['B', 4, 0], ['C', 0, 3]]],
+      ['rotated-square-symmetry', 40 / 3, 50, 50, [['A', 0, -3], ['B', 3, 0], ['C', 0, 3], ['D', -3, 0]]],
+      ['square-diagonal-pieces', 20, 10, 10, [['A', 0, 0], ['B', 4, 0], ['C', 4, 4], ['D', 0, 4]]],
+    ];
+    for (const [key, scale, dx, dy, sourcePoints] of fixtures) {
+      const stimulus = task(key).stimulus;
+      if (stimulus?.kind !== 'diagram') throw Error('diagram expected');
+      expect(scale).toBeGreaterThan(0);
+      for (const [id, x, y] of sourcePoints) {
+        const point = stimulus.points.find(point => point.id === id)!;
+        expect(point.x).toBeCloseTo(x * scale + dx, 10);
+        expect(point.y).toBeCloseTo(y * scale + dy, 10);
+      }
+      expect(Math.max(...stimulus.points.map(p => p.x)) - Math.min(...stimulus.points.map(p => p.x))).toBe(80);
+    }
+    expect(task('rectangle-symmetry').stimulus).toEqual(task('rectangle-right-angles').stimulus);
+    for (const key of ['two-turn-map', 'reverse-turns', 'alternating-turn-pattern']) expect(task(key).stimulus).toEqual(task('north-quarter-clockwise').stimulus);
+  });
+  it('producer rejects either out-of-domain display axis before evaluation; exact endpoints remain in the domain', () => {
+    const row = task('north-quarter-clockwise');
+    if (row.stimulus?.kind !== 'diagram') throw Error('diagram expected');
+    for (const axis of ['x', 'y'] as const) for (const coordinate of [-1, 100.01, NaN, Infinity, -Infinity]) {
+      const invalid = { ...row, stimulus: { ...row.stimulus, points: row.stimulus.points.map((point, i) => i === 0 ? { ...point, [axis]: coordinate } : point) } };
+      expect(validate(invalid).map(issue => issue.code)).toContain('diagram-coordinate-bounds');
+      expect(evaluate(invalid, c('east')).status).toBe('unavailable-content');
+    }
+    for (const coordinate of [0, 100]) {
+      const changed = { ...row, stimulus: { ...row.stimulus, points: row.stimulus.points.map((point, i) => i === 0 ? { ...point, x: coordinate } : point) } };
+      expect(validate(changed).map(issue => issue.code)).not.toContain('diagram-coordinate-bounds');
+      // In-domain is not permission to alter a reviewed arrangement.
+      expect(evaluate(changed, c('east')).status).toBe('unavailable-content');
+    }
   });
 });
 

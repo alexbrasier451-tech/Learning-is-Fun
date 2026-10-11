@@ -32,6 +32,15 @@ export function validateTimeSpaceDataTask(task: TaskDefinition): readonly Conten
   if (!record(task) || !record(task.descriptor)) { add('descriptor', 'descriptor-invalid', 'A finite reviewed descriptor is required.'); return issues; }
   try { if (canonicalQuestionId(task.descriptor) !== id) add('canonicalQuestionId', 'identity-mismatch', 'Identity must match the authored source descriptor.'); }
   catch { add('descriptor', 'descriptor-invalid', 'Invalid canonical descriptor.'); return issues; }
+  // Enforce the frozen display-coordinate domain before trusting even a
+  // reviewed export. Source geometry is display metadata, never an answer oracle.
+  const stimulus = task.stimulus;
+  if (record(stimulus) && stimulus.kind === 'diagram'
+    && (!Array.isArray(stimulus.points) || Array.from(stimulus.points).some(point => !record(point)
+      || typeof point.x !== 'number' || !Number.isFinite(point.x) || point.x < 0 || point.x > 100
+      || typeof point.y !== 'number' || !Number.isFinite(point.y) || point.y < 0 || point.y > 100))) {
+    add('stimulus.points', 'diagram-coordinate-bounds', 'Diagram x/y coordinates must be finite numbers in the frozen 0–100 display square.');
+  }
   const reviewed = byId.get(id);
   if (!reviewed) { add('descriptor', 'unreviewed-tuple', 'Only the thirty enumerated reviewed tasks are available.'); return issues; }
   if (reviewed === task && !issues.length) return issues; // exported tuples are deeply frozen
