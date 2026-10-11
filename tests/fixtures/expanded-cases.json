@@ -1,0 +1,996 @@
+[
+  {
+    "caseId": "q4-story-m02-match-accessible-support",
+    "bindingId": "q4-story-m02-match",
+    "canonicalQuestionId": "lif.math.expansion.m02.r1.generated-%5Bnull%2C%5B%5B%22groups%22%2C2%5D%2C%5B%22items%22%2C5%5D%2C%5B%22operation%22%2C%22array-expression%22%5D%5D%5D",
+    "response": {
+      "kind": "matching",
+      "pairs": {
+        "displayed": "forward"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP02-10A",
+    "scenario": "Use real keyboard/tap controls, Check, and preserve this binding provenance."
+  },
+  {
+    "caseId": "q5-story-m05-quantity-accessible-support",
+    "bindingId": "q5-story-m05-quantity",
+    "canonicalQuestionId": "lif.math.expansion.m05.r1.authored-%5B%22shaded-half%22%2C%5B%5B%22partition%22%2C2%5D%2C%5B%22shaded%22%2C1%5D%2C%5B%22wholes%22%2C1%5D%5D%5D",
+    "response": {
+      "kind": "quantity",
+      "values": {
+        "answer": {
+          "numerator": 1,
+          "denominator": 2,
+          "unit": "whole"
+        }
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP02-10A",
+    "scenario": "Use real keyboard/tap controls, Check, and preserve this binding provenance."
+  },
+  {
+    "caseId": "q6-story-e04-sort-accessible-support",
+    "bindingId": "q6-story-e04-sort",
+    "canonicalQuestionId": "lif.english.expansion.e04.r1.authored-%5B%22otter-actions%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "sorting",
+      "groups": {
+        "otters": "noun",
+        "splash": "verb",
+        "rocks": "noun"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP02-10A",
+    "scenario": "Use real keyboard/tap controls, Check, and preserve this binding provenance."
+  },
+  {
+    "caseId": "q6-story-e02-clue-accessible-support",
+    "bindingId": "q6-story-e02-clue",
+    "canonicalQuestionId": "lif.english.words.e02.r1.authored-%5B%22e02-sea%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "word": "b"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP02-10A",
+    "scenario": "Use real keyboard/tap controls, Check, and preserve this binding provenance."
+  },
+  {
+    "caseId": "q7-story-e10-sequence-accessible-support",
+    "bindingId": "q7-story-e10-sequence",
+    "canonicalQuestionId": "lif.english.reading-writing.r1.authored-%5B%22planted-seed%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "sequence",
+      "orderedIds": [
+        "plant",
+        "water",
+        "sprout"
+      ]
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP02-10A",
+    "scenario": "Use real keyboard/tap controls, Check, and preserve this binding provenance."
+  },
+  {
+    "caseId": "q8-story-e08-clue-accessible-support",
+    "bindingId": "q8-story-e08-clue",
+    "canonicalQuestionId": "lif.english.reading-writing.r1.authored-%5B%22bench-note%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "answer": "box"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP02-10A",
+    "scenario": "Use real keyboard/tap controls, Check, and preserve this binding provenance."
+  },
+  {
+    "caseId": "q8-story-m07-path-accessible-support",
+    "bindingId": "q8-story-m07-path",
+    "canonicalQuestionId": "lif.math.expansion.m07.r1.authored-%5B%22path-metres%22%2C%5B%5B%22first%22%2C2%5D%2C%5B%22output-unit%22%2C%22m%22%5D%2C%5B%22second%22%2C3%5D%2C%5B%22source-unit%22%2C%22m%22%5D%5D%5D",
+    "response": {
+      "kind": "quantity",
+      "values": {
+        "answer": {
+          "numerator": 5,
+          "denominator": 1,
+          "unit": "m"
+        }
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP02-10A",
+    "scenario": "Use real keyboard/tap controls, Check, and preserve this binding provenance."
+  },
+  {
+    "caseId": "q9-story-m08-clock-accessible-support",
+    "bindingId": "q9-story-m08-clock",
+    "canonicalQuestionId": "lif.math.expansion.m08.r1.authored-%5B%22morning-hands%22%2C%5B%5B%22source%22%2C%22morning%3B%20minute-hand-6%3B%20hour-hand-halfway-9-10%22%5D%5D%5D",
+    "response": {
+      "kind": "clock",
+      "minutes": 570
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP02-10A",
+    "scenario": "Use real keyboard/tap controls, Check, and preserve this binding provenance."
+  },
+  {
+    "caseId": "q9-story-m08-sequence-accessible-support",
+    "bindingId": "q9-story-m08-sequence",
+    "canonicalQuestionId": "lif.math.expansion.m08.r1.authored-%5B%22morning-event-order%22%2C%5B%5B%22source%22%2C%22Day0%3B%20breakfast08%3A00%3B%20gates09%3A00%3B%20bell10%3A00%3B%2024-hour%22%5D%5D%5D",
+    "response": {
+      "kind": "sequence",
+      "orderedIds": [
+        "breakfast",
+        "gates",
+        "bell"
+      ]
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP02-10A",
+    "scenario": "Use real keyboard/tap controls, Check, and preserve this binding provenance."
+  },
+  {
+    "caseId": "q10-story-m07-goods-accessible-support",
+    "bindingId": "q10-story-m07-goods",
+    "canonicalQuestionId": "lif.math.expansion.m07.r1.authored-%5B%22goods-price-pence%22%2C%5B%5B%22first-pence%22%2C120%5D%2C%5B%22pence-per-pound%22%2C100%5D%2C%5B%22second-pence%22%2C75%5D%5D%5D",
+    "response": {
+      "kind": "matching",
+      "pairs": {
+        "item-1": "target-3",
+        "item-2": "target-1"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP02-10A",
+    "scenario": "Use real keyboard/tap controls, Check, and preserve this binding provenance."
+  },
+  {
+    "caseId": "q10-story-m10-data-accessible-support",
+    "bindingId": "q10-story-m10-data",
+    "canonicalQuestionId": "lif.math.expansion.m10.r1.authored-%5B%22read-attendance-table%22%2C%5B%5B%22source%22%2C%22attendance%3B%20Oak12%20Elm8%20Ash15%22%5D%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "answer": "twelve"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP02-10A",
+    "scenario": "Use real keyboard/tap controls, Check, and preserve this binding provenance."
+  },
+  {
+    "caseId": "q10-story-e05-meaning-accessible-support",
+    "bindingId": "q10-story-e05-meaning",
+    "canonicalQuestionId": "lif.english.expansion.e05.r1.authored-%5B%22add-two-actions%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "sentence": "add"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP02-10A",
+    "scenario": "Use real keyboard/tap controls, Check, and preserve this binding provenance."
+  },
+  {
+    "caseId": "source-array",
+    "bindingId": "q4-story-m02-match",
+    "canonicalQuestionId": "lif.math.expansion.m02.r1.generated-%5Bnull%2C%5B%5B%22groups%22%2C2%5D%2C%5B%22items%22%2C5%5D%2C%5B%22operation%22%2C%22array-expression%22%5D%5D%5D",
+    "response": {
+      "kind": "matching",
+      "pairs": {
+        "displayed": "forward"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP06",
+    "scenario": "Render the exact stimulus and source-data alternative; answer through semantic controls. Published/accessibility evidence remains downstream."
+  },
+  {
+    "caseId": "source-fraction",
+    "bindingId": "q5-story-m05-quantity",
+    "canonicalQuestionId": "lif.math.expansion.m05.r1.authored-%5B%22shaded-half%22%2C%5B%5B%22partition%22%2C2%5D%2C%5B%22shaded%22%2C1%5D%2C%5B%22wholes%22%2C1%5D%5D%5D",
+    "response": {
+      "kind": "quantity",
+      "values": {
+        "answer": {
+          "numerator": 1,
+          "denominator": 2,
+          "unit": "whole"
+        }
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP06",
+    "scenario": "Render the exact stimulus and source-data alternative; answer through semantic controls. Published/accessibility evidence remains downstream."
+  },
+  {
+    "caseId": "source-clock",
+    "bindingId": "q9-story-m08-clock",
+    "canonicalQuestionId": "lif.math.expansion.m08.r1.authored-%5B%22morning-hands%22%2C%5B%5B%22source%22%2C%22morning%3B%20minute-hand-6%3B%20hour-hand-halfway-9-10%22%5D%5D%5D",
+    "response": {
+      "kind": "clock",
+      "minutes": 570
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP06",
+    "scenario": "Render the exact stimulus and source-data alternative; answer through semantic controls. Published/accessibility evidence remains downstream."
+  },
+  {
+    "caseId": "source-diagram",
+    "bindingId": "q8-story-m07-path",
+    "canonicalQuestionId": "lif.math.expansion.m07.r1.authored-%5B%22path-metres%22%2C%5B%5B%22first%22%2C2%5D%2C%5B%22output-unit%22%2C%22m%22%5D%2C%5B%22second%22%2C3%5D%2C%5B%22source-unit%22%2C%22m%22%5D%5D%5D",
+    "response": {
+      "kind": "quantity",
+      "values": {
+        "answer": {
+          "numerator": 5,
+          "denominator": 1,
+          "unit": "m"
+        }
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP06",
+    "scenario": "Render the exact stimulus and source-data alternative; answer through semantic controls. Published/accessibility evidence remains downstream."
+  },
+  {
+    "caseId": "source-data",
+    "bindingId": "q10-story-m10-data",
+    "canonicalQuestionId": "lif.math.expansion.m10.r1.authored-%5B%22read-attendance-table%22%2C%5B%5B%22source%22%2C%22attendance%3B%20Oak12%20Elm8%20Ash15%22%5D%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "answer": "twelve"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP06",
+    "scenario": "Render the exact stimulus and source-data alternative; answer through semantic controls. Published/accessibility evidence remains downstream."
+  },
+  {
+    "caseId": "q2-revisit-e06-punctuation-controls",
+    "bindingId": "q2-revisit-e06-punctuation",
+    "canonicalQuestionId": "lif.english.punctuation.expansion.r1.authored-%5B%22list-separator%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "punctuation",
+      "slots": {
+        "list": ","
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP02-10A",
+    "scenario": "Use real keyboard/tap controls, Check, and preserve this binding provenance."
+  },
+  {
+    "caseId": "q2-revisit-e07-punctuation-controls",
+    "bindingId": "q2-revisit-e07-punctuation",
+    "canonicalQuestionId": "lif.english.direct-speech.r1.authored-%5B%22quote-boundaries%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "punctuation",
+      "slots": {
+        "open": "\"",
+        "close": "\""
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP02-10A",
+    "scenario": "Use real keyboard/tap controls, Check, and preserve this binding provenance."
+  },
+  {
+    "caseId": "q2-revisit-e07-choice-controls",
+    "bindingId": "q2-revisit-e07-choice",
+    "canonicalQuestionId": "lif.english.direct-speech.r1.authored-%5B%22spoken-question-end%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "version": "v1"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP02-10A",
+    "scenario": "Use real keyboard/tap controls, Check, and preserve this binding provenance."
+  },
+  {
+    "caseId": "word-neutral-instruction",
+    "bindingId": "q6-revisit-e01-choice",
+    "canonicalQuestionId": "lif.english.words.e01.r1.authored-%5B%22e01-unfasten%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "word": "b"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "consumer": "WP02-10A"
+  },
+  {
+    "caseId": "word-story-support",
+    "bindingId": "q6-story-e02-clue",
+    "canonicalQuestionId": "lif.english.words.e02.r1.authored-%5B%22e02-sea%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "word": "b"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "consumer": "WP04-07A"
+  },
+  {
+    "caseId": "word-story-listening",
+    "bindingId": "q6-story-e02-clue",
+    "canonicalQuestionId": "lif.english.words.e02.r1.authored-%5B%22e02-hear%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "word": "a"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "listening-supported",
+    "consumer": "WP06"
+  },
+  {
+    "caseId": "word-synonym-alternative",
+    "bindingId": "q5-revisit-e03-choice",
+    "canonicalQuestionId": "lif.english.words.e03.r1.authored-%5B%22e03-faint%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "word": "d"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "consumer": "WP02-10A"
+  },
+  {
+    "caseId": "word-synonym-listening",
+    "bindingId": "q5-revisit-e03-choice",
+    "canonicalQuestionId": "lif.english.words.e03.r1.authored-%5B%22e03-reserve%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "word": "c"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "listening-supported",
+    "consumer": "WP04-07A"
+  },
+  {
+    "caseId": "word-sort-worked",
+    "bindingId": "q6-revisit-e01-sorting",
+    "canonicalQuestionId": "lif.english.words.e01.r1.authored-%5B%22e01-suffix-sort%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "sorting",
+      "groups": {
+        "hopeful": "having",
+        "fearless": "without",
+        "careful": "having",
+        "painless": "without"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "consumer": "WP02-10A"
+  },
+  {
+    "caseId": "word-match-retry",
+    "bindingId": "q5-revisit-e03-matching",
+    "canonicalQuestionId": "lif.english.words.e03.r1.authored-%5B%22e03-label-match%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "matching",
+      "pairs": {
+        "start": "cease",
+        "stop": "begin"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": false,
+    "expectedEvidenceMode": "independent",
+    "consumer": "WP04-07A"
+  },
+  {
+    "caseId": "word-familiar-revisit",
+    "bindingId": "q6-revisit-e02-choice",
+    "canonicalQuestionId": "lif.english.words.e02.r1.authored-%5B%22e02-sea%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "word": "b"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "consumer": "WP04-07A"
+  },
+  {
+    "caseId": "grammar-neutral-sort",
+    "bindingId": "q6-story-e04-sort",
+    "canonicalQuestionId": "lif.english.expansion.e04.r1.authored-%5B%22otter-actions%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "sorting",
+      "groups": {
+        "otters": "noun",
+        "splash": "verb",
+        "rocks": "noun"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "consumer": "WP02-10A"
+  },
+  {
+    "caseId": "grammar-listened-choice",
+    "bindingId": "q10-story-e05-meaning",
+    "canonicalQuestionId": "lif.english.expansion.e05.r1.authored-%5B%22explain-dry-pots%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "sentence": "cause"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "listening-supported",
+    "consumer": "WP04-07A"
+  },
+  {
+    "caseId": "grammar-hinted-sort",
+    "bindingId": "q6-story-e04-sort",
+    "canonicalQuestionId": "lif.english.expansion.e04.r1.authored-%5B%22hard-roles%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "sorting",
+      "groups": {
+        "hard-seed": "adjective",
+        "seed": "noun",
+        "fell": "verb",
+        "hard-fall": "adverb"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "consumer": "WP04-07A"
+  },
+  {
+    "caseId": "grammar-worked-sequence",
+    "bindingId": "q7-revisit-e05-sequence",
+    "canonicalQuestionId": "lif.english.expansion.e05.r1.authored-%5B%22flooded-path-cause%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "sequence",
+      "orderedIds": [
+        "because",
+        "flood",
+        "wait"
+      ]
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "consumer": "WP04-07A"
+  },
+  {
+    "caseId": "grammar-retry-wrong",
+    "bindingId": "q7-revisit-e05-sequence",
+    "canonicalQuestionId": "lif.english.expansion.e05.r1.authored-%5B%22pack-before-leave%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "sequence",
+      "orderedIds": [
+        "leave",
+        "before",
+        "pack"
+      ]
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": false,
+    "expectedEvidenceMode": "independent",
+    "consumer": "WP02-10A"
+  },
+  {
+    "caseId": "grammar-retry-correct",
+    "bindingId": "q7-revisit-e05-sequence",
+    "canonicalQuestionId": "lif.english.expansion.e05.r1.authored-%5B%22pack-before-leave%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "sequence",
+      "orderedIds": [
+        "before",
+        "leave",
+        "pack"
+      ]
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "consumer": "WP02-10A"
+  },
+  {
+    "caseId": "grammar-familiar-relative",
+    "bindingId": "q10-revisit-e05-choice",
+    "canonicalQuestionId": "lif.english.expansion.e05.r1.authored-%5B%22relative-repaired-rope%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "sentence": "omitted"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "consumer": "WP06"
+  },
+  {
+    "caseId": "q8-retrieve-neutral",
+    "bindingId": "q8-story-e08-clue",
+    "canonicalQuestionId": "lif.english.reading-writing.r1.authored-%5B%22bench-note%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "answer": "box"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP02-10A",
+    "scenario": "Narrate instructions only, answer via keyboard/tap, then Check. One E08 result."
+  },
+  {
+    "caseId": "q8-retrieve-listening",
+    "bindingId": "q8-story-e08-clue",
+    "canonicalQuestionId": "lif.english.reading-writing.r1.authored-%5B%22bench-note%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "answer": "box"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "listening-supported",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": true,
+      "evidenceMode": "listening-supported"
+    },
+    "consumer": "WP04-07A",
+    "scenario": "Record assessed-text narration before speech, save/reload, then Check. Supported reading evidence; ordinary unhinted first-success points unchanged."
+  },
+  {
+    "caseId": "q8-inference-clue-only",
+    "bindingId": "q8-revisit-e09-choice",
+    "canonicalQuestionId": "lif.english.reading-writing.r1.authored-%5B%22first-reading%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "clue": "hands"
+      }
+    },
+    "expectedStatus": "incomplete",
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP02-10A",
+    "scenario": "Choose only the clue. No attempt, learning observation or reward; request the inference."
+  },
+  {
+    "caseId": "q8-inference-wrong-clue",
+    "bindingId": "q8-revisit-e09-choice",
+    "canonicalQuestionId": "lif.english.reading-writing.r1.authored-%5B%22first-reading%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "inference": "worried",
+        "clue": "curtain"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": false,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP02-10A",
+    "scenario": "Complete unsupported pairing produces one E09 wrong Check and specific clue feedback, no second clue skill or success award."
+  },
+  {
+    "caseId": "q8-inference-listening",
+    "bindingId": "q8-revisit-e09-choice",
+    "canonicalQuestionId": "lif.english.reading-writing.r1.authored-%5B%22first-reading%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "inference": "worried",
+        "clue": "hands"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "listening-supported",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": true,
+      "evidenceMode": "listening-supported"
+    },
+    "consumer": "WP06",
+    "scenario": "On the integrated published candidate, hear the assessed passage, use both controls and Check; verify qualified evidence and unchanged ordinary points. Actual listening remains unverified here."
+  },
+  {
+    "caseId": "q7-sequence-support",
+    "bindingId": "q7-story-e10-sequence",
+    "canonicalQuestionId": "lif.english.reading-writing.r1.authored-%5B%22found-note%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "sequence",
+      "orderedIds": [
+        "find",
+        "read",
+        "return"
+      ]
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP02-10A",
+    "scenario": "Support-band three-tile story through real keyboard/tap sequencing. Only this story binding satisfies its required beat."
+  },
+  {
+    "caseId": "q7-sequence-alternative",
+    "bindingId": "q7-story-e10-sequence",
+    "canonicalQuestionId": "lif.english.reading-writing.r1.authored-%5B%22picnic-preparation%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "sequence",
+      "orderedIds": [
+        "open",
+        "cloth",
+        "fruit",
+        "close"
+      ]
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP04-07A",
+    "scenario": "Save the alternative valid tile order and reload before Check. Preserve canonical identity, binding provenance and ordered IDs."
+  },
+  {
+    "caseId": "q10-edit-worked-reload",
+    "bindingId": "q10-revisit-e10-choice",
+    "canonicalQuestionId": "lif.english.reading-writing.r1.authored-%5B%22uncertain-visitor%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "edit": "wonder"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": true,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP04-07A",
+    "scenario": "Use explicit worked support, save/reload and choose the alternative valid edit. Sticky help gives supported success even though the reading evidenceMode remains independent; never recreate a first unassisted opportunity."
+  },
+  {
+    "caseId": "q7-edit-hint",
+    "bindingId": "q7-revisit-e10-choice",
+    "canonicalQuestionId": "lif.english.reading-writing.r1.authored-%5B%22clear-owner%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "edit": "tess"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": true,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP06",
+    "scenario": "Use a hint in the published optional edit, navigate away and resume. Hint remains sticky; optional revisit cannot substitute for q7-story-e10-sequence."
+  },
+  {
+    "caseId": "M1-BRIDGE-preserved",
+    "bindingId": "q1-story-m01",
+    "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+    "response": {
+      "kind": "bridge",
+      "planks": [
+        6,
+        6
+      ]
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP04-07A",
+    "scenario": "Use a real M1 save and permanent completedStoryBindingIds; expansion adds no Q1 required beat or new first opportunity."
+  },
+  {
+    "caseId": "M1-MERCHANT-mixed",
+    "bindingId": "q3-story-m04",
+    "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-3",
+    "response": {
+      "kind": "merchant",
+      "apples": 6,
+      "pears": 3
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "mixed",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "mixed"
+    },
+    "consumer": "WP04-07A",
+    "scenario": "One M04 check; contextual reading gives no E08 credit. Mixed success remains supported evidence."
+  },
+  {
+    "caseId": "expanded-familiar",
+    "bindingId": "q8-revisit-e09-choice",
+    "canonicalQuestionId": "lif.english.reading-writing.r1.authored-%5B%22wet-cloak%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "inference": "rain",
+        "clue": "paving"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP04-07A",
+    "scenario": "Previously checked/successful in the same competition week: familiar practice, rewardCandidate none; growth does not refill rewards."
+  },
+  {
+    "caseId": "expanded-due-review",
+    "bindingId": "q8-revisit-e09-choice",
+    "canonicalQuestionId": "lif.english.reading-writing.r1.authored-%5B%22wet-cloak%22%2C%5B%5D%5D",
+    "response": {
+      "kind": "choice",
+      "choices": {
+        "inference": "rain",
+        "clue": "paving"
+      }
+    },
+    "expectedStatus": "judged",
+    "expectedCorrect": true,
+    "expectedEvidenceMode": "independent",
+    "expectedAssistance": {
+      "answerHintUsed": false,
+      "workedSupportUsed": false,
+      "assessedTextReadAloud": false,
+      "evidenceMode": "independent"
+    },
+    "consumer": "WP04-07A",
+    "scenario": "Unbound adaptive practice with prior canonical success and a later-week educational due date: retain canonicalQuestionId, reason due-review, reviewReference and later-week-due-review candidate. Bound optional revisit itself does not trigger due-review."
+  }
+]

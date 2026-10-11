@@ -12,8 +12,8 @@ import { weekKeyFor } from '../rewards/calendar';
 import { validateRewardState } from '../rewards/scoring';
 import { validateCompetitionState } from '../rewards/standings';
 
-/** These are portable format policies, independent of IndexedDB/build versions.
- * M2 must register its compatible content/binding path explicitly. */
+/** The additive expanded catalogue uses the same portable v1/content identity.
+ * Availability comes from the delivered approved tasks, never the build alone. */
 export const BACKUP_FORMAT = 'learning-is-fun-save' as const;
 export const SUPPORTED_CONTENT_VERSION = 'm1';
 export const SUPPORTED_REWARD_POLICY_VERSION = '1';
@@ -51,6 +51,11 @@ function object<R extends Fields, O extends Fields = Record<never, never>>(requi
 }
 const text: Reader<string> = (v, p) => { requireFact(typeof v === 'string' && v.length <= SAVE_LIMITS.textCharacters, p, 'Expected text of at most 4096 characters.'); return v; };
 const id: Reader<string> = (v, p) => { const s = text(v, p); requireFact(s.length > 0 && s.length <= SAVE_LIMITS.idCharacters, p, 'Expected an ID of 1–160 characters.'); return s; };
+// Producer canonical/help identities can exceed the opaque action/profile bound.
+// Only exact admitted producer strings get that exception; all budgets remain.
+const producerIds = new Set(listTasks().flatMap(t => [t.canonicalQuestionId, ...t.hints.map(h => h.id), t.workedSupport.id]));
+const contentId: Reader<string> = (v, p) => { const s = text(v, p); if (s.length <= SAVE_LIMITS.idCharacters) return id(s, p);
+  if (!producerIds.has(s)) fail(p, 'Unknown extended content identity.', 'unsupported-content', 'unsupported'); return s; };
 const nickname: Reader<string> = (v, p) => { const s = text(v, p); requireFact(s.trim().length > 0 && s.length <= SAVE_LIMITS.nicknameCharacters, p, 'Nickname must contain 1–24 characters.'); return s; };
 const bool: Reader<boolean> = (v, p) => { requireFact(typeof v === 'boolean', p, 'Expected a boolean.'); return v; };
 const integer = (min = 0, max = Number.MAX_SAFE_INTEGER): Reader<number> => (v, p) => { requireFact(typeof v === 'number' && Number.isSafeInteger(v) && v >= min && v <= max, p, `Expected a whole number from ${min} to ${max}.`); return v; };
@@ -79,7 +84,7 @@ const band = enumeration(['support', 'core', 'stretch']);
 const skill = enumeration(SKILLS.map(s => s.skillId));
 const selectionReason = enumeration(['story-anchor', 'transfer', 'adaptive-practice', 'due-review', 'child-easier', 'repeat-practice']);
 const help = object({ answerHintUsed: bool, workedSupportUsed: bool, assessedTextReadAloud: bool, evidenceMode: enumeration(['independent', 'listening-supported', 'mixed']) });
-const reviewReference = nullable(object({ canonicalQuestionId: id, dueLocalDate: date, previousSuccessWeek: week }));
+const reviewReference = nullable(object({ canonicalQuestionId: contentId, dueLocalDate: date, previousSuccessWeek: week }));
 const feedbackIssue = object({ code: id, observed: text, explanation: text, slotId: nullable(id), constraintId: nullable(id) });
 const feedbackIssues = array(feedbackIssue);
 const descriptor = object({ familyId: id, equivalenceVersion: id, authoredKey: nullable(id), parameters: dictionary((v, p) => typeof v === 'string' ? text(v, p) : integer(Number.MIN_SAFE_INTEGER)(v, p)) });
@@ -89,37 +94,43 @@ const eligibility: Reader<import('../rewards/contracts').EligibilityResult> = (v
   requireFact(Object.hasOwn(reasons, r.kind) && reasons[r.kind].includes(r.reason), p, 'Invalid reward classification.');
   return r as import('../rewards/contracts').EligibilityResult;
 };
-const selection = object({ profileId: id, canonicalQuestionId: id, encounterId: id, selectionReason: enumeration(['story', 'adaptive', 'due-review', 'child-practice']), candidate: enumeration(['first-encounter', 'later-week-due-review', 'none']), band }, { dueLocalDate: date, previousSuccessWeek: week });
-const opportunity = object({ opportunityId: id, profileId: id, canonicalQuestionId: id, ordinal: integer(1), selectionFacts: selection, earningWeek: nullable(week), slot: nullable(integer(1, 30)), validChecks: counter, answerHintUsed: bool, components: object({ answer: bool, independentSuccess: bool, supportedSuccess: bool }) }, { firstSuccessWeek: week, firstSuccessLocalDate: date });
+const selection = object({ profileId: id, canonicalQuestionId: contentId, encounterId: id, selectionReason: enumeration(['story', 'adaptive', 'due-review', 'child-practice']), candidate: enumeration(['first-encounter', 'later-week-due-review', 'none']), band }, { dueLocalDate: date, previousSuccessWeek: week });
+const opportunity = object({ opportunityId: id, profileId: id, canonicalQuestionId: contentId, ordinal: integer(1), selectionFacts: selection, earningWeek: nullable(week), slot: nullable(integer(1, 30)), validChecks: counter, answerHintUsed: bool, components: object({ answer: bool, independentSuccess: bool, supportedSuccess: bool }) }, { firstSuccessWeek: week, firstSuccessLocalDate: date });
 const track = object({ lastAllocatedOrdinal: counter, completedThroughOrdinal: counter, closedAwardTotal: counter, freePractice: object({ validChecks: counter, answerHintUsed: bool }, { latestWeek: week, unfinishedEncounterId: id }) }, { lastSuccessWeek: week, lastSuccessLocalDate: date, currentOpportunity: opportunity, recentCompletedOpportunity: opportunity });
 const receipt: Reader<import('../rewards/contracts').RewardReceiptKey> = (v, p) => {
   requireFact(v !== null && typeof v === 'object', p, 'Expected a receipt key.');
   return Object.hasOwn(v, 'opportunityId') ? object({ opportunityId: id, component: enumeration(['answer', 'independent-success', 'supported-success']) })(v, p) : object({ profileId: id, questId: id })(v, p);
 };
 const delta = object({ lifetimeDelta: integer(0, 40), competitiveDelta: integer(0, 20), consumedSlot: nullable(integer(1, 30)), newReceiptKeys: array(receipt, 3), newEntitlementIds: unique(id, 5) });
-const evaluation = object({ status: enumeration(['judged']), correct: bool, canonicalQuestionId: id, skillId: skill, objectiveId: id, band, feedback: object({ explanation: text, issues: feedbackIssues }) });
+const evaluation = object({ status: enumeration(['judged']), correct: bool, canonicalQuestionId: contentId, skillId: skill, objectiveId: id, band, feedback: object({ explanation: text, issues: feedbackIssues }) });
 const response: Reader<ActivityResponse> = (v, p) => {
   requireFact(v !== null && typeof v === 'object', p, 'Expected a response.');
   switch ((v as { kind?: unknown }).kind) {
     case 'bridge': return object({ kind: enumeration(['bridge']), planks: array(integer(1, 6), 6) })(v, p);
     case 'merchant': return object({ kind: enumeration(['merchant']), apples: nullable(counter), pears: nullable(counter) })(v, p);
     case 'punctuation': return object({ kind: enumeration(['punctuation']), slots: dictionary(nullable(text)) })(v, p);
-    default: return fail(p, 'This response family is unavailable in M1.', 'unsupported-content', 'unsupported');
+    case 'choice': return object({ kind: enumeration(['choice']), choices: dictionary(nullable(text)) })(v, p);
+    case 'sequence': return object({ kind: enumeration(['sequence']), orderedIds: array(id) })(v, p);
+    case 'sorting': return object({ kind: enumeration(['sorting']), groups: dictionary(nullable(text)) })(v, p);
+    case 'matching': return object({ kind: enumeration(['matching']), pairs: dictionary(nullable(text)) })(v, p);
+    case 'quantity': return object({ kind: enumeration(['quantity']), values: dictionary(nullable(object({ numerator: integer(Number.MIN_SAFE_INTEGER), denominator: integer(1), unit: text }))) })(v, p);
+    case 'clock': return object({ kind: enumeration(['clock']), minutes: nullable(integer()) })(v, p);
+    default: return fail(p, 'This response family is unavailable.', 'unsupported-content', 'unsupported');
   }
 };
 const episode = object({ ordinal: integer(1), validChecks: counter, firstCheckSequence: nullable(integer(1)), status: enumeration(['open', 'suspended', 'completed-success', 'completed-unsuccessful']), completionActionId: nullable(id) });
-const encounter = object({ encounterId: id, opportunityId: nullable(id), canonicalQuestionId: id, descriptor, taskContentRevision: id, skillId: skill, band, selectionReason, bindingProvenance: nullable(object({ bindingId: id, questId: id, role: enumeration(['story', 'optional-transfer', 'revisit']) })), familiar: bool, reviewReference, validChecks: counter, firstCheckCorrect: nullable(bool), assistance: help, learningEpisode: episode, responseDraft: nullable(response), revealedAssistanceIds: unique(id, 3), eligibility, lastCommittedCheck: nullable(object({ submissionId: id, checkSequence: integer(1), learningEpisodeOrdinal: integer(1), response, evaluation, delta })) });
-const history = object({ canonicalQuestionId: id, pendingEncounterId: nullable(id), everChecked: bool, previousSuccessLocalDate: nullable(date), previousSuccessWeek: nullable(week), checkedCompetitionWeekIds: unique(week), assistance: help });
-const episodeFacts = { encounterId: id, learningEpisodeOrdinal: integer(1), canonicalQuestionId: id, objectiveId: id, band, validChecks: integer(1), encounterCheckIndex: integer(1), firstCheckCorrect: bool, assistance: help, issues: feedbackIssues };
+const encounter = object({ encounterId: id, opportunityId: nullable(id), canonicalQuestionId: contentId, descriptor, taskContentRevision: id, skillId: skill, band, selectionReason, bindingProvenance: nullable(object({ bindingId: id, questId: id, role: enumeration(['story', 'optional-transfer', 'revisit']) })), familiar: bool, reviewReference, validChecks: counter, firstCheckCorrect: nullable(bool), assistance: help, learningEpisode: episode, responseDraft: nullable(response), revealedAssistanceIds: unique(contentId, 3), eligibility, lastCommittedCheck: nullable(object({ submissionId: id, checkSequence: integer(1), learningEpisodeOrdinal: integer(1), response, evaluation, delta })) });
+const history = object({ canonicalQuestionId: contentId, pendingEncounterId: nullable(id), everChecked: bool, previousSuccessLocalDate: nullable(date), previousSuccessWeek: nullable(week), checkedCompetitionWeekIds: unique(week), assistance: help });
+const episodeFacts = { encounterId: id, learningEpisodeOrdinal: integer(1), canonicalQuestionId: contentId, objectiveId: id, band, validChecks: integer(1), encounterCheckIndex: integer(1), firstCheckCorrect: bool, assistance: help, issues: feedbackIssues };
 const activeEpisode = object(episodeFacts);
 const completedEpisode = object({ ...episodeFacts, outcome: enumeration(['success', 'deliberate-unsuccessful']), localDate: date, competitionWeekId: week, familiar: bool, reviewReference });
-const bandEvidence = object({ validChecks: counter, correctChecks: counter, answerHelpChecks: counter, completedEpisodes: counter, independentSuccesses: counter, supportedSuccesses: counter, retrySuccesses: counter, laterDistinctSuccesses: counter, distinctSuccessfulCanonicalQuestionIds: unique(id, 4), recentCompletedEpisodes: array(completedEpisode, 4), reviewResults: array(object({ canonicalQuestionId: id, localDate: date, competitionWeekId: week, outcome: enumeration(['independent-success', 'supported-success', 'unsuccessful']), familiar: bool }), 4), reviewDueLocalDate: nullable(date) });
+const bandEvidence = object({ validChecks: counter, correctChecks: counter, answerHelpChecks: counter, completedEpisodes: counter, independentSuccesses: counter, supportedSuccesses: counter, retrySuccesses: counter, laterDistinctSuccesses: counter, distinctSuccessfulCanonicalQuestionIds: unique(contentId, 4), recentCompletedEpisodes: array(completedEpisode, 4), reviewResults: array(object({ canonicalQuestionId: contentId, localDate: date, competitionWeekId: week, outcome: enumeration(['independent-success', 'supported-success', 'unsuccessful']), familiar: bool }), 4), reviewDueLocalDate: nullable(date) });
 const evidence = dictionary(object({ skillId: skill, bands: object({ support: bandEvidence, core: bandEvidence, stretch: bandEvidence }), activeEpisodes: dictionary(activeEpisode) }), skill, 20);
 const creative = object({ scarfColourId: enumeration(['teal', 'amber', 'plum']), scarfPatternId: nullable(id), flowerColourId: enumeration(['coral', 'gold', 'violet']), planterRimId: nullable(id), facadeTrimId: nullable(id), placements: object({ 'plot-1': nullable(enumeration(['planter', 'tree', 'bench', 'lantern', 'banner', 'pond'])), 'plot-2': nullable(enumeration(['planter', 'tree', 'bench', 'lantern', 'banner', 'pond'])), 'plot-3': nullable(enumeration(['planter', 'tree', 'bench', 'lantern', 'banner', 'pond'])), 'plot-4': nullable(enumeration(['planter', 'tree', 'bench', 'lantern', 'banner', 'pond'])), 'plot-5': nullable(enumeration(['planter', 'tree', 'bench', 'lantern', 'banner', 'pond'])), 'plot-6': nullable(enumeration(['planter', 'tree', 'bench', 'lantern', 'banner', 'pond'])) }) });
 const medals = object({ gold: counter, silver: counter, bronze: counter });
-const profile = object({ identity: object({ profileId: id, nickname, avatarId: enumeration(AVATARS.map(a => a.id)) }), preferences: object({ instructionReadAloud: bool, motion: enumeration(['system', 'reduced']) }), learning: object({ evidence, canonicalHistory: array(history) }), encounters: dictionary(encounter), world: object({ completedQuestIds: unique(enumeration(QUESTS.map(q => q.id)), 10), completedStoryBindingIds: unique(id, 10) }), creative, rewards: object({ lifetimePoints: counter, tracksByCanonical: dictionary(track), questReceipts: array(object({ profileId: id, questId: id }), 10), entitlementIds: unique(id, 5) }), personalRecords: object({ best: nullable(object({ points: integer(1, 600), week })), medals }) });
+const profile = object({ identity: object({ profileId: id, nickname, avatarId: enumeration(AVATARS.map(a => a.id)) }), preferences: object({ instructionReadAloud: bool, motion: enumeration(['system', 'reduced']) }), learning: object({ evidence, canonicalHistory: array(history) }), encounters: dictionary(encounter), world: object({ completedQuestIds: unique(enumeration(QUESTS.map(q => q.id)), 10), completedStoryBindingIds: unique(id, QUEST_ACTIVITY_BINDINGS.filter(b => b.role === 'story').length) }), creative, rewards: object({ lifetimePoints: counter, tracksByCanonical: dictionary(track, contentId), questReceipts: array(object({ profileId: id, questId: id }), 10), entitlementIds: unique(id, 5) }), personalRecords: object({ best: nullable(object({ points: integer(1, 600), week })), medals }) });
 const channel = object({ muted: bool, volume: (v: unknown, p: string) => { requireFact(typeof v === 'number' && Number.isFinite(v) && v >= 0 && v <= 1, p, 'Volume must be between 0 and 1.'); return v; } });
-const competition = object({ timezone: enumeration(['Europe/London']), latestOpenedWeek: nullable(week), currentScores: dictionary(integer(0, 600), id, 16), currentSlots: dictionary(array(object({ slot: integer(1, 30), opportunityId: id, canonicalQuestionId: id, points: integer(0, 20) }), 30), id, 16), archives: array(object({ week, timezone: enumeration(['Europe/London']), policyVersion: id, entries: array(object({ profileId: id, nickname, avatarId: enumeration(AVATARS.map(a => a.id)), points: integer(1, 600), rank: integer(1, 16), medal: nullable(enumeration(['gold', 'silver', 'bronze'])) }), 16), omittedDeletedProfiles: bool }), 52), policyVersion: id });
+const competition = object({ timezone: enumeration(['Europe/London']), latestOpenedWeek: nullable(week), currentScores: dictionary(integer(0, 600), id, 16), currentSlots: dictionary(array(object({ slot: integer(1, 30), opportunityId: id, canonicalQuestionId: contentId, points: integer(0, 20) }), 30), id, 16), archives: array(object({ week, timezone: enumeration(['Europe/London']), policyVersion: id, entries: array(object({ profileId: id, nickname, avatarId: enumeration(AVATARS.map(a => a.id)), points: integer(1, 600), rank: integer(1, 16), medal: nullable(enumeration(['gold', 'silver', 'bronze'])) }), 16), omittedDeletedProfiles: bool }), 52), policyVersion: id });
 const saveShape = object({ schemaVersion: enumeration([1]), contentVersion: id, rewardPolicyVersion: id, installation: object({ timezone: enumeration(['Europe/London']), audio: object({ soundEnabled: bool, silenceAll: bool, music: channel, effects: channel }) }), profiles: dictionary(profile, id, 16), competition });
 
 /** Pre-parse container scan observes quoted escapes and duplicate member names.
@@ -176,7 +187,7 @@ function inspectTree(value: unknown): Omit<BackupBudget, 'byteLength'> {
     addBytes(2 + Math.max(0, members - 1)); // Brackets/braces and commas.
     for (const key of keys) {
       if (Array.isArray(v) && key === 'length') continue;
-      requireFact(typeof key === 'string' && !forbidden.has(key) && key.length <= SAVE_LIMITS.idCharacters, item.path, 'Dangerous or oversized property name.');
+      requireFact(typeof key === 'string' && !forbidden.has(key) && (key.length <= SAVE_LIMITS.idCharacters || producerIds.has(key)), item.path, 'Dangerous or oversized property name.');
       if (Array.isArray(v)) requireFact(/^(0|[1-9]\d*)$/.test(key) && Number(key) < v.length, item.path, 'Arrays may contain only their dense indexed values.');
       const property = Object.getOwnPropertyDescriptor(v, key)!;
       requireFact(Object.hasOwn(property, 'value') && property.enumerable, `${item.path}.${key}`, 'Accessors and hidden fields are not JSON data.');
@@ -202,6 +213,7 @@ function semantic(save: SaveDataV1, catalogue: readonly TaskDefinition[]) {
   if (save.rewardPolicyVersion !== SUPPORTED_REWARD_POLICY_VERSION || save.competition.policyVersion !== SUPPORTED_REWARD_POLICY_VERSION || save.competition.archives.some(a => a.policyVersion !== SUPPORTED_REWARD_POLICY_VERSION)) fail('save.rewardPolicyVersion', 'This reward policy requires a compatible application.', 'unsupported-policy', 'unsupported');
   if (validateCatalogue(catalogue).length) fail('catalogue', 'A valid approved compatible catalogue is required.', 'unsupported-content', 'unsupported');
   const tasks = new Map(catalogue.map(t => [t.canonicalQuestionId, t]));
+  const milestone = QUEST_ACTIVITY_BINDINGS.some(b => b.availability === 'M2' && b.taskIds.some(id => tasks.has(id))) ? 'M2' : 'M1';
   const taskAt = (canonical: string, p: string) => { const task = tasks.get(canonical); if (!task) fail(p, 'Unknown canonical task; no compatibility mapping is registered.', 'unsupported-content', 'unsupported'); return task; };
   const checkDateWeek = (local: string, active: string, p: string) => { requireFact(weekKeyFor(local) <= active && save.competition.latestOpenedWeek !== null && active <= save.competition.latestOpenedWeek, p, 'Date/week is later than the retained competition context.'); };
   const globalEncounters = new Set<string>(), globalOpportunities = new Set<string>(), globalSubmissions = new Set<string>(), encounterOpportunityIds = new Set<string>();
@@ -233,29 +245,36 @@ function semantic(save: SaveDataV1, catalogue: readonly TaskDefinition[]) {
     const p = `save.profiles.${profileId}`;
     requireFact(profile.identity.profileId === profileId, `${p}.identity.profileId`, 'Profile map identity mismatch.');
     const quests = profile.world.completedQuestIds, bindings = profile.world.completedStoryBindingIds;
-    for (const bindingId of bindings) requireFact(QUEST_ACTIVITY_BINDINGS.some(b => b.bindingId === bindingId && b.role === 'story'), `${p}.world.completedStoryBindingIds`, 'Only retained story binding IDs may be permanent.');
+    for (const bindingId of bindings) {
+      const binding = QUEST_ACTIVITY_BINDINGS.find(b => b.bindingId === bindingId && b.role === 'story');
+      requireFact(binding, `${p}.world.completedStoryBindingIds`, 'Only retained story binding IDs may be permanent.');
+      if (binding.availability === 'M2' && milestone === 'M1') fail(`${p}.world.completedStoryBindingIds`, 'This saved binding requires the expanded catalogue.', 'unsupported-content', 'unsupported');
+    }
     for (const questId of quests) {
       const quest = QUESTS.find(q => q.id === questId)!;
-      requireFact(quest.milestone === 'M1' && quest.requiresAll.every(q => quests.includes(q)) && areRequiredBindingsComplete({ bindings: QUEST_ACTIVITY_BINDINGS, questId, milestone: 'M1', completedStoryBindingIds: bindings }), `${p}.world.completedQuestIds`, 'Completed quest lacks its prerequisites or permanent required bindings.');
+      if (quest.milestone === 'M2' && milestone === 'M1') fail(`${p}.world.completedQuestIds`, 'This saved quest requires the expanded catalogue.', 'unsupported-content', 'unsupported');
+      requireFact((quest.milestone === 'M1' || milestone === 'M2') && quest.requiresAll.every(q => quests.includes(q)) && areRequiredBindingsComplete({ bindings: QUEST_ACTIVITY_BINDINGS, questId, milestone, completedStoryBindingIds: bindings }), `${p}.world.completedQuestIds`, 'Completed quest lacks its prerequisites or permanent required bindings.');
     }
     for (const b of QUEST_ACTIVITY_BINDINGS.filter(b => b.role === 'story' && bindings.includes(b.bindingId))) {
       for (const canonical of b.taskIds) taskAt(canonical, `${p}.world.completedStoryBindingIds`);
       const quest = QUESTS.find(q => q.id === b.questId)!;
       requireFact(quest.requiresAll.every(q => quests.includes(q)), `${p}.world`, 'Story binding lacks quest prerequisites.');
-      if (areRequiredBindingsComplete({ bindings: QUEST_ACTIVITY_BINDINGS, questId: b.questId, milestone: 'M1', completedStoryBindingIds: bindings })) requireFact(quests.includes(quest.id), `${p}.world`, 'All required story bindings must atomically complete the quest.');
+      if (areRequiredBindingsComplete({ bindings: QUEST_ACTIVITY_BINDINGS, questId: b.questId, milestone, completedStoryBindingIds: bindings })) requireFact(quests.includes(quest.id), `${p}.world`, 'All required story bindings must atomically complete the quest.');
     }
     requireFact(profile.rewards.questReceipts.length === quests.length && profile.rewards.questReceipts.every(r => quests.includes(r.questId as typeof quests[number])), `${p}.rewards.questReceipts`, 'Quest receipts must exactly match permanent completed quests.');
     const appearance = profile.creative;
     for (const field of ['scarfPatternId', 'planterRimId', 'facadeTrimId'] as const) {
       const chosen = appearance[field]; if (chosen === null) continue;
       const option = COSMETICS.find(c => c.id === chosen && c.target === field);
-      requireFact(option && option.milestone === 'M1' && profile.rewards.entitlementIds.includes(chosen) && option.requiresAll.every(q => quests.includes(q)), `${p}.creative.${field}`, 'Cosmetic is unavailable or not entitled.');
+      requireFact(option && (option.milestone === 'M1' || milestone === 'M2') && profile.rewards.entitlementIds.includes(chosen) && option.requiresAll.every(q => quests.includes(q)), `${p}.creative.${field}`, 'Cosmetic is unavailable or not entitled.');
     }
     let placed = 0;
     for (const [socket, decoration] of Object.entries(appearance.placements)) if (decoration !== null) {
-      placed++; requireFact(CREATIVE_CHOICES.placementLimits.M1.socketIds.some(s => s === socket) && decoration === 'planter' && quests.includes('Q3'), `${p}.creative.placements.${socket}`, 'Decoration/socket is unavailable.');
+      const option = CREATIVE_CHOICES.decorations.find(d => d.id === decoration), limits = CREATIVE_CHOICES.placementLimits[milestone];
+      placed++; requireFact(limits.socketIds.some(s => s === socket) && (limits.allowedDecorationIds as readonly string[]).includes(decoration)
+        && option && option.requiresAll.every(q => quests.includes(q)), `${p}.creative.placements.${socket}`, 'Decoration/socket is unavailable.');
     }
-    requireFact(placed <= 1, `${p}.creative.placements`, 'M1 permits at most one planter.');
+    requireFact(placed <= CREATIVE_CHOICES.placementLimits[milestone].maxPlaced, `${p}.creative.placements`, 'Too many decorations for the delivered catalogue.');
     const histories = new Map(profile.learning.canonicalHistory.map(h => [h.canonicalQuestionId, h]));
     requireFact(histories.size === profile.learning.canonicalHistory.length, `${p}.learning.canonicalHistory`, 'Duplicate canonical history.');
     for (const h of histories.values()) {

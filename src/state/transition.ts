@@ -323,9 +323,12 @@ export const reduceCommand: ReduceCommand = (root, command, context) => {
           answerHintUsed: e.assistance.answerHintUsed || help.assistanceKind === 'answer-hint',
           workedSupportUsed: e.assistance.workedSupportUsed || help.assistanceKind === 'worked-support',
           assessedTextReadAloud: e.assistance.assessedTextReadAloud || help.assistanceKind === 'assessed-text-read-aloud',
-          evidenceMode: e.assistance.evidenceMode };
-        // M1 punctuation assesses punctuation, not independent reading; neutral
-        // instructions/assessed narration are never answer-help reward flags.
+          evidenceMode: e.assistance.evidenceMode === 'independent' && help.assistanceKind === 'assessed-text-read-aloud'
+            && task.skillId.startsWith('E') && task.descriptor.familyId !== 'english.punctuation'
+            ? 'listening-supported' : e.assistance.evidenceMode };
+        // Accepted expansion English source/options qualify reading evidence.
+        // Neutral narration and the original M1 spellbook remain unchanged;
+        // assessed listening never becomes an answer-help reward flag.
         const track = own(profile!.rewards.tracksByCanonical, e.canonicalQuestionId);
         if (track) putProfile({ ...profile!, rewards: { ...profile!.rewards, tracksByCanonical: { ...profile!.rewards.tracksByCanonical,
           [e.canonicalQuestionId]: { ...track,

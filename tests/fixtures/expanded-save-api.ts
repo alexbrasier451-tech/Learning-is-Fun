@@ -1,0 +1,23 @@
+import type { LearningAssistance, LearningSummary } from '../../src/learning/contracts';
+import type { CommitChanges, EncounterSave, SaveDataV1, SaveToken } from '../../src/state/contracts';
+import type { ScoreDelta } from '../../src/rewards/contracts';
+export type ExpandedFixture = {
+  runBaseline(text: string): Promise<{ starter: string; taskCount: number; bindingCount: number; longestCanonical: number;
+    opened: { status: string }; assistance: { status: string; value: LearningAssistance } | null; check: unknown;
+    cases: readonly { caseId: string; status: string; correct: boolean | null; expectedStatus: string; expectedCorrect?: boolean }[] }>;
+  runStarter(text: string): Promise<{ original: SaveDataV1; loaded: SaveDataV1; imported: SaveDataV1;
+    loadedToken: SaveToken; importedToken: SaveToken; duplicateStatuses: readonly string[]; preCalendarJson: string;
+    resumedEncounter: EncounterSave; resumeDelta: ScoreDelta;
+    budget: { byteLength: number; nesting: number; visitedValues: number }; summaries: readonly LearningSummary[];
+    calendar: { changes: CommitChanges; save: SaveDataV1; token: SaveToken } }>;
+  runExpansion(): Promise<{ save: SaveDataV1; reloaded: SaveDataV1; roundtrip: SaveDataV1; finalJson: string;
+    partialBefore: SaveDataV1; partialCompacted: SaveDataV1; partialImported: SaveDataV1; partialJson: string;
+    compactedEncounterId: string; optionalDelta: ScoreDelta; duplicateStatus: string; afterReloadDuplicateStatus: string;
+    optionalFresh: readonly { canonicalQuestionId: string; delta: unknown }[]; optionalSequenceCanonical: string; finalSequenceCanonical: string;
+    trace: readonly unknown[]; forms: readonly string[]; choiceTrace: readonly unknown[];
+    summaries: readonly LearningSummary[]; absentSummaries: readonly LearningSummary[];
+    displays: readonly { id: string; kind: string }[]; library: { visibleAssetIds: readonly string[] }; workshop: { visibleAssetIds: readonly string[] };
+    budget: { byteLength: number; nesting: number; visitedValues: number }; olderCatalogueResult: string }>;
+  runListening(): Promise<readonly { skillId: string; mode: string; canonicalQuestionId: string; reloadedAssistance: LearningAssistance;
+    delta: ScoreDelta; summary?: LearningSummary; save: SaveDataV1; json: string }[]>;
+};

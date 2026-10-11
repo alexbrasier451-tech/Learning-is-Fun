@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { listTasks } from '../../src/content/catalogue';
+import { STARTER_TASKS } from '../../src/content/catalogue';
 import { areRequiredBindingsComplete, QUEST_ACTIVITY_BINDINGS } from '../../src/content/quest-bindings';
 import type { ActivityResponse } from '../../src/learning/contracts';
 import type { CommitChanges, EncounterSave, StateCommand, StoredRoot, TransitionContext } from '../../src/state/contracts';
@@ -7,7 +7,9 @@ import { createInitialSave, recognizeDuplicate, reduceCommand } from '../../src/
 import { selectCommittedActivity } from '../../src/state/controller';
 import { validateSave } from '../../src/state/backup';
 
-const catalogue = listTasks();
+// This retained M1 fixture exercises the original bridge/spellbook/merchant bank.
+// Actual expanded families use the separate WP04-07A compatibility scenarios.
+const catalogue = STARTER_TASKS;
 const monday = Date.parse('2026-10-12T12:00:00Z');
 function harness() {
   let root: StoredRoot = { epoch: 'initial', revision: 0, save: createInitialSave() }, sequence = 0;
