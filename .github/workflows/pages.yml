@@ -1,4 +1,4 @@
-name: Publish M1 to GitHub Pages
+name: Publish M2 to GitHub Pages
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
 permissions:
   contents: read
 
-# Manual dispatch lets the Controller preserve A sessions before publishing B.
+# Manual dispatch lets the Controller preserve M1 clients before publishing M2.
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -45,7 +45,7 @@ jobs:
           appendFileSync(process.env.GITHUB_ENV, `PAGES_EVIDENCE=${evidence}\n`);
           appendFileSync(process.env.GITHUB_OUTPUT, `build_id=${process.env.APP_BUILD_ID}\n`);
           writeFileSync(join(evidence, 'build.json'), JSON.stringify({
-            release: 'M1', repository: process.env.GITHUB_REPOSITORY,
+            release: 'M2', repository: process.env.GITHUB_REPOSITORY,
             commit: process.env.GITHUB_SHA, buildId: process.env.APP_BUILD_ID,
             basePath: process.env.APP_BASE, runId: process.env.GITHUB_RUN_ID,
             attempt: process.env.GITHUB_RUN_ATTEMPT, node: process.version,
@@ -86,7 +86,7 @@ jobs:
           tar -C dist -czf "$PAGES_EVIDENCE/dist.tar.gz" .
       - uses: actions/upload-artifact@v7
         with:
-          name: m1-pages-${{ steps.identity.outputs.build_id }}
+          name: m2-pages-${{ steps.identity.outputs.build_id }}
           path: ${{ env.PAGES_EVIDENCE }}
           if-no-files-found: error
           retention-days: 90
@@ -128,5 +128,5 @@ jobs:
           node --input-type=module <<'NODE'
           import { appendFileSync } from 'node:fs';
           appendFileSync(process.env.GITHUB_STEP_SUMMARY,
-            `M1 publication output\n\nURL: ${process.env.PAGE_URL}\n\nBuild: ${process.env.BUILD_ID}\n\nCommit: ${process.env.GITHUB_SHA}\n\nPublished-origin verification and candidate freeze remain required.\n`);
+            `M2 publication output\n\nURL: ${process.env.PAGE_URL}\n\nBuild: ${process.env.BUILD_ID}\n\nCommit: ${process.env.GITHUB_SHA}\n\nPublished-origin verification and candidate freeze remain required.\n`);
           NODE

@@ -1,6 +1,6 @@
-# M1 GitHub Pages publication
+# GitHub Pages publication — M1 history and M2 preparation
 
-11 October 2026. **Published-origin verification PASS; final B frozen at 06:01:58 UTC / 07:01:58 BST (Europe/London).** Open [Learning is Fun](https://alexbrasier451-tech.github.io/Learning-is-Fun/). The actual [M1 candidate](M1/CANDIDATE.json) names the verified final B. Controller alone enabled Pages, committed/pushed reviewed source and dispatched A/B; Controller acceptance and observer release remain its authority. Publication establishes candidate readiness; WP06 owns game acceptance.
+11 October 2026. **M1 C is published; M2 publication remains preparation only.** The actual [M1 candidate](M1/CANDIDATE.json) is `4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1` at [Learning is Fun](https://alexbrasier451-tech.github.io/Learning-is-Fun/). Its [corrected publication receipt](../work-package/execution/M1-CORRECTED-PUBLICATION-EXECUTION.md) records actual C verification. The original M1 A/B sequence and B freeze below remain historical evidence. The M2 section describes the next intended publication, with no target run, build, candidate or upgrade result invented. Controller owns dispatch/freeze and WP06 owns release acceptance.
 
 ## Confirmed inputs and accepted producers
 
@@ -8,7 +8,7 @@ Repository: [alexbrasier451-tech/Learning-is-Fun](https://github.com/alexbrasier
 
 The [accepted-child ledger](../work-package/execution/STATUS.md#accepted-implementation-boundaries) carries M1 producer completion through shell/platform. DEP-067 is released at acceptance commit `d2ce42c2b65b1cc02e873d91c744f79e12dfb015`; platform production is `64865808d867dfe3d02e0f71deaec7ed3fdf897c`. Consume [shell validation](../work-package/execution/WP01-02A-VALIDATION.md), [offline handoff](../work-package/execution/WP01-03A-HANDOFF.md), [offline validation](../work-package/execution/WP01-03A-VALIDATION.md), and [actual D3 execution](../work-package/execution/D3-OFFLINE-EXECUTION.md). Those establish the local/native platform and changed-media revision proof, not published-origin observations or acoustic listening.
 
-## Controller activation and dispatch request
+## Historical M1 activation and dispatch
 
 After source review and the separately owned visible Game version correction, use the existing normal-session GCM/REST route without printing credentials:
 
@@ -20,7 +20,7 @@ After source review and the separately owned visible Game version correction, us
 
 The workflow uses official [configure Pages](https://github.com/actions/configure-pages/tree/v5), [upload Pages artifact](https://github.com/actions/upload-pages-artifact/tree/v4) and [deploy Pages](https://github.com/actions/deploy-pages/tree/v5), with `pages:write`, `id-token:write`, `github-pages` and one non-cancelling concurrency group. Administrative activation stays with Controller because [configure-pages enablement](https://github.com/actions/configure-pages/blob/v5/action.yml) requires an administrative token beyond the normal workflow token. [Pages REST reference](https://docs.github.com/en/rest/pages/pages#create-a-github-pages-site).
 
-## Build and retained artifact contract
+## Shared build contract and original M1 artifact labels
 
 Each dispatch installs `pnpm@11.25.0` from the committed lockfile using `--frozen-lockfile` on Node24. It explicitly sets APP_BASE and APP_BUILD_ID=`<exact SHA>-pages-<run ID>-<attempt>`. `pnpm build` runs types, one Vite production build and the existing checker. No second build or replacement runtime is used.
 
@@ -34,7 +34,7 @@ Deployment success does not fill CANDIDATE.json automatically. After actual obse
 
 The check opens a fresh context, confirms entry, reads the visible Game version and native active-worker identity, and fetches every publishable file independently of the page worker. Bytes/hashes must equal the retained exact build, including both approved loops, all five effects, art and emitted code. It enters a real bridge activity, saves, reloads the project entry, reselects the saved profile and resumes the actual saved activity. It rejects page runtime requests outside the same project origin/path, failed resource responses and published source/test bulk. Trace, browser version, bytes, native worker receipt and reloaded render travel with the candidate. Credits links need no runtime fetch; observers do not follow them during this check.
 
-## Published-origin A to B sequence
+## Historical M1 published-origin A to B sequence
 
 Adapt the accepted two-client scenario privately; never serve its `/__offline-control`, `/__offline-support`, `/blank` or shutdown endpoints on Pages. A private observer can use the actual worker's readonly OFFLINE_INVENTORY_PROBE protocol directly, DOM Game version, real UI, native IndexedDB and CacheStorage. It needs no hosted support bundle or replacement state facade. Controller assigns retained harness/config paths before writing. Keep one integration authority and retain original failures.
 
@@ -47,7 +47,7 @@ Adapt the accepted two-client scenario privately; never serve its `/__offline-co
 
 Preserve both exact A/B artifacts, deployment records, route failure and native lifecycle receipts, exact committed-save/epoch comparison (retaining revision metadata), sentinels, request/revision evidence, traces and renders. This sequence must be green before final B freezes. Failed published observations return to their causal owner through Controller; repeat the original full sequence after any relevant correction and record replacement identities. No observer session spans an unrecorded deployment.
 
-## Final freeze record
+## Historical M1 B freeze record
 
 **Final B frozen: 11 October 2026, 06:01:58 UTC / 07:01:58 BST (Europe/London).** Exact built commit for both deployments is `b158e2b3de86d119c1650996977201264563abde`. B's identity is `b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1`. Committing this evidence does not redeploy: the workflow has only manual dispatch. Keep final B fixed for CON-004. Controller closes WP01-04A and releases DEP-074/076 after its final acceptance; WP06 observers remain separate. Path/namespace changes require WP04 export/import guidance; there is no automatic cross-site migration.
 
@@ -58,7 +58,7 @@ Preserve both exact A/B artifacts, deployment records, route failure and native 
 
 Both actual workflow outputs and deployment environment URLs equal the verified project entry. Both runners report Node24.21.0; frozen install, supported types, build and inventory checks succeeded. The official configure-pages@v5 step logs the runner's Node20 deprecation/forced-Node24 warning; deployment succeeded, and the warning remains in retained logs. No clean-log claim is made.
 
-Evidence root **E**: `C:/Users/alexb/.codex/visualizations/2026/10/11/01a1296c-853f-73d1-9788-f757198f484b`. `E/retained-A-38115668746` and `E/retained-B-38116364473` contain copied build.json, matching report/files, exact dist.tar.gz and Vite mapping, with byte/hash retention receipts. Original official Pages tar archives, build/deploy logs and metadata remain under Controller's `C:/Users/alexb/AppData/Local/Temp/learning-is-fun-pages-A-38115668746` and `.../learning-is-fun-pages-B-38116364473`. The [candidate record](M1/CANDIDATE.json) points to E's retained final B inventory. `E/final-publication-receipt.json` records final evidence/source fingerprints.
+Evidence root **E**: `C:/Users/alexb/.codex/visualizations/2026/10/11/01a1296c-853f-73d1-9788-f757198f484b`. `E/retained-A-38115668746` and `E/retained-B-38116364473` contain copied build.json, matching report/files, exact dist.tar.gz and Vite mapping, with byte/hash retention receipts. Original official Pages tar archives, build/deploy logs and metadata remain under Controller's `C:/Users/alexb/AppData/Local/Temp/learning-is-fun-pages-A-38115668746` and `.../learning-is-fun-pages-B-38116364473`. The [candidate record](M1/CANDIDATE.json) originally pointed to E's retained final B inventory; it now names actual M1 C. `E/final-publication-receipt.json` records final evidence/source fingerprints.
 
 Actual Chrome155.0.8059.40 at1366×768 passed the owned entry/byte/hash/visible-build/native-worker/save/reload/resume test for A and B: `E/published-base-path-A-38115668746-2.json` (one pass,10.1s) and `E/published-base-path-B-38116364473-1.json` (one pass,14.9s), no retries/skips/flaky/unexpected/report errors. Each verified all49 published files against its retained artifact, all48 required cache URLs, both loops/five cues, correct entry path and native identity, with zero failed page responses or out-of-project runtime requests. Traces/screenshots accompany each report. This is focused publication verification, not complete D1 adventure or a repeated D1–T2/D3 game-acceptance matrix.
 
@@ -73,3 +73,92 @@ At05:58:58 UTC, the private route aborted the B-only required `assets/index-BRPz
 `published-update-trace.zip`, all native checkpoints, lifecycle/network receipts and renders remain together. Recorded pageerror count is zero; the expected aborted download is retained, not suppressed. The harness completed exit0; `cleanup.json` records finished=true, stage=verified-B and awaited browser closure. The final private harness is stopped and launched no server. No blanket claim about all internal browser logs or host processes is made.
 
 Earlier private attempts are preserved: the initial sandboxed local run produced no result; a private config guard rejected its own worker reload before browser launch; setup attempts1/2 exposed stale-open/transient-retry assumptions; attempt3 reached A-ready but plain-pipe stdin EOF caused managed cleanup. The final method uses the actual UI's state/retry path and a timer-backed private command file. These were private harness corrections, with no product repair or extra deployment. The Controller clarified the required two-client method; simultaneous editors are not a new acceptance gate. No B failure or partial evidence was overwritten.
+
+## Intended M2 publication — gated, not yet executed
+
+WP01-05A resumes this workflow only after Controller accepts the final world
+repair, all producer handoffs and final assembled CI source. The human authorized
+continuation and deferred final listening; Controller releases profile launch
+and publication explicitly, without asking for that authorization again.
+At this preparation the public site remains M1 C. No final M2 build is started.
+
+The reviewed next workflow's display name, build.json release, evidence artifact
+prefix and deployment summary identify **M2**. Build identity remains
+`<exact SHA>-pages-<run ID>-<attempt>`; base, namespace, manual-only dispatch,
+repository/main guard, non-cancelling concurrency, frozen install, one build,
+inventory checking, official Pages actions, environment/permissions and security
+controls remain the accepted contract. It does not rename or replace archived
+`m1-pages-<buildId>` evidence. New evidence is `m2-pages-<buildId>`,
+with `build.json.release=M2` and actual matching source/run identity.
+
+The accepted expansion checker contract is **77 injected rows / 76 unique
+required URLs**, with the existing duplicate manifest and **10 MiB = 10,485,760
+bytes** media cap. Reuse the accepted inventory/cap and compatibility evidence;
+do not rebuild producers or change limits in this workflow. Actual final build
+must still pass its checker and produce matching report/files/archive. Require
+all actual published and native cached bytes to match that exact artifact, no
+missing/oversized/out-of-scope resource or source/test/helper/report bulk. Retain
+official Pages archive, evidence archive, mapping and actual logs/run/jobs/URL.
+
+### Preserved native M1 source and two-client release checkpoint
+
+The private preparation handoff is
+`E/WP01-05A-M1-PERSISTENT-PREPARATION.md`; native evidence is
+`E/m2-preservation-M1C-persistent-3`. Original and export/before-state remain
+immutable. The closed exclusive publication working profile is
+`C:/Users/alexb/AppData/Local/Temp/lif-m1-05a-20261011-3/publication-working`.
+The preserved M1 root has epoch `d39da99b-6b25-4c3c-987f-ffc4263df3db`,
+revision 2, River 115 points/Q1–Q3/unfinished hinted merchant, Moss zero and
+remembered Silence all/both mutes. This is actual M1-native storage, with full
+user-data directory, worker and cache; storageState or importing data into a
+fresh M2 profile cannot substitute for the upgrade.
+
+1. After Controller releases launch, use direct Node/installed native Playwright
+   on that working directory exclusively. Verify current visible/active M1 C,
+   complete 48-resource M1 cache and exact before root before UI continuation.
+   Resume River's saved merchant through normal UI; keep a second actually
+   controlled M1 client at a useful overview/chooser. Two simultaneous editors
+   are not required. Record both old identities, native cache/root/preferences,
+   context/path/browser and readiness, and leave both clients open.
+2. The existing timer-backed private local file handshake supplies the checkpoint
+   to Controller. Only after the checkpoint and final accepted CI does Controller
+   manually dispatch this workflow on the agreed exact main SHA. Download actual
+   `m2-pages-<buildId>` and official Pages artifacts before signalling observation;
+   prove `release=M2`, source/run/attempt/URL and exact uploaded files. Private
+   loaders check source M1 and target M2 explicitly; old M1-only metadata
+   assertions must not reject the reviewed target or relabel the source.
+3. Atomic local `observe-m2` with the actual retained target artifact path
+   continues observation only. Require complete waiting M2 while both active
+   M1 clients remain usable and old revisions consistent. Save/close the second
+   old client; require waiting M2 and a still-usable real River activity. Use
+   normal save/update-on-next-launch for the last client and retain its final
+   committed root before closing. Outside-scope native observer then records
+   activation; no skipWaiting, clientsClaim, activation message or forced reload.
+4. Next launch in the same native profile must visibly identify actual M2 and
+   complete expanded cache/Ready offline. Compare real M1 profile/history/world,
+   unlocks, reward receipts, canonical/opportunity/Check/help/episode and sound
+   settings against WP04-07A's expectation. Schema 1/content m1/reward policy 1
+   remain; new catalogue availability alone does not renew rewards. Record any
+   actual permitted calendar reconciliation separately. Verify scoped cache
+   cleanup/unrelated sentinels, disconnected saved resume and quiet preferences.
+   Consume unchanged failure/readiness proof, not a redundant full failure matrix.
+5. Independently verify fresh target entry, visible/native identity, actual
+   required bytes and real save/project-entry reload/resume using the existing
+   focused base-path check. Close the publisher browser and await trace/cleanup;
+   manifest/copy the upgraded user-data directory to a new short path for
+   **exclusive WP06-06A use**. Do not share it with publication or journey work.
+   Pass immutable original M1 export, final before/after roots, actual target
+   identity, native update receipts, launch/cleanup instructions and copied hashes.
+
+### Actual M2 candidate and observer barrier
+
+After actual publication checks and independent review, Controller records the
+seven actual fields in `docs/release/M2/CANDIDATE.json` with `release=M2`,
+verified URL/base/build/commit/successful deployment run and retained matching
+inventory location. `docs/release/M2/UPGRADE.md` records actual source/target,
+two-old-client waiting/last-close/activation, save/preferences and closed native
+profile handoff. Neither file is fabricated during preparation. Preserve M1's
+candidate/history. Freeze the actual M2 build during WP06 observations; corrections
+return through owner fix → Controller publication → original observer retest.
+Human listening remains deferred/unpassed; native decoding or silence is not
+acoustic or M2 release acceptance.

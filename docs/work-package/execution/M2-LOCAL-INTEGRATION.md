@@ -1,6 +1,6 @@
 # M2 local source integration
 
-Controller checkpoint, 11 October 2026. This records integrated source checks, not publication or final release acceptance. The accepted child count remains 42 until the remaining world integration and Firefox evidence is closed.
+Controller checkpoint, 11 October 2026. This records integrated source checks, not publication or final release acceptance. **Final closure: WP02-10A is accepted as child43/49** after fresh integration PASS and independently reviewed corrected actual Linux adventure11/11. The original failed evidence and historical source checkpoints below remain retained; [D3 execution](M2-D3-EXECUTION.md) records the one-rule Storywood CSS repair at f337e11 and original full-path closure. The actual six-case shell PASS and earlier production/type/unit evidence retain their explicit unchanged-scope applicability. Publication and listening remain downstream.
 
 The ten final WP02-10A files were copied only after exact main-preimage and final-hash checks and the original reviewer's closure of F01. The three shell activation files were copied after their separate independent PASS, with the same preimage/final checks. The shell's evidence remains tied to its recorded earlier world input; the only subsequent world change is the independently checked evergreen ending sentence.
 
