@@ -14,6 +14,10 @@ On 9 October 2026 the human rejected the first synthesized music audition and re
 
 The independently reviewed [multi-binding verification amendment](execution/MULTI-BINDING-AMENDMENT.md), accepted by Controller on 9 October 2026, resolves a demonstrated impossible M1 fixture. WP04-04A proves the real all-required helper and actual singleton M1 persistence separately; WP04-07A retains the complete integrated partial multi-required persistence proof with actual M2 content. No product, coverage, dependency, browser or audio requirement is waived, and M2 remains gated on accepted M1.
 
+### Current human authorization: expansion before final listening
+
+On 11 October 2026 the human reported working, agreeable sounds, requested more musical variation, and explicitly authorized continuation in response to the proposal to defer listening approval until final release. [CONTINUATION-AND-MUSIC-VARIATION](execution/CONTINUATION-AND-MUSIC-VARIATION.md) records the exact scope. M2 may proceed from the reviewed M1 technical/visual handoffs while detailed acoustic acceptance remains outstanding for final release. This supersedes conflicting historical M1-before-M2 acoustic gating, not any other prerequisite or final evidence requirement. No unheard result becomes a PASS.
+
 ## Historical package-building rules
 
 Only the Controller writes shared documents. Lane workers write only assigned chunk documents; one writer per chunk. Review workers are report-only except trivial clerical chunk corrections allowed by the builder skill. No worker creates/delegates to or messages another chat. Direct human authorization for Controller-created visible workers is recorded in [REQUEST](evidence/REQUEST.md).

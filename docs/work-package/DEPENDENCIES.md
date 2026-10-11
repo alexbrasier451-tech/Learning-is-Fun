@@ -2,7 +2,7 @@
 
 This registry owns execution edges and permitted concurrency. Parent chunks are navigation only. An edge requires the named output before dependent completion; construction against frozen contracts may proceed only where explicitly allowed below. DEC-022/023 prevent static-catalogue and final-shell cycles. No production work is authorized by this planning package.
 
-M1 is complete only at WP06-04A; all M2 implementation follows that gate. WP04-07A owns M2 state compatibility so starter state/UI work never waits for expansion. Producer UI uses the early minimal fixture host, then WP01-02A composes it. Original case → owner correction → republish → full-path retest is an iteration within the affected milestone, not a reverse dependency edge. Final acceptance remains with WP06.
+M1 is complete only at WP06-04A. The human's [11 October continuation authorization](execution/CONTINUATION-AND-MUSIC-VARIATION.md) permits M2 implementation/integration/candidate publication using the reviewed M1 technical/visual handoffs and genuine save while detailed acoustic acceptance is deferred to final release. This exception applies to M1-gated edges and CON-005 below without relabelling historical M1 acoustic results as passed. All other prerequisites remain. WP04-07A owns M2 state compatibility so starter state/UI work never waits for expansion. Producer UI uses the early minimal fixture host, then WP01-02A composes it. Original case → owner correction → republish → full-path retest is an iteration within the affected milestone, not a reverse dependency edge. Final acceptance remains with WP06.
 
 ## Dependency edges
 
