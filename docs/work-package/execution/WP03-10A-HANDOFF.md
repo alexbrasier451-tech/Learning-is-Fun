@@ -1,6 +1,6 @@
 # WP03-10A handoff — contextual word classes and clauses
 
-Author: Codex WP03-10A worker, 11 October 2026. Status: F1 repaired and refrozen for narrow independent recheck; no integration, educator approval, efficacy or milestone acceptance claim. Controller remains the integration authority. Work followed the [authorized continuation](CONTINUATION-AND-MUSIC-VARIATION.md); final listening is still deferred.
+Author: Codex WP03-10A worker, 11 October 2026. Status: second narrow revision, F2 choice presentation repaired and refrozen for independent recheck; F1 sequence repair preserved. No integration, educator approval, efficacy or milestone acceptance claim. Controller remains the integration authority. Work followed the [authorized continuation](CONTINUATION-AND-MUSIC-VARIATION.md); final listening is still deferred.
 
 ## Candidate and owned delivery
 
@@ -32,7 +32,7 @@ Both required pools are support-accessible: `q6-story-e04-sort` contains all ten
 
 [The content review](../../content-review/expansion-grammar.md) independently records every selected word's role in its supplied sentence, every offered choice, all six orders for each sequence and all four two-join combinations. It distinguishes grammatical but wrong-meaning alternatives, identifies real band demands, cites the retained official DfE programme plus linked appendix/glossary, and states original provenance and reviewer limits.
 
-The focused suite now passes **84/84 tests**, including **1,197** complete in-domain responses independently classified by separately authored fixtures (**27 correct; 1,170 wrong**). It also covers partial, duplicate, unknown and malformed responses; finite/type integrity in reconstructed content; contextual repeated-word IDs; counts/identity/source/band constraints; actual manifest and binding exports; narration/help flags; fresh JSON reconstructions with reversed presentation order and revision 2; and both real fresh sequence drafts through reducer edits and evaluation. Tests do not infer expected correctness from production answerRule.
+The focused suite now passes **88/88 tests**, including **1,197** complete in-domain responses independently classified by separately authored fixtures (**27 correct; 1,170 wrong**). It also covers partial, duplicate, unknown and malformed responses; finite/type integrity in reconstructed content; contextual repeated-word IDs; counts/identity/source/band constraints; actual manifest and binding exports; narration/help flags; fresh JSON reconstructions with reversed presentation order and revision 2; both real fresh sequence drafts through reducer edits and evaluation; fixed-position choice strategies in every band; and content-based explanations/help. Tests do not infer expected correctness from production answerRule.
 
 Direct checks from repository root:
 
@@ -41,7 +41,7 @@ node node_modules/vitest/vitest.mjs run --config artifacts/wp03-10a-20261011/vit
 node node_modules/typescript/bin/tsc --project artifacts/wp03-10a-20261011/tsconfig.json
 ```
 
-Post-F1 focused family test exit **0** and scoped strict TypeScript exit **0** are retained in `focused-f1-family.log` and `typecheck-f1.log`. The latter checks the two owned production modules and the owned test plus their relevant frozen imports, now including the actual draft/reducer module, with private incremental buildinfo. Original `focused-final.log` and `typecheck-final.log` remain historical pre-F1 evidence. No broad app build, browser suite or unrelated family rerun was performed.
+Current post-F2 family test exit **0** and scoped strict TypeScript exit **0** are retained in `focused-f2-family.log` and `typecheck-f2.log`. The latter checks the two owned production modules and the owned test plus their relevant frozen imports, including the actual draft/reducer module, with private incremental buildinfo. Original `focused-final.log`, `typecheck-final.log` and all F1 logs remain historical evidence. No broad app build, browser suite or unrelated family rerun was performed.
 
 Failed-attempt evidence remains in `typecheck-first.log`: the first compiler check rejected inferred heterogeneous manifest-map unions because absent properties became optional undefined in TypeScript's inferred type. This was a bounded declaration defect, not a grammar/evaluation failure. Explicit generic types on the two freeze calls preserve the frozen DTOs; the original whole grammar export/evaluation suite and scoped compiler were rerun successfully. `focused-first.log` preserves the initial 82-test pass. A rejected patch invocation with duplicate target headers made no changes; the corrected single-header patch applied normally. During initial prose review, the gardener options were made explicitly restrictive with “Only”; all associated answer matrices were updated and the entire focused suite was rerun. The subsequent independent F1 finding and causal repair are retained below.
 
@@ -57,10 +57,18 @@ Added two regressions using actual `createDraft`, `reduceDraft` and `toResponse`
 
 ## Downstream limits and next step
 
+### Second narrow revision: F2 choice positions
+
+Controller identified that first-per-slot solved all eight E05 choice tasks. Added real draft/select/place/response/evaluator regressions reproduced it in each of support/core/stretch; a fourth regression caught ordinal option references (`focused-f2-red.log`, four expected failures). Static option order now varies: support accepted positions 2/3/1; core 1-or-3 versus 2-or-4; stretch gardeners 1-or-4, rope 2-or-3-or-4, nest contrast 2 plus reason 1. No fixed numbered or last position solves an entire band. No runtime shuffle or interaction gate was added.
+
+Only seven authored option arrays and two explanations changed in production. The explanations identify the passless-gardener sentence and the clause “that repaired Inez”, surviving permitted option reordering. Canonical IDs, option IDs/labels, accepted grammar sets, all F1 sequence starts, manifest/binding/case exports and every other task field are preserved. The evaluator remains byte-identical to the original freeze. `verify-f2.mjs`/`invariants-f2.json` compare all twenty prior/current task records with only those precise differences allowed. Its first harness attempt assumed a TypeScript transpiler library absent from this host; the final passing check uses Node's built-in type stripping, without dependency changes.
+
+New narrow checks: **4/4**, `focused-f2-green.log`; entire family including retained semantic matrices and F1 regressions: **88/88**, `focused-f2-family.log`; scoped TypeScript: **exit 0**, `typecheck-f2.log`. The prior frozen source/manifest are retained as `grammar-before-f2.ts` and `owned-files-before-f2.json`. Current `owned-files.json` refreezes the same five owned files. Main source is unchanged by this worker; the original independent reviewer is to narrow-recheck F2 before Controller integration.
+
 WP03-13A imports the named exports and integrates the central bank/dispatcher/bindings serially, preserving all M1 records and nine binding identities. The validator intentionally rejects substantive alterations to a reviewed authored record; those return to this owner for review rather than silently generating new content from changed parameters.
 
 WP02-10A must exercise actual keyboard/tap sorting, sequence and choice controls through Check and preserve all equivalent answers. WP04-07A must demonstrate actual commit/save/reload, permanent binding completion, first-Check history, sticky help and familiar/review/reward identity. Neither alternate answers, revisits nor revision changes create fresh canonical opportunity. The E04→E05 prerequisite remains a suggestion only.
 
 Neutral narration is ordinary instruction/control access. Assessed context/options may be read faithfully before Check as listening support, without filling blanks, selective answer emphasis or explanatory category labels. This does not count as answer help. Explicit hints/worked support do count as sticky answer help; independent reading mode may coexist with a supported success. The test uses the actual frozen `usedAnswerHelp` export to verify this distinction, but does not claim real saved or audible behavior.
 
-WP06 owns published interaction and final acoustic acceptance. This lane makes no browser/published UI, persistence, audio safety, full-writing proficiency or educational efficacy claim. Refrozen delivery is ready for the same reviewer's narrow F1 recheck; the author is idle pending findings.
+WP06 owns published interaction and final acoustic acceptance. This lane makes no browser/published UI, persistence, audio safety, full-writing proficiency or educational efficacy claim. Second refrozen delivery is ready for the same reviewer's narrow F2 recheck; the author is idle pending findings.

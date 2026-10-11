@@ -56,6 +56,29 @@ Each option below is a complete offered choice; all grammatical choices preservi
 
 These eight choice tasks have **29** complete combinations, **13** accepted. Every row is tested, including all three repaired-rope alternatives. Single-slot choice is one choice at a time; the child is not required to select every valid synonym.
 
+### F2 repair: authored choice positions
+
+Controller's second narrow presentation finding was reproduced through real `createDraft` → `reduceDraft` select/place actions → `toResponse` → `evaluateExpansionGrammar`: selecting the first option in each slot solved all eight E05 choice tasks, including both slots of the nest task. The new guard failed for support, core and stretch before repair; an accompanying check also caught displayed-order language in the gardener and rope explanations (`focused-f2-red.log`).
+
+Authored positions now vary deterministically. This is static content ordering, with no runtime shuffler or change to semantic answers:
+
+| Task | Offered option IDs in display order | Accepted positions (one-based) |
+|---|---|---|
+| add-two-actions | reason, add, condition | 2 |
+| explain-dry-pots | despite, uncertain, cause | 3 |
+| contrast-heavy-basket | contrast, cause, alternative | 1 |
+| concede-wind | although, because, even-though, if | 1, 3 |
+| condition-pass | because, if, although, provided | 2, 4 |
+| relative-gardeners | who, all, without, that | 1, 4 |
+| sheltered-nest-relations | contrast: because, although; reason: because, although | contrast 2 **and** reason 1 |
+| relative-repaired-rope | reversed, that, omitted, which | 2, 3, 4 |
+
+No fixed first/second/third/fourth or last strategy solves even one complete band's choice pool. Tests exercise each strategy through the real control reducer, clamping an unavailable numbered position to the last option, so the coupled two-slot task is included without inventing responses. The original semantic matrices remain keyed by option ID; option labels and all accepted response sets are unchanged.
+
+The gardener explanation now identifies the sentence about gardeners with no passes; the rope explanation names the clause “that repaired Inez”. Neither relies on “the last option”. Other first/second references locate words or joins in the assessed sentence, not display positions. Explanations, hints and worked support are guarded against option ordinal references.
+
+`focused-f2-green.log` records 4/4 new checks; `focused-f2-family.log` records 88/88 family tests, including both F1 unsolved sequence/control regressions and the existing 1,197 semantic responses; `typecheck-f2.log` records compiler exit 0. `verify-f2.mjs` compares the prior and current exports, admitting only choice option order and those two exact explanation corrections; `invariants-f2.json` confirms all twenty other record meanings, canonical identities, sequence starts, manifest, bindings and cases are unchanged. Prior frozen source and manifest remain as `grammar-before-f2.ts` and `owned-files-before-f2.json`. All evidence is private under `artifacts/wp03-10a-20261011/`; independent narrow recheck remains pending.
+
 ## E05 complete sequence matrices
 
 Capitalisation and punctuation are presentation for these tile tasks, explicitly excluded from assessment. Clause words remain unchanged. Each three-tile task has all six orders reviewed. A leading conjunction plus its clause may be followed by the main clause; a trailing unattached conjunction is not rescued by inventing omitted clauses, dialogue, or a second sentence.

@@ -118,7 +118,7 @@ const clauses: readonly Row[] = [
   {
     key: 'add-two-actions', band: 'support', text: 'Tess rings a bell and Jo waves a flag, both as part of the welcome. Choose a sentence that simply adds the two actions without giving a reason or a condition.', section: 'Year 1 — Writing: vocabulary, grammar and punctuation: joining clauses using and; consolidated in Years 3–4',
     demand: 'Earlier coordination consolidation: choose a complete additive sentence from three explicit joins.',
-    ...choice([['add', 'Tess rings a bell and Jo waves a flag.'], ['reason', 'Tess rings a bell because Jo waves a flag.'], ['condition', 'Tess rings a bell if Jo waves a flag.']], ['add']),
+    ...choice([['reason', 'Tess rings a bell because Jo waves a flag.'], ['add', 'Tess rings a bell and Jo waves a flag.'], ['condition', 'Tess rings a bell if Jo waves a flag.']], ['add']),
     explanation: 'And adds the two welcome actions. Because would claim a reason; if would make bell-ringing depend on flag-waving. Neither extra relation was requested.',
     hints: ['Check what relationship the sentence is meant to show.', 'A join can add information, give a reason or set a condition. Read each complete option.'],
     worked: 'Choose the sentence with and: Tess rings a bell and Jo waves a flag. It reports both actions without adding a cause or condition.',
@@ -126,7 +126,7 @@ const clauses: readonly Row[] = [
   {
     key: 'explain-dry-pots', band: 'support', text: 'A roof kept the pots dry during rain. Choose the sentence that gives the roof as the reason the pots stayed dry.', section: earlier,
     demand: 'Earlier because-subordination consolidation: preserve an explicitly supplied cause using complete sentence choices.',
-    ...choice([['cause', 'The pots stayed dry because the roof covered them.'], ['despite', 'The pots stayed dry although the roof covered them.'], ['uncertain', 'The pots stayed dry if the roof covered them.']], ['cause']),
+    ...choice([['despite', 'The pots stayed dry although the roof covered them.'], ['uncertain', 'The pots stayed dry if the roof covered them.'], ['cause', 'The pots stayed dry because the roof covered them.']], ['cause']),
     explanation: 'Because gives the stated reason. Although presents the cover as a surprising obstacle, while if makes the cover conditional rather than reporting the given cause.',
     hints: ['Hold on to the explanation given in the scene.', 'Check whether an option states a reason, a contrast or a condition.'],
     worked: 'Choose The pots stayed dry because the roof covered them. The covering caused the dry result in this scene.',
@@ -158,7 +158,7 @@ const clauses: readonly Row[] = [
   {
     key: 'concede-wind', band: 'core', text: 'The wind was strong, yet the kite stayed steady. Complete the sentence to express that surprising contrast: ___ the wind was strong, the kite stayed steady.', section: lower,
     demand: 'Years 3–4 wider conjunction range: recognise two equivalent concessive joins and distinguish reason or condition.',
-    ...choice([['although', 'Although'], ['even-though', 'Even though'], ['because', 'Because'], ['if', 'If']], ['although', 'even-though']),
+    ...choice([['although', 'Although'], ['because', 'Because'], ['even-though', 'Even though'], ['if', 'If']], ['although', 'even-though']),
     explanation: 'Although and Even though both mark the surprising contrast. Because states a cause and If states a condition; those do not explicitly express the requested contrast.',
     hints: ['Read both facts together, including the surprising part.', 'More than one available join may express the same relationship.'],
     worked: 'Although the wind was strong, the kite stayed steady works. Even though the wind was strong, the kite stayed steady works equally well.',
@@ -166,7 +166,7 @@ const clauses: readonly Row[] = [
   {
     key: 'condition-pass', band: 'core', text: 'Having a pass is the condition for permission to enter. Complete the rule with a condition: You may enter ___ you have a pass.', section: lower,
     demand: 'Years 3–4 clause meaning: recognise equivalent conditional expressions while excluding causal and concessive claims.',
-    ...choice([['if', 'if'], ['provided', 'provided that'], ['because', 'because'], ['although', 'although']], ['if', 'provided']),
+    ...choice([['because', 'because'], ['if', 'if'], ['although', 'although'], ['provided', 'provided that']], ['if', 'provided']),
     explanation: 'If and provided that both express the permission condition. Because presumes a reason and although signals contrast; neither states the requested conditional rule.',
     hints: ['The sentence is a rule about permission, not a report about someone who already entered.', 'Try each join and check whether permission depends on the stated requirement.'],
     worked: 'You may enter if you have a pass and You may enter provided that you have a pass both express the condition.',
@@ -174,8 +174,8 @@ const clauses: readonly Row[] = [
   {
     key: 'relative-gardeners', band: 'stretch', text: 'Only the gardeners carrying passes may enter; some gardeners have no pass. Choose a sentence whose relative clause identifies the permitted group.', section: relative,
     demand: 'Selected Year 5 relative-clause demand: distinguish restrictive identification from extra information about all gardeners; who and that are legitimate alternatives.',
-    ...choice([['who', 'Only the gardeners who carry passes may enter.'], ['that', 'Only the gardeners that carry passes may enter.'], ['all', 'Only the gardeners, who carry passes, may enter.'], ['without', 'Only the gardeners who have no passes may enter.']], ['who', 'that']),
-    explanation: 'Who carry passes and that carry passes without surrounding commas identify the permitted gardeners. The comma version treats carrying passes as extra information about the gardeners as a whole; the last option permits the wrong group.',
+    ...choice([['who', 'Only the gardeners who carry passes may enter.'], ['all', 'Only the gardeners, who carry passes, may enter.'], ['without', 'Only the gardeners who have no passes may enter.'], ['that', 'Only the gardeners that carry passes may enter.']], ['who', 'that']),
+    explanation: 'Who carry passes and that carry passes without surrounding commas identify the permitted gardeners. The comma version treats carrying passes as extra information about the gardeners as a whole; the sentence about gardeners who have no passes permits the wrong group.',
     hints: ['Decide whether the added clause identifies a smaller group or supplies extra information about everyone named.', 'Read each whole sentence, including its supplied punctuation; no punctuation needs to be typed.'],
     worked: 'Choose either the who sentence or the that sentence without commas around the relative clause. Both restrict permission to gardeners carrying passes.',
   },
@@ -183,7 +183,7 @@ const clauses: readonly Row[] = [
     key: 'sheltered-nest-relations', band: 'stretch', text: 'Wind bent the reeds, yet a roof kept the nest dry. Complete both joins to show the contrast with the wind and the reason for the dry nest: ___ wind bent the reeds, the nest stayed dry ___ the roof sheltered it.', section: lower,
     demand: 'Additional clause reasoning beyond the core: coordinate two different subordinate relations in one sentence, preserving both concessive scope and causal direction. Extended Years 3–4 demand, not a claimed Year 5 list item.',
     spec: { kind: 'choice', slots: [
-      { id: 'contrast', label: 'First join', options: options([['although', 'Although'], ['because', 'Because']]) },
+      { id: 'contrast', label: 'First join', options: options([['because', 'Because'], ['although', 'Although']]) },
       { id: 'reason', label: 'Second join', options: options([['because', 'because'], ['although', 'although']]) },
     ], requiredSlotIds: ['contrast', 'reason'] },
     answers: [{ kind: 'choice', choices: { contrast: 'although', reason: 'because' } }],
@@ -194,8 +194,8 @@ const clauses: readonly Row[] = [
   {
     key: 'relative-repaired-rope', band: 'stretch', text: 'Inez repaired a rope, and that rope now holds the sail. Choose a sentence whose relative clause keeps Inez as the person who did the repair.', section: relative,
     demand: 'Selected Year 5 relative clauses with an omitted relative pronoun: recover who acts on what across an embedded clause and accept both explicit relative pronouns and omission.',
-    ...choice([['that', 'The rope that Inez repaired holds the sail.'], ['omitted', 'The rope Inez repaired holds the sail.'], ['which', 'The rope which Inez repaired holds the sail.'], ['reversed', 'The rope that repaired Inez holds the sail.']], ['that', 'omitted', 'which']),
-    explanation: 'That Inez repaired, which Inez repaired and Inez repaired all modify rope while keeping Inez as the repairer. The last option makes the rope do the repairing and changes the given meaning.',
+    ...choice([['reversed', 'The rope that repaired Inez holds the sail.'], ['that', 'The rope that Inez repaired holds the sail.'], ['omitted', 'The rope Inez repaired holds the sail.'], ['which', 'The rope which Inez repaired holds the sail.']], ['that', 'omitted', 'which']),
+    explanation: 'That Inez repaired, which Inez repaired and Inez repaired all modify rope while keeping Inez as the repairer. The clause that repaired Inez makes the rope do the repairing and changes the given meaning.',
     hints: ['Track the repairer and the thing repaired inside the added clause.', 'A relative pronoun can sometimes be omitted without losing the clause’s meaning.'],
     worked: 'The that, omitted and which options are all correct. In each, Inez repaired the rope; the rope did not repair Inez.',
   },

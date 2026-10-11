@@ -82,6 +82,34 @@ function judge(t: TaskDefinition, response: unknown, correct: boolean) {
 }
 
 describe('independently reviewed complete response domains', () => {
+  it.each(['support', 'core', 'stretch'])('%s: no fixed-position choice strategy solves the band', band => {
+    const bank = GRAMMAR_TASKS.filter(t => t.band === band && t.responseSpec.kind === 'choice');
+    expect(bank.length).toBeGreaterThan(1);
+    // First through fourth (clamped to the last available option), and last.
+    for (const position of [0, 1, 2, 3, -1]) {
+      const solved: string[] = [];
+      for (const t of bank) {
+        if (t.responseSpec.kind !== 'choice') throw new Error('Expected choice controls');
+        let draft = createDraft(t.responseSpec);
+        for (const slot of t.responseSpec.slots) {
+          const index = position < 0 ? slot.options.length - 1 : Math.min(position, slot.options.length - 1);
+          draft = reduceDraft(draft, { kind: 'select', selection: { kind: 'mark', value: slot.options[index].id } }, t.responseSpec);
+          draft = reduceDraft(draft, { kind: 'place', targetId: slot.id }, t.responseSpec);
+        }
+        const result = evaluateExpansionGrammar(t, toResponse(draft));
+        expect(result.status).toBe('judged');
+        if (result.status === 'judged' && result.correct) solved.push(t.descriptor.authoredKey!);
+      }
+      expect(solved, `Position ${position}: ${solved.join(', ')}`).not.toHaveLength(bank.length);
+    }
+  });
+  it('choice explanations and help identify content rather than displayed option ordinals', () => {
+    for (const t of GRAMMAR_TASKS.filter(t => t.responseSpec.kind === 'choice')) {
+      for (const text of [t.explanation, ...t.hints.map(hint => hint.text), t.workedSupport.text]) {
+        expect(text).not.toMatch(/\b(?:first|second|third|fourth|last)\s+(?:option|choice)\b/i);
+      }
+    }
+  });
   it.each(sorts)('%s: every full contextual grouping is judged', (key, band, groups, items) => {
     const t = task(key);
     expect(t.band).toBe(band);
@@ -95,7 +123,12 @@ describe('independently reviewed complete response domains', () => {
   it.each(choices)('%s: every choice is judged without a preferred valid synonym', (key, band, rows) => {
     const t = task(key);
     expect(t.band).toBe(band);
-    expect(t.responseSpec).toMatchObject({ kind: 'choice', slots: [{ id: 'sentence', options: rows.map(([id, label]) => ({ id, label })) }], requiredSlotIds: ['sentence'] });
+    if (t.responseSpec.kind !== 'choice') throw new Error('Expected choice controls');
+    expect(t.responseSpec.requiredSlotIds).toEqual(['sentence']);
+    expect(t.responseSpec.slots.map(slot => slot.id)).toEqual(['sentence']);
+    // The semantic oracle is keyed by ID, independent of presentation position.
+    expect([...t.responseSpec.slots[0].options].sort((a, b) => a.id.localeCompare(b.id)))
+      .toEqual(rows.map(([id, label]) => ({ id, label })).sort((a, b) => a.id.localeCompare(b.id)));
     expect(t.answerRule).toEqual({ kind: 'accepted-responses', responses: rows.filter(([, , ok]) => ok).map(([id]) => ({ kind: 'choice', choices: { sentence: id } })) });
     for (const [id, , correct] of rows) judge(t, { kind: 'choice', choices: { sentence: id } }, correct);
   });
@@ -142,7 +175,7 @@ describe('independently reviewed complete response domains', () => {
     const t = task('sheltered-nest-relations');
     expect(t.band).toBe('stretch');
     expect(t.responseSpec).toEqual({ kind: 'choice', slots: [
-      { id: 'contrast', label: 'First join', options: [{ id: 'although', label: 'Although' }, { id: 'because', label: 'Because' }] },
+      { id: 'contrast', label: 'First join', options: [{ id: 'because', label: 'Because' }, { id: 'although', label: 'Although' }] },
       { id: 'reason', label: 'Second join', options: [{ id: 'because', label: 'because' }, { id: 'although', label: 'although' }] },
     ], requiredSlotIds: ['contrast', 'reason'] });
     expect(t.answerRule).toEqual({ kind: 'accepted-responses', responses: [{ kind: 'choice', choices: { contrast: 'although', reason: 'because' } }] });
