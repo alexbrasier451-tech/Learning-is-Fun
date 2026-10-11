@@ -1,6 +1,6 @@
 # Published M2 Linux WebKit CI — independent validation
 
-12 October 2026 follow-up. **PASS for integrating the frozen two-file context correction.** The first-dispatch scope finding is closed at source review; GitHub parser acceptance and actual Linux execution remain pending. The correction identity and nine targeted checks are recorded at the end of this report.
+12 October 2026 follow-up. **PASS for integrating the frozen single-owner tracing correction.** Ten targeted checks close the tracing source finding; the same-case native Linux rerun remains pending. Actual run `38185441804` already closes the HTTP 422 context-scope defect. Both missed-review findings and their retained failure evidence remain below.
 
 ## First-dispatch finding — historical
 
@@ -74,3 +74,30 @@ The preparation step receives the root directly from its own environment. Its qu
 **Nine targeted independent checks passed; zero failures.** Checks pin both corrected files and four focused records, establish the exact delta and supported scopes, model immediate/persisted root continuity with spaces, preserve all downstream bytes, verify six frozen read-only inputs and both main preimages, and retain the first 422 history. The author's eight targeted checks agree. No Bash shell or GitHub runner was executed; persistence verification uses the exact quoted line and the documented environment-file contract. The unchanged adapter/config/test behavior checks were not rerun.
 
 Evidence is retained in the existing private review directory as `context-fix-independent-validation.json`, `context-fix-main-preservation.json` and `dispatch-finding-validation.md`. The original readiness report and missed-context finding remain preserved. Only this report and private evidence were written; no source, browser, CI or Git action occurred. Remote parser acceptance, actual Linux WebKit evidence and the unresolved Windows outcome remain outside this source closure.
+
+## Second run — trace lifecycle finding
+
+12 October 2026. Actual run `38185441804`, source `ed2e4f65ceefb09a3f2a8e0534656c32e426cfe8`, parsed the corrected workflow, prepared its evidence root, installed the native package/engine and passed real exact-case discovery. The earlier HTTP 422 context finding is therefore closed by actual runner acceptance. This does not establish a Linux game outcome.
+
+The sole test failed at observer line 75, column 27: `tracing.start: Tracing has been already started`. The config's automatic `trace: 'on'` and the observer's explicit per-context `tracing.start` both own the same lifecycle. This source-interface conflict was missed by the prepared review, which checked the two tracing mechanisms separately. Failure occurred before app navigation. Actual results contain expected 0, unexpected 1, flaky 0 and skipped 0; the strict result gate correctly rejected the failed result. Controller reports that the execution pipeline step returned tee's zero status; the subsequent result gate kept the job red.
+
+Retained evidence: [results.json](<C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/ed2e4f6/published-webkit-38185441804/artifact/results.json>) and [result-gate log](<C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/ed2e4f6/published-webkit-38185441804/run-logs/observe/10_Require one actual pass with no retries or skipped results.txt>). Six targeted artifact records were read and pinned privately in `trace-interface-finding.json`; no archive, browser or broad journey replay was performed. The pre-finding report is preserved as `context-closure-validation.md`, SHA-256 `cc005def8d44ded250343fb3079511c6029d09e6f5798009bd2f5b4e21d756d3`.
+
+The original foundation author owns the minimal config/handoff correction to disable automatic tracing while retaining the observer's manual scope traces, screenshots and evidence. Reviewer has changed no source and will recheck only that lifecycle contract after the refrozen handoff. Linux application behavior remains unobserved; the retained Windows failure remains unresolved.
+
+## Tracing correction — source finding closed
+
+12 October 2026. **PASS for integrating the two-file correction from `ed2e4f65ceefb09a3f2a8e0534656c32e426cfe8`.** Candidate: `C:/Users/alexb/.codex/visualizations/2026/10/08/01a11d98-5787-7d20-8603-8829b864b348/linux-webkit-trace-owner-ed2e4f6/candidate`. Freeze-manifest SHA-256: `2dc157f10bbccb5630f0e74596a0b7d1c5b386b42e2284d17941b89081f8eb2e`.
+
+| Corrected private deliverable | Bytes | SHA-256 |
+|---|---:|---|
+| `tests/fixtures/published-webkit.config.ts` | 1241 | `8cd0aa9ecce49b75760f1a75e6895f6a0342a1ec78831f28ea23bc79dbb9bc2b` |
+| `docs/work-package/execution/PUBLISHED-WEBKIT-CI-HANDOFF.md` | 10484 | `b2741eab2279210782db303c808a36626df399e8a6975d9c1a711686fb0d552b` |
+
+The checked config preimage is 1,177 bytes, SHA-256 `a566126ed01eeb7462c28b579d4a022945d1ddb017fbd7a05a6f65d9bb5fdf9f`; handoff preimage is 7,746 bytes, SHA-256 `5148bb61781ca13d7e6a8962655a86cc8df7f873f80b41faaace9c884a5635e5`. Both agree with main's captured preimages. The exact config delta is automatic `trace: 'on'` → `trace: 'off'` plus the comment assigning per-context trace ownership to the observer. Every other loaded config value is equivalent, including native touch settings, screenshot capture, output preservation, reporting, identity and strict single-case settings.
+
+The unchanged observer contains one authored per-context start site with screenshots/snapshots/sources, one stop site writing its scope ZIP through `testInfo.outputPath`, attachment before context closure, and retained explicit viewport screenshots. The installed Playwright 1.64.0 automatic start/stop hooks were inspected and exercised with disabled automatic options and mock API calls: they neither start nor stop the manually owned trace. This is a JavaScript contract model, not a native lifecycle probe or successful browser run.
+
+**Ten targeted independent checks passed; zero failures.** They pin both deliverables and seven focused records, establish the exact delta and loaded-config equivalence, check the observer's retained lifecycle, replay the authored real one-case discovery through the unchanged gate, and confirm the actual failed run still fails the result gate. The author's six checks and strict TypeScript receipt are supporting evidence. Only the two main preimages and three lifecycle inputs were checked; no broad case/source/dependency audit or browser probe was added.
+
+Private evidence: `trace-owner-independent-validation.json`, `trace-owner-main-preservation.json` and preserved `trace-finding-validation.md` in the existing review directory. The pre-closure finding report hashes to `c299a20cc3554564e8acab078b9d308fd248c0fa1396f7f50fb6c0edf2666a37`. Both prior missed-review histories remain intact. Only this report and private evidence were written. Controller owns integration and the complete same-case Linux rerun; app/visual/scene-transport success remains unverified, and the Windows failure remains unresolved.

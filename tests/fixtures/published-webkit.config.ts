@@ -16,6 +16,7 @@ export default defineConfig({
   outputDir: join(root, 'playwright'),
   reporter: [['list'], ['json', { outputFile: join(root, 'results.json') }]],
   metadata: { ciSourceCommit: sourceCommit(), deployedCandidate },
-  use: { ...contextSettings, baseURL: deployedCandidate.url, trace: 'on', screenshot: 'on' },
+  // The observer starts and stops its own per-context traces.
+  use: { ...contextSettings, baseURL: deployedCandidate.url, trace: 'off', screenshot: 'on' },
   projects: [{ name: projectName }],
 });

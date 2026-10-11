@@ -1,9 +1,9 @@
 # Published M2 Linux WebKit CI handoff
 
-Current delivery is a two-file context-scope correction from accepted
-`9ec9cc67d77a2ec4667db63bdfaa4dd500d8b0f3`: this handoff and the dedicated
-workflow. The original foundation handoff below is retained as stage history;
-the final correction section records integration and the failed first dispatch.
+Current delivery is a two-file tracing-owner correction from accepted
+`ed2e4f65ceefb09a3f2a8e0534656c32e426cfe8`: this handoff and the dedicated
+config. The earlier foundation/context-scope sections remain as stage history;
+the final section records the actual Linux tracing failure and this correction.
 
 Foundation source base: `e986c685ef818717237a4657df1eeeeb53e2755c`.
 Controller reports `0bb9671` as a subsequent docs-only advance with unchanged runtime.
@@ -124,3 +124,47 @@ Git mutation or dispatch was performed by this worker. The two-file correction
 is frozen for original reviewer `01a11da4`; Controller owns integration and a
 new manual dispatch of the same pending authored case. Remote parser acceptance
 and the native Linux outcome remain pending that dispatch.
+
+## Actual Linux tracing failure and single-owner correction
+
+Controller's corrected workflow was accepted with HTTP 204. Actual
+[run 38185441804](https://github.com/alexbrasier451-tech/Learning-is-Fun/actions/runs/38185441804)
+used source `ed2e4f65ceefb09a3f2a8e0534656c32e426cfe8`. Preparation, frozen
+dependency installation, full TypeScript checking, exact discovery and matched
+native WebKit installation passed. The authored case failed after 4.064 seconds
+at `published-webkit.spec.ts:75`, before application navigation:
+
+> Error: tracing.start: Tracing has been already started
+
+The config's automatic `trace: 'on'` had already started tracing on a context
+created from the runner's browser fixture. The observer explicitly starts each
+scope's native context trace and later stops it to a `testInfo.outputPath`
+ZIP, then attaches it to the test result. Both layers therefore tried to own the
+same lifecycle. The narrow composition repair sets only this dedicated
+config's automatic trace setting to `off`, with a comment identifying the
+observer's ownership. The observer's manual trace start/stop/attachment code,
+runner screenshots, output preservation, JSON reporting and result gates stay
+unchanged. The game, scenario, workflow and identity adapter need no edits.
+
+The failed run recorded zero expected passes, one unexpected failure, zero
+skipped/flaky and retry zero. The strict result gate rejected it correctly, and
+the final job failed. The piped observation command's `tee` step appeared green;
+that step colour is not an actual scenario pass. No Linux app, visual or scene
+transport result is claimed from this pre-navigation failure.
+
+Retained original evidence is under
+`artifacts/ci/M2/ed2e4f6/published-webkit-38185441804/`, including the artifact's
+`results.json`, `runner.log`, `run.json`, `runtime.json` and `run-logs`.
+Controller identifies artifact `11719288152` with ZIP SHA-256
+`12c99b3856b061771b0954e41b2d3a636f93a39e0b6e70e1bfb188dc34341627`.
+This worker retains byte-pinned copies of those four small artifact files and
+the actual error/result assessment in its private correction evidence.
+
+Targeted verification loads the corrected config, strictly typechecks it,
+discovers the one real authored scenario and applies the unchanged discovery
+gate. It also confirms that the actual failed result remains rejected and that
+manual trace ownership and screenshots remain present. No local browser,
+network journey, lifecycle probe, engine install, broad matrix, shared write,
+Git mutation or dispatch is performed by this worker. Original reviewer
+`01a11da4` reviews the two-file freeze; Controller must integrate it and rerun
+the same original case. Its end-to-end Linux result remains pending that run.
