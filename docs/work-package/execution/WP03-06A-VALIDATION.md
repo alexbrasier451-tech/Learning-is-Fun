@@ -2,18 +2,25 @@
 
 Independent reviewer: Codex, Sol/xhigh domain review, 11 October 2026.
 
-**Verdict: CHANGES REQUIRED — one P2 validator finding.** All forty supplied
+**Final verdict: PASS — the original P2 finding is closed.** All forty supplied
 task meanings, independently calculated answers, band floors, help and proposed
-bindings pass this bounded review. The reconstructed-content gate accepts a
-malformed non-finite stimulus as the expected null and consequently scores it.
-Controller should route that causal repair to the original author, then request
-a focused independent recheck. This report does not grant lane acceptance.
+bindings retain their passing review. The original author's finite-JSON repair
+passes the narrow independent task→validator→evaluator recheck below, including
+all three original counterexamples. No open finding remains in this bounded
+producer/domain review. Controller retains administrative lane acceptance and
+downstream integration acceptance.
 
 ## Candidate and authority
 
 Reviewed frozen candidate:
 `C:/Users/alexb/AppData/Local/Temp/lif-m2-arithmetic-01a12b4c`, supplied base
 `6b5834953b56b4f2ce33c099700b1090805b6144`.
+
+This final review identifies the repaired/refrozen candidate by the five exact
+lengths and hashes at the end of this report. The arithmetic content module,
+including all forty records, manifest and eleven binding proposals, is
+byte-identical to the original reviewed candidate. The evaluator, regression
+tests and two explanatory documents were updated for the P2 repair.
 
 Read the candidate handoff, WP03-06A chunk, accepted learning and starter
 contracts, receiving WP03-13A binding contract and the exact five-file patch:
@@ -35,25 +42,26 @@ configuration, dependency/cache/ledger writes, Git commands, commits, deployment
 workers or messages to other chats were performed by this validator. Controller
 retains repair routing, integration and administrative acceptance.
 
-## Actionable finding
+## Original finding and independent closure
 
-### P2 — reject non-finite content before JSON equality can erase its type
+### P2 — closed: reject non-finite content before JSON equality erases its type
 
-Location: candidate
-[expansion-arithmetic.ts, line 14](C:/Users/alexb/AppData/Local/Temp/lif-m2-arithmetic-01a12b4c/src/learning/evaluators/expansion-arithmetic.ts:14).
-The field-comparison call at line 47 and evaluator gate at lines 89–90 propagate
-the result. `TaskDefinition.stimulus` is an optional `TaskStimulus | null`
+Original location: `src/learning/evaluators/expansion-arithmetic.ts`, line 14
+in the original candidate (SHA-256
+`ec2e3982185e289cffc15f0c3bc930abb7d08360ec9777ef394f46aabcff1916`).
+The original field-comparison call at line 47 and evaluator gate at lines
+89–90 propagated the result. `TaskDefinition.stimulus` is an optional `TaskStimulus | null`
 (accepted contracts, line 108), so these numeric values are malformed content.
 
-`stable()` returns `JSON.stringify(value)` for primitive values. JavaScript
+Before repair, `stable()` returned `JSON.stringify(value)` for primitive values. JavaScript
 serializes `NaN`, `Infinity` and `-Infinity` as the string `"null"`. For a text
 task whose reviewed stimulus is null, the full reconstructed-record comparison
-therefore reports equality and `validateArithmeticTask()` returns no issues.
-The evaluator then returns a scored correct judgement for the correct response.
-This contradicts the chunk's unavailable-content boundary and the handoff's
+therefore reported equality and `validateArithmeticTask()` returned no issues.
+The evaluator then returned a scored correct judgement for the correct response.
+This contradicted the chunk's unavailable-content boundary and the handoff's
 claim that reconstructed/untrusted content undergoes full consistency checking.
 
-Minimal reproduction using the actual candidate exports:
+Original reproduction using the actual candidate exports, retained as red evidence:
 
 ```ts
 const task = {
@@ -65,26 +73,63 @@ const response = {
   values: { answer: { numerator: 43, denominator: 1, unit: 'count' } },
 };
 
-validateArithmeticTask(task);                 // actual: []
-evaluateExpansionArithmetic(task, response); // actual: judged, correct: true
+validateArithmeticTask(task);                 // before repair: []
+evaluateExpansionArithmetic(task, response); // before repair: judged, correct: true
 ```
 
-The same actual results were reproduced separately for positive and negative
-infinity. Expected for each: at least one content issue and
+The same pre-repair results were reproduced separately for positive and negative
+infinity. Required for each: at least one content issue and
 `status: 'unavailable-content'` before response grading. The private log retains
-the complete actual result, including the unchanged canonical question ID.
+the complete original result, including the unchanged canonical question ID.
 
-The earliest defect is the content comparison's lossy primitive serialization.
-The original author should reject non-finite/undeclared content values before
-they can compare equal to null, preserving legitimate object and option-order
-equivalence. Add focused counterexamples and rerun each original mutated
-task through `validateArithmeticTask` and `evaluateExpansionArithmetic` with
-the original correct response. The unmodified task must still validate and
-score correctly. No downstream renderer/state compensation is called for.
+The earliest defect was the content comparison's lossy primitive serialization.
+The original author repaired that primitive boundary. The current
+[finite-value guard, line 16](C:/Users/alexb/AppData/Local/Temp/lif-m2-arithmetic-01a12b4c/src/learning/evaluators/expansion-arithmetic.ts:16)
+allows null, strings, booleans and finite numbers; undeclared/non-finite values
+throw before serialization. Existing validator handling emits malformed-content
+and the existing evaluator gate returns unavailable-content. Arrays and plain
+records retain recursive comparison. No downstream compensation or response
+grading change was introduced.
 
 Impact is bounded: the forty frozen, deeply frozen exported records are valid;
 this finding concerns the separately advertised reconstructed/untrusted-record
 path. No save, reward or browser failure was inferred or demonstrated.
+
+### Narrow recheck on the repaired candidate
+
+All three original mutated copies of row 1, with the same correct 43-counter
+response, were independently rerun through the complete actual validator and
+evaluator path. Each now produces a `stimulus` issue with code
+**`malformed-content`**, then **`unavailable-content`** with no `correct` field.
+The original task's canonical ID remains unchanged. These original counterexamples
+are green; the initial red evidence is retained rather than overwritten.
+
+The private independent recheck also passes genuine reconstructed null/text,
+array matching, represented division and represented scaling tasks. Related
+checks cover undefined/function/symbol/bigint/boxed/custom-toJSON/invalid-Date
+stimuli, finite wrong stimulus types, nested non-finite groups/items per group
+and finite wrong dimensions. These fail content validation and cannot be scored.
+Plain null-prototype records, reversed meaningful-object/card order, legitimate
+equivalent matching responses and independent content revision remain valid.
+Non-finite and undeclared response counts remain **invalid-response**; complete
+zero remains judged wrong, and an empty draft remains incomplete.
+
+Fresh evidence: **12 independent check groups passed**, **12 focused arithmetic
+tests passed with three exhaustive loops skipped**, and strict no-emit TypeScript
+passed; all three processes exited 0. Author evidence separately reports the
+complete **104 tests / three files** (15 arithmetic, 70 starter maths, 19 identity),
+129,220 exhaustive family responses and 164 manifest cases rerun green.
+
+The exact evaluator/test delta was independently bounded without Git: removing
+only the finite-primitive guard/comments from the current evaluator reconstructs
+the original reviewed hash; removing only the four added regression cases from
+the current tests reconstructs their original reviewed hash. The content-module
+hash is unchanged. All five final hashes/lengths match the refreshed inventory.
+The explanatory document updates record the repair and its evidence.
+
+The earlier forty-item content review and 45 unaffected independent check groups
+are retained. No broad reauthoring or audit was repeated. **P2 closed; bounded
+review PASS.**
 
 ## Forty-item domain and demand review
 
@@ -184,7 +229,7 @@ safe integers, denominator 1 and unit count. Zero remains a complete wrong
 answer where appropriate. Missing/null required entries are incomplete; bad
 values, extra/unknown fields, unknown endpoints and duplicate unique matching
 targets are invalid before missing-field handling. All independent complete
-wrong cases remain judged wrong. The finding above concerns malformed content,
+wrong cases remain judged wrong. The closed finding above concerned malformed content,
 not a demonstrated response-classification defect.
 
 All four additional legitimate matching alternatives pass: the support array
@@ -225,23 +270,34 @@ new quest, subject lock, full-bank completion or harder-band reward is added.
 Private evidence root:
 `C:/Users/alexb/.codex/visualizations/2026/10/08/01a11daf-7049-7a81-b793-57ed7dc35964/WP03-06A-private`.
 
-| Evidence | Fresh independent result |
+Original independent evidence retained:
+
+| Evidence | Original independent result |
 |---|---|
 | `independent-oracle.cjs` / `independent-oracle.log` | **45 check groups passed, one failed**, process exit 1. Forty row groups each exercise independent correct, complete wrong, partial and invalid responses; remaining passing groups cover floors/identity, equivalent answers/order/feedback, repaired shares, actual Q4 support selection and malformed-response precedence. One failing group retains all three non-finite content observations. |
 | `vitest.config.mjs` / `focused-vitest.log` | **Eight tests passed, three exhaustive loops skipped**, process exit 0. Native-loaded private config, one worker, private cache path with cache/module-cache disabled. |
 | `strict-typescript.log` | Candidate's focused strict no-emit TypeScript command independently passed, exit 0. No project config/build/buildinfo output. |
-| `reviewed-files.json` | All five independently measured lengths and SHA-256 hashes match the candidate's frozen inventory. |
+| `reviewed-files.json` | All five original independently measured lengths and SHA-256 hashes match the pre-repair frozen inventory. Retained for before/after identification. |
+
+Fresh independent evidence on the final repaired candidate:
+
+| Evidence | Final independent result |
+|---|---|
+| `P2-recheck.cjs` / `P2-recheck.log` | **12 groups passed**, exit 0: the three original full-path cases, legitimate reconstructed records, related finite-JSON/type and response variants, exact evaluator/test delta and all five final hashes/lengths. The log retains exact issue/status results and final inventory. |
+| `P2-focused-vitest.log` | **12 tests passed, three exhaustive loops skipped**, exit 0, using the same native-loaded private configuration with cache/module-cache disabled. Includes the four new regression cases. |
+| `P2-strict-typescript.log` | Fresh focused strict no-config, no-emit TypeScript passed, exit 0. |
 
 The private oracle loads actual candidate TypeScript modules in memory using
 Node's type stripping and VM modules. It imports actual binding selection and
 evidence functions for the support-route test; it is not a substitute
 implementation of the evaluator. Experimental Node feature warnings are
 retained and do not change the assertions. The reviewer made no production
-repair or in-memory candidate repair; the red content counterexample remains
-red for author handoff.
+repair or in-memory candidate repair. The original red counterexample log is
+retained; the separate post-repair log demonstrates its closure.
 
-Reused, clearly distinguished author evidence: final **100 tests / three
-files** (11 arithmetic, 70 starter maths, 19 identity), **129,220** finite family
+Reused, clearly distinguished author evidence: original **100 tests / three
+files**, then repaired final **104 tests / three files** (15 arithmetic,
+70 starter maths, 19 identity), **129,220** finite family
 responses (71,444 single counts, 57,509 two-count combinations, 203 matching maps
 and 64 sorting maps), and **164** manifest cases. These reported exhaustive
 loops were inspected but not rerun independently; the bounded reviewer checks
@@ -250,19 +306,21 @@ base-comparison log reports all 644 original files matching the frozen base,
 using text EOL normalization and raw bytes for the four licensed `-text` files.
 That base comparison is reused author evidence, not an independent Git audit.
 
-Independent candidate inventory:
+Final repaired candidate inventory, independently measured and matched to the
+refreshed `.checks/owned-files.json`:
 
 | Path | Bytes | Lowercase SHA-256 |
 |---|---:|---|
 | `src/content/expansion-maths/arithmetic.ts` | 33536 | `589c57c0a02969bace3c6713bfbc635616a2ae26cc7797a17816943f77f60dea` |
-| `src/learning/evaluators/expansion-arithmetic.ts` | 9072 | `ec2e3982185e289cffc15f0c3bc930abb7d08360ec9777ef394f46aabcff1916` |
-| `tests/learning/expansion-arithmetic.test.ts` | 20330 | `e8f4a826dd438f1d80b7cd239ba7632d55ae5704d3410b175246bf9943c6d6d9` |
-| `docs/content-review/expansion-arithmetic.md` | 17411 | `358cf137b494c4fc488ce380c0eef64f8ffa1d4c86b998291e2699e5a7fb677c` |
-| `docs/work-package/execution/WP03-06A-HANDOFF.md` | 9180 | `dab657243cbcc33babbb00cccd41ef836d25b3beff884202bdd7cedddd805cee` |
+| `src/learning/evaluators/expansion-arithmetic.ts` | 9425 | `b43c5f39f463aea5f60a504036115cd64a6d74db92285ea515bef6fd9a87728f` |
+| `tests/learning/expansion-arithmetic.test.ts` | 22205 | `eafef33ebce0cf3774883379dccefb3d6366d5c0fb1d9aa4f75ec68279f1373e` |
+| `docs/content-review/expansion-arithmetic.md` | 18667 | `2f3dc7dea7c8ed6144cd6efb6544d4e2dc87061727457ed78ecd33517dde1148` |
+| `docs/work-package/execution/WP03-06A-HANDOFF.md` | 12125 | `c0a6ecb36ad9ed8fbe01eef630b4dcf39a390b9f9a38710c5766f6a696b19418` |
 
 This is a bounded producer/domain review. Actual widget rendering and
 accessibility, aggregate runtime dispatch, committed Check/help/evidence/
 reward/save/reload, full M2 composition, published play and final listening
 remain downstream. No broad game build, shared test run or additional audit
-was performed. Original-author repair and the focused original-case recheck
-are required before Controller can accept this lane.
+was performed. The original-author repair and focused original-case recheck
+are complete and green. Controller administrative acceptance remains separate
+from this independent producer/domain PASS.
