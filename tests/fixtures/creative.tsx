@@ -4,7 +4,10 @@ import { CompanionView } from '../../src/experience/CompanionView';
 import { CreativePlot } from '../../src/experience/CreativePlot';
 import type { CreativeSaveStatus } from '../../src/experience/CreativePlot';
 import { CREATIVE_CHOICES } from '../../src/experience/catalogue';
-import type { CreativeChoice } from '../../src/experience/types';
+import type { CreativeChoice, QuestId } from '../../src/experience/types';
+import { FestivalView } from '../../src/experience/FestivalView';
+import { FESTIVAL_FIXTURES } from './creative-festival-fixtures';
+import type { ClosedWeekResult } from '../../src/rewards/contracts';
 import { createStateController, selectCommittedActivity } from '../../src/state/controller';
 import { openSaveRepository } from '../../src/state/repository';
 import type { SaveRepository } from '../../src/state/repository';
@@ -22,6 +25,13 @@ import type { CreativeFixtureApi } from './creative-api';
 const params = new URLSearchParams(location.search);
 const namespace = `learning-is-fun:/playtest/:creative-${params.get('namespace') ?? crypto.randomUUID()}`;
 const catalogue = listTasks();
+const milestone = params.get('milestone') === 'M2' ? 'M2' : 'M1';
+let now = Date.parse('2026-10-11T12:00:00Z');
+let festivalVisible = false, festivalResult: ClosedWeekResult | null = null;
+function showFestival(scenario: 'actual' | keyof typeof FESTIVAL_FIXTURES) {
+  festivalResult = scenario === 'actual' ? controller.getSnapshot().save.competition.archives.at(-1) ?? null : FESTIVAL_FIXTURES[scenario];
+  festivalVisible = true; audio.stopReading(); events.push({ stage: 'festival-open' }); publish();
+}
 const events: Array<CreativeFixtureApi['events'] extends () => readonly (infer E)[] ? E : never> = [];
 const listeners = new Set<() => void>();
 let version = 0, selected = '', selectionGeneration = 0, pending = false, helpPending = false;
@@ -54,8 +64,8 @@ const repository: SaveRepository = { ...real, async commitCommand(command, ports
   events.push({ stage: 'repository-result', kind: command.kind, status: result.status, profileId: command.profileId });
   return result;
 } };
-const controller = createStateController({ repository, catalogue, questBindings: QUEST_ACTIVITY_BINDINGS, milestone: 'M1',
-  clock: { nowEpochMs: () => Date.parse('2026-10-09T12:00:00Z') }, preferenceGate: audio,
+const controller = createStateController({ repository, catalogue, questBindings: QUEST_ACTIVITY_BINDINGS, milestone,
+  clock: { nowEpochMs: () => now }, preferenceGate: audio,
   readTransientReadiness: () => ({ dirty: !!document.querySelector('.creative-preview-label')?.textContent?.includes('Your preview'),
     pending: pending || helpPending, failed: saveStatus === 'save-failed' }) });
 await controller.ready;
@@ -73,6 +83,7 @@ function select(profileId: string) {
   if (!Object.hasOwn(controller.getSnapshot().save.profiles, profileId)) throw new Error('Choose a committed profile.');
   selected = profileId; selectionGeneration++; audio.stopReading(); pending = false; helpPending = false;
   saveStatus = 'idle'; helpStatus = ''; celebrating = false; retainedSave = null; retainedHelp = null; publish();
+  festivalVisible = false;
 }
 async function createProfile(nickname: string) {
   const command = controller.prepareCommand({ kind: 'CreateProfile', payload: { nickname, avatarId: 'pip' } });
@@ -131,12 +142,14 @@ async function openHelp() {
   if (!encounter) throw new Error('No selected open encounter.');
   encounters.set(profileId, encounter.encounterId); audio.stopReading(); if (selected === profileId) publish();
 }
-async function completeQuest(questId: 'Q1' | 'Q2' | 'Q3') {
+async function completeQuest(questId: QuestId) {
   const profileId = selected;
+  const bindings = QUEST_ACTIVITY_BINDINGS.filter(b => b.questId === questId && b.role === 'story' && (milestone === 'M2' || b.availability === 'M1'));
+  for (const binding of bindings) {
   const opened = await controller.dispatch(controller.prepareCommand({ kind: 'OpenEncounter', profileId,
-    payload: { route: { kind: 'quest', questId }, suppressDueReviewForVisit: true } }));
+    payload: { route: { kind: 'quest', questId, bindingId: binding.bindingId }, suppressDueReviewForVisit: true } }));
   if (opened.status !== 'committed') throw new Error(`Quest open: ${opened.status}`);
-  const encounter = Object.values(controller.getSnapshot().save.profiles[profileId].encounters).find(e => e.bindingProvenance?.questId === questId && e.learningEpisode.status === 'open');
+  const encounter = Object.values(controller.getSnapshot().save.profiles[profileId].encounters).find(e => e.bindingProvenance?.bindingId === binding.bindingId && e.learningEpisode.status === 'open');
   if (!encounter) throw new Error('No quest encounter.');
   const task = catalogue.find(t => t.canonicalQuestionId === encounter.canonicalQuestionId)!;
   // Bounded test oracle only, never exposed as game guidance or a product evaluator.
@@ -148,9 +161,24 @@ async function completeQuest(questId: 'Q1' | 'Q2' | 'Q3') {
     payload: { encounterId: encounter.encounterId, learningEpisodeOrdinal: encounter.learningEpisode.ordinal,
       checkSequence: encounter.validChecks + 1, response } }));
   if (checked.status !== 'committed') throw new Error(`Quest Check: ${checked.status}`);
-  await controller.dispatch(controller.prepareCommand({ kind: 'FinishPractice', profileId,
-    payload: { encounterId: encounter.encounterId, learningEpisodeOrdinal: encounter.learningEpisode.ordinal } }));
+  }
   publish();
+}
+async function importExpanded() {
+  const response = await fetch(new URL('./expanded-full-save.json', import.meta.url));
+  if (!response.ok) throw new Error('Accepted compatible fixture unavailable.');
+  const text = await response.text();
+  const prepared = await controller.backupActions.prepare({ size: new Blob([text]).size, text: async () => text });
+  if (prepared.status !== 'ready') throw new Error(`Import prepare: ${prepared.status}`);
+  const result = await controller.backupActions.confirm(prepared.preview.preparedImportId);
+  if (result.status !== 'committed') throw new Error(`Import confirm: ${result.status}`);
+  select('expanded');
+}
+async function visit() {
+  const result = await controller.refresh();
+  if (!['committed', 'already-applied'].includes(result.status)) throw new Error(`Visit refresh: ${result.status}`);
+  // Ordinary host reconciliation supplies closed facts. Festival never requests it.
+  showFestival('actual');
 }
 async function nativeRoot(): Promise<unknown> {
   return new Promise((resolve, reject) => { const request = indexedDB.open(`${namespace}:save`);
@@ -165,6 +193,7 @@ function teardown() {
   document.removeEventListener('visibilitychange', visibility); audio.dispose(); controller.dispose(); IDBObjectStore.prototype.put = nativePut;
 }
 const api: CreativeFixtureApi = { namespace, snapshot: controller.getSnapshot, selected: () => selected, select, createProfile, completeQuest, openHelp, projection,
+  importExpanded, setNow(value) { now = Date.parse(value); }, visit, showFestival, festivalResult: () => festivalResult,
   send: controller.dispatch, events: () => events, celebrations: () => celebrationCount,
   hold() { holdNext = true; }, held: () => !!release, release() { release?.(); }, abort() { abortNext = true; }, nativeRoot,
   async settle() { await controller.flush(); },
@@ -177,6 +206,7 @@ const ids = Object.keys(controller.getSnapshot().save.profiles);
 selected = ids[0] ?? await createProfile('Robin');
 const second = ids[1] ?? await createProfile('Juniper');
 void second;
+if (params.get('seed') === 'expanded' && ids.length === 0) await importExpanded();
 function Panel() {
   useSyncExternalStore(listener => { listeners.add(listener); return () => { listeners.delete(listener); }; }, () => version);
   const snapshot = useSyncExternalStore(controller.subscribe, controller.getSnapshot);
@@ -194,15 +224,26 @@ function Panel() {
     </header>
     <CreativePlot key={`${selected}:${snapshot.token.epoch}:${selectionGeneration}`} saved={profile.creative}
       availableChoices={{ ...CREATIVE_CHOICES, flowerColours: q3 ? CREATIVE_CHOICES.flowerColours : [],
-        decorations: q3 ? CREATIVE_CHOICES.decorations.filter(o => o.milestone === 'M1') : [],
-        cosmetics: CREATIVE_CHOICES.cosmetics.filter(o => o.milestone === 'M1' && o.requiresAll.every(id => profile.world.completedQuestIds.includes(id))) }}
+        decorations: q3 ? CREATIVE_CHOICES.decorations.filter(o => milestone === 'M2' || o.milestone === 'M1') : [],
+        cosmetics: CREATIVE_CHOICES.cosmetics.filter(o => (milestone === 'M2' || o.milestone === 'M1') && o.requiresAll.every(id => profile.world.completedQuestIds.includes(id))) }}
       entitlements={profile.rewards.entitlementIds} pending={pending} saveStatus={saveStatus}
+      world={milestone === 'M2' ? profile.world : undefined}
       onSave={choice => { void save(choice); }} onCancel={() => { retainedSave = null; saveStatus = 'idle'; celebrating = false; publish(); }} />
     <CompanionView pose={celebrating ? 'celebration' : approved.role === 'answer-help' ? 'help' : 'idle'} visibleGuidance={approved.text}
+      appearance={milestone === 'M2' ? profile.creative : undefined}
+      persistenceAcknowledgement={milestone === 'M2' && Object.values(profile.encounters).some(e => e.lastCommittedCheck?.evaluation.correct
+        && (e.assistance.answerHintUsed || e.assistance.workedSupportUsed)) ? 'Your practice is saved. You can come back to it.' : undefined}
       nextActivityLabel="Choose my next activity" onChooseNext={() => { void openHelp(); }} onRequestHint={() => { void hint(); }} audioStatus={audioStatus}
       onRead={() => { const current = guidance(); audio.readText({ requestId: crypto.randomUUID(), text: current.text, role: current.role, language: 'en' }); }} onStopReading={audio.stopReading} />
     <p role="status" data-testid="help-status">{helpStatus}</p>
     <p data-testid="points">Lifetime points: {profile.rewards.lifetimePoints}</p>
+    {milestone === 'M2' && <section className="creative-fixture-festival">
+      <button className="creative-fixture-button" type="button" onClick={() => { void visit(); }}>Visit village</button>
+      <button className="creative-fixture-button" type="button" onClick={() => showFestival('actual')}>Replay Festival</button>
+      {festivalVisible && <FestivalView result={festivalResult} selectedProfileId={selected}
+        onSkip={() => { festivalVisible = false; events.push({ stage: 'festival-skip' }); publish(); }}
+        onOpenHall={() => { events.push({ stage: 'hall-requested' }); }} />}
+    </section>}
   </main>;
 }
 document.body.style.margin = '0'; document.body.style.background = '#e9eee1';

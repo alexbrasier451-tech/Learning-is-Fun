@@ -109,11 +109,12 @@ test('exact committed 20-point leaf entitlement changes appearance without spend
     const api = window.creativeFixture, projected = api.projection();
     if (projected?.status !== 'ready') throw new Error('Bounded bridge fixture required.');
     const a = projected.activity, rule = a.task.answerRule;
-    if (rule.kind !== 'bridge-total') throw new Error('Bounded bridge rule required.');
-    const target = rule.target;
+    const response = rule.kind === 'accepted-responses' ? rule.responses[0] : rule.kind === 'merchant-constraints'
+      ? { kind: 'merchant' as const, pears: rule.total / (rule.multiplier + 1), apples: rule.total * rule.multiplier / (rule.multiplier + 1) }
+      : { kind: 'bridge' as const, planks: [...Array(Math.floor(rule.target / 6)).fill(6), ...(rule.target % 6 ? [rule.target % 6] : [])] };
     const result = await api.send({ kind: 'SubmitCheck', profileId: api.selected(), actionId: 'creative-twenty-check', expected: api.snapshot().token,
       payload: { encounterId: a.encounterId, learningEpisodeOrdinal: a.learningEpisodeOrdinal, checkSequence: a.nextCheckSequence,
-        submissionId: 'creative-twenty-submission', response: { kind: 'bridge', planks: [...Array(Math.floor(target / 6)).fill(6), ...(target % 6 ? [target % 6] : [])] } } });
+        submissionId: 'creative-twenty-submission', response } });
     if (result.status !== 'committed') throw new Error(`Practice: ${result.status}`);
   });
   const before = await snapshot(page), id = await page.evaluate(() => window.creativeFixture.selected());
@@ -264,4 +265,192 @@ test('keyboard, tap-sized controls, reflow, reduced motion and illustrated visua
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await info.attach('narrow-reflow', { body: await page.screenshot({ fullPage: true, path: info.outputPath('narrow.png') }), contentType: 'image/png' });
   await evidence(page, info, 'keyboard-reflow');
+});
+
+async function bootM2(page: Page, seed = true, namespace = randomUUID()) {
+  await page.goto(`tests/fixtures/creative.html?speech=fake&milestone=M2&namespace=${namespace}${seed ? '&seed=expanded' : ''}`);
+  await expect(page.getByRole('heading', { name: 'Your little corner' })).toBeVisible();
+  return namespace;
+}
+const decorationCases = [
+  ['planter', 'Flower planter'], ['tree', 'Little tree'], ['bench', 'Curved bench'],
+  ['lantern', 'Warm lantern'], ['banner', 'Village banner'], ['pond', 'Small pond'],
+] as const;
+
+test('M2 each of six reusable decorations previews, moves, undoes, saves atomically and reloads', async ({ page }, info) => {
+  await bootM2(page);
+  const id = await page.evaluate(() => window.creativeFixture.selected()), initial = await snapshot(page);
+  expect(Object.keys(initial.save.profiles[id].creative.placements)).toHaveLength(6);
+  // Keep an empty destination so each Move is a real edit, not a same-type swap.
+  await page.getByRole('button', { name: 'Remove decoration from spot 4', exact: true }).click();
+  for (const [decoration, label] of decorationCases) {
+    const before = await snapshot(page);
+    const choose = page.getByRole('button', { name: label, exact: true });
+    if (info.project.use.hasTouch) await choose.tap(); else { await choose.focus(); await page.keyboard.press('Space'); }
+    for (const spot of [1, 6]) {
+      const target = page.getByRole('button', { name: `Place ${label} in spot ${spot}`, exact: true });
+      if (info.project.use.hasTouch) await target.tap(); else { await target.focus(); await page.keyboard.press('Enter'); }
+    }
+    expect(await snapshot(page)).toEqual(before);
+    await page.getByRole('button', { name: 'Move decoration from spot 1', exact: true }).click();
+    await page.getByRole('button', { name: `Move ${label} to spot 4`, exact: true }).click();
+    expect(await snapshot(page)).toEqual(before);
+    await page.getByRole('button', { name: 'Undo', exact: true }).click();
+    await page.getByRole('button', { name: 'Save arrangement', exact: true }).click();
+    await expect(page.getByText('Saved · ready whenever you return.', { exact: true })).toBeVisible();
+    const saved = await snapshot(page);
+    expect(saved.token.revision).toBe(before.token.revision + 1);
+    expect(saved.save.profiles[id].creative.placements['plot-1']).toBe(decoration);
+    expect(saved.save.profiles[id].creative.placements['plot-6']).toBe(decoration);
+    expect(saved.save.profiles[id].rewards).toEqual(before.save.profiles[id].rewards);
+    expect(saved.save.profiles[id].world).toEqual(before.save.profiles[id].world);
+    await page.reload(); await expect(page.getByRole('heading', { name: 'Your little corner' })).toBeVisible();
+    expect((await snapshot(page)).save.profiles[id].creative).toEqual(saved.save.profiles[id].creative);
+  }
+  // All six sockets receive a real placement, including inherited three IDs.
+  for (let spot = 1; spot <= 6; spot++) {
+    await page.getByRole('button', { name: 'Warm lantern', exact: true }).click();
+    await page.getByRole('button', { name: `Place Warm lantern in spot ${spot}`, exact: true }).click();
+  }
+  await page.getByRole('button', { name: 'Save arrangement', exact: true }).click();
+  await expect(page.getByText('Saved · ready whenever you return.', { exact: true })).toBeVisible();
+  const final = await snapshot(page);
+  expect(Object.values(final.save.profiles[id].creative.placements)).toEqual(Array(6).fill('lantern'));
+  expect(final.save.profiles[id].rewards).toEqual(initial.save.profiles[id].rewards);
+  await evidence(page, info, 'M2-six-types-six-sockets');
+});
+
+test('M2 committed discoveries and supplied 20/60/150/300 entitlements keep free choices and survive reload', async ({ page }, info) => {
+  await bootM2(page, false);
+  for (const name of ['Leaf scarf pattern', 'Decorated planter rim', 'Home facade trim', 'Star scarf pattern', 'Wave scarf pattern']) {
+    await expect(page.getByRole('button', { name, exact: true })).toBeDisabled();
+  }
+  for (const name of ['Teal', 'Amber', 'Plum']) await expect(page.getByRole('button', { name, exact: true })).toBeEnabled();
+  for (const name of ['Recovered spellbook', 'Forest story map', 'Forest tale', 'Workshop invention']) await expect(page.getByRole('img', { name, exact: true })).toHaveCount(0);
+  await page.evaluate(async () => { await window.creativeFixture.completeQuest('Q1'); await window.creativeFixture.completeQuest('Q2'); });
+  await expect(page.getByRole('img', { name: 'Recovered spellbook', exact: true })).toBeVisible();
+  await expect(page.getByRole('img', { name: 'Forest story map', exact: true })).toHaveCount(0);
+  await page.evaluate(() => window.creativeFixture.completeQuest('Q3'));
+  await expect(page.getByRole('button', { name: 'Decorated planter rim', exact: true })).toBeEnabled();
+  await expect(page.getByRole('button', { name: 'Home facade trim', exact: true })).toBeDisabled();
+  await page.evaluate(() => window.creativeFixture.completeQuest('Q4'));
+  await expect(page.getByRole('img', { name: 'Workshop invention', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Home facade trim', exact: true })).toBeEnabled();
+  await expect(page.getByRole('button', { name: 'Star scarf pattern', exact: true })).toBeDisabled();
+  await page.evaluate(async () => { await window.creativeFixture.completeQuest('Q5'); await window.creativeFixture.completeQuest('Q6'); });
+  await expect(page.getByRole('img', { name: 'Forest story map', exact: true })).toBeVisible();
+  await expect(page.getByRole('img', { name: 'Forest tale', exact: true })).toHaveCount(0);
+  await page.evaluate(() => window.creativeFixture.completeQuest('Q7'));
+  await expect(page.getByRole('img', { name: 'Forest tale', exact: true })).toBeVisible();
+  for (const name of ['Star scarf pattern', 'Wave scarf pattern']) await expect(page.getByRole('button', { name, exact: true })).toBeEnabled();
+  const before = await snapshot(page), id = await page.evaluate(() => window.creativeFixture.selected());
+  for (const name of ['Leaf scarf pattern', 'Star scarf pattern', 'Wave scarf pattern']) {
+    await page.getByRole('button', { name, exact: true }).click();
+    await page.getByRole('button', { name: 'Save arrangement', exact: true }).click();
+    await expect(page.getByText('Saved · ready whenever you return.', { exact: true })).toBeVisible();
+    await page.reload(); await expect(page.getByRole('button', { name, exact: true })).toHaveAttribute('aria-pressed', 'true');
+  }
+  await page.getByRole('button', { name: 'Home facade trim', exact: true }).click();
+  await page.getByRole('button', { name: 'Decorated planter rim', exact: true }).click();
+  await page.getByRole('button', { name: 'Save arrangement', exact: true }).click();
+  await expect(page.getByText('Saved · ready whenever you return.', { exact: true })).toBeVisible();
+  expect((await snapshot(page)).save.profiles[id].rewards).toEqual(before.save.profiles[id].rewards);
+  await page.reload();
+  for (const name of ['Recovered spellbook', 'Forest story map', 'Forest tale', 'Workshop invention']) await expect(page.getByRole('img', { name, exact: true })).toBeVisible();
+  await evidence(page, info, 'M2-earned-displays-entitlements');
+});
+
+test('M2 rejected mixed Save retains unsaved preview; profile switching isolates six-socket state', async ({ page }, info) => {
+  await bootM2(page);
+  const before = await snapshot(page);
+  await page.getByRole('button', { name: 'Amber', exact: true }).click();
+  await page.getByRole('button', { name: 'Star scarf pattern', exact: true }).click();
+  await page.getByRole('button', { name: 'Little tree', exact: true }).click();
+  await page.getByRole('button', { name: 'Place Little tree in spot 6', exact: true }).click();
+  await page.evaluate(() => window.creativeFixture.abort());
+  await page.getByRole('button', { name: 'Save arrangement', exact: true }).click();
+  await expect(page.getByText('Not saved. Your preview is safe. Try Save again.', { exact: true })).toBeVisible();
+  expect(await snapshot(page)).toEqual(before);
+  await page.getByRole('button', { name: 'Save arrangement', exact: true }).click();
+  await expect(page.getByText('Saved · ready whenever you return.', { exact: true })).toBeVisible();
+  const saved = await snapshot(page);
+  expect(saved.save.profiles.expanded.rewards).toEqual(before.save.profiles.expanded.rewards);
+  await page.getByRole('button', { name: 'Curved bench', exact: true }).click();
+  await page.getByRole('button', { name: 'Place Curved bench in spot 5', exact: true }).click();
+  await page.evaluate(() => window.creativeFixture.hold());
+  await page.getByRole('button', { name: 'Save arrangement', exact: true }).click();
+  await expect.poll(() => page.evaluate(() => window.creativeFixture.held())).toBe(true);
+  await page.getByRole('combobox', { name: 'Explorer' }).selectOption('absent');
+  await expect(page.getByRole('button', { name: 'Star scarf pattern', exact: true })).toBeDisabled();
+  await expect(page.getByRole('img', { name: 'Forest tale', exact: true })).toHaveCount(0);
+  await page.evaluate(() => window.creativeFixture.release());
+  await expect.poll(async () => (await snapshot(page)).save.profiles.expanded.creative.placements['plot-5']).toBe('bench');
+  expect((await snapshot(page)).save.profiles.absent).toEqual(before.save.profiles.absent);
+  expect(await page.evaluate(() => window.creativeFixture.celebrations())).toBe(1);
+  await page.getByRole('combobox', { name: 'Explorer' }).selectOption('expanded');
+  await page.reload(); await expect(page.getByRole('button', { name: 'Star scarf pattern', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await evidence(page, info, 'M2-rejected-save-profile');
+});
+
+test('M2 ordinary later visit closes supplied week; creative, books and Q10 persist through Festival skip and replay', async ({ page }, info) => {
+  await bootM2(page);
+  const before = await snapshot(page);
+  expect(before.save.profiles.expanded.world.completedQuestIds).toContain('Q10');
+  await page.evaluate(async () => { window.creativeFixture.setNow('2026-10-20T12:00:00Z'); await window.creativeFixture.visit(); });
+  await expect(page.getByRole('heading', { name: 'Village Festival', exact: true })).toBeVisible();
+  const closed = await snapshot(page), result = await page.evaluate(() => window.creativeFixture.festivalResult());
+  expect(result).toEqual(closed.save.competition.archives.at(-1));
+  expect(closed.save.competition.latestOpenedWeek).toBe('2026-10-19');
+  expect(result?.week).toBe('2026-10-05');
+  for (const id of Object.keys(before.save.profiles)) {
+    expect(closed.save.profiles[id].creative).toEqual(before.save.profiles[id].creative);
+    expect(closed.save.profiles[id].world).toEqual(before.save.profiles[id].world);
+    expect(closed.save.profiles[id].rewards).toEqual(before.save.profiles[id].rewards);
+  }
+  await page.getByRole('button', { name: 'Skip Festival', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Village Festival', exact: true })).toHaveCount(0);
+  await page.getByRole('button', { name: 'Replay Festival', exact: true }).click();
+  await page.getByRole('button', { name: 'Open Hall of Champions', exact: true }).click();
+  await page.keyboard.press('Escape');
+  expect(await snapshot(page)).toEqual(closed);
+  expect(await page.evaluate(() => window.creativeFixture.celebrations())).toBe(0);
+  await page.reload();
+  await expect(page.getByRole('img', { name: 'Forest tale', exact: true })).toBeVisible();
+  expect((await snapshot(page)).save.profiles.expanded.creative).toEqual(before.save.profiles.expanded.creative);
+  await page.evaluate(() => window.creativeFixture.visit());
+  expect(await snapshot(page)).toEqual(closed); // Same result, no persisted seen-week or award.
+  await evidence(page, info, 'M2-rollover-and-Festival');
+});
+
+test('M2 Festival supplied empty, tie and omission models are read-only, skippable and inspectable', async ({ page }, info) => {
+  await bootM2(page);
+  const before = await snapshot(page);
+  await page.evaluate(() => window.creativeFixture.showFestival('empty'));
+  await expect(page.getByRole('heading', { name: 'No closed weekly result yet' })).toBeVisible();
+  await page.getByRole('button', { name: 'Skip Festival', exact: true }).click();
+  await page.evaluate(() => window.creativeFixture.showFestival('ties'));
+  const festival = page.getByRole('region', { name: 'Village Festival', exact: true });
+  await expect(festival.getByText('Rank 1', { exact: false })).toHaveCount(2);
+  await expect(festival.getByText('Gold medal', { exact: true })).toHaveCount(2);
+  await expect(festival.getByText('Rank 3', { exact: true })).toBeVisible();
+  await info.attach('M2-festival-ties', { body: await festival.screenshot({ path: info.outputPath('festival-ties.png') }), contentType: 'image/png' });
+  await page.evaluate(() => window.creativeFixture.showFestival('omitted'));
+  await expect(festival.getByText('Rank 3', { exact: true })).toBeVisible();
+  await expect(festival.getByText('Deleted profiles are omitted. Original ranks and medals stay unchanged.', { exact: true })).toBeVisible();
+  await page.evaluate(() => window.creativeFixture.showFestival('deleted'));
+  await expect(festival.getByText(/^All entries in this closed result/)).toBeVisible();
+  await page.getByRole('button', { name: 'Skip Festival', exact: true }).click();
+  expect(await snapshot(page)).toEqual(before);
+  const fit = await page.locator('.creative-expanded .creative-planter').evaluateAll(artworks => artworks.map(artwork => {
+    const art = artwork.getBoundingClientRect(), socket = artwork.closest('.creative-socket')!.getBoundingClientRect();
+    return art.top >= socket.top && art.bottom <= socket.bottom;
+  }));
+  expect(fit).toEqual(Array(6).fill(true));
+  await info.attach('M2-creative-layout', { body: await page.locator('.creative-plot').screenshot({ path: info.outputPath('creative-M2.png') }), contentType: 'image/png' });
+  await page.setViewportSize({ width: 360, height: 780 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.evaluate(() => window.creativeFixture.showFestival('ties'));
+  await info.attach('M2-festival-narrow', { body: await festival.screenshot({ path: info.outputPath('festival-narrow.png') }), contentType: 'image/png' });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await evidence(page, info, 'M2-Festival-models-no-write');
 });

@@ -1,5 +1,7 @@
 import type { CommitResult, CommittedSnapshot, StateCommand } from '../../src/state/contracts';
 import type { ActivityProjectionResult } from '../../src/state/contracts';
+import type { QuestId } from '../../src/experience/types';
+import type { ClosedWeekResult } from '../../src/rewards/contracts';
 /** Erased pure boundary for Node-only specs; no executable TSX/media imports. */
 export type CreativeFixtureApi = Readonly<{
   namespace: string;
@@ -7,7 +9,12 @@ export type CreativeFixtureApi = Readonly<{
   selected(): string;
   select(profileId: string): void;
   createProfile(nickname: string): Promise<string>;
-  completeQuest(questId: 'Q1' | 'Q2' | 'Q3'): Promise<void>;
+  completeQuest(questId: QuestId): Promise<void>;
+  importExpanded(): Promise<void>;
+  setNow(iso: string): void;
+  visit(): Promise<void>;
+  showFestival(scenario: 'actual' | 'empty' | 'ties' | 'omitted' | 'deleted'): void;
+  festivalResult(): ClosedWeekResult | null;
   openHelp(): Promise<void>;
   projection(): ActivityProjectionResult | null;
   send(command: StateCommand): Promise<CommitResult>;

@@ -13,7 +13,9 @@ $creativeRoot = Join-Path ([System.IO.Path]::GetTempPath()) ('learning-is-fun-cr
 $creativeStart.Environment['CREATIVE_VERIFY_ROOT'] = $creativeRoot
 $creativeStart.Environment['NODE_DISABLE_COMPILE_CACHE'] = '1'
 Write-Output ('Verification root: ' + $creativeRoot)
-foreach ($creativeArgument in @('node_modules/@playwright/test/cli.js', 'test', '--config', 'tests/fixtures/creative.config.ts')) { $creativeStart.ArgumentList.Add($creativeArgument) }
+$creativeCli = & $creativeStart.FileName -e 'process.stdout.write(require.resolve("@playwright/test/cli", { paths: [process.argv[1]] }))' $creativeStart.WorkingDirectory
+if ($LASTEXITCODE -ne 0) { throw 'Installed Playwright CLI resolution failed.' }
+foreach ($creativeArgument in @($creativeCli, 'test', '--config', 'tests/fixtures/creative.config.ts')) { $creativeStart.ArgumentList.Add($creativeArgument) }
 if ($Filter) { $creativeStart.ArgumentList.Add('--grep'); $creativeStart.ArgumentList.Add($Filter) }
 if ($Project) { $creativeStart.ArgumentList.Add('--project'); $creativeStart.ArgumentList.Add($Project) }
 $creativeProcess = [System.Diagnostics.Process]::Start($creativeStart)
