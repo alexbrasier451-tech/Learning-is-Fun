@@ -1,0 +1,60 @@
+name: Published M2 Linux WebKit observation
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  observe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      CI: 'true'
+      NODE_DISABLE_COMPILE_CACHE: '1'
+      PUBLISHED_WEBKIT_VERIFY_ROOT: ${{ runner.temp }}/published-webkit
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 11.25.0
+          run_install: false
+          cache: false
+      - name: Prepare private evidence and frozen deployed identity
+        run: node tests/fixtures/published-webkit-evidence.ts prepare
+      - name: Install frozen dependencies and check source
+        run: |
+          test "$(pnpm --version)" = '11.25.0'
+          pnpm install --frozen-lockfile
+          pnpm typecheck
+          pnpm exec tsc --ignoreConfig --noEmit --strict --skipLibCheck --target ES2023 --module ESNext --moduleResolution Bundler --types node tests/fixtures/published-webkit.config.ts tests/fixtures/published-webkit-evidence.ts
+      - name: Discover exactly the authored observation
+        run: |
+          pnpm exec playwright test --config tests/fixtures/published-webkit.config.ts --project T2-WebKit-touch --list --reporter=json > "$PUBLISHED_WEBKIT_VERIFY_ROOT/discovery.json"
+          node tests/fixtures/published-webkit-evidence.ts discovery
+      - name: Install matched native WebKit and retain runtime facts
+        run: |
+          pnpm exec playwright --version | tee "$PUBLISHED_WEBKIT_VERIFY_ROOT/playwright-version.txt"
+          test "$(pnpm exec playwright --version)" = 'Version 1.64.0'
+          pnpm exec playwright install --with-deps webkit
+          node tests/fixtures/published-webkit-evidence.ts runtime
+      - name: Observe published M2 with native WebKit touch
+        run: |
+          pnpm exec playwright test --config tests/fixtures/published-webkit.config.ts --project T2-WebKit-touch 2>&1 | tee "$PUBLISHED_WEBKIT_VERIFY_ROOT/runner.log"
+      - name: Require one actual pass with no retries or skipped results
+        if: ${{ always() && !cancelled() }}
+        run: node tests/fixtures/published-webkit-evidence.ts result
+      - name: Retain identity, engine, requests, traces and screenshots
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: published-m2-linux-webkit-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ env.PUBLISHED_WEBKIT_VERIFY_ROOT }}
+          if-no-files-found: warn
+          retention-days: 7
