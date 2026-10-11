@@ -1,0 +1,21 @@
+# M1 Pages execution record
+
+11 October 2026. Controller owns Git, administrative Pages operations and ordered deployment. WP01-04A prepared source independently passed before publication.
+
+Reviewed commit: `b158e2b3de86d119c1650996977201264563abde`, pushed to main and verified through the GitHub commit API. This includes the independently accepted visible Help build identifier.
+
+Controller enabled the authorized public repository's Pages service with `build_type: workflow`. GitHub reports the expected `https://alexbrasier451-tech.github.io/Learning-is-Fun/`, no custom domain, and a `github-pages` environment whose only deployment branch policy allows main. Existing authorization was reused; no protection was removed.
+
+Candidate A [run38115668746](https://github.com/alexbrasier451-tech/Learning-is-Fun/actions/runs/38115668746) succeeded on the exact reviewed commit. Build job114399958420 and deploy job114400053011 succeeded. The actual deploy output is `https://alexbrasier451-tech.github.io/Learning-is-Fun/`; build identity is `b158e2b3de86d119c1650996977201264563abde-pages-38115668746-1`.
+
+Both artifacts and job logs are retained under `C:/Users/alexb/AppData/Local/Temp/learning-is-fun-pages-A-38115668746`: evidence artifact11692844433 (9,943,253bytes), official Pages artifact11693258143 (10,027,342bytes). Extracted `evidence` has matching build/inventory/files/Vite mapping and dist archive; `pages` retains the actual upload archive. The publication owner now has these actual values and is authorized to verify A and retain two live in-progress A clients. B will be dispatched only after that checkpoint. Deployment success alone is not published-origin acceptance.
+
+The final owner handoff supplies the actual PublishedCandidate and frozen B record. Independent review of all required publication criteria passes with no actionable findings. Controller accepts WP01-04A and releases DEP-074/076 for the separate CON-004 journey/boundary contexts on this fixed B. M1 game and acoustic acceptance remain with their respective owners.
+
+The publication owner verified A's live project-path entry/reload/Resume, every49 published file hash, visible build and complete active worker. Its retained `A-PUBLICATION-CHECKPOINT.json` identifies Chrome155.0.8059.40 context8200ea25-2ca5-4a8f-beb3-a9b49f10955e, two controlled A clients (saved unsolved River library activity plus overview), Q1/40points and saved mutes/Silence all. The B-only asset abort is armed and the file-handshake browser session remains live. Three private setup attempts are retained; none changed product source or deployment. Simultaneous editors are not an added acceptance requirement.
+
+After reading that checkpoint and verifying remote main still matches A's reviewed commit, Controller dispatched B: [run38116364473](https://github.com/alexbrasier451-tech/Learning-is-Fun/actions/runs/38116364473). Build114401930157 and deploy114402008011 succeeded, with the same actual project URL. B identity is `b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1`.
+
+Retained B evidence is under `C:/Users/alexb/AppData/Local/Temp/learning-is-fun-pages-B-38116364473`: evidence artifact11693189345 (9,945,886bytes) and official Pages artifact11693104423 (10,029,996bytes), both archives extracted alongside build/deploy logs. Controller supplied these actual records to the owner for its original-context continuation and to the reviewer for read-only artifact inspection.
+
+The owner completed the actual published sequence and final B entry/reload/Resume check, wrote the seven-field `docs/release/M1/CANDIDATE.json`, and froze B at06:01:58UTC /07:01:58BST. Its final handoff records genuine B-only worker asset failure, preserved A, recovered waiting B, close-one waiting, all-close native activation, exact save/score/preferences/sentinel preservation, muted disconnected B resume, and matching fresh/pre-existing B identities. Each A/B entry check verified49 origin file hashes. See WP01-04A-HANDOFF.md for exact private receipts and retained attempts. Both A/B archives and the full live-observation evidence independently pass in WP01-04A-VALIDATION.md. No additional deployment is authorized during this freeze. Controller separately requested human published listening observations; no acoustic acceptance is implied by these records.
