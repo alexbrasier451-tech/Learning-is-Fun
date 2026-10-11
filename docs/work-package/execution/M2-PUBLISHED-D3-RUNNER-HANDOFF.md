@@ -1,0 +1,50 @@
+# M2 published D3 runner adaptation
+
+The private runner adds an explicit published-m2 selection while retaining published as M1. It validates the future real M2 ledger, collects exactly the prepared one-case smoke, and preserves separate CI-source and deployed-application identities through setup, discovery and results. Focused private fixture, type and gate checks pass. No M2 publication, browser execution, actual smoke pass or CI dispatch is claimed.
+
+## Source, inputs and delivery boundary
+
+- Accepted archive: `b16ef1f6e7d6c943392b3d4e8ef25e48c5793c36`. Private candidate: `C:/Users/alexb/.codex/visualizations/2026/10/08/01a11d98-5787-7d20-8603-8829b864b348/m2-published-d3-b16ef1f-076eadf5/candidate`. Current main source was never edited or staged.
+- Immutable preparation handoff: `C:/Users/alexb/.codex/visualizations/2026/10/11/01a1299f-6c28-7920-925e-032b62409221/WP06-05A-preparation/WP06-05A-PREPARATION.md`, 9687 bytes, SHA-256 `27ce7113b166dd72a970ef222a35c9ebed465d99090fb883d6e4d06abf1f9c87`.
+- Preparation manifest SHA-256: `ee241d1b2ec9de962d124147761f5038b221a91d100028618cce554e6477715e`.
+- Producer expansion.spec.ts: **13,625 bytes**, SHA-256 `c7ec8c35401da00b076d9b9adbd5261fde5ac450dae32cd6c1b4d7bd720ac086`. It was copied byte-exact only into a separate probe, remains excluded from this delivery, and was rechecked against the original source after verification. No producer repair was needed.
+- Owned delivery paths: .github/workflows/d3-firefox-smoke.yml, tests/fixtures/d3-firefox.config.ts, and this handoff. No real or fabricated M2 candidate metadata is present in the delivered source. Synthetic metadata lives only in private verification inputs/reports.
+- Whole archive/dependency audits were not performed. Verification used targeted source/metadata/spec hashes and direct bundled Node tools with private temporary, build-info and Playwright cache/output paths.
+
+## Behavior
+
+Workflow dispatch adds published-m2 with exactly one case in all three selection maps. Adventure remains eleven, shell six; all prior component/offline/M1 counts retain their values. Setup chooses M1 or M2 only from the explicit selected branch, reads docs/release/<release>/CANDIDATE.json, requires the same seven nonempty fields, canonical HTTPS project URL/base and matching lower-case40hex commit / Pages run / build identity, plus a valid CI source SHA. It exports the real published mode/base from the validated record and allocates a separate PUBLISHED_M2_VERIFY_ROOT below the private published-m2 evidence directory.
+
+The adapter parser defaults to M1 for the unchanged published fixture and takes explicit M2 only for published-m2. M2 selects expansion.spec.ts and this exact title:
+
+`M2 published bounded entry, starter gates, workshop matching draft, adult, Hall and project reload smoke`
+
+The grep anchors the full D3 project/file/title string because Playwright prepends project and file to grep input; unexpected title prefixes and suffixes are excluded. One D3-Firefox project at1280×720, workers1, repeatEach1, retries0, forbidOnly, trace/screenshots, a120second case and300second global bound apply. There is no fixture webServer or global teardown for the M2 published branch. The producer's Europe/London timezone and checkpoint code remain immutable.
+
+M2 adapter metadata follows the producer's GITHUB_SHA then explicit PLAYTEST_CI_SOURCE_COMMIT fallback, and requires40hex under CI. It preserves ciSourceCommit separately from deployedCandidate and raw metadataSha256. CI source is never required to equal the deployed application commit. Preparation b16ef1f is not inferred to be published. The retained inventory path is metadata; the runner never opens its publisher's local file location.
+
+Discovery and result validators explicitly apply the existing published identity comparison to both published and published-m2. They retain exact count/project/no-report-error rules and result expected-passed/single-passed-attempt/zero unexpected, flaky and skipped rules. Missing M2 metadata fails closed; there is no M1 fallback. The M1 fixture block and non-published fixture blocks remain byte-identical after newline normalization, and the final shared strict runner definition remains identical. Twelve unrelated workflow steps, permissions, job environment, Firefox/native-output setup, logs, cleanup and artifact retention are unchanged.
+
+## Focused verification
+
+- Six extracted inline Node scripts pass syntax checks.
+- Strict unchanged node-project typechecks pass for the delivered adapter and separately for the probe containing the immutable producer spec; only tsBuildInfoFile is redirected into private type-info. Logs: [evidence/delivery-typecheck.log](C:/Users/alexb/.codex/visualizations/2026/10/08/01a11d98-5787-7d20-8603-8829b864b348/m2-published-d3-b16ef1f-076eadf5/evidence/delivery-typecheck.log), [evidence/probe-typecheck.log](C:/Users/alexb/.codex/visualizations/2026/10/08/01a11d98-5787-7d20-8603-8829b864b348/m2-published-d3-b16ef1f-076eadf5/evidence/probe-typecheck.log).
+- **24** metadata/adapter/selection checks pass: valid M2 fixture, separate modeled source/deployed SHAs; missing/malformed/wrong-release/schema/URL/base/build/commit/run metadata rejected by both setup and adapter; invalid/missing CI, mode, runtime URL and output root rejected; local explicit CI-source fallback retained. Error messages do not echo modeled invalid values.
+- The actual D3 config collects exactly the producer smoke with private **modeled M2 metadata**; actual Prepare and discovery validator agree on metadata hash and independent source/deployment identities. This is list-only compatibility, not published M2 execution. [evidence/valid-m2-discovery.json](C:/Users/alexb/.codex/visualizations/2026/10/08/01a11d98-5787-7d20-8603-8829b864b348/m2-published-d3-b16ef1f-076eadf5/evidence/valid-m2-discovery.json), [evidence/valid-m2-receipt.json](C:/Users/alexb/.codex/visualizations/2026/10/08/01a11d98-5787-7d20-8603-8829b864b348/m2-published-d3-b16ef1f-076eadf5/evidence/valid-m2-receipt.json).
+- Existing M1 ledger still selects its original one-case starter smoke at90seconds with M2 absent; invalid M2 metadata does not affect M1. Other selection setup contracts remain unchanged.
+- **30** executable strict gate checks pass: valid modeled discovery/results; zero/extra cases, wrong project/report error, wrong or missing source/deployed/hash metadata, expected-count mismatch, unexpected/flaky/skipped statistics, expected failure, absent/extra attempts and failed/skipped attempts are rejected. The list-only report fails the runtime-result gate. Existing M1 identity/result gates also accept their correct modeled records. [evidence/focused-checks.json](C:/Users/alexb/.codex/visualizations/2026/10/08/01a11d98-5787-7d20-8603-8829b864b348/m2-published-d3-b16ef1f-076eadf5/evidence/focused-checks.json).
+- **2** exact-title negative checks pass. Prefix/suffix mutations occurred only in the private probe; both select zero cases and fail collection. Original probe spec was restored byte-exact; original producer source never changed. [evidence/exact-title-checks.json](C:/Users/alexb/.codex/visualizations/2026/10/08/01a11d98-5787-7d20-8603-8829b864b348/m2-published-d3-b16ef1f-076eadf5/evidence/exact-title-checks.json).
+- Seven targeted main source/config/metadata/package records and both immutable producer inputs match their captured hashes. Main-after and input records: [evidence/main-after.json](C:/Users/alexb/.codex/visualizations/2026/10/08/01a11d98-5787-7d20-8603-8829b864b348/m2-published-d3-b16ef1f-076eadf5/evidence/main-after.json), [evidence/inputs.json](C:/Users/alexb/.codex/visualizations/2026/10/08/01a11d98-5787-7d20-8603-8829b864b348/m2-published-d3-b16ef1f-076eadf5/evidence/inputs.json). No shared cache, shim, package or lock writer was invoked. No whole dependency/cache audit or unrelated browser journey was run.
+
+Direct command for compatibility collection: Node node_modules/@playwright/test/cli.js test --config tests/fixtures/d3-firefox.config.ts --project D3-Firefox --list --reporter=json, from private probe cwd with prepared private output roots. No engine was installed or launched. All synthetic metadata/results are explicitly verification fixtures. A gate's console wording “actual D3 passes” for a modeled record is not browser evidence.
+
+## Exact owned bytes and review boundary
+
+[evidence/m2-published-d3-runner.patch](C:/Users/alexb/.codex/visualizations/2026/10/08/01a11d98-5787-7d20-8603-8829b864b348/m2-published-d3-b16ef1f-076eadf5/evidence/m2-published-d3-runner.patch): 12627 bytes, SHA-256 `7b5c0a59336f6da9dc6c85321b117179bb7d1689118f6271eb29dfd77cd57308`. Exact source contract: [evidence/owned-patch-contract.json](C:/Users/alexb/.codex/visualizations/2026/10/08/01a11d98-5787-7d20-8603-8829b864b348/m2-published-d3-b16ef1f-076eadf5/evidence/owned-patch-contract.json).
+
+| Path | Main preimage bytes / SHA-256 | Planned main final bytes / SHA-256 | Private final bytes / SHA-256 |
+|---|---|---|---|
+| .github/workflows/d3-firefox-smoke.yml | 26210 / `593bce3a48eedb4528d4c65efef0b40cea73d020df323bcab3ec97ada1a24c4e` | 26688 / `c60d30651efbd4d7799b2171dee422cd77c42683388d2f06a76020f6284e6d09` | 27097 / `38c0876be5a53d02308570d04f836305658bb9ca6779db714e8b9a1f8af96069` |
+| tests/fixtures/d3-firefox.config.ts | 6370 / `4649572227e4712155077d72e3a0376928962c501d39a3783fb701c2afe48400` | 7844 / `f152cd25d9d812d6a63085da67e8f43c287dd95a320a6036dc00294d9e72fd5e` | 7985 / `e507854286d79ffd6ead1d9f6d98b1a17f45747ad0f175c86e463e5df96803e9` |
+
+The handoff is new; its final bytes/hash are recorded externally. The targeted manifest pins only owned deliverables, immutable verification-input identities, tools and focused evidence. It does not audit or attest the entire archive/dependency store. The source spec and any real future M2 candidate must be separately reviewed/integrated by Controller and their original owners. Original foundation review, actual future M2 publication and CI/live smoke execution remain pending. Worker stops at this handoff.

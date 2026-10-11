@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       selection:
-        description: Run components, adventure, shell, offline, or bounded published smoke
+        description: Run components, adventure, shell, offline, or bounded M1/M2 published smoke
         type: choice
         required: true
         default: components
@@ -14,6 +14,7 @@ on:
           - shell
           - offline
           - published
+          - published-m2
 
 permissions:
   contents: read
@@ -50,26 +51,27 @@ jobs:
           if (!process.env.RUNNER_TEMP || !process.env.GITHUB_ENV) {
             throw new Error('Runner temporary directory and environment file are required.');
           }
-          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 11 }, shell: { shell: 6 }, offline: { offline: 4 }, published: { published: 1 } };
+          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 11 }, shell: { shell: 6 }, offline: { offline: 4 }, published: { published: 1 }, 'published-m2': { 'published-m2': 1 } };
           const selection = process.env.D3_SELECTION;
-          if (!selection || !Object.hasOwn(selections, selection)) throw new Error('D3_SELECTION must be components, adventure, shell, offline or published.');
+          if (!selection || !Object.hasOwn(selections, selection)) throw new Error('D3_SELECTION must be components, adventure, shell, offline, published or published-m2.');
           const expected = selections[selection];
           let deployedCandidate;
-          if (selection === 'published') {
+          if (selection === 'published' || selection === 'published-m2') {
+            const candidateRelease = selection === 'published' ? 'M1' : 'M2';
             let bytes, value;
-            try { bytes = readFileSync('docs/release/M1/CANDIDATE.json'); value = JSON.parse(bytes.toString('utf8')); }
-            catch { throw new Error('Cannot read valid M1 candidate metadata.'); }
+            try { bytes = readFileSync(`docs/release/${candidateRelease}/CANDIDATE.json`); value = JSON.parse(bytes.toString('utf8')); }
+            catch { throw new Error(`Cannot read valid ${candidateRelease} candidate metadata.`); }
             const fields = ['release', 'url', 'basePath', 'buildId', 'commit', 'deploymentRun', 'requiredInventoryLocation'];
             if (!value || Array.isArray(value) || Object.keys(value).length !== fields.length ||
                 fields.some(key => typeof value[key] !== 'string' || !value[key])) {
-              throw new Error('M1 candidate requires its seven nonempty metadata fields.');
+              throw new Error(`${candidateRelease} candidate requires its seven nonempty metadata fields.`);
             }
             const identity = /^([a-f0-9]{40})-pages-([0-9]+)-([0-9]+)$/.exec(value.buildId);
-            if (value.release !== 'M1' || value.url !== 'https://alexbrasier451-tech.github.io/Learning-is-Fun/' ||
+            if (value.release !== candidateRelease || value.url !== 'https://alexbrasier451-tech.github.io/Learning-is-Fun/' ||
                 value.basePath !== '/Learning-is-Fun/' || !identity || value.commit !== identity[1] ||
                 value.deploymentRun !== `https://github.com/alexbrasier451-tech/Learning-is-Fun/actions/runs/${identity[2]}` ||
                 !/^[a-f0-9]{40}$/.test(process.env.GITHUB_SHA ?? '')) {
-              throw new Error('M1 candidate must identify the HTTPS project deployment and matching build/commit/run; CI source commit is required.');
+              throw new Error(`${candidateRelease} candidate must identify the HTTPS project deployment and matching build/commit/run; CI source commit is required.`);
             }
             deployedCandidate = { release: value.release, url: value.url, basePath: value.basePath,
               buildId: value.buildId, commit: value.commit, deploymentRun: value.deploymentRun,
@@ -88,6 +90,7 @@ jobs:
             SHELL_VERIFY_ROOT: join(root, 'shell'),
             OFFLINE_OUTPUT: join(root, 'offline'),
             PUBLISHED_VERIFY_ROOT: join(root, 'published'),
+            PUBLISHED_M2_VERIFY_ROOT: join(root, 'published-m2'),
           };
           for (const [key, value] of Object.entries(roots)) {
             mkdirSync(value, { recursive: true });
@@ -112,7 +115,7 @@ jobs:
           node --input-type=module <<'NODE'
           import { readFileSync } from 'node:fs';
           import { join } from 'node:path';
-          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 11 }, shell: { shell: 6 }, offline: { offline: 4 }, published: { published: 1 } };
+          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 11 }, shell: { shell: 6 }, offline: { offline: 4 }, published: { published: 1 }, 'published-m2': { 'published-m2': 1 } };
           if (!Object.hasOwn(selections, process.env.D3_SELECTION ?? '')) throw new Error('Unknown D3 selection.');
           const expected = selections[process.env.D3_SELECTION];
           const tests = suites => suites.flatMap(suite => [
@@ -121,7 +124,7 @@ jobs:
           ]);
           for (const [fixture, count] of Object.entries(expected)) {
             const report = JSON.parse(readFileSync(join(process.env.D3_EVIDENCE_ROOT, fixture, 'discovery.json'), 'utf8'));
-            if (fixture === 'published') {
+            if (fixture === 'published' || fixture === 'published-m2') {
               const run = JSON.parse(readFileSync(join(process.env.D3_EVIDENCE_ROOT, 'run.json'), 'utf8'));
               const identity = report.config?.metadata;
               if (identity?.ciSourceCommit !== run.commit || !run.deployedCandidate ||
@@ -324,7 +327,7 @@ jobs:
           node --input-type=module <<'NODE'
           import { readFileSync } from 'node:fs';
           import { join } from 'node:path';
-          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 11 }, shell: { shell: 6 }, offline: { offline: 4 }, published: { published: 1 } };
+          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 11 }, shell: { shell: 6 }, offline: { offline: 4 }, published: { published: 1 }, 'published-m2': { 'published-m2': 1 } };
           if (!Object.hasOwn(selections, process.env.D3_SELECTION ?? '')) throw new Error('Unknown D3 selection.');
           const expected = selections[process.env.D3_SELECTION];
           const tests = suites => suites.flatMap(suite => [
@@ -333,7 +336,7 @@ jobs:
           ]);
           for (const [fixture, count] of Object.entries(expected)) {
             const report = JSON.parse(readFileSync(join(process.env.D3_EVIDENCE_ROOT, fixture, 'results.json'), 'utf8'));
-            if (fixture === 'published') {
+            if (fixture === 'published' || fixture === 'published-m2') {
               const run = JSON.parse(readFileSync(join(process.env.D3_EVIDENCE_ROOT, 'run.json'), 'utf8'));
               const identity = report.config?.metadata;
               if (identity?.ciSourceCommit !== run.commit || !run.deployedCandidate ||

@@ -8,24 +8,24 @@ import audio from './audio.config';
 import creative from './creative.config';
 import { offlineConfig } from './offline-runner';
 
-function publishedCandidate() {
+function publishedCandidate(release: 'M1' | 'M2' = 'M1') {
   let bytes: Buffer;
   let value: Record<string, unknown>;
   try {
-    bytes = readFileSync(new URL('../../docs/release/M1/CANDIDATE.json', import.meta.url));
+    bytes = readFileSync(new URL(`../../docs/release/${release}/CANDIDATE.json`, import.meta.url));
     value = JSON.parse(bytes.toString('utf8')) as Record<string, unknown>;
-  } catch { throw new Error('Cannot read valid M1 candidate metadata.'); }
+  } catch { throw new Error(`Cannot read valid ${release} candidate metadata.`); }
   const fields = ['release', 'url', 'basePath', 'buildId', 'commit', 'deploymentRun', 'requiredInventoryLocation'];
   if (!value || Array.isArray(value) || Object.keys(value).length !== fields.length ||
       fields.some(key => typeof value[key] !== 'string' || !value[key])) {
-    throw new Error('M1 candidate requires its seven nonempty metadata fields.');
+    throw new Error(`${release} candidate requires its seven nonempty metadata fields.`);
   }
   const candidate = value as Record<string, string>;
   const identity = /^([a-f0-9]{40})-pages-([0-9]+)-([0-9]+)$/.exec(candidate.buildId);
-  if (candidate.release !== 'M1' || candidate.url !== 'https://alexbrasier451-tech.github.io/Learning-is-Fun/' ||
+  if (candidate.release !== release || candidate.url !== 'https://alexbrasier451-tech.github.io/Learning-is-Fun/' ||
       candidate.basePath !== '/Learning-is-Fun/' || !identity || candidate.commit !== identity[1] ||
       candidate.deploymentRun !== `https://github.com/alexbrasier451-tech/Learning-is-Fun/actions/runs/${identity[2]}`) {
-    throw new Error('M1 candidate must identify the HTTPS project deployment and matching build/commit/run.');
+    throw new Error(`${release} candidate must identify the HTTPS project deployment and matching build/commit/run.`);
   }
   return { release: candidate.release, url: candidate.url, basePath: candidate.basePath,
     buildId: candidate.buildId, commit: candidate.commit, deploymentRun: candidate.deploymentRun,
@@ -76,10 +76,26 @@ if (process.env.D3_FIXTURE === 'published') {
     metadata: { ciSourceCommit: process.env.GITHUB_SHA ?? null, deployedCandidate: candidate },
   });
 }
-const fixtures = { adult, hall, audio, creative, adventure, shell, offline, published };
+const publishedM2Root = process.env.PUBLISHED_M2_VERIFY_ROOT;
+let publishedM2;
+if (process.env.D3_FIXTURE === 'published-m2') {
+  if (process.env.PLAYTEST_MODE !== 'published') throw new Error('D3 published-m2 requires PLAYTEST_MODE=published.');
+  const candidate = publishedCandidate('M2');
+  if (process.env.PLAYTEST_BASE_URL !== candidate.url) throw new Error('D3 published-m2 requires PLAYTEST_BASE_URL to match validated M2 candidate metadata.');
+  const ciSourceCommit = process.env.GITHUB_SHA ?? process.env.PLAYTEST_CI_SOURCE_COMMIT ?? null;
+  if (process.env.CI && !/^[a-f0-9]{40}$/.test(ciSourceCommit ?? '')) throw new Error('D3 published-m2 requires a valid CI source commit under CI.');
+  if (publishedM2Root) publishedM2 = defineConfig({
+    testDir: '../playtest', testMatch: 'expansion.spec.ts', timeout: 120_000,
+    outputDir: `${publishedM2Root}/playwright`,
+    reporter: [['list'], ['json', { outputFile: `${publishedM2Root}/results.json` }]],
+    use: { baseURL: candidate.url },
+    metadata: { ciSourceCommit, deployedCandidate: candidate },
+  });
+}
+const fixtures = { adult, hall, audio, creative, adventure, shell, offline, published, 'published-m2': publishedM2 };
 const selection = process.env.D3_FIXTURE;
 if (!selection || !Object.hasOwn(fixtures, selection)) {
-  throw new Error('Set D3_FIXTURE to adult, hall, audio, creative, adventure, shell, offline or published.');
+  throw new Error('Set D3_FIXTURE to adult, hall, audio, creative, adventure, shell, offline, published or published-m2.');
 }
 const fixture = selection as keyof typeof fixtures;
 if (fixture === 'adult' && process.env.ADULT_REAL_RELEASE !== 'yes') {
@@ -94,10 +110,12 @@ const grep = {
   shell: /.*/,
   offline: /.*/,
   published: /M1 published bounded entry, profile resume, bridge, adult, Hall and project reload smoke$/,
+  // Playwright grep includes the project and file before the test title.
+  'published-m2': /^\s*D3-Firefox expansion\.spec\.ts M2 published bounded entry, starter gates, workshop matching draft, adult, Hall and project reload smoke$/,
 }[fixture];
 const base = fixtures[fixture];
 if (!base) {
-  const variable = fixture === 'offline' ? 'OFFLINE_OUTPUT' : `${fixture.toUpperCase()}_VERIFY_ROOT`;
+  const variable = fixture === 'offline' ? 'OFFLINE_OUTPUT' : fixture === 'published-m2' ? 'PUBLISHED_M2_VERIFY_ROOT' : `${fixture.toUpperCase()}_VERIFY_ROOT`;
   throw new Error(`D3 ${fixture} requires ${variable} to be a private temporary directory.`);
 }
 
