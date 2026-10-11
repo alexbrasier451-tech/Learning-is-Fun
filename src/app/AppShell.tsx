@@ -157,7 +157,7 @@ export function AppShell({ runtime }: { runtime: AppRuntime }) {
   return <div className="app-shell" ref={shell}>
     <a className="shell-skip" href="#story">Skip to your story</a>
     <header className="shell-header"><a className="shell-brand" href="#story"><img src={assetUrl('assets/art/m1/characters/pip-idle.svg')} alt="" /><span>Learning is Fun<small>A little learning. A lasting adventure.</small></span></a></header>
-    <div className="shell-soundbar"><AudioControls controller={runtime.audio} /></div>
+    <div className="shell-soundbar"><AudioControls controller={runtime.audio} retrySavingPreferences={state.preferences.retry} /></div>
     <div className="shell-navigation"><nav aria-label="Your story">
       <button disabled={pending} aria-current={view.kind === 'profiles' ? 'page' : undefined} onClick={() => navigate({ kind: 'profiles' })}>Explorers</button>
       <button disabled={pending || !validSelection} aria-current={view.kind === 'world' || view.kind === 'activity' ? 'page' : undefined} onClick={returnToAdventure}>Adventure</button>

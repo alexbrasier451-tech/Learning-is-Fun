@@ -1,4 +1,4 @@
-import { useState, useSyncExternalStore } from 'react';
+import { useState } from 'react';
 import { mountPanel } from './host';
 import { AudioControls } from '../../src/audio/AudioControls';
 import { createAudioController } from '../../src/audio/controller';
@@ -220,11 +220,9 @@ declare global { interface Window { audioFixture: AudioFixtureApi } }
 window.audioFixture = api;
 function Panel() {
   const [scene, setScene] = useState('Village Green'), [overlay, setOverlay] = useState(false);
-  const preferenceStatus = useSyncExternalStore(preferences.subscribe, preferences.getStatus);
   return <main style={{ maxWidth: 1040, margin: '0 auto', padding: 20, font: '18px/1.5 system-ui', color: '#263d38' }}>
     <p>LOCAL FIXTURE · {params.get('speech') === 'fake' ? 'Simulated speech' : 'Device speech'} · {realBinding ? 'Real facade + IndexedDB' : 'Preference test writer'}</p>
-    <AudioControls controller={audio} />
-    {preferenceStatus.failed && <button onClick={preferences.retry}>Retry saving sound choices</button>}
+    <AudioControls controller={audio} retrySavingPreferences={preferences.retry} />
     <section style={{ marginTop: 28, borderRadius: 24, padding: 24, background: '#e5eee3' }}>
       <h1>{scene}</h1><p>Choose a plank to help restore the bridge.</p>
       <div className="audio-toolbar"><button onClick={() => audio.playEffect('pickup')}>Pick up a plank</button>

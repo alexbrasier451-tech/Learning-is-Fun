@@ -9,7 +9,11 @@ export function StopReading({ controller }: { controller: AudioController }) {
 
 /** Mount once in the persistent shell, outside activity overlays. The parent
  * owns placement; no focus trap or modal hides the immediate stop actions. */
-export function AudioControls({ controller }: { controller: AudioController }) {
+export function AudioControls({ controller, retrySavingPreferences }: {
+  controller: AudioController;
+  /** Retry the existing preference queue; never enables or resumes playback. */
+  retrySavingPreferences?: () => void;
+}) {
   const status = useSyncExternalStore(controller.subscribe, controller.getSnapshot, controller.getSnapshot);
   const [open, setOpen] = useState(false);
   const id = useId();
@@ -65,6 +69,8 @@ export function AudioControls({ controller }: { controller: AudioController }) {
       <p className={`audio-saving${failed ? ' audio-warning' : ''}`} role="status">{failed
         ? 'Your choices apply now, but saving is uncertain. They may not be remembered after you leave.'
         : pending ? 'Saving sound choices…' : status.persistence && status.loadStatus === 'loaded' ? 'Sound choices saved on this device.' : 'Sound choices have not loaded yet.'}</p>
+      {status.loadStatus === 'loaded' && status.persistence?.failed && pending && retrySavingPreferences
+        && <button type="button" onClick={retrySavingPreferences}>Retry saving sound choices</button>}
       {status.mediaError && <p role="status" className="audio-warning">Some sounds could not load. You can keep playing.</p>}
       <button type="button" onClick={() => { setOpen(false); document.getElementById(id)?.parentElement?.querySelector<HTMLButtonElement>('.audio-sound')?.focus(); }}>Close sound settings</button>
     </section>

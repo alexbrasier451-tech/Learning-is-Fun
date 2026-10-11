@@ -9,7 +9,7 @@ import './shell.css';
 export function App({ runtime }: { runtime: AppRuntime }) {
   const load = useSyncExternalStore(runtime.state.subscribe, runtime.state.getLoadState, runtime.state.getLoadState);
   if (load.status === 'ready' || load.status === 'new') return <StateControllerProvider controller={runtime.state}><AppShell runtime={runtime} /></StateControllerProvider>;
-  return <div className="app-shell"><header className="shell-header"><span className="shell-brand">Learning is Fun</span><AudioControls controller={runtime.audio} /></header>
+  return <div className="app-shell"><header className="shell-header"><span className="shell-brand">Learning is Fun</span><AudioControls controller={runtime.audio} retrySavingPreferences={runtime.state.preferences.retry} /></header>
     <main className="shell-paper recovery"><h1>{load.status === 'loading' ? 'Opening your story…' : 'Your saved story needs a little care'}</h1>
       <p role="status">{load.status === 'loading' ? 'Everything stays quiet while your saved stories and sound choices load.' : 'reason' in load ? load.reason.message : 'Your saved story is unavailable. Retry opening it or recover from a backup.'}</p>
       {load.status !== 'loading' && <><button onClick={() => { void runtime.state.refresh(); }}>Retry opening saved stories</button>
