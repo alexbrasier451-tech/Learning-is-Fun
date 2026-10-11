@@ -13,7 +13,6 @@ jobs:
     env:
       CI: 'true'
       NODE_DISABLE_COMPILE_CACHE: '1'
-      PUBLISHED_WEBKIT_VERIFY_ROOT: ${{ runner.temp }}/published-webkit
     steps:
       - uses: actions/checkout@v7
         with:
@@ -27,7 +26,11 @@ jobs:
           run_install: false
           cache: false
       - name: Prepare private evidence and frozen deployed identity
-        run: node tests/fixtures/published-webkit-evidence.ts prepare
+        env:
+          PUBLISHED_WEBKIT_VERIFY_ROOT: ${{ runner.temp }}/published-webkit
+        run: |
+          printf 'PUBLISHED_WEBKIT_VERIFY_ROOT=%s\n' "$PUBLISHED_WEBKIT_VERIFY_ROOT" >> "$GITHUB_ENV"
+          node tests/fixtures/published-webkit-evidence.ts prepare
       - name: Install frozen dependencies and check source
         run: |
           test "$(pnpm --version)" = '11.25.0'

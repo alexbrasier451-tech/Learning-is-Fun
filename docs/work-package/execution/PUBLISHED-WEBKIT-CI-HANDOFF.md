@@ -1,5 +1,10 @@
 # Published M2 Linux WebKit CI handoff
 
+Current delivery is a two-file context-scope correction from accepted
+`9ec9cc67d77a2ec4667db63bdfaa4dd500d8b0f3`: this handoff and the dedicated
+workflow. The original foundation handoff below is retained as stage history;
+the final correction section records integration and the failed first dispatch.
+
 Foundation source base: `e986c685ef818717237a4657df1eeeeb53e2755c`.
 Controller reports `0bb9671` as a subsequent docs-only advance with unchanged runtime.
 This private candidate adds only the four files listed below. It does not change
@@ -84,3 +89,38 @@ The private freeze manifest pins these four source files, targeted accepted
 inputs and verification evidence. Original foundation reviewer `01a11da4`
 reviews that boundary; Controller owns combined real discovery, integration,
 manual dispatch and interpretation of native Linux evidence.
+
+## First-dispatch rejection and context-scope correction
+
+Controller integrated the four reviewed foundation files exactly, verified real
+combined discovery, the strict discovery gate and full main TypeScript checking,
+then committed and pushed `9ec9cc67d77a2ec4667db63bdfaa4dd500d8b0f3`.
+The manual dispatch was rejected with HTTP 422 before any job started:
+
+> Invalid Argument - failed to parse workflow: (Line:16,Col:37): Unrecognized named-value: runner. Located at position1 within expression: runner.temp
+
+The isolated cause is the evidence-root expression in `jobs.observe.env`.
+[GitHub's context-availability table](https://docs.github.com/en/actions/reference/workflows-and-actions/contexts#context-availability)
+allows `runner` in step environment definitions, while job environment
+definitions exclude it. The corrected workflow defines the same absolute
+`${{ runner.temp }}/published-webkit` root in the preparation step's `env`.
+That step receives the value immediately, writes it through a quoted `printf`
+to `GITHUB_ENV` before invoking preparation, and therefore makes it available
+to all later command steps and the existing artifact `env` expression.
+[GitHub's environment-file documentation](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands#setting-an-environment-variable)
+defines that persistence for subsequent steps.
+
+The root suffix, artifact path, adapter calls, identity/mode preparation,
+discovery/result gates, engine settings and single authored case are unchanged.
+The adapter, config, scenario and game require no edits. Evidence-root
+persistence precedes preparation so later failure handling can still locate the
+private root if the preparation command fails.
+
+Targeted verification checks the exact workflow delta, each expression's allowed
+context scope, persistence before preparation, and unchanged subsequent steps.
+The initial rejection is retained as evidence; no Linux job or browser outcome
+is inferred from it. No further browser probe, matrix, install, shared write,
+Git mutation or dispatch was performed by this worker. The two-file correction
+is frozen for original reviewer `01a11da4`; Controller owns integration and a
+new manual dispatch of the same pending authored case. Remote parser acceptance
+and the native Linux outcome remain pending that dispatch.

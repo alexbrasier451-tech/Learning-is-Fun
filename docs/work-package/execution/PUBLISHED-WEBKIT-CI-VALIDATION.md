@@ -1,5 +1,17 @@
 # Published M2 Linux WebKit CI — independent validation
 
+12 October 2026 follow-up. **PASS for integrating the frozen two-file context correction.** The first-dispatch scope finding is closed at source review; GitHub parser acceptance and actual Linux execution remain pending. The correction identity and nine targeted checks are recorded at the end of this report.
+
+## First-dispatch finding — historical
+
+12 October 2026. **The integrated workflow is not ready for dispatch until its evidence-root binding is corrected.** Controller reports that dispatch of source `9ec9cc67d77a2ec4667db63bdfaa4dd500d8b0f3` returned HTTP 422 before job creation: line 16, column 37, `Unrecognized named-value: runner`. The job-level `env.PUBLISHED_WEBKIT_VERIFY_ROOT` uses `${{ runner.temp }}`, which is unavailable in that expression scope. This configuration defect was missed by the prior source review; local typing, config loading and report models did not validate GitHub's workflow context scope.
+
+The original foundation author owns the narrow workflow/runtime environment correction. This reviewer has not changed source. Re-review is limited to the corrected binding, its availability to preparation/config/discovery/runtime/results/artifact steps, and the unchanged private output contract. The prior readiness checks remain historical evidence below; their PASS does not establish dispatch readiness for the affected workflow.
+
+Controller separately reports successful real integrated one-case discovery, strict discovery validation and full main TypeScript checking before dispatch. These are attributed Controller results, not new reviewer checks. No Linux job or native browser execution occurred. The Windows failure remains unresolved. The exact prior report is preserved privately as `prior-prepared-source-validation.md`, SHA-256 `bd51570a7913fc2cf899cd4f786073eabd49d5bd74d6c4e3c18a8247d11318f2`.
+
+## Prior prepared-source review
+
 12 October 2026. **PASS for the frozen prepared source.** No actionable tooling finding remains. This accepts the dedicated manual route and its interface with the independently owned observer. Actual combined one-case discovery, CI execution and native Linux browser evidence remain pending with Controller.
 
 ## Frozen delivery
@@ -45,3 +57,20 @@ The workflow orders typechecking, exact discovery, native installation/runtime f
 Private review evidence: `C:/Users/alexb/AppData/Local/Temp/published-webkit-independent-20981513afb84edbbd7c7ec43ffae7e3`, including `independent-validation.json`, fresh discovery/typecheck receipts and targeted preservation records. The frozen owned files, selected receipts, eight main inputs and original observer retained their checked hashes through verification.
 
 Only this main report and reviewer-private evidence were written. No author source repair, observer change, package/engine installation, browser or transport probe, broad matrix, main build, Git mutation, dispatch, worker or other-chat message occurred. Controller must integrate both reviewed sources, discover the single authored case, dispatch if authorized and assess the actual Linux evidence. The retained Windows native curl-send-55 failure and unknown cause remain unresolved; Linux preparation does not close Windows applicability or the wider T2/Safari matrix.
+
+## Context correction — source finding closed
+
+12 October 2026. **PASS for the frozen correction from `9ec9cc67d77a2ec4667db63bdfaa4dd500d8b0f3`; ready for Controller integration.** Candidate: `C:/Users/alexb/.codex/visualizations/2026/10/08/01a11d98-5787-7d20-8603-8829b864b348/linux-webkit-context-fix-9ec9cc6/candidate`. Freeze-manifest SHA-256: `41e4aa9ee7f0a0688ac3b64bc199ad4bb3999b70af9fb09ba8df230577175b6b`.
+
+| Corrected private deliverable | Bytes | SHA-256 |
+|---|---:|---|
+| `.github/workflows/published-webkit-observation.yml` | 2790 | `cc4791c29b6de6dce82c4122f0ed0d8de7a64e53e0a0f362c81fa00128e4c0b6` |
+| `docs/work-package/execution/PUBLISHED-WEBKIT-CI-HANDOFF.md` | 7746 | `5148bb61781ca13d7e6a8962655a86cc8df7f873f80b41faaace9c884a5635e5` |
+
+The exact workflow delta removes the job-level root expression, defines the same `${{ runner.temp }}/published-webkit` value in the preparation step's `env`, and writes it to `GITHUB_ENV` before invoking preparation. GitHub documents `runner` as available in step environment definitions and `env` as available in step action inputs; job-level environment definitions exclude `runner`. All six remaining expressions use supported scopes. [GitHub context availability](https://docs.github.com/en/actions/reference/workflows-and-actions/contexts#context-availability).
+
+The preparation step receives the root directly from its own environment. Its quoted single-line `printf` persists that exact value for later steps, including failure handling. Subsequent command steps and the artifact step remain byte-identical: discovery/report redirection, package facts, runner log, adapter runtime/result commands and `${{ env.PUBLISHED_WEBKIT_VERIFY_ROOT }}` artifact input consume the persisted root. GitHub documents environment-file values as available to subsequent job steps. [GitHub environment files](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands#setting-an-environment-variable).
+
+**Nine targeted independent checks passed; zero failures.** Checks pin both corrected files and four focused records, establish the exact delta and supported scopes, model immediate/persisted root continuity with spaces, preserve all downstream bytes, verify six frozen read-only inputs and both main preimages, and retain the first 422 history. The author's eight targeted checks agree. No Bash shell or GitHub runner was executed; persistence verification uses the exact quoted line and the documented environment-file contract. The unchanged adapter/config/test behavior checks were not rerun.
+
+Evidence is retained in the existing private review directory as `context-fix-independent-validation.json`, `context-fix-main-preservation.json` and `dispatch-finding-validation.md`. The original readiness report and missed-context finding remain preserved. Only this report and private evidence were written; no source, browser, CI or Git action occurred. Remote parser acceptance, actual Linux WebKit evidence and the unresolved Windows outcome remain outside this source closure.

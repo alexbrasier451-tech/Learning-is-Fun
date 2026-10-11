@@ -16,3 +16,9 @@ Controller authorizes the same native WebKit engine on supported Ubuntu 24.04 fo
 - Local discovery evidence: `C:/Users/alexb/.codex/visualizations/2026/10/08/01a11d11-b980-7332-8a57-33fcaf22e390/linux-webkit-integration/`. Its source marker `0bb9671793c9d6acc667c81010966025e3d519e3` is the pre-commit integration baseline, not an executed CI source or deployed game identity.
 
 The manual workflow is `published-webkit-observation.yml`, with read-only repository permissions, matched WebKit, one worker, zero retries, exact-case gates and retained evidence on failure. Actual CI identity/result and subsequent independent native-evidence review are pending.
+
+## First dispatch — configuration rejection
+
+Controller committed and pushed reviewed source `9ec9cc67d77a2ec4667db63bdfaa4dd500d8b0f3`. GitHub rejected the manual dispatch with HTTP 422 before creating a run: line 16, column 37 uses `runner.temp` in job-level `env`, where that context is unavailable. Local typechecking/discovery and prepared-source reviews did not detect GitHub's context restriction. This is a workflow configuration defect, not a Linux browser or game failure. The original foundation author owns the narrow runtime-environment correction; the original reviewer will recheck that change before another dispatch. No test result or acceptance is claimed.
+
+The original author corrected only the workflow and handoff: the preparation step receives the root through supported step-level `env`, then writes it to `GITHUB_ENV` for subsequent steps. The original reviewer independently passes this narrow correction, preserving the missed-review history. Controller checked both preimages and final hashes and integrated those exact two files. Scenario, fixture, config, adapter, identity/result gates and game remain unchanged, so their earlier supported checks are retained. The next dispatch supplies actual remote parser and execution evidence.
