@@ -1,0 +1,132 @@
+name: Publish M1 to GitHub Pages
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Manual dispatch lets the Controller preserve A sessions before publishing B.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.repository == 'alexbrasier451-tech/Learning-is-Fun' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    outputs:
+      build_id: ${{ steps.identity.outputs.build_id }}
+    env:
+      APP_BASE: /Learning-is-Fun/
+      APP_BUILD_ID: ${{ github.sha }}-pages-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - uses: pnpm/action-setup@v6
+        with:
+          version: '11.25.0'
+          run_install: false
+          cache: false
+      - name: Record candidate identity
+        id: identity
+        run: |
+          node --input-type=module <<'NODE'
+          import { appendFileSync, mkdirSync, writeFileSync } from 'node:fs';
+          import { join } from 'node:path';
+          const evidence = join(process.env.RUNNER_TEMP, 'pages-evidence');
+          mkdirSync(evidence, { recursive: true });
+          appendFileSync(process.env.GITHUB_ENV, `PAGES_EVIDENCE=${evidence}\n`);
+          appendFileSync(process.env.GITHUB_OUTPUT, `build_id=${process.env.APP_BUILD_ID}\n`);
+          writeFileSync(join(evidence, 'build.json'), JSON.stringify({
+            release: 'M1', repository: process.env.GITHUB_REPOSITORY,
+            commit: process.env.GITHUB_SHA, buildId: process.env.APP_BUILD_ID,
+            basePath: process.env.APP_BASE, runId: process.env.GITHUB_RUN_ID,
+            attempt: process.env.GITHUB_RUN_ATTEMPT, node: process.version,
+            deploymentRun: `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`,
+          }, null, 2) + '\n');
+          NODE
+      - name: Install committed lockfile
+        run: pnpm install --frozen-lockfile
+      - name: Build once and check required precache
+        run: pnpm build
+      - name: Retain matching inventory and exact publishable files
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync, readdirSync, renameSync, writeFileSync } from 'node:fs';
+          import { join } from 'node:path';
+          import { createHash } from 'node:crypto';
+          const evidence = process.env.PAGES_EVIDENCE;
+          const reportPath = `artifacts/platform/${encodeURIComponent(process.env.APP_BUILD_ID)}/precache-report.json`;
+          const report = JSON.parse(readFileSync(reportPath, 'utf8'));
+          if (!report.passed || report.buildId !== process.env.APP_BUILD_ID || report.basePath !== process.env.APP_BASE) {
+            throw new Error('The required inventory must match this exact candidate.');
+          }
+          renameSync(reportPath, join(evidence, 'precache-report.json'));
+          // Build metadata is retained outside the site; no runtime bytes change.
+          renameSync('dist/.vite', join(evidence, 'vite'));
+          function files(directory, prefix = '') {
+            return readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
+              const relative = prefix + entry.name, absolute = join(directory, entry.name);
+              if (entry.name.startsWith('.')) throw new Error(`Unexpected hidden publication path: ${relative}`);
+              if (entry.isDirectory()) return files(absolute, relative + '/');
+              if (!entry.isFile()) throw new Error(`Unexpected publication file: ${relative}`);
+              const body = readFileSync(absolute);
+              return [{ path: relative, bytes: body.length, sha256: createHash('sha256').update(body).digest('hex') }];
+            });
+          }
+          writeFileSync(join(evidence, 'files.json'), JSON.stringify(files('dist').sort((a, b) => a.path.localeCompare(b.path)), null, 2) + '\n');
+          NODE
+          tar -C dist -czf "$PAGES_EVIDENCE/dist.tar.gz" .
+      - uses: actions/upload-artifact@v7
+        with:
+          name: m1-pages-${{ steps.identity.outputs.build_id }}
+          path: ${{ env.PAGES_EVIDENCE }}
+          if-no-files-found: error
+          retention-days: 90
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+          retention-days: 90
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Read configured Pages site
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Verify configured project path
+        env:
+          CONFIGURED_BASE: ${{ steps.pages.outputs.base_path }}
+          CONFIGURED_URL: ${{ steps.pages.outputs.base_url }}
+        run: |
+          test "$CONFIGURED_BASE" = '/Learning-is-Fun'
+          test "$CONFIGURED_URL" = 'https://alexbrasier451-tech.github.io/Learning-is-Fun'
+      - name: Deploy the already built artifact
+        id: deployment
+        uses: actions/deploy-pages@v5
+      - name: Record deployment output
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+          BUILD_ID: ${{ needs.build.outputs.build_id }}
+        run: |
+          node --input-type=module <<'NODE'
+          import { appendFileSync } from 'node:fs';
+          appendFileSync(process.env.GITHUB_STEP_SUMMARY,
+            `M1 publication output\n\nURL: ${process.env.PAGE_URL}\n\nBuild: ${process.env.BUILD_ID}\n\nCommit: ${process.env.GITHUB_SHA}\n\nPublished-origin verification and candidate freeze remain required.\n`);
+          NODE
