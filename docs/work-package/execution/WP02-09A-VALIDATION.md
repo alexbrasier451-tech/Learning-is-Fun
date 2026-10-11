@@ -1,0 +1,207 @@
+# WP02-09A independent frozen-candidate validation — 11 October 2026
+
+**Verdict: FAIL — one confirmed P2 finding, F1.** Native rotation followed by
+immediate release can change a completed clock response from 195 to 190 minutes.
+The author's resize-before-release test passes but does not cover this valid
+native event order. Passing unaffected checks remain valid. A separate combined
+touch-to-dialog probe remains unlocalized and is recorded as an evidence
+limitation, not a second confirmed source finding. Controller owns repair
+dispatch, administrative acceptance, integration and commits.
+
+## Authority and exact reviewed payload
+
+Read current [GLOBAL_RULES](../GLOBAL_RULES.md),
+[CONTINUATION-AND-MUSIC-VARIATION](CONTINUATION-AND-MUSIC-VARIATION.md),
+[WP02-09A](../chunks/WP02-09A.md), accepted WP02-04A evidence, the frozen
+WP03-01A response/stimulus definitions and the candidate handoff. The human's
+scheduling amendment permits this M2 construction; detailed acoustic acceptance
+remains deferred and is not a widget gate or a claimed PASS.
+
+Frozen candidate:
+`C:/Users/alexb/AppData/Local/Temp/lif-WP02-09A-4cf69d487f5c4221908e571bd901145c/`.
+Base: `6b5834953b56b4f2ce33c099700b1090805b6144`.
+
+Exact patch: `private/WP02-09A.patch`, **100538 bytes**, SHA-256
+`cd2caf939f5c65a4a1e5334daf0b962327f2f72acfdf006e03fd4b47da916147`.
+Fresh initial checks matched all nine frozen owned file byte counts/hashes and
+the patch byte count/hash. Fresh final source checks still matched **9/9**.
+Inspected patch boundaries and actual production/test/fixture contents. The
+patch contains eight implementation/test files and one handoff, with no pointer,
+DTO, evaluator, content, state, asset, dependency or root-config mutation.
+
+Reused the retained exact replay/whitespace/unchanged-baseline evidence in
+`private/freeze-verification.json`; this reviewer did not apply a patch or write
+the candidate. Independently read/hash-compared archive entries for
+`src/interaction/pointer.ts`, `src/learning/contracts.ts`,
+`src/platform/assets.ts` and `vite.config.ts`: all byte-identical to baseline.
+The pointer snapshot is
+`06335292acbba590076f3274a1567e4b9b5015394a8149b8a9d192a9448aa8c4`.
+
+The existing validation protocol remains in effect; no machinery was reloaded
+for the inner checks. The worker's no-delegation rule and one-browser allocation
+govern this review. No main build, Git operation that changes state, production
+fix, deployment, dependency installation or other-chat message was performed.
+
+## F1 — P2: rotated viewport can commit a gesture before resize cancellation
+
+**Invalidated criteria:** 2 and 6, and the cancellation part of criterion 7's
+clock-hand adapter evidence. Completed edits must survive an active gesture's
+rotation. Numeric shape/range validation is correct and no Check is emitted;
+the failure is an unintended draft edit.
+
+**Causal owner:** the shared
+`src/interaction/pointer.ts` `bindPointerDrag` gesture lifetime and `up` path,
+especially lines 20, 30–36 and 53–64. Its active state does not retain or compare
+the viewport/rotation state from gesture start. It cancels only when the queued
+`resize`/`orientationchange` handler runs (line 68 and its event registrations).
+The new clock resolver at candidate `ActivityWidgets.tsx` lines 219–230 then
+correctly maps the release against the **new** dial rectangle. WP02-09A exposes
+this pre-existing adapter gap; the reducer and source-clock renderer are not
+causal owners. Controller must route any required pointer-file write permission
+to the original author rather than changing scope through this report.
+
+Complete native reproduction, independently repeated **six times, six failures**:
+
+1. Serve the unchanged frozen candidate on private port 5213, base `/playtest/`.
+   Open `tests/fixtures/interaction.html` in Chromium 156.0.8078.4, viewport
+   1024×768, `hasTouch:true`.
+2. In Clock construction, native-click “Set hour 3”, then “Set minute 15”.
+   The completed serialized response is `{"kind":"clock","minutes":195}`.
+3. Scroll “Choose minute hand” into view. Native mouse-down at its centre,
+   move 12px diagonally to start capture/ghost, then move to the current dial's
+   `(left + .85 * width, top + .5 * height)` without releasing.
+4. `await page.setViewportSize({width:768,height:1024})` and immediately
+   `await page.mouse.up()`. Do not wait for the ghost/resize callback; that
+   additional synchronization is the excluded event order under investigation.
+5. Let native events settle, then inspect the actual fixture response and event
+   trace. The response becomes **190**, despite the already-changed viewport.
+
+One complete independent trace (milliseconds within its fresh page):
+
+| Ordered checkpoint | Expected | Actual |
+|---|---|---|
+| Completed native controls | Clock195 | Clock195 |
+| Active captured drag, before viewport command | No response edit | Ghost1; Clock195 |
+| Native pointerup at297.900 | Rotation cancels pending gesture, preserving195 | Viewport already768×1024; ghost1; response195 on capture-phase observation |
+| Pointer adapter release/drop | No `place` after rotated viewport | New dial geometry resolves190 and the adapter emits the completed place |
+| Native resize at309.400 |195 remains the last completed construction | Ghost0; response190; cancellation handler is too late |
+
+All six fresh traces had pointerup before resize, an already768×1024 viewport
+at pointerup and a final190 response. Resize followed pointerup by roughly
+9.8–13.5ms. No synthetic pointerup/resize event, mocked target rectangle,
+producer edit or timed wait was used to create the failure.
+
+The retained author trace independently records the same semantic violation:
+pointerup422.8ms at the changed viewport edits195→190; resize424.3ms arrives
+afterwards. Its event-order facts are valid. The classification as only a
+test-driver error is insufficient for the product's rotation contract. Waiting
+for resize-driven ghost removal tests the **resize-before-release** ordering,
+which this reviewer separately ran green at555 minutes. That synchronization
+cannot establish preservation when release happens after dimensions change but
+before the queued cancellation callback.
+
+The earliest missing safeguard is gesture eligibility at release. A narrow
+repair should reject a pending drop when a viewport/rotation change has occurred
+since gesture start, including this event order. Preserve current-rectangle
+resolution for ordinary scrolling and normal drops; do not compensate in
+`reduceDraft`, restore the old answer after committing, or keep only the
+resize-waiting test. Re-run this original complete195 flow and both event orders,
+then focused pointer cancellation/scroll and affected M1/M2 cases. No repair was
+attempted by this validator.
+
+## Criteria and preserved passing evidence
+
+| Criterion | Assessment |
+|---|---|
+| 1 — Match/sequence/sort pointer, non-drag tap and keyboard equivalence | PASS. Fresh independent native CDP touch drags, native Playwright taps and Space activation produce identical IDs through replacement/reorder/remove/undo. This supplements the author's mouse Pointer Events/capture routes in all three engines. |
+| 2 — Complete edits survive undo/remove/reorder/cancel/rotation | **FAIL, F1.** Ordinary revisions and the tested touchCancel/resize-before-release checkpoints pass; the clock rotation/release order above does not. |
+| 3 — Six mechanics and affected M1 preservation | PASS for implemented widget support and retained route checks. Three new boards complement existing drag/manipulation/selection; the nine WP03 response tags do not invent a seventh mechanic. M1 JSX/CSS behavior and unchanged pointer facts were inspected; authored bridge/punctuation/basket and common-scale timber tests remain valid. This does not waive F1 in their shared adapter or claim full-game integration. |
+| 4 — Targets, focus, portrait/200% text | Size/reflow PASS. Fresh768×1024 with32px root font gives36px widget body text, visible buttons≥44×44px, no widget/button horizontal overflow and touch-action:none only on handles. Matching/sequence/sort removal/move focus checks pass in revision flows. Author's separate overlay focus checks pass. The combined independent touch→rotation→dialog probe has the unresolved limitation below; complete focus certification is not claimed. |
+| 5 — Stable matching endpoints, exact sequence set, sorting unassigned/category | PASS. Unique matching replacement clears the displaced source atomically and undo restores both endpoints. Sequence movement preserves each declared ID exactly once in both directions. Sorting moves/removes only the selected item. Neither label text nor coordinates enter responses. |
+| 6 — Cancel/rotation/focus recovery and retained M1 fixtures | **FAIL for rotation guarantee, F1.** Retained M1 route evidence and independent new-mechanic cancellation checkpoints are valid within their observed order. The combined dialog probe remains unresolved. |
+| 7 — Exact quantities/time and five source-equivalent representations | Numeric/source adaptation PASS; clock cancellation qualification is F1. Fresh values include2/1m, unreduced3/4whole,500/1pence and231/100metre, boundary disabled controls, clear/undo and exact serialization. Clock native hand and labelled controls agree at555 integer minutes. Five representation families retain source quantities, partition, hand positions, supplied text, edge IDs, equal x/y scale, row order and zero-origin tick step. No computed analogue answer, grading, reward/save/audio port or unsupported-silent-card behavior was found. |
+
+Fresh complete route checkpoints, identical on each independent route:
+
+| Mechanic | Fresh input/revision | Final response |
+|---|---|---|
+| Matching | Oak→West; Ash→East; Oak→East displaces Ash; undo; remove Ash; undo | `{kind:matching,pairs:{oak:west,ash:east}}` |
+| Sequence | Dawn after Dusk; Dawn before Noon; undo | `{kind:sequence,orderedIds:[noon,dusk,dawn]}` |
+| Sorting | Square→Second; Round→Second; Round→First; remove Square; undo | `{kind:sorting,groups:{circle:first,square:second}}` |
+
+## Fresh verification, evidence applicability and limitations
+
+Independent private root:
+`C:/Users/alexb/AppData/Local/Temp/lif-WP02-09A-validator-f75fa740c6e14c7ebd72aaf8d98d0bd6/`.
+Bundled Node:
+`C:/Users/alexb/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe`.
+Actual candidate-cwd commands were `node <private-root>/server.mjs` and
+`node <private-root>/native-checks.mjs`. Vite reads frozen candidate config with
+`configLoader:runner`; caches, scripts, browser temp paths and reports are
+private. Port5213 was exclusive. One Chromium browser/page/context at a time,
+fresh fixture pages, no production alteration or broad suite.
+
+- Initial independent bounded run: **seven cases PASS, two FAIL**. Three
+  passing cases each cover all three new mechanics on a distinct input route.
+  Other passes cover final quantity controls, all five source families, clock
+  hand/control equality plus resize-before-release cancellation, and final-source
+  portrait metrics/scroll. One failure is F1 (six underlying native reproductions).
+  The other is the combined probe below. Zero page errors were recorded.
+- Native touchCancel and resize-before-release preserved the completed matching
+  response before the combined probe reached its failing dialog step. That run
+  did not reach the same cancellation/dialog steps on sequence or sorting; their
+  corresponding cancellation evidence remains authored evidence, not a fresh
+  independent completion claim.
+- **Unlocalized combined-probe limitation:** following CDP touchCancel and
+  resize cancellation, native tapping matching's “How to move pieces” did not
+  open its dialog. The first assertion reported missing focus; separate private
+  reruns waited for focus, then explicitly for dialog opening, and still failed.
+  `focus-cancellation-final.json` records `open:false` after native tap and the
+ 30-second visible-dialog timeout. Whether this is mixed-input driver state or
+  product behavior was not localized. The Controller directed this bounded
+  review to freeze and return the confirmed rotation finding before further
+  investigation. No second source defect or passed combined-focus flow is
+  asserted; retain this probe for a targeted recheck after the causal repair.
+- `results.json`, `clock-rotation-orders.json`, the preserved
+  `native-checks-attempt-1.mjs` and separate focus-attempt files retain outcomes,
+  native timings, dimensions, responses, metrics and failed screenshots. The
+  final private script supports `CASE_FILTER` and distinct `RESULT_NAME` outputs
+  so valid earlier results are not overwritten by affected-only probes.
+- Runtime speech `speak`, Storage `setItem` and IndexedDB `open` counters are
+  zero in the tested completed flows; fixture action kinds stay within draft
+  commands. Inspected producer imports and props expose no answer rule,
+  evaluator, Check, scoring, storage, reward or audio service.
+- Genuinely inspected independently generated fraction, analogue clock,
+  diagram, bar-chart/table, quantity, matching, sequencing and sorting captures.
+  They retain readable labels/alternatives, clear selected/unassigned states,
+  correct partitions and given edges, and reachable wrapped controls. Source
+  analogue text describes hands without adding03:15. Arrays depict3×4 objects;
+  fraction depicts5 shaded parts across two four-part wholes; chart retains
+  Wednesday/Monday/Friday values4/0/6 with ticks0/2/4/6. No silent unsupported
+  representation is substituted; malformed/absent/escaped-source assertions in
+  the inspected author tests remain valid.
+
+Author evidence was reused with exact final-source applicability:
+
+- **42 unit tests** and focused app/fixture/consumer plus Node-only browser-spec
+  typechecks are attributed author evidence; no fresh broad rerun is claimed.
+- **81 browser passes** precede the final ±10/±100 convenience buttons. The
+  inspected refinement affects only ExactQuantityControl and its test inputs;
+  reducer, matching/sequence/sort, clock, source renderer and M1 paths are
+  unchanged by that refinement. Their valid results are retained.
+- **Nine final affected quantity/reflow passes** cover the final buttons in the
+  three available engines. Inspected assertions and actual `passed`/empty
+  `failedTests` records in both `browser-focused-final-1` and
+  `quantity-reflow-final`. The reviewer independently exercised the final
+  quantity buttons through500 and exact231/100, plus final-source reflow.
+  This is not described as all81 rerun on final source.
+- Chromium156.0.8078.4 is the fresh independent engine. Edge155.0.4283.45 and
+  WebKit27.2 results are attributed to the author. No branded Chrome, matched
+  Firefox, physical-device, child, published-game, durable-state/evaluator or
+  acoustic acceptance is inferred from local contract fixtures.
+
+The private server and browser were stopped. A fresh TCP check confirms port5213
+is closed. Only this main-checkout report was written; frozen candidate bytes,
+other authors' work and main config/source/Git/ledger/deployment state were
+preserved. The report and evidence are frozen for Controller routing; F1 remains
+open pending original-author repair and independent narrow recheck.
