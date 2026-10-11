@@ -1123,477 +1123,617 @@
       "id": "scene-tinkers-workshop",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/scenes/tinkers-workshop.svg"
       ],
       "runtimePath": "assets/art/m2/scenes/tinkers-workshop.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 960,
+      "height": 600,
+      "bytes": 33966
     },
     {
       "id": "scene-storywood-forest",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/scenes/storywood-forest.svg"
       ],
       "runtimePath": "assets/art/m2/scenes/storywood-forest.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 960,
+      "height": 600,
+      "bytes": 26208
     },
     {
       "id": "scene-clockwork-castle",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/scenes/clockwork-castle.svg"
       ],
       "runtimePath": "assets/art/m2/scenes/clockwork-castle.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 960,
+      "height": 600,
+      "bytes": 21636
     },
     {
       "id": "green-garden",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/scenes/green-garden.svg"
       ],
       "runtimePath": "assets/art/m2/scenes/green-garden.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 960,
+      "height": 600,
+      "bytes": 12552
     },
     {
       "id": "green-finale",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/scenes/green-finale.svg"
       ],
       "runtimePath": "assets/art/m2/scenes/green-finale.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 960,
+      "height": 600,
+      "bytes": 7866
     },
     {
       "id": "castle-finale",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/scenes/castle-finale.svg"
       ],
       "runtimePath": "assets/art/m2/scenes/castle-finale.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 960,
+      "height": 600,
+      "bytes": 9519
     },
     {
       "id": "library-shelf",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/scenes/library-shelf.svg"
       ],
       "runtimePath": "assets/art/m2/scenes/library-shelf.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 960,
+      "height": 600,
+      "bytes": 4026
     },
     {
       "id": "orin",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/characters/orin.svg"
       ],
       "runtimePath": "assets/art/m2/characters/orin.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 320,
+      "height": 320,
+      "bytes": 4816
     },
     {
       "id": "array-surround",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/props/array-surround.svg"
       ],
       "runtimePath": "assets/art/m2/props/array-surround.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 320,
+      "height": 320,
+      "bytes": 2759
     },
     {
       "id": "potion-surround",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/props/potion-surround.svg"
       ],
       "runtimePath": "assets/art/m2/props/potion-surround.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 320,
+      "height": 320,
+      "bytes": 3019
     },
     {
       "id": "book-surround",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/props/book-surround.svg"
       ],
       "runtimePath": "assets/art/m2/props/book-surround.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 320,
+      "height": 320,
+      "bytes": 2715
     },
     {
       "id": "story-panel",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/props/story-panel.svg"
       ],
       "runtimePath": "assets/art/m2/props/story-panel.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 320,
+      "height": 320,
+      "bytes": 2774
     },
     {
       "id": "map-surround",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/props/map-surround.svg"
       ],
       "runtimePath": "assets/art/m2/props/map-surround.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 320,
+      "height": 320,
+      "bytes": 2725
     },
     {
       "id": "clock-surround",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/props/clock-surround.svg"
       ],
       "runtimePath": "assets/art/m2/props/clock-surround.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 320,
+      "height": 320,
+      "bytes": 2782
     },
     {
       "id": "castle-gear",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/props/castle-gear.svg"
       ],
       "runtimePath": "assets/art/m2/props/castle-gear.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 240,
+      "height": 240,
+      "bytes": 4465
     },
     {
       "id": "forest-marker",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/props/forest-marker.svg"
       ],
       "runtimePath": "assets/art/m2/props/forest-marker.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 240,
+      "height": 240,
+      "bytes": 5251
     },
     {
       "id": "forest-story-map",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/props/forest-story-map.svg"
       ],
       "runtimePath": "assets/art/m2/props/forest-story-map.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 240,
+      "height": 240,
+      "bytes": 6774
     },
     {
       "id": "forest-tale",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/props/forest-tale.svg"
       ],
       "runtimePath": "assets/art/m2/props/forest-tale.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 240,
+      "height": 240,
+      "bytes": 2977
     },
     {
       "id": "sawmill-model",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/props/sawmill-model.svg"
       ],
       "runtimePath": "assets/art/m2/props/sawmill-model.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 240,
+      "height": 240,
+      "bytes": 9459
     },
     {
       "id": "forest-moth",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/props/forest-moth.svg"
       ],
       "runtimePath": "assets/art/m2/props/forest-moth.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 240,
+      "height": 240,
+      "bytes": 2816
     },
     {
       "id": "decoration-tree",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/props/decoration-tree.svg"
       ],
       "runtimePath": "assets/art/m2/props/decoration-tree.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 240,
+      "height": 240,
+      "bytes": 4325
     },
     {
       "id": "decoration-bench",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/props/decoration-bench.svg"
       ],
       "runtimePath": "assets/art/m2/props/decoration-bench.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 240,
+      "height": 240,
+      "bytes": 3867
     },
     {
       "id": "decoration-lantern",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/props/decoration-lantern.svg"
       ],
       "runtimePath": "assets/art/m2/props/decoration-lantern.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 240,
+      "height": 240,
+      "bytes": 3296
     },
     {
       "id": "decoration-banner",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/props/decoration-banner.svg"
       ],
       "runtimePath": "assets/art/m2/props/decoration-banner.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 240,
+      "height": 240,
+      "bytes": 3260
     },
     {
       "id": "decoration-pond",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/props/decoration-pond.svg"
       ],
       "runtimePath": "assets/art/m2/props/decoration-pond.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 240,
+      "height": 240,
+      "bytes": 4155
     },
     {
       "id": "home-trim",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/props/home-trim.svg"
       ],
       "runtimePath": "assets/art/m2/props/home-trim.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 960,
+      "height": 600,
+      "bytes": 3318
     },
     {
       "id": "scarf-star",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/props/scarf-star.svg"
       ],
       "runtimePath": "assets/art/m2/props/scarf-star.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 300,
+      "height": 320,
+      "bytes": 2603
     },
     {
       "id": "scarf-wave",
       "kind": "svg",
       "milestone": "M2",
-      "status": "planned",
+      "status": "ready",
       "sourcePaths": [
         "assets/source/art/m2/props/scarf-wave.svg"
       ],
       "runtimePath": "assets/art/m2/props/scarf-wave.svg",
-      "author": "Unassigned (WP02-08A)",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
       "permission": {
         "kind": "original",
-        "status": "pending",
-        "holder": "To be confirmed by producing author",
-        "statement": "Original editable SVG required; confirm authorship and project-use permission in the ready handoff. No CC0/GPL relicensing assumed."
-      }
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original text-authored M2 SVG extension of this project’s accepted original M1 family, produced under explicit user authorization. No external artwork, stock pack or paid media; no invented CC0/GPL relicensing or copyright eligibility claim.",
+        "evidencePath": "assets/source/art/m2/PROVENANCE.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 300,
+      "height": 320,
+      "bytes": 2363
     },
     {
       "id": "village-loop",

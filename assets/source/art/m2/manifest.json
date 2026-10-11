@@ -1,0 +1,441 @@
+{
+  "baseCommit": "9485a2cf67b0703deb4efa6c178602dc7952f705",
+  "count": 28,
+  "totalM2Bytes": 196292,
+  "rightsEvidence": "assets/source/art/m2/PROVENANCE.md",
+  "bindingsPath": "assets/source/art/m2/bindings.json",
+  "exports": [
+    {
+      "id": "scene-tinkers-workshop",
+      "sourcePath": "assets/source/art/m2/scenes/tinkers-workshop.svg",
+      "runtimePath": "assets/art/m2/scenes/tinkers-workshop.svg",
+      "width": 960,
+      "height": 600,
+      "viewBox": "0 0 960 600",
+      "bytes": 33966,
+      "sha256": "949ff59ce20d6117944c4d752f33f2103d48dd08c563aa9ce250969c650835f4",
+      "layerIds": [
+        "scene-tinkers-workshop-background",
+        "scene-tinkers-workshop-middle",
+        "scene-tinkers-workshop-landmark",
+        "scene-tinkers-workshop-initial",
+        "scene-tinkers-workshop-sawmill-restored",
+        "scene-tinkers-workshop-foreground"
+      ],
+      "resultIds": [
+        "sawmill-restored"
+      ]
+    },
+    {
+      "id": "scene-storywood-forest",
+      "sourcePath": "assets/source/art/m2/scenes/storywood-forest.svg",
+      "runtimePath": "assets/art/m2/scenes/storywood-forest.svg",
+      "width": 960,
+      "height": 600,
+      "viewBox": "0 0 960 600",
+      "bytes": 26208,
+      "sha256": "c5fb7e5d88dc9173be7b59ce5a9cac72b53f587a0f6c31c0c684b966c64c2fb0",
+      "layerIds": [
+        "scene-storywood-forest-background",
+        "scene-storywood-forest-middle",
+        "scene-storywood-forest-landmark",
+        "scene-storywood-forest-initial",
+        "scene-storywood-forest-forest-path-restored",
+        "scene-storywood-forest-castle-gear-recovered",
+        "scene-storywood-forest-discovery",
+        "scene-storywood-forest-foreground"
+      ],
+      "resultIds": [
+        "forest-path-restored",
+        "castle-gear-recovered"
+      ]
+    },
+    {
+      "id": "scene-clockwork-castle",
+      "sourcePath": "assets/source/art/m2/scenes/clockwork-castle.svg",
+      "runtimePath": "assets/art/m2/scenes/clockwork-castle.svg",
+      "width": 960,
+      "height": 600,
+      "viewBox": "0 0 960 600",
+      "bytes": 21636,
+      "sha256": "3918bcd65b9ebd3d07bb332cb990aaee604db514dd6d48f139e3e846a29077bf",
+      "layerIds": [
+        "scene-clockwork-castle-background",
+        "scene-clockwork-castle-middle",
+        "scene-clockwork-castle-landmark",
+        "scene-clockwork-castle-initial",
+        "scene-clockwork-castle-castle-clock-restored",
+        "scene-clockwork-castle-castle-open",
+        "scene-clockwork-castle-clock-face",
+        "scene-clockwork-castle-foreground"
+      ],
+      "resultIds": [
+        "castle-clock-restored",
+        "castle-open"
+      ]
+    },
+    {
+      "id": "green-garden",
+      "sourcePath": "assets/source/art/m2/scenes/green-garden.svg",
+      "runtimePath": "assets/art/m2/scenes/green-garden.svg",
+      "width": 960,
+      "height": 600,
+      "viewBox": "0 0 960 600",
+      "bytes": 12552,
+      "sha256": "15307020e765ea479bdfc2645c0e083ead7bd4b4cfe41f0299e9094b1b61cf30",
+      "layerIds": [
+        "green-garden-garden-restored"
+      ],
+      "resultIds": [
+        "garden-restored"
+      ]
+    },
+    {
+      "id": "green-finale",
+      "sourcePath": "assets/source/art/m2/scenes/green-finale.svg",
+      "runtimePath": "assets/art/m2/scenes/green-finale.svg",
+      "width": 960,
+      "height": 600,
+      "viewBox": "0 0 960 600",
+      "bytes": 7866,
+      "sha256": "82e779bfc319f95bfaa135879fba83c2ea8e26e27e103b525ee14d2bda0c593f",
+      "layerIds": [
+        "green-finale-kingdom-finale"
+      ],
+      "resultIds": [
+        "kingdom-finale"
+      ]
+    },
+    {
+      "id": "castle-finale",
+      "sourcePath": "assets/source/art/m2/scenes/castle-finale.svg",
+      "runtimePath": "assets/art/m2/scenes/castle-finale.svg",
+      "width": 960,
+      "height": 600,
+      "viewBox": "0 0 960 600",
+      "bytes": 9519,
+      "sha256": "4a5df8eeb68ad81282a690acd97c11b7b3beb321d325345b52472acf7ab56761",
+      "layerIds": [
+        "castle-finale-kingdom-finale"
+      ],
+      "resultIds": [
+        "kingdom-finale"
+      ]
+    },
+    {
+      "id": "library-shelf",
+      "sourcePath": "assets/source/art/m2/scenes/library-shelf.svg",
+      "runtimePath": "assets/art/m2/scenes/library-shelf.svg",
+      "width": 960,
+      "height": 600,
+      "viewBox": "0 0 960 600",
+      "bytes": 4026,
+      "sha256": "800180e84137ce44c51e041606f89709427eafd9b031ea5596c8f4cc5c9c6489",
+      "layerIds": [
+        "library-shelf-books-shelved"
+      ],
+      "resultIds": [
+        "books-shelved"
+      ]
+    },
+    {
+      "id": "orin",
+      "sourcePath": "assets/source/art/m2/characters/orin.svg",
+      "runtimePath": "assets/art/m2/characters/orin.svg",
+      "width": 320,
+      "height": 320,
+      "viewBox": "0 0 320 320",
+      "bytes": 4816,
+      "sha256": "46661e437eb5a667bb59d696c14c3e9ffe134ce2d7bb5c867f439c0ae75b6bd9",
+      "layerIds": [
+        "orin-coat",
+        "orin-head",
+        "orin-key",
+        "orin-hands"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "array-surround",
+      "sourcePath": "assets/source/art/m2/props/array-surround.svg",
+      "runtimePath": "assets/art/m2/props/array-surround.svg",
+      "width": 320,
+      "height": 320,
+      "viewBox": "0 0 320 320",
+      "bytes": 2759,
+      "sha256": "162a33e475ee2eab97fd172175df3558ad55a422439c053de75eb22521cbf04e",
+      "layerIds": [
+        "array-surround-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "potion-surround",
+      "sourcePath": "assets/source/art/m2/props/potion-surround.svg",
+      "runtimePath": "assets/art/m2/props/potion-surround.svg",
+      "width": 320,
+      "height": 320,
+      "viewBox": "0 0 320 320",
+      "bytes": 3019,
+      "sha256": "1204496943578503df75d2c674dee6225f8737d7f91d109c23ff85e3edfa3e10",
+      "layerIds": [
+        "potion-surround-artwork",
+        "potion-surround-content-anchor"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "book-surround",
+      "sourcePath": "assets/source/art/m2/props/book-surround.svg",
+      "runtimePath": "assets/art/m2/props/book-surround.svg",
+      "width": 320,
+      "height": 320,
+      "viewBox": "0 0 320 320",
+      "bytes": 2715,
+      "sha256": "d559837cbea08f41c5eba282f988ffe8ffcfbd0a72d8eb6e706e6668b3865531",
+      "layerIds": [
+        "book-surround-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "story-panel",
+      "sourcePath": "assets/source/art/m2/props/story-panel.svg",
+      "runtimePath": "assets/art/m2/props/story-panel.svg",
+      "width": 320,
+      "height": 320,
+      "viewBox": "0 0 320 320",
+      "bytes": 2774,
+      "sha256": "9bbaa5e297303e153af9e97eaea521caea2a03a91fc87a66300168e2d350a43b",
+      "layerIds": [
+        "story-panel-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "map-surround",
+      "sourcePath": "assets/source/art/m2/props/map-surround.svg",
+      "runtimePath": "assets/art/m2/props/map-surround.svg",
+      "width": 320,
+      "height": 320,
+      "viewBox": "0 0 320 320",
+      "bytes": 2725,
+      "sha256": "61c4ec4e930eea96a3aa9b5ecc3f7b035d5b8af11df876f4ca1a7faf4119f412",
+      "layerIds": [
+        "map-surround-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "clock-surround",
+      "sourcePath": "assets/source/art/m2/props/clock-surround.svg",
+      "runtimePath": "assets/art/m2/props/clock-surround.svg",
+      "width": 320,
+      "height": 320,
+      "viewBox": "0 0 320 320",
+      "bytes": 2782,
+      "sha256": "d2e429230a0d3bbddec33552caeedd8053ef9c633c58a9e1b9286740a9d602e2",
+      "layerIds": [
+        "clock-surround-artwork",
+        "clock-surround-content-anchor"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "castle-gear",
+      "sourcePath": "assets/source/art/m2/props/castle-gear.svg",
+      "runtimePath": "assets/art/m2/props/castle-gear.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 4465,
+      "sha256": "709337968677aea7460466665dd56b345b3791ab35622f3faf3de944cc2061df",
+      "layerIds": [
+        "castle-gear-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "forest-marker",
+      "sourcePath": "assets/source/art/m2/props/forest-marker.svg",
+      "runtimePath": "assets/art/m2/props/forest-marker.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 5251,
+      "sha256": "ab1c8a87743185713687e6764e9032b94930ffd3016cdc51b9257a45ff2b8fc0",
+      "layerIds": [
+        "forest-marker-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "forest-story-map",
+      "sourcePath": "assets/source/art/m2/props/forest-story-map.svg",
+      "runtimePath": "assets/art/m2/props/forest-story-map.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 6774,
+      "sha256": "5e520c5dde9722874e8ca4adc39519a603d8ee21e0842fe8ce74432152152579",
+      "layerIds": [
+        "forest-story-map-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "forest-tale",
+      "sourcePath": "assets/source/art/m2/props/forest-tale.svg",
+      "runtimePath": "assets/art/m2/props/forest-tale.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 2977,
+      "sha256": "c5f5055adc42bf548e7b350586c3a462773ff0ba9482d5892f2f6faf1ab23209",
+      "layerIds": [
+        "forest-tale-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "sawmill-model",
+      "sourcePath": "assets/source/art/m2/props/sawmill-model.svg",
+      "runtimePath": "assets/art/m2/props/sawmill-model.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 9459,
+      "sha256": "735123974ca79df523b1b509af34d72bb797cf55de7abc82ce820d923d44d900",
+      "layerIds": [
+        "sawmill-model-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "forest-moth",
+      "sourcePath": "assets/source/art/m2/props/forest-moth.svg",
+      "runtimePath": "assets/art/m2/props/forest-moth.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 2816,
+      "sha256": "77591f2cecf5e6b25a19184230bae7714d80a23870afbd56ff82a05fc106a885",
+      "layerIds": [
+        "forest-moth-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "decoration-tree",
+      "sourcePath": "assets/source/art/m2/props/decoration-tree.svg",
+      "runtimePath": "assets/art/m2/props/decoration-tree.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 4325,
+      "sha256": "7576b8ff92f84015e683646c2c03c94ec3329a62f65879b90bf5e1cf7d177f78",
+      "layerIds": [
+        "decoration-tree-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "decoration-bench",
+      "sourcePath": "assets/source/art/m2/props/decoration-bench.svg",
+      "runtimePath": "assets/art/m2/props/decoration-bench.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 3867,
+      "sha256": "3b7304c03d32a9063011bf25044f175999e1827c4ea25d72950f90511c54d753",
+      "layerIds": [
+        "decoration-bench-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "decoration-lantern",
+      "sourcePath": "assets/source/art/m2/props/decoration-lantern.svg",
+      "runtimePath": "assets/art/m2/props/decoration-lantern.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 3296,
+      "sha256": "fb3925e7dac0b32c5e3829045daeb0f30e016bdfa5d982916f9feef759a21e15",
+      "layerIds": [
+        "decoration-lantern-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "decoration-banner",
+      "sourcePath": "assets/source/art/m2/props/decoration-banner.svg",
+      "runtimePath": "assets/art/m2/props/decoration-banner.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 3260,
+      "sha256": "15e4c48dce8dd15e22d72aed51c0fda43be55ffb44331355ebbbf49f59c12526",
+      "layerIds": [
+        "decoration-banner-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "decoration-pond",
+      "sourcePath": "assets/source/art/m2/props/decoration-pond.svg",
+      "runtimePath": "assets/art/m2/props/decoration-pond.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 4155,
+      "sha256": "f8efa0dc31c602e85a082ac39c60d029b091408e7037a50ee9cccd55286ab483",
+      "layerIds": [
+        "decoration-pond-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "home-trim",
+      "sourcePath": "assets/source/art/m2/props/home-trim.svg",
+      "runtimePath": "assets/art/m2/props/home-trim.svg",
+      "width": 960,
+      "height": 600,
+      "viewBox": "0 0 960 600",
+      "bytes": 3318,
+      "sha256": "2fa1478cfc3eb3976aaf1913ce57fa13eb2a3578ddb2f94b31cbff3198fe584f",
+      "layerIds": [
+        "home-trim-facade-trim"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "scarf-star",
+      "sourcePath": "assets/source/art/m2/props/scarf-star.svg",
+      "runtimePath": "assets/art/m2/props/scarf-star.svg",
+      "width": 300,
+      "height": 320,
+      "viewBox": "0 0 300 320",
+      "bytes": 2603,
+      "sha256": "bdc12fc1cde4ddaea817e7daeecc0ad3182bf26161e6ec2537db1baa6a9814dd",
+      "layerIds": [
+        "scarf-star-pattern"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "scarf-wave",
+      "sourcePath": "assets/source/art/m2/props/scarf-wave.svg",
+      "runtimePath": "assets/art/m2/props/scarf-wave.svg",
+      "width": 300,
+      "height": 320,
+      "viewBox": "0 0 300 320",
+      "bytes": 2363,
+      "sha256": "4859f5bf75c53efa5f1d2667e0dcf8ed909633b31723d5de22cc08e4bf0332cd",
+      "layerIds": [
+        "scarf-wave-pattern"
+      ],
+      "resultIds": []
+    }
+  ]
+}

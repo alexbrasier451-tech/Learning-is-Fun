@@ -1,0 +1,320 @@
+[
+  {
+    "width": 1366,
+    "height": 768,
+    "engine": "Playwright Chromium",
+    "version": "156.0.8078.4",
+    "reducedMotion": "reduce",
+    "errors": [],
+    "external": [],
+    "checks": [
+      {
+        "name": "Tinker's Workshop",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "initial": "c63dc96f829b0f2a484241aff995ef1f8f8015397b1f6c9cb71da6258294a307",
+          "restored": "f37f618bf0a90dab7fdf8cde89220c8c715c9a945809ff7cdb7d04c308650ac9",
+          "static": "f37f618bf0a90dab7fdf8cde89220c8c715c9a945809ff7cdb7d04c308650ac9"
+        }
+      },
+      {
+        "name": "Storywood Forest",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "initial": "4113d815e15bec16de703a85fbbe3479ca445368be1808454603a0713d9a5a0a",
+          "restored": "37a42df3d737a4b960bbce38182244ca970284186e2487d8f8991886eedb8b2e",
+          "static": "37a42df3d737a4b960bbce38182244ca970284186e2487d8f8991886eedb8b2e"
+        }
+      },
+      {
+        "name": "Clockwork Castle",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "initial": "e21115b50e4a04010152e250f9cf4e5164a91f90bbe608624e3dcd6c30250dce",
+          "restored": "c1074ae4dc7e9d541d3c671ac95c88c6cb9851b1b3834ef11b0a801bf57fd114",
+          "static": "c1074ae4dc7e9d541d3c671ac95c88c6cb9851b1b3834ef11b0a801bf57fd114"
+        }
+      },
+      {
+        "name": "A growing village",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "initial": "addb38597c4b8f839b4f27fcfbb31ed8541621eae3af4f10ed20d2d654d606b1",
+          "restored": "1d1b8682a13899616d1b66ce4e8f6bfde68491055d3b181b76025826260456c7",
+          "static": "1d1b8682a13899616d1b66ce4e8f6bfde68491055d3b181b76025826260456c7"
+        }
+      },
+      {
+        "name": "Stories on the shelf",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "initial": "46363334c155ad59a71f7f939396a4ae4f0d884663283311c638178aab76c404",
+          "restored": "68d292883bb2dc6d57f9c475c68fac4cc2bd6898d29498793483ca1f378df5f4",
+          "static": "68d292883bb2dc6d57f9c475c68fac4cc2bd6898d29498793483ca1f378df5f4"
+        }
+      }
+    ],
+    "brokenImages": 0,
+    "horizontalOverflow": false,
+    "controls": [
+      {
+        "name": "Tinker's Workshop",
+        "width": 177.8125,
+        "height": 48
+      },
+      {
+        "name": "Storywood Forest",
+        "width": 171.03125,
+        "height": 48
+      },
+      {
+        "name": "Clockwork Castle",
+        "width": 166.1875,
+        "height": 48
+      },
+      {
+        "name": "A growing village",
+        "width": 170.453125,
+        "height": 48
+      },
+      {
+        "name": "Stories on the shelf",
+        "width": 182.421875,
+        "height": 48
+      },
+      {
+        "name": "initial",
+        "width": 59.375,
+        "height": 48
+      },
+      {
+        "name": "restored",
+        "width": 76.96875,
+        "height": 48
+      },
+      {
+        "name": "Static result",
+        "width": 99.640625,
+        "height": 48
+      }
+    ],
+    "imageCount": 92
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "engine": "Playwright Chromium",
+    "version": "156.0.8078.4",
+    "reducedMotion": "reduce",
+    "errors": [],
+    "external": [],
+    "checks": [
+      {
+        "name": "Tinker's Workshop",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "initial": "1eeb708f08c46fb72986fcd4f3d0c63079adfa5332b4dfa2cccbf20661665cd0",
+          "restored": "bd385e4901a93ae020f4c2ff5a2150aeb3fea4d367e7d446ac8478a11b66651b",
+          "static": "bd385e4901a93ae020f4c2ff5a2150aeb3fea4d367e7d446ac8478a11b66651b"
+        }
+      },
+      {
+        "name": "Storywood Forest",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "initial": "243e25fb50fa1089a4e8bde4aaec2e60b5180c4d6e711ddbca595a5471ed933e",
+          "restored": "d7966e93ec23ac1f691a9161a6dd238fc06585270e32189d015b1e86371c7602",
+          "static": "d7966e93ec23ac1f691a9161a6dd238fc06585270e32189d015b1e86371c7602"
+        }
+      },
+      {
+        "name": "Clockwork Castle",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "initial": "29f84d5e1016209031ae5711813d36190d9688ea44090244f733c0c0220d3edb",
+          "restored": "e7255469b13e3796481bbf372adccde74dcf55bb10f9a9378e8911421bc4c517",
+          "static": "e7255469b13e3796481bbf372adccde74dcf55bb10f9a9378e8911421bc4c517"
+        }
+      },
+      {
+        "name": "A growing village",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "initial": "7f79f456873238a323e007e2ccf5a7bc34ff3ca57d3f27be6308ce090f4a064e",
+          "restored": "06c3dd9d38dfbbe3a5fedcd55ee5a2a44a5cefd84031a7a5d7d5af9accd9bad8",
+          "static": "06c3dd9d38dfbbe3a5fedcd55ee5a2a44a5cefd84031a7a5d7d5af9accd9bad8"
+        }
+      },
+      {
+        "name": "Stories on the shelf",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "initial": "21540278592a0b831d7b0bbff057116948f11c82af167e6a676e232936560f1c",
+          "restored": "3bc299ea96f6af28c458e92e82a3f6af1bccf9dc5f09b8e02066a275cc334216",
+          "static": "3bc299ea96f6af28c458e92e82a3f6af1bccf9dc5f09b8e02066a275cc334216"
+        }
+      }
+    ],
+    "brokenImages": 0,
+    "horizontalOverflow": false,
+    "controls": [
+      {
+        "name": "Tinker's Workshop",
+        "width": 177.8125,
+        "height": 48
+      },
+      {
+        "name": "Storywood Forest",
+        "width": 171.03125,
+        "height": 48
+      },
+      {
+        "name": "Clockwork Castle",
+        "width": 166.1875,
+        "height": 48
+      },
+      {
+        "name": "A growing village",
+        "width": 170.453125,
+        "height": 48
+      },
+      {
+        "name": "Stories on the shelf",
+        "width": 182.421875,
+        "height": 48
+      },
+      {
+        "name": "initial",
+        "width": 59.375,
+        "height": 48
+      },
+      {
+        "name": "restored",
+        "width": 76.96875,
+        "height": 48
+      },
+      {
+        "name": "Static result",
+        "width": 99.640625,
+        "height": 48
+      }
+    ],
+    "imageCount": 92
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "engine": "Playwright Chromium",
+    "version": "156.0.8078.4",
+    "reducedMotion": "reduce",
+    "errors": [],
+    "external": [],
+    "checks": [
+      {
+        "name": "Tinker's Workshop",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "initial": "0a9a84e8c97bd923d7040c88cb63231d9564825e893fc2da25c94fadc032b649",
+          "restored": "f26bb29f29148221238c516576e593b5aad1f8df54547295fcfe471e11af94a4",
+          "static": "f26bb29f29148221238c516576e593b5aad1f8df54547295fcfe471e11af94a4"
+        }
+      },
+      {
+        "name": "Storywood Forest",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "initial": "83a30a2761dc8b91c3cc461986e46ad98ee6b46d27a4508c0b4edd023740b962",
+          "restored": "87d6748821a318fe8225b2dd44e528af0b17e545961bce8d4f7d4bb989b03549",
+          "static": "87d6748821a318fe8225b2dd44e528af0b17e545961bce8d4f7d4bb989b03549"
+        }
+      },
+      {
+        "name": "Clockwork Castle",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "initial": "46fee9e73dd5646106fb4ba6f1370bf6f4a2239507735a4622052158e2b69c57",
+          "restored": "99e5f0571cf510c53941914bea3094dc05b9fd9b2f45aae78763bfe10b826cc5",
+          "static": "99e5f0571cf510c53941914bea3094dc05b9fd9b2f45aae78763bfe10b826cc5"
+        }
+      },
+      {
+        "name": "A growing village",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "initial": "95c3dd46ffe8b032f0b1c44a05debd3541ce28a69ed618453d999bbadfea6867",
+          "restored": "4246c85a0732a8715e8b5dcb94cfb7f50dade41f6c8166d27837976a28ecae07",
+          "static": "4246c85a0732a8715e8b5dcb94cfb7f50dade41f6c8166d27837976a28ecae07"
+        }
+      },
+      {
+        "name": "Stories on the shelf",
+        "initialDiffers": true,
+        "staticEqualsRestored": true,
+        "hashes": {
+          "initial": "09df038950e1527c75927844943620a75b9b116a224aa3aa16035b55b05bf065",
+          "restored": "c33976bdc9c70a3a310a3019bee19ee7e8a8dea23cda99c0d7fc86598e7d5967",
+          "static": "c33976bdc9c70a3a310a3019bee19ee7e8a8dea23cda99c0d7fc86598e7d5967"
+        }
+      }
+    ],
+    "brokenImages": 0,
+    "horizontalOverflow": false,
+    "controls": [
+      {
+        "name": "Tinker's Workshop",
+        "width": 177.8125,
+        "height": 48
+      },
+      {
+        "name": "Storywood Forest",
+        "width": 171.03125,
+        "height": 48
+      },
+      {
+        "name": "Clockwork Castle",
+        "width": 166.1875,
+        "height": 48
+      },
+      {
+        "name": "A growing village",
+        "width": 170.453125,
+        "height": 48
+      },
+      {
+        "name": "Stories on the shelf",
+        "width": 182.421875,
+        "height": 48
+      },
+      {
+        "name": "initial",
+        "width": 59.375,
+        "height": 48
+      },
+      {
+        "name": "restored",
+        "width": 76.96875,
+        "height": 48
+      },
+      {
+        "name": "Static result",
+        "width": 99.640625,
+        "height": 48
+      }
+    ],
+    "imageCount": 92
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "baseCommit": "9485a2cf67b0703deb4efa6c178602dc7952f705",
+  "resultBindings": [
+    {"questId":"Q4","resultId":"sawmill-restored","assetId":"scene-tinkers-workshop","showLayer":"scene-tinkers-workshop-sawmill-restored","hideLayer":"scene-tinkers-workshop-initial"},
+    {"questId":"Q4","resultId":"invention-available","assetId":"sawmill-model","placement":{"sceneId":"tinkers-workshop","x":510,"y":409,"width":100,"height":100}},
+    {"questId":"Q5","resultId":"garden-restored","assetId":"green-garden","showLayer":"green-garden-garden-restored","baseAssetId":"scene-village-green"},
+    {"questId":"Q5","resultId":"forest-marker","assetId":"forest-marker","placement":{"sceneId":"village-green","x":715,"y":337,"width":120,"height":120}},
+    {"questId":"Q6","resultId":"books-shelved","assetId":"library-shelf","showLayer":"library-shelf-books-shelved","baseAssetId":"scene-whispering-library"},
+    {"questId":"Q6","resultId":"forest-story-map","assetId":"forest-story-map","placement":{"sceneId":"whispering-library","x":513,"y":400,"width":48,"height":48}},
+    {"questId":"Q7","resultId":"forest-path-restored","assetId":"scene-storywood-forest","showLayer":"scene-storywood-forest-forest-path-restored","hideLayer":"scene-storywood-forest-initial","additionalAssetId":"forest-tale"},
+    {"questId":"Q8","resultId":"castle-gear-recovered","assetId":"scene-storywood-forest","showLayer":"scene-storywood-forest-castle-gear-recovered","additionalAssetId":"castle-gear"},
+    {"questId":"Q9","resultId":"castle-clock-restored","assetId":"scene-clockwork-castle","showLayer":"scene-clockwork-castle-castle-clock-restored","hideLayer":"scene-clockwork-castle-initial"},
+    {"questId":"Q9","resultId":"castle-open","assetId":"scene-clockwork-castle","showLayer":"scene-clockwork-castle-castle-open"},
+    {"questId":"Q10","resultId":"kingdom-finale","assetId":"green-finale","showLayer":"green-finale-kingdom-finale","baseAssetId":"scene-village-green"},
+    {"questId":"Q10","resultId":"kingdom-finale","assetId":"castle-finale","showLayer":"castle-finale-kingdom-finale","baseAssetId":"scene-clockwork-castle"}
+  ],
+  "cosmetics": [
+    {"id":"home-trim","assetId":"home-trim","viewBox":"0 0 960 600","baseAssetId":"scene-village-green","offset":[0,0]},
+    {"id":"scarf-star","assetId":"scarf-star","viewBox":"0 0 300 320","baseAssetIds":["pip-idle","pip-help","pip-celebration"],"offset":[0,0],"order":"pose, chosen M1 scarf colour, one earned pattern"},
+    {"id":"scarf-wave","assetId":"scarf-wave","viewBox":"0 0 300 320","baseAssetIds":["pip-idle","pip-help","pip-celebration"],"offset":[0,0],"order":"pose, chosen M1 scarf colour, one earned pattern"}
+  ],
+  "creative": {
+    "decorationAssetIds":["decoration-planter","decoration-tree","decoration-bench","decoration-lantern","decoration-banner","decoration-pond"],
+    "decorationViewBox":"0 0 240 240",
+    "socketAssetId":"plot-socket",
+    "socketCentres":[{"id":"plot-1","x":310,"y":468},{"id":"plot-2","x":490,"y":468},{"id":"plot-3","x":668,"y":468},{"id":"plot-4","x":310,"y":548},{"id":"plot-5","x":490,"y":548},{"id":"plot-6","x":668,"y":548}],
+    "previewPlacement":"120x120 decoration; x=centreX-60, y=centreY-108. Existing three sockets are retained; added sockets reuse M1 plot-socket at 112x46.667, x=centreX-56, y=centreY-22.4.",
+    "availability":"All six M2 sockets/types follow the frozen Q3 catalogue rule; garden-restored is decorative Q5 art, not an availability gate."
+  },
+  "shelfDisplays":[
+    {"id":"spellbook","requiresAll":["Q2"],"assetId":"spellbook","x":473,"y":410,"width":48,"height":48},
+    {"id":"forest-story-map","requiresAll":["Q6"],"assetId":"forest-story-map","x":513,"y":400,"width":48,"height":48},
+    {"id":"forest-tale","requiresAll":["Q7"],"assetId":"forest-tale","x":530,"y":405,"width":44,"height":44}
+  ],
+  "discoveries":[{"id":"discovery-workshop","assetId":"sawmill-model"},{"id":"discovery-forest","assetId":"forest-moth"},{"id":"discovery-castle","assetId":"castle-gear"}],
+  "liveContentAreas": {
+    "scene-clockwork-castle":{"layerId":"scene-clockwork-castle-clock-face","cx":490,"cy":233,"radius":52},
+    "clock-surround":{"cx":160,"cy":151,"radius":100},
+    "potion-surround":{"x":101,"y":135,"width":118,"height":133},
+    "array-surround":{"x":36,"y":40,"width":248,"height":232},
+    "book-surround":{"left":[28,50,126,212],"right":[166,50,126,212]},
+    "story-panel":{"x":37,"y":31,"width":246,"height":242},
+    "map-surround":{"x":54,"y":58,"width":215,"height":193}
+  }
+}

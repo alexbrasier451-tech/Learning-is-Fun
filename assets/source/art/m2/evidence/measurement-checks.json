@@ -1,0 +1,16 @@
+{
+  "baseCommit": "9485a2cf67b0703deb4efa6c178602dc7952f705",
+  "exportCount": 28,
+  "totalM2Bytes": 196292,
+  "sourceRuntimeEqual": true,
+  "prefixedUniqueIds": true,
+  "localReferencesResolve": true,
+  "noScriptsRemoteOrBakedText": true,
+  "canonicalSingleLine": true,
+  "allDeclaredResultBindingsResolve": true,
+  "inheritedM1PairsUnchanged": 37,
+  "unchangedNonM2RegisterRecords": 44,
+  "completeRequiredRuntimePaths": 72,
+  "audioRecordsPreservedFromPrivateBase": true,
+  "privateOnly": true
+}
