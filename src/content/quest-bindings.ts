@@ -1,11 +1,18 @@
 import type { ActivityBindingId, QuestActivityBinding, TaskDefinition } from '../learning/contracts';
-import { listTasks, validateCatalogue } from './catalogue';
+import { STARTER_TASKS, validateCatalogue } from './catalogue';
+import { ARITHMETIC_BINDING_PROPOSALS } from './expansion-maths/arithmetic';
+import { QUANTITY_BINDING_PROPOSALS } from './expansion-maths/quantities';
+import { TIME_SPACE_DATA_BINDING_PROPOSALS } from './expansion-maths/time-space-data';
+import { WORD_BINDING_PROPOSALS } from './expansion-english/words';
+import { GRAMMAR_BINDING_PROPOSALS } from './expansion-english/grammar';
+import { PUNCTUATION_REVISIT_PROPOSALS } from './expansion-english/punctuation';
+import { READING_WRITING_BINDING_PROPOSALS } from './expansion-english/reading-writing';
 
 const bridge = 'lif.math.bridge.r1.total-12';
 const punctuation = 'lif.english.punctuation.r1.spellbook-anchor';
 const merchant = 'lif.math.merchant.r1.mult-2.pears-3';
-const ids = (skillId: 'M01' | 'E06' | 'M04') => listTasks({ skillId }).map(task => task.canonicalQuestionId);
-export const QUEST_ACTIVITY_BINDINGS: readonly QuestActivityBinding[] = Object.freeze([
+const ids = (skillId: 'M01' | 'E06' | 'M04') => STARTER_TASKS.filter(task => task.skillId === skillId).map(task => task.canonicalQuestionId);
+const m1: readonly QuestActivityBinding[] = [
   { bindingId: 'q1-story-m01', questId: 'Q1', availability: 'M1', role: 'story', skillId: 'M01', taskIds: [bridge], mechanic: 'drag', responseKind: 'bridge', sourceBindingId: null },
   { bindingId: 'q1-transfer-m01', questId: 'Q1', availability: 'M1', role: 'optional-transfer', skillId: 'M01', taskIds: ids('M01').filter(id => id !== bridge), mechanic: 'drag', responseKind: 'bridge', sourceBindingId: 'q1-story-m01' },
   { bindingId: 'q1-revisit-m01', questId: 'Q1', availability: 'M1', role: 'revisit', skillId: 'M01', taskIds: ids('M01'), mechanic: 'drag', responseKind: 'bridge', sourceBindingId: null },
@@ -15,7 +22,18 @@ export const QUEST_ACTIVITY_BINDINGS: readonly QuestActivityBinding[] = Object.f
   { bindingId: 'q3-story-m04', questId: 'Q3', availability: 'M1', role: 'story', skillId: 'M04', taskIds: [merchant], mechanic: 'object-manipulation', responseKind: 'merchant', sourceBindingId: null },
   { bindingId: 'q3-transfer-m04', questId: 'Q3', availability: 'M1', role: 'optional-transfer', skillId: 'M04', taskIds: ids('M04').filter(id => id !== merchant), mechanic: 'object-manipulation', responseKind: 'merchant', sourceBindingId: 'q3-story-m04' },
   { bindingId: 'q3-revisit-m04', questId: 'Q3', availability: 'M1', role: 'revisit', skillId: 'M04', taskIds: ids('M04'), mechanic: 'object-manipulation', responseKind: 'merchant', sourceBindingId: null },
-].map(row => Object.freeze({ ...row, taskIds: Object.freeze(row.taskIds) })) as QuestActivityBinding[]);
+];
+const proposals = [...ARITHMETIC_BINDING_PROPOSALS, ...QUANTITY_BINDING_PROPOSALS,
+  ...TIME_SPACE_DATA_BINDING_PROPOSALS, ...WORD_BINDING_PROPOSALS, ...GRAMMAR_BINDING_PROPOSALS,
+  ...PUNCTUATION_REVISIT_PROPOSALS, ...READING_WRITING_BINDING_PROPOSALS];
+const requiredM2Ids = ['q4-story-m02-match', 'q5-story-m05-quantity', 'q6-story-e04-sort', 'q6-story-e02-clue',
+  'q7-story-e10-sequence', 'q8-story-e08-clue', 'q8-story-m07-path', 'q9-story-m08-clock',
+  'q9-story-m08-sequence', 'q10-story-m07-goods', 'q10-story-m10-data', 'q10-story-e05-meaning'] as const;
+/** Exact producer pools, ordered required beats, then optional assessed breadth. */
+export const QUEST_ACTIVITY_BINDINGS: readonly QuestActivityBinding[] = Object.freeze([
+  ...m1, ...requiredM2Ids.flatMap(id => proposals.filter(row => row.bindingId === id)),
+  ...proposals.filter(row => row.role === 'revisit'),
+].map(row => Object.freeze({ ...row, taskIds: Object.freeze([...row.taskIds]) })));
 
 export type BindingIssue = Readonly<{ bindingId: string; field: string; code: string; detail: string }>;
 const record = (value: unknown): value is Record<string, unknown> => value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -49,20 +67,26 @@ export function validateBindings(bindings: readonly QuestActivityBinding[], cata
       add(id, 'questId', 'retrospective-requirement', 'M2 cannot add required work to the three released M1 quests.');
     }
     if (row.role !== 'optional-transfer' && row.sourceBindingId !== null) add(id, 'sourceBindingId', 'invalid-source', 'Only optional transfers may have a source binding.');
-    const expectedMechanic = row.responseKind === 'merchant' ? 'object-manipulation' : row.responseKind === 'bridge' || row.responseKind === 'punctuation' ? 'drag' : null;
-    if (row.mechanic !== expectedMechanic) add(id, 'mechanic', 'mechanic-mismatch', 'The mechanic must match the delivered M1 response adapter.');
+    const expectedMechanic = row.responseKind === 'merchant' || row.responseKind === 'quantity' || row.responseKind === 'clock' ? 'object-manipulation'
+      : row.responseKind === 'bridge' || row.responseKind === 'punctuation' ? 'drag'
+        : row.responseKind === 'matching' ? 'matching' : row.responseKind === 'sorting' ? 'sorting'
+          : row.responseKind === 'sequence' ? 'sequencing' : row.responseKind === 'choice' ? 'consequential-selection' : null;
+    if (row.mechanic !== expectedMechanic) add(id, 'mechanic', 'mechanic-mismatch', 'The mechanic must match the declared semantic response adapter.');
     for (const taskId of row.taskIds) if (catalogue.filter(task => task.canonicalQuestionId === taskId && task.skillId === row.skillId && task.responseSpec.kind === row.responseKind).length !== 1) {
       add(id, 'taskIds', 'task-mismatch', 'Each task must resolve once with this primary skill and response kind.');
     }
     const signed = QUEST_ACTIVITY_BINDINGS.find(reference => reference.bindingId === id);
     if (signed) {
       for (const field of ['questId', 'availability', 'role', 'skillId', 'mechanic', 'responseKind', 'sourceBindingId'] as const) {
-        if (row[field] !== signed[field]) add(id, field, 'released-binding-mismatch', 'Released M1 binding meanings are immutable.');
+        if (row[field] !== signed[field]) add(id, field, 'released-binding-mismatch', 'Delivered binding meanings are immutable.');
       }
       if (row.taskIds.length !== signed.taskIds.length || row.taskIds.some(taskId => !signed.taskIds.includes(taskId))) {
-        add(id, 'taskIds', 'released-pool-mismatch', 'Retain the released anchor/transfer/revisit pool.');
+        add(id, 'taskIds', 'released-pool-mismatch', 'Retain the reviewed anchor/transfer/revisit pool.');
       }
-    } else if (row.availability === 'M1') add(id, 'bindingId', 'unknown-m1-binding', 'M1 has only the nine signed binding IDs.');
+    } else add(id, 'bindingId', row.availability === 'M1' ? 'unknown-m1-binding' : 'unknown-m2-binding', 'Only the explicit delivered binding IDs are available.');
+    if (row.availability === 'M2' && row.role === 'story' && !row.taskIds.some(taskId => catalogue.some(task => task.canonicalQuestionId === taskId && task.band === 'support'))) {
+      add(id, 'taskIds', 'inaccessible-support', 'Each required M2 pool needs a reviewed support route.');
+    }
   }
   for (const row of rows.filter(row => row.role === 'optional-transfer')) {
     const sources = rows.filter(source => source.bindingId === row.sourceBindingId);
@@ -72,8 +96,16 @@ export function validateBindings(bindings: readonly QuestActivityBinding[], cata
       add(row.bindingId, 'sourceBindingId', 'invalid-source', 'Transfer source must be one M1 story anchor in the same quest/skill.');
     } else if (row.taskIds.includes(source.taskIds[0])) add(row.bindingId, 'taskIds', 'source-in-transfer', 'The source canonical question cannot be a transfer.');
   }
-  for (const reference of QUEST_ACTIVITY_BINDINGS) if (!rows.some(row => row.bindingId === reference.bindingId)) {
-    add(reference.bindingId, 'bindingId', 'missing-m1-binding', 'The released M1 binding set must be retained.');
+  const expanded = rows.some(row => row.availability === 'M2');
+  for (const reference of QUEST_ACTIVITY_BINDINGS.filter(row => expanded || row.availability === 'M1')) if (!rows.some(row => row.bindingId === reference.bindingId)) {
+    add(reference.bindingId, 'bindingId', reference.availability === 'M1' ? 'missing-m1-binding' : 'missing-m2-binding', 'The delivered binding set must be retained.');
+  }
+  if (expanded) for (const questId of questIds) {
+    const actual = rows.filter(row => row.questId === questId && row.role === 'story' && row.availability === 'M2').map(row => row.bindingId);
+    const expected = QUEST_ACTIVITY_BINDINGS.filter(row => row.questId === questId && row.role === 'story' && row.availability === 'M2').map(row => row.bindingId);
+    if (actual.length !== expected.length || actual.some((id, i) => id !== expected[i])) {
+      add(questId, 'bindingId', 'required-order-mismatch', 'Keep the listed within-quest M2 story order.');
+    }
   }
   const represented = new Set([...rows.map(row => row.questId), ...['Q1', 'Q2', 'Q3'].filter(id => questIds.includes(id))]);
   for (const questId of represented) if (!rows.some(row => row.questId === questId && row.role === 'story')) {
