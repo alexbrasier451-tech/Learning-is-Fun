@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       selection:
-        description: Run components, M1 adventure, application shell, or production offline cases
+        description: Run components, adventure, shell, offline, or bounded published smoke
         type: choice
         required: true
         default: components
@@ -13,6 +13,7 @@ on:
           - adventure
           - shell
           - offline
+          - published
 
 permissions:
   contents: read
@@ -42,16 +43,39 @@ jobs:
       - name: Prepare private evidence
         run: |
           node --input-type=module <<'NODE'
-          import { appendFileSync, mkdirSync, writeFileSync } from 'node:fs';
+          import { appendFileSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+          import { createHash } from 'node:crypto';
           import { join } from 'node:path';
           import { platform, release } from 'node:os';
           if (!process.env.RUNNER_TEMP || !process.env.GITHUB_ENV) {
             throw new Error('Runner temporary directory and environment file are required.');
           }
-          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 6 }, shell: { shell: 4 }, offline: { offline: 4 } };
+          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 7 }, shell: { shell: 4 }, offline: { offline: 4 }, published: { published: 1 } };
           const selection = process.env.D3_SELECTION;
-          if (!selection || !Object.hasOwn(selections, selection)) throw new Error('D3_SELECTION must be components, adventure, shell or offline.');
+          if (!selection || !Object.hasOwn(selections, selection)) throw new Error('D3_SELECTION must be components, adventure, shell, offline or published.');
           const expected = selections[selection];
+          let deployedCandidate;
+          if (selection === 'published') {
+            let bytes, value;
+            try { bytes = readFileSync('docs/release/M1/CANDIDATE.json'); value = JSON.parse(bytes.toString('utf8')); }
+            catch { throw new Error('Cannot read valid M1 candidate metadata.'); }
+            const fields = ['release', 'url', 'basePath', 'buildId', 'commit', 'deploymentRun', 'requiredInventoryLocation'];
+            if (!value || Array.isArray(value) || Object.keys(value).length !== fields.length ||
+                fields.some(key => typeof value[key] !== 'string' || !value[key])) {
+              throw new Error('M1 candidate requires its seven nonempty metadata fields.');
+            }
+            const identity = /^([a-f0-9]{40})-pages-([0-9]+)-([0-9]+)$/.exec(value.buildId);
+            if (value.release !== 'M1' || value.url !== 'https://alexbrasier451-tech.github.io/Learning-is-Fun/' ||
+                value.basePath !== '/Learning-is-Fun/' || !identity || value.commit !== identity[1] ||
+                value.deploymentRun !== `https://github.com/alexbrasier451-tech/Learning-is-Fun/actions/runs/${identity[2]}` ||
+                !/^[a-f0-9]{40}$/.test(process.env.GITHUB_SHA ?? '')) {
+              throw new Error('M1 candidate must identify the HTTPS project deployment and matching build/commit/run; CI source commit is required.');
+            }
+            deployedCandidate = { release: value.release, url: value.url, basePath: value.basePath,
+              buildId: value.buildId, commit: value.commit, deploymentRun: value.deploymentRun,
+              metadataSha256: createHash('sha256').update(bytes).digest('hex') };
+            appendFileSync(process.env.GITHUB_ENV, `PLAYTEST_MODE=published\nPLAYTEST_BASE_URL=${value.url}\n`);
+          }
           appendFileSync(process.env.GITHUB_ENV, `D3_FIXTURES=${Object.keys(expected).join(' ')}\n`);
           const root = join(process.env.RUNNER_TEMP, 'd3-firefox');
           const roots = {
@@ -63,6 +87,7 @@ jobs:
             ADVENTURE_VERIFY_ROOT: join(root, 'adventure'),
             SHELL_VERIFY_ROOT: join(root, 'shell'),
             OFFLINE_OUTPUT: join(root, 'offline'),
+            PUBLISHED_VERIFY_ROOT: join(root, 'published'),
           };
           for (const [key, value] of Object.entries(roots)) {
             mkdirSync(value, { recursive: true });
@@ -72,7 +97,7 @@ jobs:
             commit: process.env.GITHUB_SHA, runId: process.env.GITHUB_RUN_ID,
             attempt: process.env.GITHUB_RUN_ATTEMPT, os: platform(), release: release(),
             node: process.version, viewport: { width: 1280, height: 720 },
-            selection, expected,
+            selection, expected, deployedCandidate,
           }, null, 2));
           NODE
       - name: Install frozen dependencies
@@ -87,7 +112,7 @@ jobs:
           node --input-type=module <<'NODE'
           import { readFileSync } from 'node:fs';
           import { join } from 'node:path';
-          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 6 }, shell: { shell: 4 }, offline: { offline: 4 } };
+          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 7 }, shell: { shell: 4 }, offline: { offline: 4 }, published: { published: 1 } };
           if (!Object.hasOwn(selections, process.env.D3_SELECTION ?? '')) throw new Error('Unknown D3 selection.');
           const expected = selections[process.env.D3_SELECTION];
           const tests = suites => suites.flatMap(suite => [
@@ -96,6 +121,14 @@ jobs:
           ]);
           for (const [fixture, count] of Object.entries(expected)) {
             const report = JSON.parse(readFileSync(join(process.env.D3_EVIDENCE_ROOT, fixture, 'discovery.json'), 'utf8'));
+            if (fixture === 'published') {
+              const run = JSON.parse(readFileSync(join(process.env.D3_EVIDENCE_ROOT, 'run.json'), 'utf8'));
+              const identity = report.config?.metadata;
+              if (identity?.ciSourceCommit !== run.commit || !run.deployedCandidate ||
+                  Object.keys(run.deployedCandidate).some(key => identity?.deployedCandidate?.[key] !== run.deployedCandidate[key])) {
+                throw new Error('Published discovery must retain CI source and selected deployment identities.');
+              }
+            }
             const found = tests(report.suites ?? []);
             if (report.errors?.length || found.length !== count || found.some(test => test.projectName !== 'D3-Firefox')) {
               throw new Error(`${fixture}: expected ${count} D3 tests; discovered ${found.length}.`);
@@ -291,7 +324,7 @@ jobs:
           node --input-type=module <<'NODE'
           import { readFileSync } from 'node:fs';
           import { join } from 'node:path';
-          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 6 }, shell: { shell: 4 }, offline: { offline: 4 } };
+          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 7 }, shell: { shell: 4 }, offline: { offline: 4 }, published: { published: 1 } };
           if (!Object.hasOwn(selections, process.env.D3_SELECTION ?? '')) throw new Error('Unknown D3 selection.');
           const expected = selections[process.env.D3_SELECTION];
           const tests = suites => suites.flatMap(suite => [
@@ -300,6 +333,14 @@ jobs:
           ]);
           for (const [fixture, count] of Object.entries(expected)) {
             const report = JSON.parse(readFileSync(join(process.env.D3_EVIDENCE_ROOT, fixture, 'results.json'), 'utf8'));
+            if (fixture === 'published') {
+              const run = JSON.parse(readFileSync(join(process.env.D3_EVIDENCE_ROOT, 'run.json'), 'utf8'));
+              const identity = report.config?.metadata;
+              if (identity?.ciSourceCommit !== run.commit || !run.deployedCandidate ||
+                  Object.keys(run.deployedCandidate).some(key => identity?.deployedCandidate?.[key] !== run.deployedCandidate[key])) {
+                throw new Error('Published results must retain CI source and selected deployment identities.');
+              }
+            }
             const found = tests(report.suites ?? []);
             if (report.errors?.length || found.length !== count || report.stats?.expected !== count ||
                 report.stats.unexpected !== 0 || report.stats.flaky !== 0 || report.stats.skipped !== 0 ||
