@@ -20,6 +20,12 @@ Address perceived short repetition with musically coherent variation. Preserve t
 
 Audio and M2 art must not mutate the asset register concurrently. Keep the live C build fixed until a coordinated candidate is ready. Retain approved originals, the genuine M1 save and all prior valid evidence.
 
+### Bounded production decision
+
+Controller accepts the [original-owner assessment](MUSIC-VARIATION-ASSESSMENT.md) and [independent plan review](MUSIC-VARIATION-PLAN-VALIDATION.md) for an isolated A+B candidate: retain each complete approved theme and add the complete 30.72-second CC0 Sleep Talking section, with only measured transition/tail treatment. This is a technically reviewable variation candidate, not a heard-quality endorsement. The author must preserve approved A-only baselines and all five effects. Exactly two public theme keys remain.
+
+The bounded loop maximum is now 110 seconds (lower bound, PCM format and exclusive endpoints unchanged). WP01 may raise the per-file precache cap from8MiB to10MiB only with actual larger-file/precache/offline proof. The audio permission tuple keeps the primary component's actual licence, with all secondary component rights/URLs explicitly disclosed as prescribed by the independent review; no schema or new rights inventory is introduced. The shell owner must correct composite credit headings and creator links before publication. Controller holds exclusive two-audio-row registry integration until reviewed audio metadata is handed on to M2 art. No live deployment is implied by this production decision.
+
 ## Expansion execution profile
 
 Reuse the existing Controller and visible worker authorization. At most three active workers plus Controller. Expansion decomposes into independent art, widget and content families under CON-005; construction uses isolated managed worktrees or private candidate/patch outputs. Each author owns its semantic chunk and focused checks. Controller integrates accepted changes, shared registry/catalogue updates, authoritative builds and publication serially. Music assessment can overlap because it initially has no production/register write lease. Do not rerun accepted M1 work unless a change invalidates it.
