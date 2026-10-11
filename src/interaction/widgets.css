@@ -74,3 +74,32 @@
 @media (prefers-reduced-motion: reduce) {
   .iw-widget *, .iw-drag-ghost { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+.iw-item-card { display: flex; flex-direction: column; gap: 12px; flex: 1 1 12rem; min-width: 0; }
+.iw-item-card .iw-piece, .iw-sequence-card .iw-piece { flex: none; }
+.iw-item-card p { margin: 0; }
+.iw-destinations { display: flex; flex-wrap: wrap; gap: 16px; }
+.iw-destination { flex: 1 1 14rem; min-width: 0; padding: 12px; background: #e1eee2; border-radius: 16px; }
+.iw-destination ul { padding-left: 24px; overflow-wrap: anywhere; }
+.iw-sequence-list { padding: 0; list-style: none; display: flex; flex-direction: column; gap: 16px; }
+.iw-sequence-card { border: 2px solid #d6c7aa; padding: 16px; border-radius: 16px; display: flex; flex-direction: column; gap: 12px; }
+.iw-clock-dial { inline-size: min(100%, 18rem); aspect-ratio: 1; }
+.iw-clock-face { display: block; inline-size: 100%; block-size: auto; max-inline-size: 18rem; font: 14px system-ui, sans-serif; }
+.iw-clock output { display: block; margin-block: 16px; }
+.iw-clock-options { border: 2px solid #d6c7aa; border-radius: 16px; margin-block: 16px; min-width: 0; padding: 16px; }
+.iw-stimulus { margin-inline: 0; }
+.iw-stimulus figcaption p { margin-block: 12px; }
+.iw-array { display: flex; flex-direction: column; gap: 12px; }
+.iw-array-group { display: flex; gap: 8px; padding: 8px; border: 2px solid #24665e; border-radius: 8px; inline-size: fit-content; max-inline-size: 100%; }
+.iw-array-item { inline-size: clamp(12px, 3vw, 24px); block-size: clamp(12px, 3vw, 24px); flex: 0 1 auto; aspect-ratio: 1; border-radius: 50%; background: #24665e; }
+.iw-fraction { display: flex; flex-direction: column; gap: 16px; }
+.iw-whole { display: grid; inline-size: 100%; max-inline-size: 24rem; block-size: 80px; border: 2px solid #263d38; }
+.iw-whole span { border-inline-end: 1px solid #263d38; }
+.iw-whole span:last-child { border-inline-end: 0; }
+.iw-whole [data-shaded="true"] { background: #24665e; }
+.iw-diagram { display: block; inline-size: min(100%, 28rem); aspect-ratio: 1; font: 5px system-ui, sans-serif; fill: #263d38; }
+.iw-chart { display: block; inline-size: 100%; max-inline-size: 40rem; block-size: auto; font: 13px system-ui, sans-serif; fill: #263d38; }
+.iw-source-table { border-collapse: collapse; inline-size: 100%; margin-block: 16px; table-layout: fixed; }
+.iw-source-table caption { text-align: start; margin-bottom: 12px; }
+.iw-source-table th, .iw-source-table td { border: 1px solid #24665e; padding: 8px; text-align: start; overflow-wrap: anywhere; }
+.iw-digital { font-size: 1.5rem; font-variant-numeric: tabular-nums; }

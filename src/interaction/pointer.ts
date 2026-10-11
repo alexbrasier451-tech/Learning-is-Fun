@@ -17,7 +17,10 @@ export function bindPointerDrag(element: HTMLElement, options: Readonly<{
   onAction(action: DraftAction): void;
 }>): PointerDragBinding {
   const doc = element.ownerDocument, win = doc.defaultView!;
-  let active: { pointerId: number; start: ClientPoint; selection: DraftSelection; moved: boolean } | null = null;
+  // Layout dimensions/orientation can change before their queued events arrive.
+  // Scroll offsets intentionally stay out: normal drops resolve live rectangles.
+  const viewport = () => `${win.innerWidth}:${win.innerHeight}:${win.screen.orientation?.angle ?? ''}`;
+  let active: { pointerId: number; start: ClientPoint; selection: DraftSelection; moved: boolean; viewport: string } | null = null;
   let ghost: HTMLDivElement | null = null;
   let suppressClick = false, disposed = false;
   const finish = (cancelled: boolean) => {
@@ -32,11 +35,12 @@ export function bindPointerDrag(element: HTMLElement, options: Readonly<{
     suppressClick = false;
     const draft = options.getDraft();
     if (!draft?.selection) return;
-    active = { pointerId: event.pointerId, start: { x: event.clientX, y: event.clientY }, selection: draft.selection, moved: false };
+    active = { pointerId: event.pointerId, start: { x: event.clientX, y: event.clientY }, selection: draft.selection, moved: false, viewport: viewport() };
     try { element.setPointerCapture(event.pointerId); } catch { finish(true); }
   };
   const move = (event: PointerEvent) => {
     if (!active || event.pointerId !== active.pointerId) return;
+    if (active.viewport !== viewport()) { suppressClick = true; finish(true); event.preventDefault(); return; }
     if (!options.getDraft()) { finish(true); return; }
     if (!active.moved && Math.hypot(event.clientX - active.start.x, event.clientY - active.start.y) < 6) return;
     if (!active.moved) {
@@ -52,6 +56,7 @@ export function bindPointerDrag(element: HTMLElement, options: Readonly<{
   };
   const up = (event: PointerEvent) => {
     if (!active || event.pointerId !== active.pointerId) return;
+    if (active.viewport !== viewport()) { suppressClick = true; finish(true); event.preventDefault(); return; }
     const previous = active;
     if (!previous.moved) { finish(false); return; }
     suppressClick = true;
