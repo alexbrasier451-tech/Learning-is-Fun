@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-11",
+  "method": "Unmodified public response bytes; no normalization; no paid service/account",
+  "files": [
+    {
+      "file": "sleep-talking.wav",
+      "url": "https://opengameart.org/sites/default/files/SleepTalking.wav",
+      "bytes": 5419154,
+      "sha256": "790cfd5ae94db0460031cf81f653758c921f4a37aec284251767d8026099130d"
+    },
+    {
+      "file": "sleep-talking-source.html",
+      "url": "https://opengameart.org/content/sleep-talking-loop-fantasy-rpg-sci-fi",
+      "bytes": 43518,
+      "sha256": "99deabae6b754614bd49887188fd76a0be459c7fde57483b2ba298b0e019fc38"
+    },
+    {
+      "file": "sleep-talking-cc0-legalcode.html",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/legalcode.en",
+      "bytes": 32223,
+      "sha256": "b43732f4c1463b087cf10d4daf8d8766514b2bf8f21bc5ef50905f95be227726"
+    }
+  ]
+}

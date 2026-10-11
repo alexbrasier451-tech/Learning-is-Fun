@@ -1605,24 +1605,26 @@
         "assets/source/audio/licensed/market-on-the-sea-loop.f32",
         "assets/source/audio/licensed/market-on-the-sea.mp3",
         "assets/source/audio/licensed/decode-sources.mjs",
-        "tools/render-audio.mjs"
+        "tools/render-audio.mjs",
+        "assets/source/audio/licensed/sleep-talking.wav",
+        "assets/source/audio/licensed/village-variation-RIGHTS.md"
       ],
       "runtimePath": "assets/audio/village-loop.wav",
-      "author": "Jonathan Shaw (InspectorJ)",
+      "author": "Jonathan Shaw (Market on the Sea); Kilua Boy / KiluaBoy (Sleep Talking)",
       "permission": {
         "kind": "reused",
         "licence": "CC BY",
         "version": "3.0",
         "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
-        "retainedLicencePath": "assets/source/audio/licensed/market-on-the-sea-LICENSE.md"
+        "retainedLicencePath": "assets/source/audio/licensed/village-variation-RIGHTS.md"
       },
-      "attribution": "\"Market on the Sea\" Composed by Jonathan Shaw (www.jshaw.co.uk). CC BY 3.0.",
-      "modifications": "Complete 69.996508-second repeated phrase extracted from the second pass of the supplied MP3; mono 44.1 kHz PCM16, gain 0.35. No tempo/pitch change, added instruments, seam crossfade or inserted silence.",
+      "attribution": "Includes “Market on the Sea”, composed by Jonathan Shaw (https://www.jshaw.co.uk/), CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/), and “Sleep Talking” by Kilua Boy / KiluaBoy, CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/). Sleep Talking source: https://opengameart.org/content/sleep-talking-loop-fantasy-rpg-sci-fi. The CC BY tuple applies to Market on the Sea; Sleep Talking retains its CC0 dedication. Neither creator endorses this adaptation.",
+      "modifications": "Offline A+B arrangement of separately licensed recordings; complete approved A period followed by complete Sleep Talking B period, downmixed to mono 44.1 kHz PCM16. Original component rights are unchanged. A gain 0.35, retained source frames [3086846, 6173692); B gain 0.4, source frames [0, 1354752). Each component has complementary raised-cosine fade-in/fade-out over 22050 frames (0.5 s). A output starts at 0; B starts at 3064796; B final 22050 frames wrap into A first 22050 frames. A interior [22050, 3064796) is unchanged. No pitch/speed change or inserted silence.",
       "sampleRate": 44100,
-      "frameCount": 3086846,
-      "bytes": 6173736,
+      "frameCount": 4397498,
+      "bytes": 8795040,
       "loopStartFrame": 0,
-      "loopEndFrame": 3086846,
+      "loopEndFrame": 4397498,
       "sourceUrl": "https://opengameart.org/content/market-on-the-sea-rpg-orchestral-essentials-village-music"
     },
     {
@@ -1633,24 +1635,26 @@
       "sourcePaths": [
         "assets/source/audio/library.json",
         "assets/source/audio/licensed/sunset-walk.wav",
-        "tools/render-audio.mjs"
+        "tools/render-audio.mjs",
+        "assets/source/audio/licensed/sleep-talking.wav",
+        "assets/source/audio/licensed/library-variation-RIGHTS.md"
       ],
       "runtimePath": "assets/audio/library-loop.wav",
-      "author": "Kilua Boy (KiluaBoy)",
+      "author": "Kilua Boy / KiluaBoy (Sunset Walk; Sleep Talking)",
       "permission": {
         "kind": "reused",
         "licence": "CC0",
         "version": "1.0",
         "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-        "retainedLicencePath": "assets/source/audio/licensed/sunset-walk-LICENSE.md"
+        "retainedLicencePath": "assets/source/audio/licensed/library-variation-RIGHTS.md"
       },
-      "attribution": "\"Sunset Walk\" by Kilua Boy / KiluaBoy. CC0 1.0 Universal.",
-      "modifications": "Complete creator-supplied 76.8-second loop; stereo mean downmix to mono 44.1 kHz PCM16, gain 0.16. No trimming, tempo/pitch change, seam crossfade or inserted silence.",
+      "attribution": "Includes “Sunset Walk” and “Sleep Talking” by Kilua Boy / KiluaBoy, CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/). Sunset Walk source: https://opengameart.org/content/sunset-walk-ambient-quiet-sweet-loop. Sleep Talking source: https://opengameart.org/content/sleep-talking-loop-fantasy-rpg-sci-fi. The existing source dedications are retained. No creator endorsement or new dedication of other project work is implied.",
+      "modifications": "Offline A+B arrangement of separately licensed recordings; complete approved A period followed by complete Sleep Talking B period, downmixed to mono 44.1 kHz PCM16. Original component rights are unchanged. A gain 0.16, retained source frames [0, 3386880); B gain 0.25, source frames [0, 1354752). Each component has complementary raised-cosine fade-in/fade-out over 22050 frames (0.5 s). A output starts at 0; B starts at 3364830; B final 22050 frames wrap into A first 22050 frames. A interior [22050, 3364830) is unchanged. No pitch/speed change or inserted silence.",
       "sampleRate": 44100,
-      "frameCount": 3386880,
-      "bytes": 6773804,
+      "frameCount": 4697532,
+      "bytes": 9395108,
       "loopStartFrame": 0,
-      "loopEndFrame": 3386880,
+      "loopEndFrame": 4697532,
       "sourceUrl": "https://opengameart.org/content/sunset-walk-ambient-quiet-sweet-loop"
     },
     {

@@ -5,50 +5,50 @@
     {
       "assetId": "village-loop",
       "sampleRate": 44100,
-      "frameCount": 3086846,
-      "seconds": 69.99650793650794,
-      "bytes": 6173736,
-      "sha256": "d7c1512a10eec6c26cd351136ed299f5ac0d4d58e49c2b99361fc2cd9cf26d0a",
+      "frameCount": 4397498,
+      "seconds": 99.71650793650794,
+      "bytes": 8795040,
+      "sha256": "5506aca739cb60aa265ae32823f4444e966fb6179ef27416d271c7e0de55e6a6",
       "peakPcm": 7526,
       "peakDbfs": -12.777714419517448,
-      "rmsDbfs": -31.054572218680082,
-      "dcPcm": 0.07183740296730061,
+      "rmsDbfs": -31.277738430255777,
+      "dcPcm": 0.49972666275231964,
       "maxStepPcm": 1466,
-      "sourceTitle": "Market on the Sea",
-      "production": "licensed-recording",
-      "masterGain": 0.35,
+      "sourceTitle": "Market on the Sea; Sleep Talking",
+      "production": "licensed-arrangement",
+      "masterGain": 1,
       "loopStartFrame": 0,
-      "loopEndFrame": 3086846,
-      "joinStepPcm": 98,
-      "joinWindowMaxStepPcm": 357,
-      "joinWindowRmsDbfs": -30.82449221850682,
+      "loopEndFrame": 4397498,
+      "joinStepPcm": 17,
+      "joinWindowMaxStepPcm": 116,
+      "joinWindowRmsDbfs": -37.651074291649955,
       "joinWindowMilliseconds": 20,
-      "firstPcm": 65,
-      "lastPcm": -33
+      "firstPcm": -326,
+      "lastPcm": -343
     },
     {
       "assetId": "library-loop",
       "sampleRate": 44100,
-      "frameCount": 3386880,
-      "seconds": 76.8,
-      "bytes": 6773804,
-      "sha256": "3ca0ea4bfd638d6fd2ab3d98b305c90c65ca0cbecbbd1713ecacb555d0bb8e64",
+      "frameCount": 4697532,
+      "seconds": 106.52,
+      "bytes": 9395108,
+      "sha256": "cfb28bbd7ac9c6b9241873df2a05691dff6c4387d2df916d79102eccf015acd4",
       "peakPcm": 4395,
       "peakDbfs": -17.449821110998545,
-      "rmsDbfs": -35.50538988819876,
-      "dcPcm": -0.8039918745275888,
+      "rmsDbfs": -35.60492085541582,
+      "dcPcm": -0.3167869851658275,
       "maxStepPcm": 1852,
-      "sourceTitle": "Sunset Walk",
-      "production": "licensed-recording",
-      "masterGain": 0.16,
+      "sourceTitle": "Sunset Walk; Sleep Talking",
+      "production": "licensed-arrangement",
+      "masterGain": 1,
       "loopStartFrame": 0,
-      "loopEndFrame": 3386880,
-      "joinStepPcm": 48,
-      "joinWindowMaxStepPcm": 48,
-      "joinWindowRmsDbfs": -56.710510565016,
+      "loopEndFrame": 4697532,
+      "joinStepPcm": 11,
+      "joinWindowMaxStepPcm": 72,
+      "joinWindowRmsDbfs": -41.73553593419232,
       "joinWindowMilliseconds": 20,
-      "firstPcm": 0,
-      "lastPcm": 48
+      "firstPcm": -204,
+      "lastPcm": -215
     },
     {
       "assetId": "pickup",
@@ -121,8 +121,8 @@
       "eventCount": 9
     }
   ],
-  "largestBytes": 6773804,
-  "totalBytes": 13825350,
+  "largestBytes": 9395108,
+  "totalBytes": 19067958,
   "acousticAcceptance": "UNVERIFIED — numeric measurements are not listening",
   "sourceMixBound": {
     "assumption": "Both themes and at most four effect voices; linear gains each <= 1; no speech included",
@@ -134,13 +134,13 @@
       "assetId": "village-loop",
       "riff": "PCM mono 44100 Hz 16-bit; exact sizes",
       "peakPcm": 7526,
-      "maxZeroRunFrames": 2
+      "maxZeroRunFrames": 3
     },
     {
       "assetId": "library-loop",
       "riff": "PCM mono 44100 Hz 16-bit; exact sizes",
       "peakPcm": 4395,
-      "maxZeroRunFrames": 119
+      "maxZeroRunFrames": 8
     },
     {
       "assetId": "pickup",
@@ -174,124 +174,256 @@
     }
   ],
   "registerPreservation": {
-    "date": "2026-10-09",
-    "authority": "Controller explicitly released DEP-037 in this chat before the register write.",
-    "unrelatedRecords": 64,
-    "nonAudioRecordsSha256": "198263dd17c0d6b00e6e28854cf1e990172ccdf5292bc3c9f5c389113bb07bd1",
-    "registerContractSha256": "a7cc6ebb87bf8829a3ccdff1734a14108a807e0d151a71a3653c8b5aaa00dad6",
-    "sameBeforeAfter": true
+    "base": "6b5834953b56b4f2ce33c099700b1090805b6144",
+    "excludedIds": [
+      "village-loop",
+      "library-loop"
+    ],
+    "unchangedRows": 70,
+    "sha256": "b93dd43e18f64cf8cf58425d8fad1ad4ddf472adde2cd1ce3fb1f2eb4c2b6146"
+  },
+  "variationChecks": {
+    "base": "6b5834953b56b4f2ce33c099700b1090805b6144",
+    "rows": [
+      {
+        "id": "village-loop",
+        "baselineSha256": "d7c1512a10eec6c26cd351136ed299f5ac0d4d58e49c2b99361fc2cd9cf26d0a",
+        "outputSha256": "5506aca739cb60aa265ae32823f4444e966fb6179ef27416d271c7e0de55e6a6",
+        "aUnchangedInterior": {
+          "startFrame": 22050,
+          "endFrame": 3064796,
+          "frames": 3042746
+        },
+        "bUnchangedInterior": {
+          "sourceStartFrame": 22050,
+          "sourceEndFrame": 1332702,
+          "frames": 1310652,
+          "gain": 0.4
+        },
+        "transitions": [
+          {
+            "name": "A-to-B",
+            "outputStartFrame": 3064796,
+            "outputEndFrame": 3086846,
+            "seconds": 0.5,
+            "startStepPcm": 353,
+            "endStepPcm": 16,
+            "peakPcm": 2117,
+            "maxStepPcm": 391,
+            "rmsDbfs": -34.45182064351344
+          },
+          {
+            "name": "B-to-A",
+            "outputStartFrame": 0,
+            "outputEndFrame": 22050,
+            "seconds": 0.5,
+            "startStepPcm": 17,
+            "endStepPcm": 109,
+            "peakPcm": 1815,
+            "maxStepPcm": 442,
+            "rmsDbfs": -36.846308575137826
+          }
+        ],
+        "negativeChecks": "PASS: >110s loop, <60s loop, wrong rate, out-of-range exclusive loop end rejected"
+      },
+      {
+        "id": "library-loop",
+        "baselineSha256": "3ca0ea4bfd638d6fd2ab3d98b305c90c65ca0cbecbbd1713ecacb555d0bb8e64",
+        "outputSha256": "cfb28bbd7ac9c6b9241873df2a05691dff6c4387d2df916d79102eccf015acd4",
+        "aUnchangedInterior": {
+          "startFrame": 22050,
+          "endFrame": 3364830,
+          "frames": 3342780
+        },
+        "bUnchangedInterior": {
+          "sourceStartFrame": 22050,
+          "sourceEndFrame": 1332702,
+          "frames": 1310652,
+          "gain": 0.25
+        },
+        "transitions": [
+          {
+            "name": "A-to-B",
+            "outputStartFrame": 3364830,
+            "outputEndFrame": 3386880,
+            "seconds": 0.5,
+            "startStepPcm": 8,
+            "endStepPcm": 10,
+            "peakPcm": 1052,
+            "maxStepPcm": 63,
+            "rmsDbfs": -40.4712036103887
+          },
+          {
+            "name": "B-to-A",
+            "outputStartFrame": 0,
+            "outputEndFrame": 22050,
+            "seconds": 0.5,
+            "startStepPcm": 11,
+            "endStepPcm": 2,
+            "peakPcm": 1078,
+            "maxStepPcm": 89,
+            "rmsDbfs": -42.773028129245844
+          }
+        ],
+        "negativeChecks": "PASS: >110s loop, <60s loop, wrong rate, out-of-range exclusive loop end rejected"
+      }
+    ],
+    "rawAcquisitionBytes": "PASS: original and new source/licence hashes",
+    "effectMaxGuard": "PASS: >90 seconds still rejected",
+    "unchangedRegistryRows": 70,
+    "acousticAcceptance": "UNVERIFIED — technical transition measurements do not establish musical fit"
   },
   "audition": {
     "file": "assets/source/audio/audition.wav",
-    "bytes": 8105624,
-    "frameCount": 4052790,
-    "seconds": 91.9,
-    "sha256": "6c1f714e6d9482feb3db0f4f54cab856db4e725137b193c755d91eb7c7d49ce9",
+    "bytes": 12692024,
+    "frameCount": 6345990,
+    "seconds": 143.9,
+    "sha256": "b6bf9ff0d3d1f92886df917e13b62276fb4a24f205bb06280d4065ccbff86221",
     "timeline": [
       {
-        "label": "village-loop: join 1",
+        "label": "village-loop: A-to-B pass 1",
         "startSeconds": 0,
         "endSeconds": 12,
         "joinSeconds": 6,
+        "overlapEndSeconds": 6.5,
         "musicGain": 0.25,
         "effectsGain": 0
       },
       {
-        "label": "village-loop: join 2",
+        "label": "village-loop: A-to-B pass 2",
         "startSeconds": 13,
         "endSeconds": 25,
         "joinSeconds": 19,
+        "overlapEndSeconds": 19.5,
         "musicGain": 0.25,
         "effectsGain": 0
       },
       {
-        "label": "library-loop: join 1",
+        "label": "village-loop: B-to-A pass 1",
         "startSeconds": 26,
         "endSeconds": 38,
         "joinSeconds": 32,
+        "overlapEndSeconds": 32.5,
         "musicGain": 0.25,
         "effectsGain": 0
       },
       {
-        "label": "library-loop: join 2",
+        "label": "village-loop: B-to-A pass 2",
         "startSeconds": 39,
         "endSeconds": 51,
         "joinSeconds": 45,
+        "overlapEndSeconds": 45.5,
+        "musicGain": 0.25,
+        "effectsGain": 0
+      },
+      {
+        "label": "library-loop: A-to-B pass 1",
+        "startSeconds": 52,
+        "endSeconds": 64,
+        "joinSeconds": 58,
+        "overlapEndSeconds": 58.5,
+        "musicGain": 0.25,
+        "effectsGain": 0
+      },
+      {
+        "label": "library-loop: A-to-B pass 2",
+        "startSeconds": 65,
+        "endSeconds": 77,
+        "joinSeconds": 71,
+        "overlapEndSeconds": 71.5,
+        "musicGain": 0.25,
+        "effectsGain": 0
+      },
+      {
+        "label": "library-loop: B-to-A pass 1",
+        "startSeconds": 78,
+        "endSeconds": 90,
+        "joinSeconds": 84,
+        "overlapEndSeconds": 84.5,
+        "musicGain": 0.25,
+        "effectsGain": 0
+      },
+      {
+        "label": "library-loop: B-to-A pass 2",
+        "startSeconds": 91,
+        "endSeconds": 103,
+        "joinSeconds": 97,
+        "overlapEndSeconds": 97.5,
         "musicGain": 0.25,
         "effectsGain": 0
       },
       {
         "label": "pickup: alone",
-        "startSeconds": 52,
-        "endSeconds": 52.85,
+        "startSeconds": 104,
+        "endSeconds": 104.85,
         "musicGain": 0,
         "effectsGain": 0.5
       },
       {
         "label": "placement: alone",
-        "startSeconds": 53.85,
-        "endSeconds": 54.65,
+        "startSeconds": 105.85,
+        "endSeconds": 106.65,
         "musicGain": 0,
         "effectsGain": 0.5
       },
       {
         "label": "support: alone",
-        "startSeconds": 55.65,
-        "endSeconds": 57.3,
+        "startSeconds": 107.65,
+        "endSeconds": 109.3,
         "musicGain": 0,
         "effectsGain": 0.5
       },
       {
         "label": "success: alone",
-        "startSeconds": 58.3,
-        "endSeconds": 60.45,
+        "startSeconds": 110.3,
+        "endSeconds": 112.45,
         "musicGain": 0,
         "effectsGain": 0.5
       },
       {
         "label": "restoration: alone",
-        "startSeconds": 61.45,
-        "endSeconds": 65.95,
+        "startSeconds": 113.45,
+        "endSeconds": 117.95,
         "musicGain": 0,
         "effectsGain": 0.5
       },
       {
         "label": "pickup: over village-loop",
-        "startSeconds": 66.95,
-        "endSeconds": 69.8,
-        "cueSeconds": 67.95,
+        "startSeconds": 118.95,
+        "endSeconds": 121.8,
+        "cueSeconds": 119.95,
         "musicGain": 0.25,
         "effectsGain": 0.5
       },
       {
         "label": "placement: over library-loop",
-        "startSeconds": 70.8,
-        "endSeconds": 73.6,
-        "cueSeconds": 71.8,
+        "startSeconds": 122.8,
+        "endSeconds": 125.6,
+        "cueSeconds": 123.8,
         "musicGain": 0.25,
         "effectsGain": 0.5
       },
       {
         "label": "support: over village-loop",
-        "startSeconds": 74.6,
-        "endSeconds": 78.25,
-        "cueSeconds": 75.6,
+        "startSeconds": 126.6,
+        "endSeconds": 130.25,
+        "cueSeconds": 127.6,
         "musicGain": 0.25,
         "effectsGain": 0.5
       },
       {
         "label": "success: over library-loop",
-        "startSeconds": 79.25,
-        "endSeconds": 83.4,
-        "cueSeconds": 80.25,
+        "startSeconds": 131.25,
+        "endSeconds": 135.4,
+        "cueSeconds": 132.25,
         "musicGain": 0.25,
         "effectsGain": 0.5
       },
       {
         "label": "restoration: over village-loop",
-        "startSeconds": 84.4,
-        "endSeconds": 90.9,
-        "cueSeconds": 85.4,
+        "startSeconds": 136.4,
+        "endSeconds": 142.9,
+        "cueSeconds": 137.4,
         "musicGain": 0.25,
         "effectsGain": 0.5
       }
@@ -301,12 +433,12 @@
     "file": "assets/source/audio/music-preview.wav",
     "bytes": 4498244,
     "seconds": 51,
-    "sha256": "8f7fe9d57513229ca6246f6c0dfa62b41428a7d3a0cdcfd4de4cc797005f724a",
-    "description": "Village source 4–29 seconds, 1-second pause, library source 24–49 seconds; music gain 0.25 baked in; 80 ms outer fades; no seam assessment."
+    "sha256": "d7a07a2d32ffee9e8e4a3043254ccfaa754ae04085e48dca756def311ce02a00",
+    "description": "Each 25-second theme excerpt starts 12 seconds before A-to-B overlap; village overlap 12–12.5 seconds, one-second pause at 25, library overlap 38–38.5 seconds; music gain 0.25 baked in; 80 ms outer fades."
   },
   "listening": {
-    "status": "TRACK SELECTION ACCEPTED; detailed acoustic checks UNVERIFIED",
-    "method": "On 9 October 2026 the human listened to the replacement comparison and replied: Much better—use these tracks. This accepts the chosen pair. Device/player, full-theme, two-join and cue observations were not supplied. No exposed acoustic-listening or browser-loopback assessment tool is available to this agent.",
+    "status": "A selection accepted; new A+B acoustic acceptance UNVERIFIED",
+    "method": "Prior A track selection and positive general human feedback are retained. The new A+B arrangements have not been heard or acoustically accepted. Technical sample checks and native decoding do not establish musical fit. No interim audition requested; final integrated listening remains deferred.",
     "reviewOwner": "Project requester (human source-audio reviewer), coordinated by Controller; WP02-05A owns speech/mix integration and WP06 owns published listening."
   }
 }

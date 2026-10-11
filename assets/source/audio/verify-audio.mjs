@@ -57,7 +57,7 @@ for (const entry of entries) {
   if (entry.kind === 'loop') {
     assert.equal(entry.loopStartFrame, 0);
     assert.equal(entry.loopEndFrame, entry.frameCount);
-    assert.ok(entry.frameCount / rate >= 60 && entry.frameCount / rate <= 90);
+    assert.ok(entry.frameCount / rate >= 60 && entry.frameCount / rate <= 110);
     assert.ok(pcm.subarray(0, 441).some(value => value !== 0));
     assert.ok(pcm.subarray(-441).some(value => value !== 0));
   } else {
@@ -96,7 +96,7 @@ for (const result of reproduction.measurements) {
   if ('joinStepPcm' in result) assert.ok(result.joinStepPcm <= result.maxStepPcm);
 }
 const scores = await readScores();
-assert.ok(scores.slice(0, 2).every(score => score.production === 'licensed-recording'));
+assert.ok(scores.slice(0, 2).every(score => score.production === 'licensed-arrangement'));
 const rejected = JSON.parse(await readFile(new URL('rejected-synthesis/measurements.json', source)));
 for (const effect of reproduction.measurements.slice(2)) assert.equal(effect.sha256, rejected.measurements.find(item => item.assetId === effect.assetId).sha256, 'Existing effect changed');
 
@@ -118,9 +118,12 @@ const append = (samples, label, details, ramp = false) => {
 };
 for (const id of ['village-loop', 'library-loop']) {
   const pcm = buffers.get(id);
-  for (let pass = 1; pass <= 2; pass++) {
-    const clip = Float64Array.from({ length: rate * 12 }, (_, i) => pcm[(pcm.length - rate * 6 + i) % pcm.length] * .25);
-    append(clip, `${id}: join ${pass}`, { joinSeconds: (cursor + rate * 6) / rate, musicGain: .25, effectsGain: 0 }, true);
+  const score = scores.find(score => score.assetId === id);
+  for (const [transition, start] of [['A-to-B', score.components[0].frameCount - score.overlapFrames], ['B-to-A', 0]]) {
+    for (let pass = 1; pass <= 2; pass++) {
+      const clip = Float64Array.from({ length: rate * 12 }, (_, i) => pcm[(pcm.length + start - rate * 6 + i) % pcm.length] * .25);
+      append(clip, `${id}: ${transition} pass ${pass}`, { joinSeconds: (cursor + rate * 6) / rate, overlapEndSeconds: (cursor + rate * 6 + score.overlapFrames) / rate, musicGain: .25, effectsGain: 0 }, true);
+    }
   }
 }
 const cueIds = ['pickup', 'placement', 'support', 'success', 'restoration'];
@@ -143,38 +146,42 @@ assert.equal(position, audition.length);
 const preview = Buffer.alloc(44 + 51 * rate * 2);
 template.copy(preview, 0, 0, 44);
 preview.writeUInt32LE(preview.length - 8, 4); preview.writeUInt32LE(preview.length - 44, 40);
-for (const [id, sourceSecond, outputSecond] of [['village-loop', 4, 0], ['library-loop', 24, 26]]) {
+for (const [id, outputSecond] of [['village-loop', 0], ['library-loop', 26]]) {
   const pcm = buffers.get(id);
+  const score = scores.find(score => score.assetId === id);
+  const sourceFrame = score.components[0].frameCount - score.overlapFrames - rate * 12;
   for (let i = 0; i < rate * 25; i++) {
     const fade = Math.min(1, i / (rate * .08), (rate * 25 - 1 - i) / (rate * .08));
-    preview.writeInt16LE(Math.round(pcm[sourceSecond * rate + i] * .25 * fade), 44 + (outputSecond * rate + i) * 2);
+    preview.writeInt16LE(Math.round(pcm[sourceFrame + i] * .25 * fade), 44 + (outputSecond * rate + i) * 2);
   }
 }
 const report = { ...reproduction, sourceMixBound, independentHeaderChecks: headerChecks,
-  registerPreservation: preservation,
+  registerPreservation: JSON.parse(await readFile(new URL('variation-registry-preservation.json', source))),
+  variationChecks: JSON.parse(await readFile(new URL('variation-checks.json', source))),
   audition: { file: 'assets/source/audio/audition.wav', bytes: audition.length, frameCount: cursor, seconds: cursor / rate, sha256: sha(audition), timeline },
   musicPreview: { file: 'assets/source/audio/music-preview.wav', bytes: preview.length, seconds: 51, sha256: sha(preview),
-    description: 'Village source 4–29 seconds, 1-second pause, library source 24–49 seconds; music gain 0.25 baked in; 80 ms outer fades; no seam assessment.' },
-  listening: { status: 'TRACK SELECTION ACCEPTED; detailed acoustic checks UNVERIFIED', method: 'On 9 October 2026 the human listened to the replacement comparison and replied: Much better—use these tracks. This accepts the chosen pair. Device/player, full-theme, two-join and cue observations were not supplied. No exposed acoustic-listening or browser-loopback assessment tool is available to this agent.',
+    description: 'Each 25-second theme excerpt starts 12 seconds before A-to-B overlap; village overlap 12–12.5 seconds, one-second pause at 25, library overlap 38–38.5 seconds; music gain 0.25 baked in; 80 ms outer fades.' },
+  listening: { status: 'A selection accepted; new A+B acoustic acceptance UNVERIFIED', method: 'Prior A track selection and positive general human feedback are retained. The new A+B arrangements have not been heard or acoustically accepted. Technical sample checks and native decoding do not establish musical fit. No interim audition requested; final integrated listening remains deferred.',
     reviewOwner: 'Project requester (human source-audio reviewer), coordinated by Controller; WP02-05A owns speech/mix integration and WP06 owns published listening.' } };
 const html = `<!doctype html>
 <html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Learning is Fun — source audio audition</title>
 <style>body{max-width:850px;margin:2rem auto;padding:0 1rem;font:18px/1.5 system-ui;background:#faf6e9;color:#253b36}audio{width:100%}table{border-collapse:collapse;width:100%;font-size:15px}td,th{border:1px solid #bbb;padding:.5rem;text-align:left}button{padding:.6rem 1rem;font:inherit}h1{font-size:1.8rem}</style>
-<h1>Licensed replacement soundtrack audition</h1><p><strong>Chosen pair approved by the requester on 9 October 2026: “Much better—use these tracks.”</strong> The five existing cues are unchanged. Detailed join, cue and integrated speech observations remain unverified; no second selection approval is requested.</p>
+<h1>A+B soundtrack variation review</h1><p><strong>New A+B acoustic acceptance: UNVERIFIED.</strong> Prior approval of the A tracks is retained. Each now includes the complete Sleep Talking period by Kilua Boy / KiluaBoy (CC0 1.0). The five cues are unchanged. No interim audition is requested; final integrated listening remains deferred.</p>
 <p>Village: “Market on the Sea” composed by <a href="https://www.jshaw.co.uk/">Jonathan Shaw</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>), complete repeated section, mono conversion and reduced gain. <a href="https://opengameart.org/content/market-on-the-sea-rpg-orchestral-essentials-village-music">Original source</a>.</p>
 <p>Library: “Sunset Walk” by Kilua Boy / KiluaBoy (<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>), complete loop, mono conversion and reduced gain. <a href="https://opengameart.org/content/sunset-walk-ambient-quiet-sweet-loop">Original source</a>.</p>
+<p>Both arrangements also include “Sleep Talking” by Kilua Boy / KiluaBoy (<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>). <a href="https://opengameart.org/content/sleep-talking-loop-fantasy-rpg-sci-fi">B source</a>. Complete periods are joined offline with half-second overlaps. Original component rights are unchanged; no creator endorsement is implied. <a href="licensed/village-variation-RIGHTS.md">Village rights and changes</a>; <a href="licensed/library-variation-RIGHTS.md">library rights and changes</a>.</p>
 <p>Review owner: project requester, coordinated by Controller. Listen at a comfortable device volume. The audition file already contains music at 25% and effects at 50%; leave its player at 100%. Device volume and automatic audio processing change perceived loudness.</p>
 <button id="stop">Pause every player</button><h2>Quick music comparison (51 seconds)</h2>
 <audio controls preload="metadata" src="music-preview.wav" data-gain="1"></audio>
-<p>Village for 25 seconds, one-second pause, then library for 25 seconds. Music 25% is baked in. Full themes are below.</p>
+<p>Village for 25 seconds, one-second pause, then library for 25 seconds. A→B overlaps are at 12–12.5 and 38–38.5 seconds. Music 25% is baked in. Full themes are below.</p>
 <h2>Join and cue reel (${(cursor / rate).toFixed(2)} seconds)</h2>
 <audio controls preload="metadata" src="audition.wav" data-gain="1"></audio>
-<p>Each 12-second join excerpt crosses the exact runtime last-to-first frame at its centre. Only the outer 20 ms is faded. One-second pauses separate clips. Each theme's same seam is presented twice. This reel does not substitute for hearing the complete arrangements below.</p>
+<p>Each 12-second excerpt places the start of a half-second transition at its centre. Both A→B and B→A are presented twice per theme. B→A includes the exact runtime last-to-first frame. Only outer 20 ms edges are faded. One-second pauses separate clips. These clips do not substitute for hearing complete arrangements.</p>
 <table><tr><th>Time (seconds)</th><th>Clip</th><th>Listen at</th></tr>${timeline.map(item => `<tr><td>${item.startSeconds.toFixed(2)}–${item.endSeconds.toFixed(2)}</td><td>${item.label}</td><td>${item.joinSeconds === undefined ? item.cueSeconds === undefined ? 'Whole cue' : `Cue at ${item.cueSeconds.toFixed(2)}` : `Join at ${item.joinSeconds.toFixed(2)}`}</td></tr>`).join('')}</table>
 <h2>Complete arrangements and individual cues</h2><p>Initial player gains below are 25% music / 50% effects. Playing one pauses the others. No autoplay, repeated-ended looping, speech or game preferences are implemented here.</p>
 ${entries.map(entry => `<h3>${entry.assetId}</h3><audio controls preload="none" src="../../../public/${entry.path}" data-gain="${entry.kind === 'loop' ? .25 : .5}"></audio>`).join('\n')}
-<h2>Integration listening record</h2><p>The chosen music is approved. During the integrated review, record reviewer, date, device/browser/headphones or speakers and device volume; full-theme observations; each of the four join timestamps; all five cues alone and against music; any click, gap, harshness, fatigue or startling level jump; and pass/fail with fixes. Those details were not supplied with the selection approval. Speech masking/duck restoration still needs the WP02-05A integrated runtime and published WP06 session.</p>
+<h2>Integration listening record</h2><p>The A tracks have prior selection approval; these A+B arrangements remain acoustically unverified. During final integrated review, record reviewer/date/device/browser/volume, complete themes, both transition types, all five cues alone and mixed, clicks/gaps/harshness/fatigue/level jumps, and pass/fail with fixes. Speech masking and duck restoration need the integrated runtime and published session.</p>
 <script>const players=[...document.querySelectorAll('audio')];for(const player of players){player.volume=Number(player.dataset.gain);player.addEventListener('play',()=>players.forEach(other=>{if(other!==player)other.pause()}))}document.querySelector('#stop').onclick=()=>players.forEach(player=>player.pause());</script></html>\n`;
 assert.ok(process.argv.slice(2).every(arg => ['--write-evidence', '--check-register-handoff'].includes(arg)), 'Unsupported QA argument');
 for (const [name, value] of [['measurements.json', JSON.stringify(report, null, 2) + '\n'], ['audition.wav', audition], ['music-preview.wav', preview], ['audition.html', html]]) {

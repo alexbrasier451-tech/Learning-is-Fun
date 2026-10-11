@@ -26,7 +26,7 @@ for (const candidate of ['a', 'b']) {
   }
   const dist = path.join(output, `build-${candidate}`);
   await build({ root, configFile: path.join(root, 'vite.config.ts'), publicDir, cacheDir: path.join(output, `cache-${candidate}`), build: { outDir: dist, emptyOutDir: true } });
-  const report = await checkPrecache({ dist, buildId, base: '/playtest/', maxBytes: 8388608, report: path.join(output, `precache-${candidate}.json`) });
+  const report = await checkPrecache({ dist, buildId, base: '/playtest/', maxBytes: 10485760, report: path.join(output, `precache-${candidate}.json`) });
   if (!report.passed) throw new Error(`Candidate ${candidate} precache check failed.`);
   // Browser observers import only the real platform exports. These support
   // modules are served outside /playtest/ and never enter the published build.

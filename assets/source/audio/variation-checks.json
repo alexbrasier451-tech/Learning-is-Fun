@@ -1,0 +1,91 @@
+{
+  "base": "6b5834953b56b4f2ce33c099700b1090805b6144",
+  "rows": [
+    {
+      "id": "village-loop",
+      "baselineSha256": "d7c1512a10eec6c26cd351136ed299f5ac0d4d58e49c2b99361fc2cd9cf26d0a",
+      "outputSha256": "5506aca739cb60aa265ae32823f4444e966fb6179ef27416d271c7e0de55e6a6",
+      "aUnchangedInterior": {
+        "startFrame": 22050,
+        "endFrame": 3064796,
+        "frames": 3042746
+      },
+      "bUnchangedInterior": {
+        "sourceStartFrame": 22050,
+        "sourceEndFrame": 1332702,
+        "frames": 1310652,
+        "gain": 0.4
+      },
+      "transitions": [
+        {
+          "name": "A-to-B",
+          "outputStartFrame": 3064796,
+          "outputEndFrame": 3086846,
+          "seconds": 0.5,
+          "startStepPcm": 353,
+          "endStepPcm": 16,
+          "peakPcm": 2117,
+          "maxStepPcm": 391,
+          "rmsDbfs": -34.45182064351344
+        },
+        {
+          "name": "B-to-A",
+          "outputStartFrame": 0,
+          "outputEndFrame": 22050,
+          "seconds": 0.5,
+          "startStepPcm": 17,
+          "endStepPcm": 109,
+          "peakPcm": 1815,
+          "maxStepPcm": 442,
+          "rmsDbfs": -36.846308575137826
+        }
+      ],
+      "negativeChecks": "PASS: >110s loop, <60s loop, wrong rate, out-of-range exclusive loop end rejected"
+    },
+    {
+      "id": "library-loop",
+      "baselineSha256": "3ca0ea4bfd638d6fd2ab3d98b305c90c65ca0cbecbbd1713ecacb555d0bb8e64",
+      "outputSha256": "cfb28bbd7ac9c6b9241873df2a05691dff6c4387d2df916d79102eccf015acd4",
+      "aUnchangedInterior": {
+        "startFrame": 22050,
+        "endFrame": 3364830,
+        "frames": 3342780
+      },
+      "bUnchangedInterior": {
+        "sourceStartFrame": 22050,
+        "sourceEndFrame": 1332702,
+        "frames": 1310652,
+        "gain": 0.25
+      },
+      "transitions": [
+        {
+          "name": "A-to-B",
+          "outputStartFrame": 3364830,
+          "outputEndFrame": 3386880,
+          "seconds": 0.5,
+          "startStepPcm": 8,
+          "endStepPcm": 10,
+          "peakPcm": 1052,
+          "maxStepPcm": 63,
+          "rmsDbfs": -40.4712036103887
+        },
+        {
+          "name": "B-to-A",
+          "outputStartFrame": 0,
+          "outputEndFrame": 22050,
+          "seconds": 0.5,
+          "startStepPcm": 11,
+          "endStepPcm": 2,
+          "peakPcm": 1078,
+          "maxStepPcm": 89,
+          "rmsDbfs": -42.773028129245844
+        }
+      ],
+      "negativeChecks": "PASS: >110s loop, <60s loop, wrong rate, out-of-range exclusive loop end rejected"
+    }
+  ],
+  "rawAcquisitionBytes": "PASS: original and new source/licence hashes",
+  "effectMaxGuard": "PASS: >90 seconds still rejected",
+  "unchangedRegistryRows": 70,
+  "acousticAcceptance": "UNVERIFIED — technical transition measurements do not establish musical fit"
+}

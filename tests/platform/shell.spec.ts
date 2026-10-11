@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import type { Page, TestInfo } from '@playwright/test';
+import { readFileSync } from 'node:fs';
 
 async function probe(page: Page) {
   return page.evaluate(() => {
@@ -115,9 +116,9 @@ test('real shell keyboard, help focus, Hall, adult barrier and supported reflow'
   await page.getByRole('button', { name: 'Help', exact: true }).focus(); await page.keyboard.press('Enter');
   await expect(page.getByRole('dialog')).toBeVisible();
   await page.getByText('Music credits',{exact:true}).click();
-  await expect(page.getByRole('link',{name:'Jonathan Shaw (InspectorJ)',exact:true})).toHaveAttribute('href','https://www.jshaw.co.uk/');
-  await expect(page.getByRole('link',{name:'CC BY 3.0',exact:true})).toHaveAttribute('href','https://creativecommons.org/licenses/by/3.0/');
-  await expect(page.getByRole('link',{name:'CC0 1.0',exact:true})).toHaveAttribute('href','https://creativecommons.org/publicdomain/zero/1.0/');
+  await expect(page.getByRole('heading',{name:'Market on the Sea / Sleep Talking',exact:true})).toBeVisible();
+  await expect(page.getByRole('link',{name:'Primary component licence: CC BY 3.0',exact:true})).toHaveAttribute('href','https://creativecommons.org/licenses/by/3.0/');
+  await expect(page.getByRole('link',{name:'Primary component licence: CC0 1.0',exact:true})).toHaveAttribute('href','https://creativecommons.org/publicdomain/zero/1.0/');
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog')).not.toBeVisible(); await expect(page.getByRole('button', { name: 'Help', exact: true })).toBeFocused();
   await page.getByRole('navigation', { name: 'Your story', exact: true }).getByRole('button', { name: 'Hall of Champions', exact: true }).focus();
@@ -147,6 +148,47 @@ test('real shell keyboard, help focus, Hall, adult barrier and supported reflow'
   await attach(page, info, 'complete-shell'); expect(errors).toEqual([]);
   expect(await page.evaluate('globalThis.shellOfflineUi.registers')).toBe(1);
   await info.attach('UI-only-offline-registration', { body: JSON.stringify(await page.evaluate('({registers:shellOfflineUi.registers,messages:shellOfflineUi.messages})')), contentType: 'application/json' });
+});
+
+test('composite music credits retain component rights and wrap in Help', async ({ page }, info) => {
+  const register = JSON.parse(readFileSync('assets/asset-register.json', 'utf8'));
+  const errors: string[] = []; page.on('pageerror', error => errors.push(error.message));
+  await page.goto('./');
+  await page.getByRole('button', { name: 'Help', exact: true }).click();
+  const dialog = page.getByRole('dialog');
+  await dialog.getByText('Music credits', { exact: true }).click();
+  for (const [id, title] of [['village-loop', 'Market on the Sea / Sleep Talking'], ['library-loop', 'Sunset Walk / Sleep Talking']]) {
+    const record = register.assets.find((row: any) => row.id === id);
+    const article = dialog.locator('article').filter({ has: page.getByRole('heading', { name: title, exact: true }) });
+    await expect(article.getByRole('heading')).toHaveText(title);
+    await expect(article.locator('p').nth(0)).toHaveText(record.attribution);
+    await expect(article.locator('p').nth(1)).toContainText(`Creator: ${record.author}.`);
+    await expect(article.locator('p').nth(2)).toHaveText(`Changes for this game: ${record.modifications}`);
+    await expect(article.getByRole('link', { name: 'Primary component source', exact: true })).toHaveAttribute('href', record.sourceUrl);
+    await expect(article.getByRole('link', { name: `Primary component licence: ${record.permission.licence} ${record.permission.version}`, exact: true })).toHaveAttribute('href', record.permission.licenceUrl);
+    await expect(article.locator('p').nth(0)).toContainText('https://opengameart.org/content/sleep-talking-loop-fantasy-rpg-sci-fi');
+    await expect(article.locator('p').nth(0)).toContainText('https://creativecommons.org/publicdomain/zero/1.0/');
+    await expect(article.getByRole('link', { name: record.author, exact: true })).toHaveCount(0);
+    await expect(article.getByRole('link')).toHaveCount(2);
+  }
+  for (const [name, viewport, fontSize] of [
+    ['desktop', { width: 1366, height: 768 }, '16px'],
+    ['portrait-200-percent', { width: 768, height: 1024 }, '32px'],
+  ] as const) {
+    await page.setViewportSize(viewport);
+    await page.evaluate(`document.documentElement.style.fontSize='${fontSize}'`);
+    expect(await dialog.evaluate(element => element.scrollWidth <= element.clientWidth)).toBe(true);
+    for (const index of [0, 1]) {
+      await dialog.locator('article').nth(index).getByRole('heading').scrollIntoViewIfNeeded();
+      await info.attach(`credits-${name}-${index + 1}`, { body: await page.screenshot(), contentType: 'image/png' });
+    }
+    await dialog.getByRole('button', { name: 'Back to my story', exact: true }).scrollIntoViewIfNeeded();
+    await info.attach(`credits-${name}-end`, { body: await page.screenshot(), contentType: 'image/png' });
+  }
+  await page.keyboard.press('Escape');
+  await expect(dialog).not.toBeVisible();
+  await expect(page.getByRole('button', { name: 'Help', exact: true })).toBeFocused();
+  expect(errors).toEqual([]);
 });
 
 test('two-profile suspension failure, exact retry, safe discard and live readiness', async ({ page }, info) => {

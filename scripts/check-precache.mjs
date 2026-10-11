@@ -121,7 +121,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.ar
     if (!rawBase || rawBase.trim() !== rawBase || !/^\/?[A-Za-z0-9._~/-]*\/?$/.test(rawBase) || rawBase.includes('//') || rawBase.split('/').some(s => s === '.' || s === '..')) throw new Error('Invalid APP_BASE.');
     const segments = rawBase.split('/').filter(Boolean), base = segments.length ? `/${segments.join('/')}/` : '/';
     const result = await checkPrecache({ dist: args['--dist'] ?? 'dist', buildId, base,
-      maxBytes: Number(args['--max-bytes'] ?? 8388608), report: args['--report'] ?? `artifacts/platform/${encodeURIComponent(buildId)}/precache-report.json` });
+      maxBytes: Number(args['--max-bytes'] ?? 10485760), report: args['--report'] ?? `artifacts/platform/${encodeURIComponent(buildId)}/precache-report.json` });
     console.log(JSON.stringify(result)); if (!result.passed) process.exitCode = 1;
   } catch (error) { console.error(error); process.exitCode = 1; }
 }

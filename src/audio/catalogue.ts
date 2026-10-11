@@ -15,9 +15,9 @@ export type AudioAsset = Readonly<{
 
 export const AUDIO_ASSETS = {
   village: { assetId: 'village-loop', path: 'assets/audio/village-loop.wav', kind: 'loop',
-    sampleRate: 44100, frameCount: 3086846, bytes: 6173736, loopStartFrame: 0, loopEndFrame: 3086846 },
+    sampleRate: 44100, frameCount: 4397498, bytes: 8795040, loopStartFrame: 0, loopEndFrame: 4397498 },
   library: { assetId: 'library-loop', path: 'assets/audio/library-loop.wav', kind: 'loop',
-    sampleRate: 44100, frameCount: 3386880, bytes: 6773804, loopStartFrame: 0, loopEndFrame: 3386880 },
+    sampleRate: 44100, frameCount: 4697532, bytes: 9395108, loopStartFrame: 0, loopEndFrame: 4697532 },
   pickup: { assetId: 'pickup', path: 'assets/audio/pickup.wav', kind: 'effect',
     sampleRate: 44100, frameCount: 37485, bytes: 75014 },
   placement: { assetId: 'placement', path: 'assets/audio/placement.wav', kind: 'effect',

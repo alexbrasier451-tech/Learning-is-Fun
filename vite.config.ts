@@ -44,7 +44,7 @@ export default defineConfig(({ command, mode }) => {
         globIgnores: ['.vite/**'],
         // Keep content revisions for every URL, including stable public media.
         dontCacheBustURLsMatching: /(?!)/,
-        maximumFileSizeToCacheInBytes: 8 * 1024 * 1024,
+        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
       },
       integration: {
         configureOptions(config, options) {

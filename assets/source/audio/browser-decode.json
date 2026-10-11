@@ -70,17 +70,17 @@
     {
       "assetId": "village-loop",
       "sampleRate": 44100,
-      "frameCount": 3086846,
+      "frameCount": 4397498,
       "channels": 1,
-      "seconds": 69.99650793650794,
+      "seconds": 99.71650793650794,
       "peak": 0.2296822965145111
     },
     {
       "assetId": "library-loop",
       "sampleRate": 44100,
-      "frameCount": 3386880,
+      "frameCount": 4697532,
       "channels": 1,
-      "seconds": 76.8,
+      "seconds": 106.52,
       "peak": 0.134124755859375
     },
     {

@@ -209,9 +209,9 @@ export function AppShell({ runtime }: { runtime: AppRuntime }) {
       <p>An update waits for your next launch. Use Update on next launch to save first, then close all game tabs and windows and reopen. The game will not reload itself during play.</p>
       <p>Fullscreen is optional. You can leave it and keep playing in a normal tab. If your browser offers installation, you may use its own menu; installation is not required.</p>
       <p>Game version: {BUILD_ID}</p>
-      <details className="shell-credits"><summary>Music credits</summary>{assetRegister.assets.filter(record => record.status === 'ready' && record.permission.kind === 'reused').map(record => <article key={record.id}>
-        <h3>{record.id === 'village-loop' ? 'Market on the Sea' : 'Sunset Walk'}</h3><p>{record.attribution}</p>
-        <p>Creator: {record.id === 'village-loop' ? <a href="https://www.jshaw.co.uk/">{record.author}</a> : record.author}. <a href={record.sourceUrl}>Original source</a> · <a href={record.permission.licenceUrl}>{record.permission.licence} {record.permission.version}</a></p>
+      <details className="shell-credits"><summary>Music credits</summary>{assetRegister.assets.filter(record => record.status === 'ready' && record.permission.kind === 'reused').map(record => <article key={record.id} style={{ overflowWrap: 'anywhere' }}>
+        <h3>{record.id === 'village-loop' ? 'Market on the Sea / Sleep Talking' : 'Sunset Walk / Sleep Talking'}</h3><p>{record.attribution}</p>
+        <p>Creator: {record.author}. <a href={record.sourceUrl}>Primary component source</a> · <a href={record.permission.licenceUrl}>Primary component licence: {record.permission.licence} {record.permission.version}</a></p>
         <p>Changes for this game: {record.modifications}</p></article>)}</details>
       <button onClick={closeHelp}>Back to my story</button> <button onClick={runtime.audio.silenceAll}>Silence all</button> <StopReading controller={runtime.audio} /></dialog>
     <footer className="shell-footer">Made for curious explorers · Saved on this browser</footer>

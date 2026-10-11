@@ -1,0 +1,9 @@
+{
+  "base": "6b5834953b56b4f2ce33c099700b1090805b6144",
+  "excludedIds": [
+    "village-loop",
+    "library-loop"
+  ],
+  "unchangedRows": 70,
+  "sha256": "b93dd43e18f64cf8cf58425d8fad1ad4ddf472adde2cd1ce3fb1f2eb4c2b6146"
+}

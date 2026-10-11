@@ -3,7 +3,8 @@
  * existing @playwright/test and installed Chromium; does not install anything.
  */
 import assert from 'node:assert/strict';
-import { chromium } from '@playwright/test';
+import { createRequire } from 'node:module';
+const { chromium } = createRequire(process.env.AUDIO_QA_PACKAGE_JSON ?? new URL('../../../package.json', import.meta.url))('@playwright/test');
 import { readFile, writeFile } from 'node:fs/promises';
 import { AUDIO_ASSETS } from '../../../src/audio/catalogue.ts';
 const root = new URL('../../../', import.meta.url);

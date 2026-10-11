@@ -4,11 +4,13 @@
  * The library's original lossless WAV needs no decoder/import intermediate.
  */
 import assert from 'node:assert/strict';
-import { chromium } from '@playwright/test';
+import { createRequire } from 'node:module';
+const { chromium } = createRequire(process.env.AUDIO_QA_PACKAGE_JSON ?? new URL('../../../../package.json', import.meta.url))('@playwright/test');
 import { readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 const root = new URL('../../../../', import.meta.url);
-const recipe = JSON.parse(await readFile(new URL('../village.json', import.meta.url), 'utf8'));
+const composition = JSON.parse(await readFile(new URL('../village.json', import.meta.url), 'utf8'));
+const recipe = composition.components?.[0] ?? composition;
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 const original = await readFile(new URL(recipe.originalPath, root));
 assert.equal(sha(original), recipe.originalSha256);
@@ -70,7 +72,8 @@ try {
     await writeFile(new URL('decode-manifest.json', import.meta.url), metadata);
   } else {
     assert.ok(pcm.equals(await readFile(new URL(recipe.masterPath, root))));
-    assert.ok(metadata.equals(await readFile(new URL('decode-manifest.json', import.meta.url))));
+    // Generated JSON may have checkout line endings; source/master bytes above remain exact.
+    assert.deepEqual(report, JSON.parse(await readFile(new URL('decode-manifest.json', import.meta.url), 'utf8')));
   }
   console.log(JSON.stringify(report, null, 2));
 } finally { await browser.close(); }

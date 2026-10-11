@@ -22,43 +22,68 @@ export async function readScores() {
   const effects = await load('effects');
   const { cues, ...shared } = effects;
   for (const recording of [village, library]) {
-    if (recording.production !== 'licensed-recording') continue;
-    assert(recording.masterPath.startsWith('assets/source/audio/licensed/') && !recording.masterPath.includes('..'), 'Invalid master path');
-    const bytes = await readFile(resolve(root, recording.masterPath));
-    assert(createHash('sha256').update(bytes).digest('hex') === recording.masterSha256, 'Licensed master hash mismatch');
-    const samples = new Float32Array(recording.frameCount);
-    if (recording.masterFormat === 'float32-le-mono') {
-      assert(bytes.length === samples.length * 4, 'Float master length mismatch');
-      for (let i = 0; i < samples.length; i++) samples[i] = bytes.readFloatLE(i * 4);
-    } else {
-      assert(recording.masterFormat === 'pcm16-wav-stereo', 'Unknown master format');
-      assert(bytes.toString('ascii', 0, 4) === 'RIFF' && bytes.toString('ascii', 8, 12) === 'WAVE', 'Invalid source WAV');
-      let data;
-      let format;
-      for (let offset = 12; offset + 8 <= bytes.length;) {
-        const size = bytes.readUInt32LE(offset + 4);
-        assert(offset + 8 + size <= bytes.length, 'Truncated source WAV');
-        const id = bytes.toString('ascii', offset, offset + 4);
-        if (id === 'fmt ') format = bytes.subarray(offset + 8, offset + 8 + size);
-        if (id === 'data') data = bytes.subarray(offset + 8, offset + 8 + size);
-        offset += 8 + size + size % 2;
+    if (recording.production === 'licensed-arrangement') {
+      assert(recording.components?.length === 2, 'Exactly two complete components required');
+      const [a, b] = recording.components;
+      const overlap = recording.overlapFrames;
+      assert(Number.isSafeInteger(overlap) && overlap > 1 && overlap <= rate, 'Invalid bounded overlap');
+      assert([a, b].every(component => component.frameCount > 2 * overlap
+        && finite(component.masterGain) && component.masterGain > 0 && component.masterGain <= 1), 'Invalid component bounds/gain');
+      assert(recording.frameCount === a.frameCount + b.frameCount - 2 * overlap, 'Arrangement length mismatch');
+      const mixed = new Float64Array(recording.frameCount);
+      for (const [index, component] of recording.components.entries()) {
+        const samples = await readMaster(component);
+        const offset = index === 0 ? 0 : a.frameCount - overlap;
+        for (let i = 0; i < samples.length; i++) {
+          const fadeIn = i < overlap ? .5 - .5 * Math.cos(Math.PI * i / (overlap - 1)) : 1;
+          const fadeOut = i >= samples.length - overlap
+            ? .5 + .5 * Math.cos(Math.PI * (i - (samples.length - overlap)) / (overlap - 1)) : 1;
+          mixed[(offset + i) % mixed.length] += samples[i] * component.masterGain * fadeIn * fadeOut;
+        }
       }
-      assert(format && format.readUInt16LE(0) === 1 && format.readUInt16LE(2) === 2 && format.readUInt32LE(4) === rate && format.readUInt16LE(14) === 16, 'Expected stereo 44100 Hz PCM16 source');
-      assert(data && data.length === samples.length * 4, 'Source WAV frame count mismatch');
-      for (let i = 0; i < samples.length; i++) samples[i] = (data.readInt16LE(i * 4) + data.readInt16LE(i * 4 + 2)) / 65536;
+      recording.samples = mixed;
+    } else if (recording.production === 'licensed-recording') {
+      recording.samples = await readMaster(recording);
     }
-    recording.samples = samples;
   }
   return [village, library, ...cues.map(cue => ({ ...shared, ...cue }))];
+}
+
+async function readMaster(recording) {
+  assert(recording.masterPath.startsWith('assets/source/audio/licensed/') && !recording.masterPath.includes('..'), 'Invalid master path');
+  const bytes = await readFile(resolve(root, recording.masterPath));
+  assert(createHash('sha256').update(bytes).digest('hex') === recording.masterSha256, 'Licensed master hash mismatch');
+  const samples = new Float32Array(recording.frameCount);
+  if (recording.masterFormat === 'float32-le-mono') {
+    assert(bytes.length === samples.length * 4, 'Float master length mismatch');
+    for (let i = 0; i < samples.length; i++) samples[i] = bytes.readFloatLE(i * 4);
+  } else {
+    assert(recording.masterFormat === 'pcm16-wav-stereo', 'Unknown master format');
+    assert(bytes.toString('ascii', 0, 4) === 'RIFF' && bytes.toString('ascii', 8, 12) === 'WAVE', 'Invalid source WAV');
+    let data;
+    let format;
+    for (let offset = 12; offset + 8 <= bytes.length;) {
+      const size = bytes.readUInt32LE(offset + 4);
+      assert(offset + 8 + size <= bytes.length, 'Truncated source WAV');
+      const id = bytes.toString('ascii', offset, offset + 4);
+      if (id === 'fmt ') format = bytes.subarray(offset + 8, offset + 8 + size);
+      if (id === 'data') data = bytes.subarray(offset + 8, offset + 8 + size);
+      offset += 8 + size + size % 2;
+    }
+    assert(format && format.readUInt16LE(0) === 1 && format.readUInt16LE(2) === 2 && format.readUInt32LE(4) === rate && format.readUInt16LE(14) === 16, 'Expected stereo 44100 Hz PCM16 source');
+    assert(data && data.length === samples.length * 4, 'Source WAV frame count mismatch');
+    for (let i = 0; i < samples.length; i++) samples[i] = (data.readInt16LE(i * 4) + data.readInt16LE(i * 4 + 2)) / 65536;
+  }
+  return samples;
 }
 
 function validate(score) {
   assert(score.schemaVersion === 1 && score.sampleRate === rate, 'Expected v1, 44100 Hz');
   assert(ids.includes(score.assetId), 'Unapproved output ID');
   assert(['loop', 'effect'].includes(score.kind), 'Invalid kind');
-  assert(Number.isSafeInteger(score.frameCount) && score.frameCount > 0 && score.frameCount <= rate * 90, 'Invalid frame count');
+  assert(Number.isSafeInteger(score.frameCount) && score.frameCount > 0 && score.frameCount <= rate * (score.kind === 'loop' ? 110 : 90), 'Invalid frame count');
   assert(finite(score.masterGain) && score.masterGain > 0 && score.masterGain <= 1, 'Invalid gain');
-  if (score.production === 'licensed-recording') {
+  if (score.production === 'licensed-recording' || score.production === 'licensed-arrangement') {
     assert(score.kind === 'loop' && score.samples?.length === score.frameCount, 'Missing licensed samples');
     assert(score.loopStartFrame === 0 && score.loopEndFrame === score.frameCount && score.frameCount >= 60 * rate, 'Invalid licensed loop bounds');
     return;
@@ -91,7 +116,7 @@ function validate(score) {
 export function render(score) {
   validate(score);
   const count = score.frameCount;
-  if (score.production === 'licensed-recording') return encode(score.samples, score.masterGain, score.assetId);
+  if (score.production === 'licensed-recording' || score.production === 'licensed-arrangement') return encode(score.samples, score.masterGain, score.assetId);
   const loop = score.kind === 'loop';
   const dry = new Float64Array(count);
   for (const event of score.events) {
