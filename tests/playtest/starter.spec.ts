@@ -58,7 +58,7 @@ test('M1 published bounded entry, profile resume, bridge, adult, Hall and projec
       workerIdentity: identity, listenerOrCaptureRoute: null, startedAt: new Date(start).toISOString(),
     }, null, 2)) });
     console.log(`${testInfo.project.name}: actual ${browser.browserType().name()} ${browser.version()} published ${candidate.buildId}`);
-    await checkpoint('M1-SMOKE-IDENTITY', ['Open published URL', 'Visible Help version', 'Native read-only worker identity probe'], 'Frozen page/worker B identity before play.', 'Both exact identities match B; actual browser/OS retained.');
+    await checkpoint('M1-SMOKE-IDENTITY', ['Open published URL', 'Visible Help version', 'Native read-only worker identity probe'], 'Frozen page/worker candidate identity before play.', 'Both exact identities match the candidate; actual browser/OS retained.');
     await page.keyboard.press('Escape');
     await page.getByRole('button', { name: 'Add an explorer', exact: true }).click();
     await page.getByRole('textbox', { name: 'Nickname', exact: true }).fill(nickname);
