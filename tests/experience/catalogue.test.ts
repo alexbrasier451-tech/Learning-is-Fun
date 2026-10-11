@@ -176,7 +176,7 @@ describe('pure consumer fixtures', () => {
 
 describe('per-export inventory lifecycle', () => {
   it('resolves all referenced assets with unique IDs and safe base-relative paths', () => {
-    expect(assets.length).toBe(71);
+    expect(assets.length).toBe(72);
     expect(unique(ids(assets))).toBe(true);
     expect(unique(assets.map(a => a.runtimePath))).toBe(true);
     expect(assets.every(a => appRelative(a.runtimePath))).toBe(true);
@@ -247,7 +247,7 @@ describe('per-export inventory lifecycle', () => {
     expect(audio.every(a => a.milestone === 'M1')).toBe(true);
     expect(audio.filter(a => a.kind === 'audio-loop').length).toBe(2);
     expect(assets.filter(a => a.milestone === 'M2').length).toBe(28);
-    expect(assets.filter(a => a.kind === 'svg' && a.milestone === 'M1').length).toBe(36);
+    expect(assets.filter(a => a.kind === 'svg' && a.milestone === 'M1').length).toBe(37);
   });
 
   it('describes ready measurements and exact rights fields in the embedded record schema', () => {

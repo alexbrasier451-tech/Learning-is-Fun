@@ -1,0 +1,131 @@
+{
+  "engine": "Playwright Chromium",
+  "version": "156.0.8078.4",
+  "chromiumSandbox": true,
+  "deviceScaleFactor": 1,
+  "viewport": {
+    "width": 1120,
+    "height": 980
+  },
+  "source": "file:// private preview; no port/server",
+  "errors": [],
+  "parsed": {
+    "parserErrors": 0
+  },
+  "images": [
+    {
+      "alt": "New Pip app icon",
+      "naturalWidth": 512,
+      "naturalHeight": 512,
+      "width": 256,
+      "height": 256,
+      "complete": true
+    },
+    {
+      "alt": "Established Pip idle artwork",
+      "naturalWidth": 300,
+      "naturalHeight": 320,
+      "width": 180,
+      "height": 192,
+      "complete": true
+    },
+    {
+      "alt": "16 pixel icon",
+      "naturalWidth": 512,
+      "naturalHeight": 512,
+      "width": 16,
+      "height": 16,
+      "complete": true
+    },
+    {
+      "alt": "24 pixel icon",
+      "naturalWidth": 512,
+      "naturalHeight": 512,
+      "width": 24,
+      "height": 24,
+      "complete": true
+    },
+    {
+      "alt": "32 pixel icon",
+      "naturalWidth": 512,
+      "naturalHeight": 512,
+      "width": 32,
+      "height": 32,
+      "complete": true
+    },
+    {
+      "alt": "48 pixel icon",
+      "naturalWidth": 512,
+      "naturalHeight": 512,
+      "width": 48,
+      "height": 48,
+      "complete": true
+    },
+    {
+      "alt": "64 pixel icon",
+      "naturalWidth": 512,
+      "naturalHeight": 512,
+      "width": 64,
+      "height": 64,
+      "complete": true
+    },
+    {
+      "alt": "128 pixel icon",
+      "naturalWidth": 512,
+      "naturalHeight": 512,
+      "width": 128,
+      "height": 128,
+      "complete": true
+    },
+    {
+      "alt": "192 pixel icon",
+      "naturalWidth": 512,
+      "naturalHeight": 512,
+      "width": 192,
+      "height": 192,
+      "complete": true
+    },
+    {
+      "alt": "16 pixel icon on dark",
+      "naturalWidth": 512,
+      "naturalHeight": 512,
+      "width": 16,
+      "height": 16,
+      "complete": true
+    },
+    {
+      "alt": "24 pixel icon on dark",
+      "naturalWidth": 512,
+      "naturalHeight": 512,
+      "width": 24,
+      "height": 24,
+      "complete": true
+    },
+    {
+      "alt": "32 pixel icon on dark",
+      "naturalWidth": 512,
+      "naturalHeight": 512,
+      "width": 32,
+      "height": 32,
+      "complete": true
+    },
+    {
+      "alt": "48 pixel icon on dark",
+      "naturalWidth": 512,
+      "naturalHeight": 512,
+      "width": 48,
+      "height": 48,
+      "complete": true
+    },
+    {
+      "alt": "64 pixel icon on dark",
+      "naturalWidth": 512,
+      "naturalHeight": 512,
+      "width": 64,
+      "height": 64,
+      "complete": true
+    }
+  ],
+  "iconBytes": 3160,
+  "sha256": "5e1e69dd487d7b8ce484117c6f55ec25969dbc1812dc4c6def8ea59b4c7228c3"
+}

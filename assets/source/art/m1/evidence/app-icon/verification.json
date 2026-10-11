@@ -1,0 +1,23 @@
+{
+  "status": "ready",
+  "id": "app-icon",
+  "sourcePath": "assets/source/art/m1/ui/app-icon.svg",
+  "runtimePath": "assets/art/m1/ui/app-icon.svg",
+  "publicPath": "public/assets/art/m1/ui/app-icon.svg",
+  "width": 512,
+  "height": 512,
+  "bytes": 3160,
+  "sha256": "5e1e69dd487d7b8ce484117c6f55ec25969dbc1812dc4c6def8ea59b4c7228c3",
+  "registerCount": 72,
+  "readyM1SvgCount": 37,
+  "readyM1AudioCount": 7,
+  "plannedM2Count": 28,
+  "m1ArtBytes": 267896,
+  "original71RecordsUnchanged": true,
+  "original36SourceAndRuntimeHashesUnchanged": true,
+  "registerPrefixPreserved": true,
+  "manifestPurpose": "any",
+  "manifestSizes": "any",
+  "manifestType": "image/svg+xml",
+  "portUsed": null
+}

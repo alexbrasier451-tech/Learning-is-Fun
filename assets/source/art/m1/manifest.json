@@ -4,8 +4,8 @@
     "authoring": "Original deterministic JavaScript/SVG",
     "renderer": "Playwright Chromium 156.0.8078.4"
   },
-  "count": 36,
-  "totalRuntimeBytes": 264736,
+  "count": 37,
+  "totalRuntimeBytes": 267896,
   "exports": [
     {
       "id": "scene-village-green",
@@ -560,6 +560,23 @@
       "bytes": 2496,
       "sha256": "3bd7576a2675c4187bbe1e9aaf5555065f83daeafc79fb53f972c7f35e4c06ab",
       "layerIds": [],
+      "resultIds": []
+    },
+    {
+      "id": "app-icon",
+      "sourcePath": "assets/source/art/m1/ui/app-icon.svg",
+      "runtimePath": "assets/art/m1/ui/app-icon.svg",
+      "width": 512,
+      "height": 512,
+      "viewBox": "0 0 512 512",
+      "bytes": 3160,
+      "sha256": "5e1e69dd487d7b8ce484117c6f55ec25969dbc1812dc4c6def8ea59b4c7228c3",
+      "layerIds": [
+        "app-icon-tile",
+        "app-icon-pip",
+        "app-icon-head",
+        "app-icon-scarf"
+      ],
       "resultIds": []
     }
   ]

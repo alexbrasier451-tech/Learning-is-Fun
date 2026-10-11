@@ -1,0 +1,32 @@
+import { readFileSync, writeFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import assert from 'node:assert/strict';
+const evidence='assets/source/art/m1/evidence/app-icon';
+const registerPath='assets/asset-register.json';
+const originalText=readFileSync(`${evidence}/register-before.json`,'utf8');
+assert.equal(readFileSync(registerPath,'utf8'),originalText,'Register changed during exclusive icon handoff');
+const before=JSON.parse(originalText);assert.equal(before.assets.length,71);assert(!before.assets.some(a=>a.id==='app-icon'));
+const sourcePath='assets/source/art/m1/ui/app-icon.svg',runtimePath='assets/art/m1/ui/app-icon.svg';
+const bytes=readFileSync(sourcePath);assert(bytes.equals(readFileSync(`public/${runtimePath}`)));
+const xml=bytes.toString('utf8');assert(!/[\r\n]/.test(xml));assert(xml.includes('width="512" height="512" viewBox="0 0 512 512"'));
+assert(!/<(?:script|foreignObject|text|image|animate|set)\b|\bon[a-z]+\s*=|(?:href|src)\s*=|https?:\/\/(?!www\.w3\.org\/2000\/svg)/i.test(xml));
+const ids=[...xml.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(ids).size,ids.length);assert(ids.every(id=>id.startsWith('app-icon-')));
+for(const m of xml.matchAll(/url\(#([^)]*)\)/g))assert(ids.includes(m[1]));
+const hash=b=>createHash('sha256').update(b).digest('hex');
+const sha256=hash(bytes);
+const render=JSON.parse(readFileSync(`${evidence}/render-checks.json`,'utf8'));assert.equal(render.sha256,sha256);assert.equal(render.errors.length,0);assert.equal(render.parsed.parserErrors,0);
+const oldManifest=JSON.parse(readFileSync(`${evidence}/manifest-before.json`,'utf8'));
+for(const a of oldManifest.exports){assert.equal(hash(readFileSync(`public/${a.runtimePath}`)),a.sha256,a.id);assert.equal(hash(readFileSync(a.sourcePath)),a.sha256,a.id);}
+const icon={id:'app-icon',kind:'svg',milestone:'M1',status:'ready',sourcePaths:[sourcePath],runtimePath,author:'OpenAI Codex — original SVG artwork for Learning is Fun',permission:{kind:'original',status:'confirmed',holder:'Learning is Fun project requester (AI-generated project output)',statement:'Original square Pip app icon authored for this project under explicit user authorization, adapted from the project-original Pip identity. No external artwork or stock assets; no CC0/GPL relicensing or copyright eligibility claim. See retained icon provenance and native-scale evidence.',evidencePath:'docs/work-package/execution/APP-ICON-HANDOFF.md'},attribution:'Original artwork created with OpenAI Codex for Learning is Fun.',width:512,height:512,bytes:bytes.length};
+// Append one row without reserializing any previous row or audio provenance.
+const eol=originalText.includes('\r\n')?'\r\n':'\n';const end=originalText.lastIndexOf(`${eol}  ]`);assert(end>0);
+const output=originalText.slice(0,end)+','+eol+JSON.stringify(icon,null,2).split('\n').map(l=>'    '+l).join(eol)+originalText.slice(end);
+const after=JSON.parse(output);assert.equal(after.assets.length,72);assert.deepEqual(after.assets.slice(0,71),before.assets);for(const k of Object.keys(before).filter(k=>k!=='assets'))assert.deepEqual(after[k],before[k]);
+const manifestRow={id:'app-icon',sourcePath,runtimePath,width:512,height:512,viewBox:'0 0 512 512',bytes:bytes.length,sha256,layerIds:ids.filter(i=>!['app-icon-title','app-icon-description','app-icon-paper','app-icon-meadow','app-icon-fur'].includes(i)),resultIds:[]};
+const manifest={...oldManifest,count:37,totalRuntimeBytes:oldManifest.totalRuntimeBytes+bytes.length,exports:[...oldManifest.exports,manifestRow]};
+const required=JSON.parse(readFileSync(`${evidence}/required-before.json`,'utf8'));assert.equal(required.length,36);required.push(runtimePath);
+writeFileSync(registerPath,output);
+writeFileSync('assets/source/art/m1/manifest.json',JSON.stringify(manifest,null,2)+'\n');
+writeFileSync('assets/source/art/m1/required-runtime.json',JSON.stringify(required,null,2)+'\n');
+const report={status:'ready',id:'app-icon',sourcePath,runtimePath,publicPath:`public/${runtimePath}`,width:512,height:512,bytes:bytes.length,sha256,registerCount:72,readyM1SvgCount:37,readyM1AudioCount:7,plannedM2Count:28,m1ArtBytes:manifest.totalRuntimeBytes,original71RecordsUnchanged:true,original36SourceAndRuntimeHashesUnchanged:true,registerPrefixPreserved:true,manifestPurpose:'any',manifestSizes:'any',manifestType:'image/svg+xml',portUsed:null};
+writeFileSync(`${evidence}/verification.json`,JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));

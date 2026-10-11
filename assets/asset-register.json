@@ -1772,6 +1772,28 @@
       "sampleRate": 44100,
       "frameCount": 198450,
       "bytes": 396944
+    },
+    {
+      "id": "app-icon",
+      "kind": "svg",
+      "milestone": "M1",
+      "status": "ready",
+      "sourcePaths": [
+        "assets/source/art/m1/ui/app-icon.svg"
+      ],
+      "runtimePath": "assets/art/m1/ui/app-icon.svg",
+      "author": "OpenAI Codex — original SVG artwork for Learning is Fun",
+      "permission": {
+        "kind": "original",
+        "status": "confirmed",
+        "holder": "Learning is Fun project requester (AI-generated project output)",
+        "statement": "Original square Pip app icon authored for this project under explicit user authorization, adapted from the project-original Pip identity. No external artwork or stock assets; no CC0/GPL relicensing or copyright eligibility claim. See retained icon provenance and native-scale evidence.",
+        "evidencePath": "docs/work-package/execution/APP-ICON-HANDOFF.md"
+      },
+      "attribution": "Original artwork created with OpenAI Codex for Learning is Fun.",
+      "width": 512,
+      "height": 512,
+      "bytes": 3160
     }
   ]
 }

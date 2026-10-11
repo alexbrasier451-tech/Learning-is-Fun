@@ -1,0 +1,566 @@
+{
+  "toolchain": {
+    "node": "v24.19.0",
+    "authoring": "Original deterministic JavaScript/SVG",
+    "renderer": "Playwright Chromium 156.0.8078.4"
+  },
+  "count": 36,
+  "totalRuntimeBytes": 264736,
+  "exports": [
+    {
+      "id": "scene-village-green",
+      "sourcePath": "assets/source/art/m1/scenes/village-green.svg",
+      "runtimePath": "assets/art/m1/scenes/village-green.svg",
+      "width": 960,
+      "height": 600,
+      "viewBox": "0 0 960 600",
+      "bytes": 32455,
+      "sha256": "7273cb8253a7543636345ac11e3c5a03fde95d51650082f4bb52ec7fe09ab9f1",
+      "layerIds": [
+        "scene-village-green-background",
+        "scene-village-green-middle",
+        "scene-village-green-landmark",
+        "scene-village-green-initial",
+        "scene-village-green-village-welcome",
+        "scene-village-green-planter-available",
+        "scene-village-green-plot-1",
+        "scene-village-green-plot-2",
+        "scene-village-green-plot-3",
+        "scene-village-green-foreground"
+      ],
+      "resultIds": [
+        "village-welcome",
+        "planter-available"
+      ]
+    },
+    {
+      "id": "scene-river-bridge",
+      "sourcePath": "assets/source/art/m1/scenes/river-bridge.svg",
+      "runtimePath": "assets/art/m1/scenes/river-bridge.svg",
+      "width": 960,
+      "height": 600,
+      "viewBox": "0 0 960 600",
+      "bytes": 30887,
+      "sha256": "1458a6c9b51204e1ef69fc549cb6456b6fb6dda7b4886dd55cac2cdc012a3398",
+      "layerIds": [
+        "scene-river-bridge-background",
+        "scene-river-bridge-middle",
+        "scene-river-bridge-landmark",
+        "scene-river-bridge-initial",
+        "scene-river-bridge-bridge-restored",
+        "scene-river-bridge-river-details",
+        "scene-river-bridge-foreground"
+      ],
+      "resultIds": [
+        "bridge-restored"
+      ]
+    },
+    {
+      "id": "scene-whispering-library",
+      "sourcePath": "assets/source/art/m1/scenes/whispering-library.svg",
+      "runtimePath": "assets/art/m1/scenes/whispering-library.svg",
+      "width": 960,
+      "height": 600,
+      "viewBox": "0 0 960 600",
+      "bytes": 28448,
+      "sha256": "dc767e15adeb4cb09bd43ba17a932fc8c5fe0eef573a442b6a5b992856f686a0",
+      "layerIds": [
+        "scene-whispering-library-background",
+        "scene-whispering-library-middle",
+        "scene-whispering-library-landmark",
+        "scene-whispering-library-initial",
+        "scene-whispering-library-library-restored",
+        "scene-whispering-library-foreground"
+      ],
+      "resultIds": [
+        "library-restored"
+      ]
+    },
+    {
+      "id": "scene-market-square",
+      "sourcePath": "assets/source/art/m1/scenes/market-square.svg",
+      "runtimePath": "assets/art/m1/scenes/market-square.svg",
+      "width": 960,
+      "height": 600,
+      "viewBox": "0 0 960 600",
+      "bytes": 44273,
+      "sha256": "43e613a74cf1d0659d8383e8f453ca10f8e09ce5e7156b623a4a55bf44015c0a",
+      "layerIds": [
+        "scene-market-square-background",
+        "scene-market-square-middle",
+        "scene-market-square-landmark",
+        "scene-market-square-initial",
+        "scene-market-square-market-stocked",
+        "scene-market-square-foreground"
+      ],
+      "resultIds": [
+        "market-stocked"
+      ]
+    },
+    {
+      "id": "pip-idle",
+      "sourcePath": "assets/source/art/m1/characters/pip-idle.svg",
+      "runtimePath": "assets/art/m1/characters/pip-idle.svg",
+      "width": 300,
+      "height": 320,
+      "viewBox": "0 0 300 320",
+      "bytes": 5186,
+      "sha256": "92d1696d6286ec1fb63d5e980a00b6324a2b64405052e3c6fbdd733416317a3d",
+      "layerIds": [
+        "pip-idle-tail",
+        "pip-idle-body",
+        "pip-idle-head",
+        "pip-idle-scarf"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "pip-help",
+      "sourcePath": "assets/source/art/m1/characters/pip-help.svg",
+      "runtimePath": "assets/art/m1/characters/pip-help.svg",
+      "width": 300,
+      "height": 320,
+      "viewBox": "0 0 300 320",
+      "bytes": 5216,
+      "sha256": "e630708e6cd78d87c816ff0247f92da32154a8c9cced556fc5073b9afa62cb15",
+      "layerIds": [
+        "pip-help-tail",
+        "pip-help-body",
+        "pip-help-head",
+        "pip-help-scarf"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "pip-celebration",
+      "sourcePath": "assets/source/art/m1/characters/pip-celebration.svg",
+      "runtimePath": "assets/art/m1/characters/pip-celebration.svg",
+      "width": 300,
+      "height": 320,
+      "viewBox": "0 0 300 320",
+      "bytes": 5439,
+      "sha256": "3a2e78e64c46a86b9bc3f2292c8699793a0874018e6d161bacae6b46e65bb354",
+      "layerIds": [
+        "pip-celebration-tail",
+        "pip-celebration-body",
+        "pip-celebration-head",
+        "pip-celebration-scarf",
+        "pip-celebration-accent"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "rowan",
+      "sourcePath": "assets/source/art/m1/characters/rowan.svg",
+      "runtimePath": "assets/art/m1/characters/rowan.svg",
+      "width": 320,
+      "height": 320,
+      "viewBox": "0 0 320 320",
+      "bytes": 4965,
+      "sha256": "6b02cab6cde17c1dc48eb0f402ce301e908a3f4c1479e7149b87d84ba00e97da",
+      "layerIds": [
+        "rowan-body",
+        "rowan-head",
+        "rowan-signature-prop",
+        "rowan-hands"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "iona",
+      "sourcePath": "assets/source/art/m1/characters/iona.svg",
+      "runtimePath": "assets/art/m1/characters/iona.svg",
+      "width": 320,
+      "height": 320,
+      "viewBox": "0 0 320 320",
+      "bytes": 5191,
+      "sha256": "26c1ac8ea98d85b9ad83d5fdb51986130c1ebc827c1ada29f09375dd3ead6dd0",
+      "layerIds": [
+        "iona-body",
+        "iona-head",
+        "iona-signature-prop",
+        "iona-hands"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "nessa",
+      "sourcePath": "assets/source/art/m1/characters/nessa.svg",
+      "runtimePath": "assets/art/m1/characters/nessa.svg",
+      "width": 320,
+      "height": 320,
+      "viewBox": "0 0 320 320",
+      "bytes": 8306,
+      "sha256": "5b75b0b6cfa5116aad8de5f616072f601af669d038e85a455d15f1ae3b71b904",
+      "layerIds": [
+        "nessa-body",
+        "nessa-head",
+        "nessa-signature-prop",
+        "nessa-hands"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "plank-1",
+      "sourcePath": "assets/source/art/m1/props/plank-1.svg",
+      "runtimePath": "assets/art/m1/props/plank-1.svg",
+      "width": 88,
+      "height": 88,
+      "viewBox": "0 0 88 88",
+      "bytes": 2588,
+      "sha256": "22d17d5a0cc8d85bf8b92e457dbcb3324bb7c845d67384b3db26a888581ce8d6",
+      "layerIds": [
+        "plank-1-timber"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "plank-2",
+      "sourcePath": "assets/source/art/m1/props/plank-2.svg",
+      "runtimePath": "assets/art/m1/props/plank-2.svg",
+      "width": 160,
+      "height": 88,
+      "viewBox": "0 0 160 88",
+      "bytes": 2594,
+      "sha256": "bcb84c99f1e51ccabd25232e743391d43156155779e4da6a840d2b4868f7fc83",
+      "layerIds": [
+        "plank-2-timber"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "plank-3",
+      "sourcePath": "assets/source/art/m1/props/plank-3.svg",
+      "runtimePath": "assets/art/m1/props/plank-3.svg",
+      "width": 232,
+      "height": 88,
+      "viewBox": "0 0 232 88",
+      "bytes": 2609,
+      "sha256": "0ec1c42ccfa6ce996c8b76642dcf99a0e97e5b3db655577b4e617e7bb47a743c",
+      "layerIds": [
+        "plank-3-timber"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "plank-4",
+      "sourcePath": "assets/source/art/m1/props/plank-4.svg",
+      "runtimePath": "assets/art/m1/props/plank-4.svg",
+      "width": 304,
+      "height": 88,
+      "viewBox": "0 0 304 88",
+      "bytes": 2597,
+      "sha256": "88c8a2453368da86a5a30bfd1796e81308790ff0afcb1861aea97f5371ea8fa9",
+      "layerIds": [
+        "plank-4-timber"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "plank-5",
+      "sourcePath": "assets/source/art/m1/props/plank-5.svg",
+      "runtimePath": "assets/art/m1/props/plank-5.svg",
+      "width": 376,
+      "height": 88,
+      "viewBox": "0 0 376 88",
+      "bytes": 2609,
+      "sha256": "f1ceeddf741476a9b27d1f2d9049b34248aa1a4db2c8056d27a0e7d1b536d845",
+      "layerIds": [
+        "plank-5-timber"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "plank-6",
+      "sourcePath": "assets/source/art/m1/props/plank-6.svg",
+      "runtimePath": "assets/art/m1/props/plank-6.svg",
+      "width": 448,
+      "height": 88,
+      "viewBox": "0 0 448 88",
+      "bytes": 2609,
+      "sha256": "7bd4a3427ffd689a5cb834b18460cb7ca21facdcbbc9fb63686090fc7cfdb8ec",
+      "layerIds": [
+        "plank-6-timber"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "punctuation-tile",
+      "sourcePath": "assets/source/art/m1/props/punctuation-tile.svg",
+      "runtimePath": "assets/art/m1/props/punctuation-tile.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 2571,
+      "sha256": "6ec5abcfdb9cf6f2d7881ec9fd9c2a95d04de1f0479d4ab5bb9b894389a1e1b7",
+      "layerIds": [
+        "punctuation-tile-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "apple",
+      "sourcePath": "assets/source/art/m1/props/apple.svg",
+      "runtimePath": "assets/art/m1/props/apple.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 2739,
+      "sha256": "4533a3713300295d7526f968f1e67824f098170d3784ee1887ea9da4abe1c182",
+      "layerIds": [
+        "apple-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "pear",
+      "sourcePath": "assets/source/art/m1/props/pear.svg",
+      "runtimePath": "assets/art/m1/props/pear.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 3625,
+      "sha256": "186696a249b9cc1ae9122b318f6edb650cd2e5b735b8c096ed1fc5fdf4d1d358",
+      "layerIds": [
+        "pear-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "basket",
+      "sourcePath": "assets/source/art/m1/props/basket.svg",
+      "runtimePath": "assets/art/m1/props/basket.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 4048,
+      "sha256": "30ab5e7035b205567972d0113261bd6e4b32ab13084314ce2b488aeb222759cd",
+      "layerIds": [
+        "basket-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "spellbook",
+      "sourcePath": "assets/source/art/m1/props/spellbook.svg",
+      "runtimePath": "assets/art/m1/props/spellbook.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 2839,
+      "sha256": "64c9baca5bfce9167f6131618e2f971af15f86446ffdc5697f7a24d76db038db",
+      "layerIds": [
+        "spellbook-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "market-instructions",
+      "sourcePath": "assets/source/art/m1/props/market-instructions.svg",
+      "runtimePath": "assets/art/m1/props/market-instructions.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 2926,
+      "sha256": "d7d600c2ab999cb667c79f0572f38f9fd5198a97e6e25893684bb3d5ff04afc3",
+      "layerIds": [
+        "market-instructions-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "decoration-planter",
+      "sourcePath": "assets/source/art/m1/props/decoration-planter.svg",
+      "runtimePath": "assets/art/m1/props/decoration-planter.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 2824,
+      "sha256": "5049ffa7879dc761d873e825abd5cfe1b0554a23057b041525db29673c501be4",
+      "layerIds": [
+        "decoration-planter-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "scarf-teal",
+      "sourcePath": "assets/source/art/m1/props/scarf-teal.svg",
+      "runtimePath": "assets/art/m1/props/scarf-teal.svg",
+      "width": 300,
+      "height": 320,
+      "viewBox": "0 0 300 320",
+      "bytes": 2677,
+      "sha256": "4f9353a57a5f481da448b088b80a16733657d31e6096ff6e68eab6e20d756128",
+      "layerIds": [
+        "scarf-teal-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "scarf-amber",
+      "sourcePath": "assets/source/art/m1/props/scarf-amber.svg",
+      "runtimePath": "assets/art/m1/props/scarf-amber.svg",
+      "width": 300,
+      "height": 320,
+      "viewBox": "0 0 300 320",
+      "bytes": 2692,
+      "sha256": "2c8d3ade2df6d595fa277881d74ffe28e40a0224333f2fc6197feddec3b36925",
+      "layerIds": [
+        "scarf-amber-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "scarf-plum",
+      "sourcePath": "assets/source/art/m1/props/scarf-plum.svg",
+      "runtimePath": "assets/art/m1/props/scarf-plum.svg",
+      "width": 300,
+      "height": 320,
+      "viewBox": "0 0 300 320",
+      "bytes": 2677,
+      "sha256": "8f2d405ae70f4133aed431dff1c8da48ae4ff779072cd9921f2af5f0584880e1",
+      "layerIds": [
+        "scarf-plum-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "flowers-coral",
+      "sourcePath": "assets/source/art/m1/props/flowers-coral.svg",
+      "runtimePath": "assets/art/m1/props/flowers-coral.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 5584,
+      "sha256": "a54eb700b590c619f358e4af98125bb2c25b65541c955559e29b994ff7458ab5",
+      "layerIds": [
+        "flowers-coral-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "flowers-gold",
+      "sourcePath": "assets/source/art/m1/props/flowers-gold.svg",
+      "runtimePath": "assets/art/m1/props/flowers-gold.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 5569,
+      "sha256": "648d85928ce3302be4f4e64991f67a53c99dafef989ede2090be0f62bc0656c2",
+      "layerIds": [
+        "flowers-gold-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "flowers-violet",
+      "sourcePath": "assets/source/art/m1/props/flowers-violet.svg",
+      "runtimePath": "assets/art/m1/props/flowers-violet.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 5599,
+      "sha256": "56685f4ea8768920a18c338738d423f0adea622a97915a6c4e397c2490f69483",
+      "layerIds": [
+        "flowers-violet-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "scarf-leaf",
+      "sourcePath": "assets/source/art/m1/props/scarf-leaf.svg",
+      "runtimePath": "assets/art/m1/props/scarf-leaf.svg",
+      "width": 300,
+      "height": 320,
+      "viewBox": "0 0 300 320",
+      "bytes": 2734,
+      "sha256": "1dbb98b3dea9ac2624f18e6db7de9e0adefadb187d8b9a209987c9b65a0df783",
+      "layerIds": [
+        "scarf-leaf-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "planter-rim",
+      "sourcePath": "assets/source/art/m1/props/planter-rim.svg",
+      "runtimePath": "assets/art/m1/props/planter-rim.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 2891,
+      "sha256": "85dcc4f0ee12d1a7c679e74955cdceff026a8943276307dfb896b624bc86b652",
+      "layerIds": [
+        "planter-rim-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "river-fish",
+      "sourcePath": "assets/source/art/m1/props/river-fish.svg",
+      "runtimePath": "assets/art/m1/props/river-fish.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 2652,
+      "sha256": "1cfb019660697108df7819aeb03afaa10f4409a6831de04c1062aac82d9ec66a",
+      "layerIds": [
+        "river-fish-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "world-map",
+      "sourcePath": "assets/source/art/m1/ui/world-map.svg",
+      "runtimePath": "assets/art/m1/ui/world-map.svg",
+      "width": 640,
+      "height": 420,
+      "viewBox": "0 0 640 420",
+      "bytes": 15114,
+      "sha256": "7448a384407455f5e3b1209514a9b3db345a1a496863837da219afd715c8a9cf",
+      "layerIds": [
+        "world-map-route-to-library-market"
+      ],
+      "resultIds": [
+        "route-to-library-market"
+      ]
+    },
+    {
+      "id": "hall-marker",
+      "sourcePath": "assets/source/art/m1/ui/hall-marker.svg",
+      "runtimePath": "assets/art/m1/ui/hall-marker.svg",
+      "width": 240,
+      "height": 240,
+      "viewBox": "0 0 240 240",
+      "bytes": 4026,
+      "sha256": "18915e463a70e763f84beeae09e95bc70b55c17bdaefd212d19b4776a8d15833",
+      "layerIds": [
+        "hall-marker-artwork"
+      ],
+      "resultIds": []
+    },
+    {
+      "id": "plot-socket",
+      "sourcePath": "assets/source/art/m1/ui/plot-socket.svg",
+      "runtimePath": "assets/art/m1/ui/plot-socket.svg",
+      "width": 240,
+      "height": 100,
+      "viewBox": "0 0 240 100",
+      "bytes": 2481,
+      "sha256": "18605b6fe758476eced4697db17fc19ff98e8e502f3c426e0b1faae78a60bc6a",
+      "layerIds": [],
+      "resultIds": []
+    },
+    {
+      "id": "control-surround",
+      "sourcePath": "assets/source/art/m1/ui/control-surround.svg",
+      "runtimePath": "assets/art/m1/ui/control-surround.svg",
+      "width": 240,
+      "height": 88,
+      "viewBox": "0 0 240 88",
+      "bytes": 2496,
+      "sha256": "3bd7576a2675c4187bbe1e9aaf5555065f83daeafc79fb53f972c7f35e4c06ab",
+      "layerIds": [],
+      "resultIds": []
+    }
+  ]
+}

@@ -1,6 +1,25 @@
 # Implementation execution ledger
 
-Status: IN PROGRESS; the assembled M1 shell is accepted and offline implementation is active. Controller: 01a11d11-b980-7332-8a57-33fcaf22e390.
+Status: IN PROGRESS following the human's explicit resumption on 11 October 2026. Controller: 01a11d11-b980-7332-8a57-33fcaf22e390.
+
+## Resumption checkpoint — 11 October 2026
+
+Controller verified main remains `bef7c5c` and the expected paused owner changes are preserved. The 25 accepted children remain accepted; no offline or publication acceptance is added. Original Astra/high offline author resumes the retained interrupted-install retry investigation on private production-origin5196 and now owns the minimal portable build/server helpers proposed in its handoff. Original Sol/high shell author resumes the saved UI integration; browser checks on5195 wait for platform source freeze, and final integrated production builds wait for shell freeze. Original Astra/high media reviewer independently checks the frozen app icon. Controller applied only the two catalogue count expectations corresponding to the actual added icon (72 total records,37 M1 SVGs); all existing semantic assertions remain.
+
+The app-icon addition and its two catalogue count adjustments independently passed and are Controller-accepted: 72 register rows, 37 ready M1 SVGs, all prior art/audio unchanged, and all 20 catalogue checks pass. See [icon validation](APP-ICON-VALIDATION.md). This adds no execution child and makes no installation/offline claim.
+
+Foundation now owns the portable offline runner/config and four-case D3 selection; offline owns the portable build/server helpers. Shell source and four-case extensions are frozen, with typecheck and whitespace checks passing; browser checks wait for the platform freeze. Final integrated production builds may now consume the frozen shell. At most three workers are active. No new threads, machinery, package redesign or permission request was needed. The pause record below is retained as history and is superseded by this explicit resumption.
+
+## Human-requested pause checkpoint — 9 October 2026
+
+The human requested “Pause all at the next convenient point.” All further implementation, verification and publication are suspended pending explicit resumption. The accepted baseline remains 25 of 49 children through the M1 shell; main/origin last pushed `bef7c5c` (shell production `b85df192a949c9e276b230dcefd02bfbe6272569`, final acceptance `da2d39f737a4eec56c523725846929ccc3e87418`). No Pages site is published.
+
+- Offline author paused with six uncommitted paths and exact evidence in [WP01-03A handoff](WP01-03A-HANDOFF.md). Preliminary A/B builds/inventory passed; the initial two-case browser subset completed 1 pass/1 failure. Retry after interrupted first installation remains unresolved and must be diagnosed from the retained original case on resumption. Port5196 and owned processes are stopped. No offline acceptance.
+- App-icon author paused; source/runtime SVG, register/inventory metadata and visual evidence are preserved in [icon handoff](APP-ICON-HANDOFF.md). No owned browser/server remains. Independent media review and the narrowly affected catalogue-count assertion update remain pending; no icon acceptance yet.
+- Foundation's offline config source is frozen and idle, with config/type/discovery evidence in [configuration handoff](OFFLINE-CONFIG-HANDOFF.md). Emitted-output verification and independent config review remain pending.
+- Shell offline integration is paused with its first wiring batch saved and typechecked, but not browser-verified. Exact three source paths and remaining checks are recorded in [shell pause handoff](OFFLINE-SHELL-HANDOFF.md). No browser/server was started. Its prior accepted shell remains the baseline; the new wiring is not accepted. No worker is assigned further work.
+
+Preserve all uncommitted owner files and the unrelated `.wp04-04a-independent/` and `debug.log`. Do not treat preliminary checks as child acceptance. On explicit resumption, inspect each owner's pause note before restoring its lease; settle minimal portable offline-harness ownership, complete the icon/config/shell handoffs, then repair and rerun the original offline retry failure before continuing the defined verification and review.
 
 Latest checkpoint, 9 October 2026: **25 of 49 execution children accepted.** Controller accepts WP01-02A after F01 correction, 16 corrected local browser passes, three fresh independent complete-path rechecks, focused state/audio checks, build/typecheck and four actual Firefox cases on candidate b85df192a949c9e276b230dcefd02bfbe6272569. The original independent shell/integration reviewer inspected all four D3 receipts, renders, exact source identity and actual cleanup evidence and reports whole-child technical PASS with no actionable findings. See [D3 shell execution](D3-SHELL-EXECUTION.md) and [final validation](WP01-02A-VALIDATION.md). DEP-064 is released, completing the incoming set for Astra/high WP01-03A offline caching and safe next-launch updates. No Pages deployment, live-game acceptance or M1 release is claimed. Earlier checkpoint paragraphs below remain history where superseded by this checkpoint.
 
