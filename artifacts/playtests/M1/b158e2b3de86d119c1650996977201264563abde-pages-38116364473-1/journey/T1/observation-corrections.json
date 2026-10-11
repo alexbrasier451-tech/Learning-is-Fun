@@ -1,0 +1,9 @@
+[
+  {
+    "id": "M1-Q1-RESTORATION",
+    "directory": "T1/M1-Q1-RESTORATION/step-10",
+    "originalAssessment": "passed joined bridge art",
+    "correctedAssessment": "Incomplete art observation: original pixels retain pending/blank illustration with restored text. This attempt ended when an observer wait targeted nonexistent scene svg and exceeded tool timeout. No full journey/trace is claimed. Actual joined art is proven by fresh uninterrupted T1/attempt2/M1-Q1-RESTORATION/step-09.",
+    "preserveOriginal": true
+  }
+]

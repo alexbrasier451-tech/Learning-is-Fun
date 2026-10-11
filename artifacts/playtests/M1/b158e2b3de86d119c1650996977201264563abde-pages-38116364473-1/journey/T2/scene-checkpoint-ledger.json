@@ -1,0 +1,38 @@
+{
+  "scope": "Bounded original blank-illustration localization; no product mutation.",
+  "candidate": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+  "checkpoints": [
+    {
+      "stage": "native same-origin fetch",
+      "time": "2026-10-11T06:50:17.357Z",
+      "url": "https://alexbrasier451-tech.github.io/Learning-is-Fun/assets/art/m1/scenes/village-green.svg",
+      "durationMs": 18813.368,
+      "status": -1,
+      "error": "Failed sending data to the peer",
+      "verdict": "Earliest incorrect checkpoint: native asset transport, before parser/render."
+    },
+    {
+      "stage": "SceneView source/parse",
+      "source": "src/experience/AdventureView.tsx:41-52",
+      "observed": "Fetch rejected, so SVG body parsing/blob creation not reached for this request. Eventual written fallback appeared.",
+      "verdict": "No independent XML/parser or scene-state defect demonstrated."
+    },
+    {
+      "stage": "native normal reload fetch",
+      "time": "2026-10-11T06:59:36.533Z",
+      "durationMs": 46.152,
+      "status": 200
+    },
+    {
+      "stage": "SVG parse/blob/native image after reload",
+      "evidence": "T2/M1-VISUAL-VILLAGE-RECOVERED/step-25",
+      "observed": "Same B scene rendered bunting/lit windows/saved gold planter; library and market restored art also rendered."
+    }
+  ],
+  "retainedTraces": [
+    "T2/journey.trace.zip",
+    "T2/world-recovery.trace.zip"
+  ],
+  "classification": "Transport event with successful normal UI recovery; not a confirmed rendering/evaluator defect. Blank/pending frames and failures remain original evidence. No broader network investigation performed.",
+  "remainingArtGap": "T2 initial Hall emblem broken after failed request; later native 200 seen but no dedicated settled Hall recapture. D1/T1/D2 settled Hall images available; one fresh settled T2 Hall capture can be taken on corrected candidate."
+}

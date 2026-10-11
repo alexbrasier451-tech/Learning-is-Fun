@@ -1,0 +1,72 @@
+{
+  "candidateBuild": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+  "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+  "matrices": [
+    {
+      "matrix": "D1",
+      "rawRows": 34,
+      "effectivePassed": 34,
+      "effectiveFailed": 0,
+      "nativeLinks": 136,
+      "originalsUntouched": true
+    },
+    {
+      "matrix": "T1",
+      "rawRows": 28,
+      "effectivePassed": 26,
+      "effectiveFailed": 2,
+      "nativeLinks": 112,
+      "originalsUntouched": true
+    },
+    {
+      "matrix": "T2",
+      "rawRows": 9,
+      "effectivePassed": 9,
+      "effectiveFailed": 0,
+      "nativeLinks": 36,
+      "originalsUntouched": true
+    }
+  ],
+  "cleanup": "D1/T1/T2 contexts and browser connections closed;all three native launcher PTYs exited0;D2 runner completed exit0.",
+  "verifiedNativeIdentities": [
+    {
+      "matrix": "D1",
+      "actualEngine": "chromium",
+      "version": "155.0.8059.40",
+      "build": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+      "scope": "https://alexbrasier451-tech.github.io/Learning-is-Fun/"
+    },
+    {
+      "matrix": "T1",
+      "actualEngine": "chromium",
+      "version": "156.0.8078.4",
+      "build": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+      "scope": "https://alexbrasier451-tech.github.io/Learning-is-Fun/"
+    },
+    {
+      "matrix": "T2",
+      "actualEngine": "webkit",
+      "version": "27.2",
+      "build": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+      "scope": "https://alexbrasier451-tech.github.io/Learning-is-Fun/"
+    }
+  ],
+  "touchEvents": {
+    "count": 344,
+    "trusted": 344,
+    "actualPointercancel": true
+  },
+  "ownedMarkdownLinks": "All links resolve",
+  "edgeReceipt": {
+    "stats": {
+      "startTime": "2026-10-11T08:11:25.993Z",
+      "duration": 8076.826,
+      "expected": 1,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "testDurationMs": 6927,
+    "errors": []
+  }
+}

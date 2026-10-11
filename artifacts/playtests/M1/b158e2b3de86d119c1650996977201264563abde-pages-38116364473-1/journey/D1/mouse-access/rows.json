@@ -1,0 +1,157 @@
+[
+  {
+    "scenarioId": "M1-IDENTITY",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "mouse",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal Chrome desktop profile; bounded mouse/access variant only, no seeded state.",
+    "actions": [
+      "Open Help on exact frozen URL before profile input."
+    ],
+    "expected": "Visible Help and native worker match frozen B.",
+    "observed": "Help Game version exactly matches B.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/mouse-access/M1-IDENTITY/step-00/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/mouse-access/M1-IDENTITY/step-00/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "not-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/mouse-access/M1-IDENTITY/step-00"
+  },
+  {
+    "scenarioId": "M1-MOUSE-DRAG",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "mouse",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal Chrome desktop profile; bounded mouse/access variant only, no seeded state.",
+    "actions": [
+      "Native mouse down/move eight steps/up from 6m source to the observed end target."
+    ],
+    "expected": "Exactly one 6m plank; no Check or reward.",
+    "observed": "Trusted mouse pointer events place one 6m plank; scoring turn not started.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/mouse-access/M1-MOUSE-DRAG/step-01/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/mouse-access/M1-MOUSE-DRAG/step-01/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/mouse-access/M1-MOUSE-DRAG/step-01"
+  },
+  {
+    "scenarioId": "M1-MOUSE-UNDO",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "mouse",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal Chrome desktop profile; bounded mouse/access variant only, no seeded state.",
+    "actions": [
+      "Click Undo after the mouse drag."
+    ],
+    "expected": "Return to zero planks without scoring.",
+    "observed": "0 planks/0 metres, scoring turn not started.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/mouse-access/M1-MOUSE-UNDO/step-02/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/mouse-access/M1-MOUSE-UNDO/step-02/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/mouse-access/M1-MOUSE-UNDO/step-02"
+  },
+  {
+    "scenarioId": "M1-ACCESS-DESKTOP-200",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "mouse",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal Chrome desktop profile; bounded mouse/access variant only, no seeded state.",
+    "actions": [
+      "Double baseline font size for body descendants only, retaining one 6m plank."
+    ],
+    "expected": "Enlarged bridge fits and remains operable.",
+    "observed": "1366px document in 1366px viewport; enlarged bridge text/controls readable with ordinary vertical scrolling.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/mouse-access/M1-ACCESS-DESKTOP-200/step-03/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/mouse-access/M1-ACCESS-DESKTOP-200/step-03/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/mouse-access/M1-ACCESS-DESKTOP-200/step-03"
+  },
+  {
+    "scenarioId": "M1-MOUSE-RESULT",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "mouse",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal Chrome desktop profile; bounded mouse/access variant only, no seeded state.",
+    "actions": [
+      "Use click placement for the second 6m plank and explicit Check while enlarged, then restore baseline CSS."
+    ],
+    "expected": "Saved bridge success from 6+6 with expected reward.",
+    "observed": "Check 1 accepts 12m and grants40 lifetime/20weekly; mouse and click routes work.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/mouse-access/M1-MOUSE-RESULT/step-04/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/mouse-access/M1-MOUSE-RESULT/step-04/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/mouse-access/M1-MOUSE-RESULT/step-04"
+  }
+]

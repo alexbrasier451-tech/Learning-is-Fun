@@ -1,0 +1,28 @@
+{
+  "os": "Windows 11",
+  "deviceClass": "emulated-tablet",
+  "timezone": "Europe/London",
+  "engine": "chromium",
+  "browserVersion": "156.0.8078.4",
+  "fixtureOrPublished": "published",
+  "viewport": {
+    "width": 1024,
+    "height": 768
+  },
+  "identityObservation": "Exact frozen B Game version visible in Help and native active-worker reply before profile input.",
+  "listenerOrCaptureRoute": null,
+  "workerIdentity": {
+    "activeScript": "https://alexbrasier451-tech.github.io/Learning-is-Fun/sw.js",
+    "scope": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "reply": {
+      "type": "OFFLINE_INVENTORY_RESULT",
+      "requestId": "T1-attempt2",
+      "buildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+      "complete": true,
+      "reason": null
+    },
+    "controller": null
+  },
+  "startedAt": "2026-10-11T06:39:03.802Z",
+  "setup": "Fresh unseeded T1 Willow2 normal UI; native Chromium launchServer default options; persistent Node step/observe/choose; original attempt interrupted by observer timeout."
+}

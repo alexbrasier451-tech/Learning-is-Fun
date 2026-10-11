@@ -1,0 +1,154 @@
+[
+  {
+    "requestedRole": "button",
+    "requestedName": "Help",
+    "tabPresses": 9,
+    "actual": {
+      "tag": "BUTTON",
+      "text": "Help",
+      "ariaLabel": null,
+      "name": null,
+      "id": "",
+      "rect": {
+        "x": 459.359375,
+        "y": 193.78125,
+        "width": 68.328125,
+        "height": 48.796875
+      }
+    },
+    "at": "2026-10-11T07:52:57.967Z"
+  },
+  {
+    "requestedRole": "button",
+    "requestedName": "Back to my story",
+    "tabPresses": 0,
+    "actual": {
+      "tag": "BUTTON",
+      "text": "Back to my story",
+      "ariaLabel": null,
+      "name": null,
+      "id": "",
+      "rect": {
+        "x": 373,
+        "y": 734.40625,
+        "width": 162.84375,
+        "height": 48.796875
+      }
+    },
+    "at": "2026-10-11T07:53:19.991Z"
+  },
+  {
+    "requestedRole": "button",
+    "requestedName": "Add an explorer",
+    "tabPresses": 7,
+    "actual": {
+      "tag": "BUTTON",
+      "text": "Add an explorer",
+      "ariaLabel": null,
+      "name": null,
+      "id": "",
+      "rect": {
+        "x": 107,
+        "y": 720.546875,
+        "width": 158.296875,
+        "height": 47
+      }
+    },
+    "at": "2026-10-11T07:53:20.047Z"
+  },
+  {
+    "requestedRole": "textbox",
+    "requestedName": "Nickname",
+    "tabPresses": 0,
+    "actual": {
+      "tag": "INPUT",
+      "text": "",
+      "ariaLabel": null,
+      "name": null,
+      "id": "_r_3_-nickname",
+      "rect": {
+        "x": 133,
+        "y": 518.359375,
+        "width": 512,
+        "height": 51
+      }
+    },
+    "at": "2026-10-11T07:53:20.323Z"
+  },
+  {
+    "requestedRole": "button",
+    "requestedName": "Save explorer",
+    "tabPresses": 2,
+    "actual": {
+      "tag": "BUTTON",
+      "text": "Save explorer",
+      "ariaLabel": null,
+      "name": null,
+      "id": "",
+      "rect": {
+        "x": 133,
+        "y": 520.359375,
+        "width": 137.96875,
+        "height": 47
+      }
+    },
+    "at": "2026-10-11T07:53:20.354Z"
+  },
+  {
+    "requestedRole": "button",
+    "requestedName": "C D1 River Choose explorer",
+    "tabPresses": 15,
+    "actual": {
+      "tag": "BUTTON",
+      "text": "C D1 RiverChoose explorer",
+      "ariaLabel": null,
+      "name": null,
+      "id": "",
+      "rect": {
+        "x": 121,
+        "y": 548.546875,
+        "width": 1124,
+        "height": 219
+      }
+    },
+    "at": "2026-10-11T07:53:34.841Z"
+  },
+  {
+    "requestedRole": "button",
+    "requestedName": "Meet Pip at the bridge",
+    "tabPresses": 1,
+    "actual": {
+      "tag": "BUTTON",
+      "text": "Meet Pip at the bridge →",
+      "ariaLabel": null,
+      "name": null,
+      "id": "",
+      "rect": {
+        "x": 843.46875,
+        "y": 687.609375,
+        "width": 242.40625,
+        "height": 49.6875
+      }
+    },
+    "at": "2026-10-11T07:53:35.237Z"
+  },
+  {
+    "requestedRole": "button",
+    "requestedName": "A Bridge Back Home",
+    "tabPresses": 1,
+    "actual": {
+      "tag": "BUTTON",
+      "text": "A Bridge Back Home →",
+      "ariaLabel": null,
+      "name": null,
+      "id": "",
+      "rect": {
+        "x": 843.46875,
+        "y": 718.609375,
+        "width": 214.59375,
+        "height": 49.6875
+      }
+    },
+    "at": "2026-10-11T07:53:35.562Z"
+  }
+]

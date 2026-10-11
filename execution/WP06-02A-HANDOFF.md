@@ -1,5 +1,55 @@
 # WP06-02A current handoff
 
+## Frozen C review checkpoint — 11 October 2026
+
+Requested C observation collection is complete. See [JOURNEY](../docs/playtests/M1/JOURNEY.md)
+and its current C section/capture index for exact scope,original pixels,DOM and
+native traces. This is ready for independent review,not acceptance.
+
+C application4ce77058e60f8f87285e5b8f63c7630fdaffb188,
+build4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1,
+exact https://alexbrasier451-tech.github.io/Learning-is-Fun/ .
+D1/T1 fresh complete affected journeys passed J-01 and J-02 originals plus dirty
+punctuation/merchant,Undo,success,reload and optional/fresh-bound-practice variants.
+JR-01 has actual native keyboard entry proof,zero locator focus/fill/type/press/click
+in D1trace. T2 exact B body-descendant doubling passed J-03 with roots16px,
+heading90.112px358/358,document1024;separate root32px variants fit1024/768.
+Native settled Hall emblem decoded240×240 and is visibly loaded.
+
+T1 retained observer input failure:original intended3/4/5 prose actually showed
+3/3/5=11m;Check2 correctly rejected and added0/0. Originals preserved;sidecar and
+adjudicated rows fail that row. Same uninterrupted session then visibly corrected
+to3/4/5;Check3accepted. No separate product defect established. Both complete C
+journeys finish90lifetime/30weekly/3turns from actual receipts. Do not claim120/60.
+
+C D2 actual Edge155.0.4283.45 bounded smoke1pass/zeroothers. C D3 independently
+reviewed run38122814533/artifact11696155843 actualFirefox157Linux1pass/zeroothers;
+CI source308880f8cfc0a82cb478741d55631de397bae43a differs from deployedC4ce77058… .
+See [independent D3 receipt](../docs/work-package/execution/WP06-02A-VALIDATION.md).
+Current starter.spec.ts SHA256406eb8e2bfebb53e514c7b34ae4d00024335e1b678712ada84be5e71dd6e37b7;
+only Controller's two descriptive candidate-label substitutions differ from B;
+actions/assertions unchanged. No observer spec/CI/source mutation in this retest.
+
+C own root artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey:
+D1 34passed;T1 26passed+2retained observerfailure rows;T2 9passed.
+Original rows/checkpoints unchanged;adjudicated-rows.json adds actual links/status
+correction;visual-index.md and evidence-integrity.json provide finite review entry.
+Time-to-conclusion171.200sD1/284.001sT1 differs from fullsession344.995s/557.209s.
+No child pace,timer gate,acoustic,physical-tablet or release acceptance claim.
+
+All owned C contexts/browsers closed and launcher PTYs exited0;D2 exit0.
+B artifacts remain untouched. Pending:independent C journey review and Controller
+acceptance;other F01/acoustic/boundary work belongs to existing owners. No further
+observer collection or browser is running. Do not redeploy or broaden collection
+solely from historical pending language below.
+
+## Historical B handoff (preserved)
+
+The remaining text is the earlier frozen-B handoff. Current C coverage above
+supersedes its pending retest/D3/emblem wording;B failures remain historical.
+Original B D1 entry has JR-01's programmatic-focus limitation. J-02's classification
+has since resolved as required. Historical B source hash is not the current C hash.
+
 11 October 2026. Observer checkpoint is frozen on B; Controller owns
 independent review, candidate replacement and acceptance. No product/shared
 config/CI/Git/deployment or other-chat mutation has been made.

@@ -1,0 +1,28 @@
+{
+  "os": "Windows 11",
+  "deviceClass": "desktop",
+  "timezone": "Europe/London",
+  "engine": "chromium",
+  "browserVersion": "155.0.8059.40",
+  "fixtureOrPublished": "published",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "identityObservation": "Exact frozen B Game version visible in Help and native active-worker reply before profile input.",
+  "listenerOrCaptureRoute": null,
+  "workerIdentity": {
+    "activeScript": "https://alexbrasier451-tech.github.io/Learning-is-Fun/sw.js",
+    "scope": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "reply": {
+      "type": "OFFLINE_INVENTORY_RESULT",
+      "requestId": "d1-mouse-access",
+      "buildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+      "complete": true,
+      "reason": null
+    },
+    "controller": null
+  },
+  "startedAt": "2026-10-11T07:02:12.679Z",
+  "setup": "Fresh normal Chrome desktop profile; bounded mouse/access variant only, no seeded state."
+}

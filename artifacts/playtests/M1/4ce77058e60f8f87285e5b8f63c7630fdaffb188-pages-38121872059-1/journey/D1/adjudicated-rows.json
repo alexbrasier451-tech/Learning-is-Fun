@@ -1,0 +1,1158 @@
+[
+  {
+    "scenarioId": "JR01-HELP-FOCUS",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Native Tab from fresh entry to Help; inspect focused element and viewport."
+    ],
+    "expected": "Help reachable through actual focus order.",
+    "observed": "Help is the native focused button; no programmatic focus or pointer action.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-HELP-FOCUS/step-00/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-HELP-FOCUS/step-00/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-HELP-FOCUS/step-00/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-HELP-FOCUS/step-00/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "not-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-HELP-FOCUS/step-00",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "M1-C-IDENTITY",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Native keyboard opens Help; native read-only active-worker identity before any profile creation."
+    ],
+    "expected": "Help and worker exactly match frozen C.",
+    "observed": "Both exact C identifiers confirmed; actual installed Chrome155.0.8059.40.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/M1-C-IDENTITY/step-01/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/M1-C-IDENTITY/step-01/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/M1-C-IDENTITY/step-01/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/M1-C-IDENTITY/step-01/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "not-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/M1-C-IDENTITY/step-01",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "JR01-ADD-FOCUS",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Native Tab from Help return to Add an explorer."
+    ],
+    "expected": "Onboarding button reachable.",
+    "observed": "Actual activeElement is Add an explorer, visible focus retained.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-ADD-FOCUS/step-02/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-ADD-FOCUS/step-02/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-ADD-FOCUS/step-02/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-ADD-FOCUS/step-02/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "not-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-ADD-FOCUS/step-02",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "JR01-SAVE-FOCUS",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Native Tab to Nickname, keyboard typing, then Tab to Save explorer."
+    ],
+    "expected": "Normal form entry/save reachable with keyboard.",
+    "observed": "C D1 River typed using page.keyboard at focused textbox; Save explorer now focused.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-SAVE-FOCUS/step-03/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-SAVE-FOCUS/step-03/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-SAVE-FOCUS/step-03/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-SAVE-FOCUS/step-03/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "not-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-SAVE-FOCUS/step-03",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "JR01-CHOOSE-FOCUS",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Native Tab after acknowledged save to C D1 River Choose explorer."
+    ],
+    "expected": "Saved explorer selection reachable.",
+    "observed": "Actual activeElement names the saved explorer; no locator focus or pointer substitute.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-CHOOSE-FOCUS/step-04/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-CHOOSE-FOCUS/step-04/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-CHOOSE-FOCUS/step-04/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-CHOOSE-FOCUS/step-04/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "not-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-CHOOSE-FOCUS/step-04",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "JR01-INVITATION-FOCUS",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Native Tab from selected explorer view to Meet Pip at the bridge."
+    ],
+    "expected": "Required story invitation reachable.",
+    "observed": "Invitation focused through native keyboard traversal; loaded village and text visible.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-INVITATION-FOCUS/step-05/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-INVITATION-FOCUS/step-05/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-INVITATION-FOCUS/step-05/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-INVITATION-FOCUS/step-05/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-INVITATION-FOCUS/step-05",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "JR01-MISSION-FOCUS",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Native Tab to A Bridge Back Home."
+    ],
+    "expected": "Mission start reachable with keyboard.",
+    "observed": "Mission start is activeElement; River Bridge/Rowan/art and invitation visible.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-MISSION-FOCUS/step-06/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-MISSION-FOCUS/step-06/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-MISSION-FOCUS/step-06/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-MISSION-FOCUS/step-06/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/JR01-MISSION-FOCUS/step-06",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-Q1-PRECHECK",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Keyboard select/place6m without Check."
+    ],
+    "expected": "One6m plank, no Check or points.",
+    "observed": "1 plank/6m; scoring turn not started and draft unsaved.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-PRECHECK/step-07/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-PRECHECK/step-07/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-PRECHECK/step-07/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-PRECHECK/step-07/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-PRECHECK/step-07",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-Q1-PRECHECK-HALL",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Normal keyboard Leave then Hall before any Check."
+    ],
+    "expected": "Zero lifetime/weekly/turns.",
+    "observed": "Hall dd shows0weekly/0lifetime/0of30.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-PRECHECK-HALL/step-08/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-PRECHECK-HALL/step-08/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-PRECHECK-HALL/step-08/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-PRECHECK-HALL/step-08/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "not-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-PRECHECK-HALL/step-08",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-J02-Q1-RESUME",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Wait for acknowledged named resume after Hall/back."
+    ],
+    "expected": "Retained6m activity belongs beneath River Bridge, not default Village Green.",
+    "observed": "River Bridge heading/Rowan/broken-crossing art agree with resumed Bridge construction;6m retained,no scoring started.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J02-Q1-RESUME/step-09/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J02-Q1-RESUME/step-09/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J02-Q1-RESUME/step-09/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J02-Q1-RESUME/step-09/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J02-Q1-RESUME/step-09",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-Q1-WRONG",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Explicit keyboard Check of6m."
+    ],
+    "expected": "Saved useful incorrect Check1,+5/+5,quest incomplete.",
+    "observed": "Written feedback explains6m shortfall;Check1/session1,+5lifetime/+5weekly.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-WRONG/step-10/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-WRONG/step-10/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-WRONG/step-10/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-WRONG/step-10/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-WRONG/step-10",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-J01-Q1-DIRTY",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "After wrong Check/hint, keyboard adds second6m without Check or Leave."
+    ],
+    "expected": "Current12m edited idea says unsaved; saved6m feedback remains historical.",
+    "observed": "Your idea is not saved yet;changed since Check1;historical5/5 unchanged.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q1-DIRTY/step-11/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q1-DIRTY/step-11/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q1-DIRTY/step-11/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q1-DIRTY/step-11/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q1-DIRTY/step-11",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-J01-Q1-UNDO",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Keyboard Undo returns to acknowledged6m baseline."
+    ],
+    "expected": "Saved acknowledgement is truthful only at baseline.",
+    "observed": "One6m plank;Saved on this device;Check1 remains historical5/5.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q1-UNDO/step-12/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q1-UNDO/step-12/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q1-UNDO/step-12/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q1-UNDO/step-12/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q1-UNDO/step-12",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-J01-Q1-DIRTY-HELP",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Recreate12m edited draft and request another normal written hint while dirty."
+    ],
+    "expected": "Committed help cannot mislabel edited idea as saved.",
+    "observed": "12m remainsunsaved;historical saved6m Check1 feedback/reward retained.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q1-DIRTY-HELP/step-13/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q1-DIRTY-HELP/step-13/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q1-DIRTY-HELP/step-13/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q1-DIRTY-HELP/step-13/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q1-DIRTY-HELP/step-13",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-Q1-SUCCESS",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Keyboard explicit Check12m after original dirty/Undo/help variants."
+    ],
+    "expected": "Check2 success and saved bridge;Q1 total30/10.",
+    "observed": "Check2 adds25lifetime/5weekly;Saved on this device;bridge Restored in River Bridge scene.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-SUCCESS/step-14/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-SUCCESS/step-14/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-SUCCESS/step-14/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-SUCCESS/step-14/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-SUCCESS/step-14",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-Q1-RELOAD-RESTORATION",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Normal exact-project reload, keyboard select and River Bridge revisit."
+    ],
+    "expected": "Saved joined bridge persists after original J01/J02 complete path.",
+    "observed": "River Bridge joined art/caption and optional/practice choices persist;no required Check control.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-RELOAD-RESTORATION/step-15/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-RELOAD-RESTORATION/step-15/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-RELOAD-RESTORATION/step-15/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-RELOAD-RESTORATION/step-15/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q1-RELOAD-RESTORATION/step-15",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-Q2-WRONG-DRAFT",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Keyboard places full stops in both sentence slots without Check."
+    ],
+    "expected": "Editable unscored draft retained.",
+    "observed": "2/2slots filled ./.;scoring turn not started.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q2-WRONG-DRAFT/step-16/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q2-WRONG-DRAFT/step-16/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q2-WRONG-DRAFT/step-16/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q2-WRONG-DRAFT/step-16/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q2-WRONG-DRAFT/step-16",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-J02-Q2-RESUME",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Keyboard Hall/back/named resume of saved punctuation draft."
+    ],
+    "expected": "Resumed required punctuation belongs to library.",
+    "observed": "Whispering Library heading/Iona/art above retained ./. draft;no new scoring turn.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J02-Q2-RESUME/step-17/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J02-Q2-RESUME/step-17/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J02-Q2-RESUME/step-17/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J02-Q2-RESUME/step-17/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J02-Q2-RESUME/step-17",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-J01-Q2-DIRTY",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Wrong saved ./. Check,hint,then change question to? without Check."
+    ],
+    "expected": "Dirty punctuation says unsaved and keeps old Check.",
+    "observed": "?/.,Your idea is not saved yet,changed since Check1;historical5/5 unchanged.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q2-DIRTY/step-18/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q2-DIRTY/step-18/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q2-DIRTY/step-18/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q2-DIRTY/step-18/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q2-DIRTY/step-18",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-J01-Q2-UNDO",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Undo edited question mark to saved ./. baseline."
+    ],
+    "expected": "Truthful saved acknowledgement at baseline.",
+    "observed": "./. retained, Saved on this device,Check1 unchanged.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q2-UNDO/step-19/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q2-UNDO/step-19/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q2-UNDO/step-19/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q2-UNDO/step-19/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q2-UNDO/step-19",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-Q2-SUCCESS",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Keyboard Check?/. after dirty/Undo variant."
+    ],
+    "expected": "Check2 saved success;library restoration.",
+    "observed": "Check2 adds25/5;explains question and calm/excited discovery;library Restored with saved status.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q2-SUCCESS/step-20/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q2-SUCCESS/step-20/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q2-SUCCESS/step-20/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q2-SUCCESS/step-20/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q2-SUCCESS/step-20",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-Q3-WRONG-DRAFT",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Keyboard number controls place5apples/3pears without Check."
+    ],
+    "expected": "Unscored eight-fruit draft retained.",
+    "observed": "Counts5/3,total8;scoring turn not started.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q3-WRONG-DRAFT/step-21/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q3-WRONG-DRAFT/step-21/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q3-WRONG-DRAFT/step-21/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q3-WRONG-DRAFT/step-21/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q3-WRONG-DRAFT/step-21",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-J02-Q3-RESUME",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Normal keyboard merchant Leave/Hall/back/named resume."
+    ],
+    "expected": "Saved5/3 draft belongs beneath Market Square.",
+    "observed": "Market Square heading/Nessa/stall above retained5/3draft;no extra scoring turn.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J02-Q3-RESUME/step-22/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J02-Q3-RESUME/step-22/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J02-Q3-RESUME/step-22/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J02-Q3-RESUME/step-22/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J02-Q3-RESUME/step-22",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-J01-Q3-DIRTY",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Wrong5/3Check,hint,then Add one apple without Check."
+    ],
+    "expected": "Edited6/3 idea unsaved;old8-fruit Check remains historical.",
+    "observed": "6apples3pears/9fruit;Your idea is not saved yet;Check1 feedback still5/5.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q3-DIRTY/step-23/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q3-DIRTY/step-23/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q3-DIRTY/step-23/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q3-DIRTY/step-23/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q3-DIRTY/step-23",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-J01-Q3-UNDO",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Keyboard Undo returns to saved5/3 baseline."
+    ],
+    "expected": "Saved acknowledgement only on baseline.",
+    "observed": "Counts5/3,total8;Saved on this device;Check1 historical.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q3-UNDO/step-24/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q3-UNDO/step-24/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q3-UNDO/step-24/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q3-UNDO/step-24/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J01-Q3-UNDO/step-24",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-Q3-SUCCESS",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Keyboard explicit Check6apples/3pears after dirty/Undo variant."
+    ],
+    "expected": "Saved supported Check2 and market/village restored.",
+    "observed": "Check2 adds25/5;both requests explained;allthree Restored,Saved on this device.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q3-SUCCESS/step-25/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q3-SUCCESS/step-25/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q3-SUCCESS/step-25/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q3-SUCCESS/step-25/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-Q3-SUCCESS/step-25",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-CONCLUSION",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Normal continuation after three corrected story paths."
+    ],
+    "expected": "Three saved restorations and creative conclusion.",
+    "observed": "Village welcome caption,three Restored chips and Your little corner.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-CONCLUSION/step-26/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-CONCLUSION/step-26/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-CONCLUSION/step-26/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-CONCLUSION/step-26/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-CONCLUSION/step-26",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-APPEARANCE-PREVIEW",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Keyboard chooses plum scarf,goldflowers,spot3."
+    ],
+    "expected": "Preview remains distinct from saved appearance.",
+    "observed": "Preview only;Undo/Cancel/Save arrangement available.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-APPEARANCE-PREVIEW/step-27/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-APPEARANCE-PREVIEW/step-27/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-APPEARANCE-PREVIEW/step-27/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-APPEARANCE-PREVIEW/step-27/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-APPEARANCE-PREVIEW/step-27",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-APPEARANCE-SAVED",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Save plum/gold/spot3 and return to explicit conclusion."
+    ],
+    "expected": "Acknowledged appearance and completed world persist.",
+    "observed": "First adventure complete;gold planter in spot3,three Restored chips.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-APPEARANCE-SAVED/step-28/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-APPEARANCE-SAVED/step-28/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-APPEARANCE-SAVED/step-28/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-APPEARANCE-SAVED/step-28/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-APPEARANCE-SAVED/step-28",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-FINAL-HALL",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Hall after three supported wrong/hint/retry story successes and appearance save."
+    ],
+    "expected": "90lifetime/30weekly/3turns,appearanceaddsno reward.",
+    "observed": "Hall dd30weekly/90lifetime/3of30.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-FINAL-HALL/step-29/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-FINAL-HALL/step-29/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-FINAL-HALL/step-29/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-FINAL-HALL/step-29/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "not-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-FINAL-HALL/step-29",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-J02-OPTIONAL-RESUME",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Keyboard optional10m bridge partial6m;Leave/Hall/back/named optional resume."
+    ],
+    "expected": "Bound optional challenge resumes in River Bridge without repeating story reward.",
+    "observed": "River Bridge restored art/caption above Optional new challenge10m prompt;6m retained;Hall remained90/30/3.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J02-OPTIONAL-RESUME/step-30/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J02-OPTIONAL-RESUME/step-30/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J02-OPTIONAL-RESUME/step-30/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J02-OPTIONAL-RESUME/step-30/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-J02-OPTIONAL-RESUME/step-30",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-NO-REPEAT-REWARD",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "After completed bridge and unchecked optional opening/resume,inspect Hall."
+    ],
+    "expected": "No fresh story reward or scoring turn.",
+    "observed": "Still90lifetime/30weekly/3turns;optional partial never Checked.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-NO-REPEAT-REWARD/step-31/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-NO-REPEAT-REWARD/step-31/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-NO-REPEAT-REWARD/step-31/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-NO-REPEAT-REWARD/step-31/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "not-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-NO-REPEAT-REWARD/step-31",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-ADULT-EVIDENCE",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Deliberate native keyboard adult entry after corrected story paths."
+    ],
+    "expected": "Three supported later-Check stories retained with clear limits.",
+    "observed": "M01/M04/E06 eachChecks2,episode1,supported/later1,unassisted0.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-ADULT-EVIDENCE/step-32/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-ADULT-EVIDENCE/step-32/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-ADULT-EVIDENCE/step-32/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-ADULT-EVIDENCE/step-32/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "not-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-ADULT-EVIDENCE/step-32",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-FINAL-RELOAD",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state.",
+    "actions": [
+      "Exact published URL reload and native keyboard choose of saved River."
+    ],
+    "expected": "Completed world and acknowledged plum/gold/spot3 appearance persist.",
+    "observed": "Explicit complete adventure,threeRestored and savedgoldplanter remain;optional partial listed for normal resume.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-FINAL-RELOAD/step-33/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-FINAL-RELOAD/step-33/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-FINAL-RELOAD/step-33/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-FINAL-RELOAD/step-33/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/D1/C-FINAL-RELOAD/step-33",
+    "adjudication": null
+  }
+]

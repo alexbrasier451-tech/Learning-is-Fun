@@ -1,0 +1,28 @@
+{
+  "os": "Windows 11",
+  "deviceClass": "desktop",
+  "timezone": "Europe/London",
+  "engine": "chromium",
+  "browserVersion": "155.0.8059.40",
+  "fixtureOrPublished": "published",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "identityObservation": "Exact frozen candidate Game version visible in Help and native active-worker reply before profile input.",
+  "listenerOrCaptureRoute": null,
+  "workerIdentity": {
+    "activeScript": "https://alexbrasier451-tech.github.io/Learning-is-Fun/sw.js",
+    "scope": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "reply": {
+      "type": "OFFLINE_INVENTORY_RESULT",
+      "requestId": "C-D1-before-profile",
+      "buildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+      "complete": true,
+      "reason": null
+    },
+    "controller": null
+  },
+  "startedAt": "2026-10-11T07:52:56.941Z",
+  "setup": "Fresh normal C River profile; native keyboard entry/activity route; no locator focus/type/fill/click, no seeded state."
+}

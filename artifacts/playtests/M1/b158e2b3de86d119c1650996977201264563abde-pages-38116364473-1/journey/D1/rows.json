@@ -1,0 +1,996 @@
+[
+  {
+    "scenarioId": "M1-ENTRY",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Observe loaded entry before profile input"
+    ],
+    "expected": "Clear entry and loaded artwork.",
+    "observed": "Silent entry, loaded Pip/book, profile scope explained; shell occupies first 413px of 768px viewport.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-ENTRY/step-00/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-ENTRY/step-00/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-ENTRY/step-00"
+  },
+  {
+    "scenarioId": "M1-IDENTITY",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Keyboard Help; observe displayed Game version"
+    ],
+    "expected": "Displayed frozen B build.",
+    "observed": "Help shows exact b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-IDENTITY/step-01/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-IDENTITY/step-01/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-IDENTITY/step-01"
+  },
+  {
+    "scenarioId": "M1-WORLD",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Create D1 River with keyboard",
+      "Select explorer"
+    ],
+    "expected": "Fresh village; Q2/Q3 locked; no learning points.",
+    "observed": "Village scene loads with layered tree/house/path; keyboard focus on heading; Q1 0/1.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-WORLD/step-02/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-WORLD/step-02/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-WORLD/step-02"
+  },
+  {
+    "scenarioId": "M1-Q1-START",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Keyboard Meet Pip at the bridge"
+    ],
+    "expected": "Broken bridge and clear story invitation.",
+    "observed": "Broken timbers, Rowan portrait and A Bridge Back Home are visible.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-START/step-03/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-START/step-03/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-START/step-03"
+  },
+  {
+    "scenarioId": "M1-Q1-EMPTY",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Keyboard open A Bridge Back Home; wait for saved starting point"
+    ],
+    "expected": "Empty draft, zero scoring turn; instructions available without sound.",
+    "observed": "0 planks/0m, scoring turn has not started, no Check feedback, Read controls disabled with written optional-sound message.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-EMPTY/step-04/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-EMPTY/step-04/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-EMPTY/step-04"
+  },
+  {
+    "scenarioId": "M1-Q1-SELECT",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Native Tab to 6m; Enter selects"
+    ],
+    "expected": "Selection changes no scoring.",
+    "observed": "Amber labelled selected tile; 0 planks, scoring turn not started.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-SELECT/step-05/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-SELECT/step-05/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-SELECT/step-05"
+  },
+  {
+    "scenarioId": "M1-Q1-PRECHECK",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Keyboard Place selected 6m; no Check"
+    ],
+    "expected": "Draft remains unscored before Check.",
+    "observed": "[6] shown, 1 plank/6m; scoring turn has not started; no saved Check.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-PRECHECK/step-06/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-PRECHECK/step-06/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-PRECHECK/step-06"
+  },
+  {
+    "scenarioId": "M1-PRECHECK-HALL",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Leave [6] draft normally",
+      "Keyboard Hall"
+    ],
+    "expected": "Edits/suspension award nothing.",
+    "observed": "Hall: weekly0/lifetime0/scoring turns0 of30. Q1 remains unfinished.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-PRECHECK-HALL/step-07/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-PRECHECK-HALL/step-07/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-PRECHECK-HALL/step-07"
+  },
+  {
+    "scenarioId": "M1-Q1-RESUME",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Return Hall to adventure",
+      "Keyboard Resume A Bridge Back Home"
+    ],
+    "expected": "Retain [6] and zero Checks/scoring before Check.",
+    "observed": "[6]/6m retained, scoring not started. Task resumes below Village Green scene rather than its River Bridge scene (presentation observation).",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-RESUME/step-08/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-RESUME/step-08/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-RESUME/step-08"
+  },
+  {
+    "scenarioId": "M1-Q1-WRONG",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Native keyboard Check [6]"
+    ],
+    "expected": "Check1 wrong; useful six-metres-short feedback; +5 answer points only.",
+    "observed": "Saved Check1/session1; explains 6m short and length changes; +5 lifetime/+5weekly; Q1 not complete.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-WRONG/step-09/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-WRONG/step-09/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-WRONG/step-09"
+  },
+  {
+    "scenarioId": "M1-Q1-HINT",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Ask Pip for hint after Check1"
+    ],
+    "expected": "Written approved hint after save, no additional Check/points.",
+    "observed": "Pip help pose and Look at required span/length text; saved Check1 still +5/+5.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-HINT/step-10/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-HINT/step-10/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-HINT/step-10"
+  },
+  {
+    "scenarioId": "M1-Q1-RETRY-DRAFT",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Keyboard add second6m"
+    ],
+    "expected": "[6,6]12m; only original Check1 scored.",
+    "observed": "2 planks12m, changed idea since Check1; historical +5/+5 unchanged.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-RETRY-DRAFT/step-11/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-RETRY-DRAFT/step-11/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-RETRY-DRAFT/step-11"
+  },
+  {
+    "scenarioId": "M1-Q1-SUCCESS",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Keyboard Check [6,6]"
+    ],
+    "expected": "Supported success +5 success plus once-only Q1+20; total30 lifetime10weekly.",
+    "observed": "Saved Check2 +25lifetime/+5weekly; prior+5/+5 yields30/10. Q1 Restored; success and help label.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-SUCCESS/step-12/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-SUCCESS/step-12/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-SUCCESS/step-12"
+  },
+  {
+    "scenarioId": "M1-Q2-START",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Continue without optional transfer"
+    ],
+    "expected": "Library invitation after Q1.",
+    "observed": "Sleeping library, Iona and text invitation; Q1 Restored.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q2-START/step-13/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q2-START/step-13/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q2-START/step-13"
+  },
+  {
+    "scenarioId": "M1-Q1-RESTORATION",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Return to completed River Bridge; allow art decode"
+    ],
+    "expected": "Joined bridge persists; no renewed reward.",
+    "observed": "Restored bridge shown with solid timber arch, text remembers crossing, only optional challenge/practice.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-RESTORATION/step-14/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-RESTORATION/step-14/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q1-RESTORATION/step-14"
+  },
+  {
+    "scenarioId": "M1-Q2-EMPTY",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Keyboard library and mission start"
+    ],
+    "expected": "Reviewed anchor and no scoring before Check.",
+    "observed": "Question/discovery prose live; 0/2 filled and scoring turn not started.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q2-EMPTY/step-15/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q2-EMPTY/step-15/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q2-EMPTY/step-15"
+  },
+  {
+    "scenarioId": "M1-Q2-QUESTION",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Keyboard choose ? then place in question"
+    ],
+    "expected": "Question gets ?, no scoring.",
+    "observed": "Question filled ?, discovery empty; scoring has not started.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q2-QUESTION/step-16/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q2-QUESTION/step-16/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q2-QUESTION/step-16"
+  },
+  {
+    "scenarioId": "M1-Q2-PRECHECK",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Keyboard place full stop in discovery"
+    ],
+    "expected": "Reviewed {question:?,discovery:.} complete unscored draft.",
+    "observed": "2/2 filled; scoring turn not started; no saved Check/result.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q2-PRECHECK/step-17/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q2-PRECHECK/step-17/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q2-PRECHECK/step-17"
+  },
+  {
+    "scenarioId": "M1-Q2-SUCCESS",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Native Tab/Enter Check ? and ."
+    ],
+    "expected": "Unassisted Q2 +40lifetime/+20weekly; library restored.",
+    "observed": "Saved Check1/session1 +40lifetime/+20weekly, Q2 Restored, calm discovery accepted.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q2-SUCCESS/step-18/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q2-SUCCESS/step-18/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q2-SUCCESS/step-18"
+  },
+  {
+    "scenarioId": "M1-Q2-RESTORATION",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Observe acknowledged Q2 world change"
+    ],
+    "expected": "Lit/open library with saved instruction handoff.",
+    "observed": "Door open, lantern windows lit, book/instructions shelf, story text says Iona hands over market instructions.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q2-RESTORATION/step-19/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q2-RESTORATION/step-19/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q2-RESTORATION/step-19"
+  },
+  {
+    "scenarioId": "M1-Q3-START",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Keyboard continue after Q2"
+    ],
+    "expected": "Empty market and Nessa invitation.",
+    "observed": "Empty crates/stall, Nessa portrait and recovered instructions story.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q3-START/step-20/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q3-START/step-20/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q3-START/step-20"
+  },
+  {
+    "scenarioId": "M1-Q3-EMPTY",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Keyboard start merchant"
+    ],
+    "expected": "Reviewed total9/twice apples and unset counts; no scoring.",
+    "observed": "Both counts Not set; total0; scoring turn not started.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q3-EMPTY/step-21/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q3-EMPTY/step-21/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q3-EMPTY/step-21"
+  },
+  {
+    "scenarioId": "M1-Q3-PRECHECK",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Keyboard Add apple six times",
+      "Observe apples6 then Add pear three times"
+    ],
+    "expected": "6apples3pears complete draft; Check not submitted.",
+    "observed": "Counts6/3, total9; Your idea is not saved yet/scoring not started.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q3-PRECHECK/step-22/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q3-PRECHECK/step-22/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q3-PRECHECK/step-22"
+  },
+  {
+    "scenarioId": "M1-ACCESS-INSTRUCTIONS",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Native Tab/Enter How to move pieces"
+    ],
+    "expected": "Instructions readable without hover, Escape restores focus.",
+    "observed": "Dialog names choose/place, drag optional, keyboard Enter/Space, arrows/reorder and Escape.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-ACCESS-INSTRUCTIONS/step-23/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-ACCESS-INSTRUCTIONS/step-23/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-ACCESS-INSTRUCTIONS/step-23"
+  },
+  {
+    "scenarioId": "M1-Q3-SUCCESS",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Keyboard Check6apples3pears"
+    ],
+    "expected": "Q3 unassisted+40lifetime20weekly; allthree quests complete.",
+    "observed": "Check1/session1 +40/+20; Q1/Q2/Q3 Restored and A little part restored-and-saved notice.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q3-SUCCESS/step-24/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q3-SUCCESS/step-24/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q3-SUCCESS/step-24"
+  },
+  {
+    "scenarioId": "M1-Q3-RESTORATION",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Observe saved merchant world state"
+    ],
+    "expected": "Stocked stall, bunting, planter entitlement.",
+    "observed": "Visible apples/pears on stall, bunting, restored narrative; no overlays hide next action.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q3-RESTORATION/step-25/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q3-RESTORATION/step-25/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-Q3-RESTORATION/step-25"
+  },
+  {
+    "scenarioId": "M1-CONCLUSION",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Keyboard continue Q3; skip optional transfer"
+    ],
+    "expected": "Village welcome/creative ending after three saved restores.",
+    "observed": "Q1,Q2,Q3 Restored; village bunting/lit windows/plot sockets; planter/scarf choice panel available.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-CONCLUSION/step-26/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-CONCLUSION/step-26/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-CONCLUSION/step-26"
+  },
+  {
+    "scenarioId": "M1-CREATIVE-PREVIEW",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Keyboard Amber then spot2"
+    ],
+    "expected": "Preview reversible and unscored.",
+    "observed": "Amber scarf/coral planter spot2; Preview only; Undo/Cancel/Save enabled.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-CREATIVE-PREVIEW/step-27/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-CREATIVE-PREVIEW/step-27/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-CREATIVE-PREVIEW/step-27"
+  },
+  {
+    "scenarioId": "M1-CREATIVE-SAVED",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Keyboard Save arrangement"
+    ],
+    "expected": "Acknowledged appearance saved without reward.",
+    "observed": "Saved appearance, saved ready status; amber scarf and coral planter spot2.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-CREATIVE-SAVED/step-28/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-CREATIVE-SAVED/step-28/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-CREATIVE-SAVED/step-28"
+  },
+  {
+    "scenarioId": "M1-FINAL-HALL",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Leave creative ending; open Hall"
+    ],
+    "expected": "D1 total110lifetime50weekly3turns (Q1 supported30/10,Q2/Q3 each40/20).",
+    "observed": "Hall displays final saved totals after appearance save; compare exact DOM.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-FINAL-HALL/step-29/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-FINAL-HALL/step-29/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-FINAL-HALL/step-29"
+  },
+  {
+    "scenarioId": "M1-COMPLETED-NO-REWARD",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Leave completed crossing; reopen; visit Hall again"
+    ],
+    "expected": "Completed location revisit adds no once-only reward.",
+    "observed": "Hall still110lifetime50weekly3turns.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-COMPLETED-NO-REWARD/step-30/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-COMPLETED-NO-REWARD/step-30/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-COMPLETED-NO-REWARD/step-30"
+  },
+  {
+    "scenarioId": "M1-ADULT-EVIDENCE",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Two deliberate grown-up entry steps via keyboard"
+    ],
+    "expected": "Separate Checks/episodes/unassisted/support labels.",
+    "observed": "Notebook M01 Checks2/episode1/support1/unassisted0; E06/M04 Checks1/episode1/unassisted1; limitations explicit.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-ADULT-EVIDENCE/step-31/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-ADULT-EVIDENCE/step-31/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-ADULT-EVIDENCE/step-31"
+  },
+  {
+    "scenarioId": "M1-RELOAD-CONCLUSION",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "D1",
+    "browserVersion": "155.0.8059.40",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "inputMode": "keyboard",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "D1 fresh normal UI profile; no injected save/answers; native Playwright launchServer with accepted engine/options, persistent node observer.",
+    "actions": [
+      "Ordinary backup export; reload exact project path; select same explorer"
+    ],
+    "expected": "Allthree restorations/appearance persist; explicit conclusion.",
+    "observed": "Your first adventure is complete; saved coral planter spot2; Q1-Q3 all restored.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-RELOAD-CONCLUSION/step-32/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-RELOAD-CONCLUSION/step-32/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "dir": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/D1/M1-RELOAD-CONCLUSION/step-32"
+  }
+]

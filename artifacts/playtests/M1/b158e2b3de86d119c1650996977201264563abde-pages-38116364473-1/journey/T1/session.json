@@ -1,0 +1,28 @@
+{
+  "os": "Windows11",
+  "deviceClass": "emulated-tablet",
+  "timezone": "Europe/London",
+  "engine": "chromium",
+  "browserVersion": "156.0.8078.4",
+  "fixtureOrPublished": "published",
+  "identityObservation": "Visible Help B and native active worker query before profile input",
+  "listenerOrCaptureRoute": null,
+  "viewport": {
+    "width": 1024,
+    "height": 768
+  },
+  "maxTouchPoints": 1,
+  "workerIdentity": {
+    "activeScript": "https://alexbrasier451-tech.github.io/Learning-is-Fun/sw.js",
+    "scope": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "reply": {
+      "type": "OFFLINE_INVENTORY_RESULT",
+      "requestId": "journey-T1-identity",
+      "buildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+      "complete": true,
+      "reason": null
+    },
+    "controller": null
+  },
+  "startedAt": "2026-10-11T06:32:51.894Z"
+}

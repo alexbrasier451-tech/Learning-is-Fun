@@ -1,0 +1,893 @@
+[
+  {
+    "scenarioId": "M1-IDENTITY",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Tap Help before profile input"
+    ],
+    "expected": "Frozen B shown before T2 play.",
+    "observed": "Exact Help Game version B; WebKit actual version27.2",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-IDENTITY/step-00/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-IDENTITY/step-00/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-IDENTITY/step-00"
+  },
+  {
+    "scenarioId": "M1-ENTRY",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Close Help via tap"
+    ],
+    "expected": "Fresh portrait entry understandable without sound.",
+    "observed": "Portrait readable entry; local save scope; no profiles and Silent sound.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-ENTRY/step-01/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-ENTRY/step-01/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-ENTRY/step-01"
+  },
+  {
+    "scenarioId": "M1-Q1-LANDSCAPE-DRAFT",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Rotate the native WebKit emulation from portrait to landscape after placing one 6m plank."
+    ],
+    "expected": "The unscored 6m draft and usable controls remain.",
+    "observed": "Landscape retains one 6m plank, no Checks and no reward; River Bridge image is loaded.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q1-LANDSCAPE-DRAFT/step-02/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q1-LANDSCAPE-DRAFT/step-02/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q1-LANDSCAPE-DRAFT/step-02"
+  },
+  {
+    "scenarioId": "M1-Q1-PRECHECK",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Tap another 6m plank and place at the end."
+    ],
+    "expected": "12m draft is unscored before Check.",
+    "observed": "[6,6] totals 12m with no saved Check or points.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q1-PRECHECK/step-03/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q1-PRECHECK/step-03/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q1-PRECHECK/step-03"
+  },
+  {
+    "scenarioId": "M1-ACCESS-BRIDGE-200",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Double each element’s baseline computed font size using presentation-only CSS; retain the same 12m draft."
+    ],
+    "expected": "Text and controls remain legible and usable with no horizontal clipping.",
+    "observed": "Text-only 200% enlargement at landscape 1024x768; bridge buttons grow and wrap vertically. Draft remains [6,6] with no Check.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-ACCESS-BRIDGE-200/step-04/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-ACCESS-BRIDGE-200/step-04/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-ACCESS-BRIDGE-200/step-04"
+  },
+  {
+    "scenarioId": "M1-Q1-SUCCESS",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Tap Check while the text is enlarged."
+    ],
+    "expected": "Save success, explain 6+6=12 and award one successful turn.",
+    "observed": "Saved Check 1 accepts 12m and gives 40 lifetime /20 weekly points; touch Check remains reachable.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q1-SUCCESS/step-05/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q1-SUCCESS/step-05/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q1-SUCCESS/step-05"
+  },
+  {
+    "scenarioId": "M1-Q1-RESTORATION",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Continue after bridge success."
+    ],
+    "expected": "Restored bridge is visually present with reduced motion.",
+    "observed": "The settled River Bridge image shows the crossing joined; no running animations under reduced-motion emulation.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q1-RESTORATION/step-06/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q1-RESTORATION/step-06/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q1-RESTORATION/step-06"
+  },
+  {
+    "scenarioId": "M1-Q1-RESTORATION-CONFIRMED",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Choose River Bridge after the continuation advances to the library."
+    ],
+    "expected": "Saved joined crossing is visibly present.",
+    "observed": "Directly inspected River Bridge with joined planks, restored caption and optional/practice choices; reduced-motion preference true.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q1-RESTORATION-CONFIRMED/step-07/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q1-RESTORATION-CONFIRMED/step-07/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q1-RESTORATION-CONFIRMED/step-07"
+  },
+  {
+    "scenarioId": "M1-Q2-PORTRAIT-DRAFT",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Rotate to portrait and place the question mark."
+    ],
+    "expected": "Question draft remains usable and unscored; artwork checked separately.",
+    "observed": "One of two spaces contains ?, with written prompt and controls visible. Asset loading is recorded separately.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q2-PORTRAIT-DRAFT/step-08/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q2-PORTRAIT-DRAFT/step-08/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q2-PORTRAIT-DRAFT/step-08"
+  },
+  {
+    "scenarioId": "M1-ACCESS-PUNCTUATION-200",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Inspect the punctuation widget at twice each baseline computed font size in landscape."
+    ],
+    "expected": "Marks, sentence slots and actions remain legible and reachable.",
+    "observed": "Widget remains reachable; Selected wraps into fragments. Document reports 1148px width in 1024px viewport; overflow investigation retained separately, not a pass for reflow.",
+    "status": "failed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-ACCESS-PUNCTUATION-200/step-09/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-ACCESS-PUNCTUATION-200/step-09/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": "WP02-04A interaction presentation; contract review needed for CSS text-only approximation",
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-ACCESS-PUNCTUATION-200/step-09"
+  },
+  {
+    "scenarioId": "M1-Q2-PRECHECK-ROTATED",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Place calm discovery full stop while enlarged, restore baseline CSS and rotate to portrait."
+    ],
+    "expected": "? and . retain their meaning; no Check/reward before explicit Check.",
+    "observed": "Both sentence spaces retain ? and . with no scoring turn started.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q2-PRECHECK-ROTATED/step-10/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q2-PRECHECK-ROTATED/step-10/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q2-PRECHECK-ROTATED/step-10"
+  },
+  {
+    "scenarioId": "M1-Q2-SUCCESS",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Tap Check after inspecting the rotated ? / . draft."
+    ],
+    "expected": "Saved success explains accepted calm discovery and restores library.",
+    "observed": "Check 1 grants 40 lifetime/20 weekly; written explanation accepts . or ! and excludes discovery ?. Library heading/caption now restored.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q2-SUCCESS/step-11/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q2-SUCCESS/step-11/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "pending-or-blank",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q2-SUCCESS/step-11"
+  },
+  {
+    "scenarioId": "M1-Q2-RESTORATION-ASSET-PENDING",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Return directly to the restored library."
+    ],
+    "expected": "Lit library art or a truthful fallback accompanies restored caption.",
+    "observed": "Saved restoration heading/caption present; scene asset still pending at inspection. Original screenshot retained for loading diagnosis.",
+    "status": "blocked",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q2-RESTORATION-ASSET-PENDING/step-12/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q2-RESTORATION-ASSET-PENDING/step-12/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": "Indeterminate until network trace is inspected",
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "written-fallback",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q2-RESTORATION-ASSET-PENDING/step-12"
+  },
+  {
+    "scenarioId": "M1-Q3-LANDSCAPE-DRAFT",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Start merchant in portrait, add one apple, rotate to landscape."
+    ],
+    "expected": "One apple and unset pears survive rotation without Check.",
+    "observed": "One apple remains visible; pears Not set, no saved Check or score.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q3-LANDSCAPE-DRAFT/step-13/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q3-LANDSCAPE-DRAFT/step-13/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q3-LANDSCAPE-DRAFT/step-13"
+  },
+  {
+    "scenarioId": "M1-ACCESS-MERCHANT-200",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Double baseline computed font sizes and inspect the merchant controls."
+    ],
+    "expected": "Fruit controls remain usable without horizontal clipping.",
+    "observed": "1024px document in 1024px viewport; larger number buttons wrap and remain legible.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-ACCESS-MERCHANT-200/step-14/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-ACCESS-MERCHANT-200/step-14/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-ACCESS-MERCHANT-200/step-14"
+  },
+  {
+    "scenarioId": "M1-Q3-PRECHECK",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Use native number buttons for six apples and three pears, then rotate to portrait."
+    ],
+    "expected": "Correct nine-fruit draft remains unscored.",
+    "observed": "Six apple and three pear drawings/counts retain after rotation; scoring turn not started.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q3-PRECHECK/step-15/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q3-PRECHECK/step-15/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q3-PRECHECK/step-15"
+  },
+  {
+    "scenarioId": "M1-Q3-SUCCESS",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Tap explicit Check after inspecting nine fruit."
+    ],
+    "expected": "Saved result checks both total and twice-as-many constraint.",
+    "observed": "Check 1 accepts six apples/three pears and grants 40 lifetime/20 weekly; written explanation confirms both requests.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q3-SUCCESS/step-16/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q3-SUCCESS/step-16/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "pending-or-blank",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q3-SUCCESS/step-16"
+  },
+  {
+    "scenarioId": "M1-CONCLUSION",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Continue normally after the third saved result."
+    ],
+    "expected": "All three restorations and a coherent optional creative ending.",
+    "observed": "Village welcome caption and three Restored chips; Your little corner choices are available with no mandatory purchase.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-CONCLUSION/step-17/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-CONCLUSION/step-17/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "written-fallback",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-CONCLUSION/step-17"
+  },
+  {
+    "scenarioId": "M1-CONCLUSION-SAVED",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Save amber scarf/gold planter at spot 1, return to village."
+    ],
+    "expected": "Explicit conclusion and saved appearance; no extra scoring.",
+    "observed": "Your first adventure is complete and three Restored chips. Gold planter retained; village illustration is written fallback and map art blank, separate visual limitation.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-CONCLUSION-SAVED/step-18/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-CONCLUSION-SAVED/step-18/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "written-fallback",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-CONCLUSION-SAVED/step-18"
+  },
+  {
+    "scenarioId": "M1-HALL",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Open Hall after the three saved first-Check successes."
+    ],
+    "expected": "120 lifetime,60 weekly,3 scoring turns; browser-local board.",
+    "observed": "Settled standings are 60 weekly/120 lifetime/3 of 30; local-browser scope stated. Hall emblem is a broken image, retained for transport diagnosis.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-HALL/step-19/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-HALL/step-19/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "not-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-HALL/step-19"
+  },
+  {
+    "scenarioId": "M1-COMPLETED-REVISIT",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Return to completed River Bridge."
+    ],
+    "expected": "Restored location has optional/practice choices, no repeated story reward.",
+    "observed": "River Bridge restored; only optional challenge/practice available.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-COMPLETED-REVISIT/step-20/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-COMPLETED-REVISIT/step-20/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-COMPLETED-REVISIT/step-20"
+  },
+  {
+    "scenarioId": "M1-NO-REPEAT-REWARD",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Inspect Hall after reopening completed location without starting practice."
+    ],
+    "expected": "Totals unchanged.",
+    "observed": "Still 60 weekly/120 lifetime/3 of 30.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-NO-REPEAT-REWARD/step-21/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-NO-REPEAT-REWARD/step-21/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "not-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-NO-REPEAT-REWARD/step-21"
+  },
+  {
+    "scenarioId": "M1-PROFILE-ISOLATION",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Create T2 Hazel through normal profile UI and select it."
+    ],
+    "expected": "Fresh second profile has no inherited restorations.",
+    "observed": "Hazel starts with crossing 0/1; library/welcome locked beyond bridge. Fern is untouched.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-PROFILE-ISOLATION/step-22/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-PROFILE-ISOLATION/step-22/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "pending-or-blank",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-PROFILE-ISOLATION/step-22"
+  },
+  {
+    "scenarioId": "M1-PROFILE-RETURN",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Select Fern in the normal Active explorer control."
+    ],
+    "expected": "Completed Fern journey and saved appearance return independently of Hazel.",
+    "observed": "All three Restored chips and first adventure complete; saved gold planter retained.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-PROFILE-RETURN/step-23/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-PROFILE-RETURN/step-23/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-PROFILE-RETURN/step-23"
+  },
+  {
+    "scenarioId": "M1-PROJECT-RELOAD",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Navigate the exact published project URL and choose saved Fern."
+    ],
+    "expected": "Completed journey and saved appearance persist.",
+    "observed": "All three Restored chips, explicit completed conclusion and saved gold planter remain. Scene assets are separately limited.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-PROJECT-RELOAD/step-24/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-PROJECT-RELOAD/step-24/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-PROJECT-RELOAD/step-24"
+  },
+  {
+    "scenarioId": "M1-VISUAL-VILLAGE-RECOVERED",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Inspect the same saved village after normal exact-project reload and asset settlement."
+    ],
+    "expected": "Village welcome art parses and renders correctly if native asset transport succeeds.",
+    "observed": "Loaded village has bunting, lit windows, foreground garden and saved gold planter at spot 1. No product repair or request interception.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-VISUAL-VILLAGE-RECOVERED/step-25/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-VISUAL-VILLAGE-RECOVERED/step-25/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-VISUAL-VILLAGE-RECOVERED/step-25"
+  },
+  {
+    "scenarioId": "M1-Q2-RESTORATION-CONFIRMED",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Revisit library after normal reload with successful asset transport."
+    ],
+    "expected": "Saved library art and caption visibly agree.",
+    "observed": "Lit windows, open door, foreground books and Restored chip/caption agree; native SVG img loaded.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q2-RESTORATION-CONFIRMED/step-26/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q2-RESTORATION-CONFIRMED/step-26/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q2-RESTORATION-CONFIRMED/step-26"
+  },
+  {
+    "scenarioId": "M1-ACCESS-LIBRARY-HEADING-200",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Reproduce text-only 200% on the restored library after normal reload."
+    ],
+    "expected": "Heading reflows within 1024px landscape.",
+    "observed": "Native viewport visibly clips Whispering at the right; h1 client358/scroll513,90.112px font,document1148. Same failure with successful art transport.",
+    "status": "failed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-ACCESS-LIBRARY-HEADING-200/step-27/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-ACCESS-LIBRARY-HEADING-200/step-27/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": "WP02-06A adventure presentation",
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-ACCESS-LIBRARY-HEADING-200/step-27"
+  },
+  {
+    "scenarioId": "M1-Q3-RESTORATION-CONFIRMED",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal T2 Fern profile; WebKit27.2 touch emulation768x1024 portrait/1024x768 landscape; emulated OS reduced motion; no injected game/save/answers.",
+    "actions": [
+      "Revisit Market Square after normal reload."
+    ],
+    "expected": "Saved market art agrees with restoration.",
+    "observed": "Stocked apples/pears, bunting and Nessa silhouette/caption visible; saved conclusion remains.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q3-RESTORATION-CONFIRMED/step-28/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q3-RESTORATION-CONFIRMED/step-28/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": null,
+    "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/journey/T2/M1-Q3-RESTORATION-CONFIRMED/step-28"
+  }
+]

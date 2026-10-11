@@ -1,0 +1,28 @@
+{
+  "os": "Windows 11",
+  "deviceClass": "emulated-tablet",
+  "timezone": "Europe/London",
+  "engine": "webkit",
+  "browserVersion": "27.2",
+  "fixtureOrPublished": "published",
+  "viewport": {
+    "width": 768,
+    "height": 1024
+  },
+  "identityObservation": "Exact frozen candidate Game version visible in Help and native active-worker reply before profile input.",
+  "listenerOrCaptureRoute": null,
+  "workerIdentity": {
+    "activeScript": "https://alexbrasier451-tech.github.io/Learning-is-Fun/sw.js",
+    "scope": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "reply": {
+      "type": "OFFLINE_INVENTORY_RESULT",
+      "requestId": "C-T2-identity",
+      "buildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+      "complete": true,
+      "reason": null
+    },
+    "controller": null
+  },
+  "startedAt": "2026-10-11T08:09:29.123Z",
+  "setup": "Fresh C Fern,WebKit27.2 touch portrait→landscape;exact B body-descendant font doubling and separate root variant;no seeded state."
+}

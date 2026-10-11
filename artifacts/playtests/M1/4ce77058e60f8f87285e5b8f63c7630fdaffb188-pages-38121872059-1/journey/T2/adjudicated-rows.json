@@ -1,0 +1,308 @@
+[
+  {
+    "scenarioId": "C-IDENTITY",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh C Fern,WebKit27.2 touch portrait→landscape;exact B body-descendant font doubling and separate root variant;no seeded state.",
+    "actions": [
+      "Fresh native Help and worker probe before profile input."
+    ],
+    "expected": "Frozen C visible and activeworkeridentity.",
+    "observed": "Help and worker match C;WebKit27.2,portrait768x1024,reducedMotion reduce.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-IDENTITY/step-00/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-IDENTITY/step-00/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-IDENTITY/step-00/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-IDENTITY/step-00/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "not-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-IDENTITY/step-00",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-J03-PORTRAIT-ENTRY",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh C Fern,WebKit27.2 touch portrait→landscape;exact B body-descendant font doubling and separate root variant;no seeded state.",
+    "actions": [
+      "Fresh portrait library;native place?before Check."
+    ],
+    "expected": "Library context and unscored draft.",
+    "observed": "Portrait768x1024,?question retained;no punctuationCheck.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-PORTRAIT-ENTRY/step-01/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-PORTRAIT-ENTRY/step-01/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-PORTRAIT-ENTRY/step-01/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-PORTRAIT-ENTRY/step-01/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-PORTRAIT-ENTRY/step-01",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-J03-EXACT-BODY-200",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh C Fern,WebKit27.2 touch portrait→landscape;exact B body-descendant font doubling and separate root variant;no seeded state.",
+    "actions": [
+      "Portrait entry→landscape1024x768→exact B body * font doubling."
+    ],
+    "expected": "Full Whispering Library wraps without document overflow;html/body unchanged.",
+    "observed": "Heading90.112px,client358/scroll358;document1024/viewport1024;html/body16px/16px;?draft unchanged.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-EXACT-BODY-200/step-02/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-EXACT-BODY-200/step-02/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-EXACT-BODY-200/step-02/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-EXACT-BODY-200/step-02/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-EXACT-BODY-200/step-02",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-J03-HEADING-VISIBLE",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh C Fern,WebKit27.2 touch portrait→landscape;exact B body-descendant font doubling and separate root variant;no seeded state.",
+    "actions": [
+      "Scroll enlarged heading into native viewport,with sticky controls clear."
+    ],
+    "expected": "Entire wrapped heading visible.",
+    "observed": "90.112px full Whispering Library;358client/358scroll;1024document;root16px.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-HEADING-VISIBLE/step-03/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-HEADING-VISIBLE/step-03/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-HEADING-VISIBLE/step-03/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-HEADING-VISIBLE/step-03/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-HEADING-VISIBLE/step-03",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-J03-ROOT-200-LANDSCAPE",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh C Fern,WebKit27.2 touch portrait→landscape;exact B body-descendant font doubling and separate root variant;no seeded state.",
+    "actions": [
+      "Restore exact body styles,then separate html font16→32px."
+    ],
+    "expected": "Nearby root/rem enlargement variant wraps without horizontal page overflow.",
+    "observed": "Document1024/viewport1024;heading544/544;?draft remains.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-ROOT-200-LANDSCAPE/step-04/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-ROOT-200-LANDSCAPE/step-04/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-ROOT-200-LANDSCAPE/step-04/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-ROOT-200-LANDSCAPE/step-04/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-ROOT-200-LANDSCAPE/step-04",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-J03-ROOT-200-PORTRAIT",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh C Fern,WebKit27.2 touch portrait→landscape;exact B body-descendant font doubling and separate root variant;no seeded state.",
+    "actions": [
+      "Root32px variant rotateback768x1024."
+    ],
+    "expected": "Draft and heading retained.",
+    "observed": "Document768/viewport768;heading704/704;?draft retained.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-ROOT-200-PORTRAIT/step-05/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-ROOT-200-PORTRAIT/step-05/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-ROOT-200-PORTRAIT/step-05/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-ROOT-200-PORTRAIT/step-05/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-ROOT-200-PORTRAIT/step-05",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-J03-RESTORED-DRAFT",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh C Fern,WebKit27.2 touch portrait→landscape;exact B body-descendant font doubling and separate root variant;no seeded state.",
+    "actions": [
+      "Restore original root and body styles after variants."
+    ],
+    "expected": "No Check introduced;? remains.",
+    "observed": "Question?Replace mark;scoringturnnotstarted;originalstyles restored.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-RESTORED-DRAFT/step-06/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-RESTORED-DRAFT/step-06/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-RESTORED-DRAFT/step-06/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-RESTORED-DRAFT/step-06/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-RESTORED-DRAFT/step-06",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-HALL-EMBLEM-SETTLED",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh C Fern,WebKit27.2 touch portrait→landscape;exact B body-descendant font doubling and separate root variant;no seeded state.",
+    "actions": [
+      "Normal Hall entry;bounded native image decode/readback."
+    ],
+    "expected": "Actually loaded Hall marker asset.",
+    "observed": "NativeHallmarker{\"outcome\":\"decoded\",\"src\":\"https://alexbrasier451-tech.github.io/Learning-is-Fun/assets/art/m1/ui/hall-marker.svg\",\"complete\":true,\"naturalWidth\":240,\"naturalHeight\":240,\"rect\":{\"x\":24,\"y\":570.125,\"width\":128,\"height\":128,\"top\":570.125,\"right\":152,\"bottom\":698.125,\"left\":24},\"display\":\"block\"}",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-HALL-EMBLEM-SETTLED/step-07/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-HALL-EMBLEM-SETTLED/step-07/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-HALL-EMBLEM-SETTLED/step-07/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-HALL-EMBLEM-SETTLED/step-07/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "not-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-HALL-EMBLEM-SETTLED/step-07",
+    "adjudication": null
+  },
+  {
+    "scenarioId": "C-J03-FINAL-NATIVE-RESUME",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T2",
+    "browserVersion": "27.2",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh C Fern,WebKit27.2 touch portrait→landscape;exact B body-descendant font doubling and separate root variant;no seeded state.",
+    "actions": [
+      "Return from settled Hall and native named resume."
+    ],
+    "expected": "Correct library context and retained?draft;no punctuationCheck.",
+    "observed": "WhisperingLibrary/Iona/?retained,firstquestonly40life20week1turn.",
+    "status": "passed",
+    "evidenceLinks": [
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-FINAL-NATIVE-RESUME/step-08/checkpoint.json",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-FINAL-NATIVE-RESUME/step-08/screen.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-FINAL-NATIVE-RESUME/step-08/viewport.png",
+      "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-FINAL-NATIVE-RESUME/step-08/visible-state.txt"
+    ],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T2/C-J03-FINAL-NATIVE-RESUME/step-08",
+    "adjudication": null
+  }
+]

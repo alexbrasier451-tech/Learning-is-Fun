@@ -1,0 +1,786 @@
+[
+  {
+    "scenarioId": "C-IDENTITY",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Native touch Help and active worker before any profile input."
+    ],
+    "expected": "Both frozen C identities match.",
+    "observed": "Visible Game version and native active worker match C;engineChromium156.0.8078.4.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "not-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-IDENTITY/step-00"
+  },
+  {
+    "scenarioId": "C-Q1-TOUCH-DRAG",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-cdp",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Accepted native CDP touch drag6m to observed end target."
+    ],
+    "expected": "Exactly one6m draft;no Check.",
+    "observed": "1plank6m,unsaved,scoring turn not started;trusted touch events retained.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-Q1-TOUCH-DRAG/step-01"
+  },
+  {
+    "scenarioId": "C-Q1-TOUCH-CANCEL",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-cdp",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Move4m toward placed6m,deliver actual CDP touchCancel."
+    ],
+    "expected": "No committed extra plank;cancel selection.",
+    "observed": "One6m remains,selectioncleared,noCheck;nativepointercancel retained.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-Q1-TOUCH-CANCEL/step-02"
+  },
+  {
+    "scenarioId": "C-J02-Q1-RESUME",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Touch Leave/Hall/back/named bridge resume."
+    ],
+    "expected": "Correct River Bridge context and retained unscored6m.",
+    "observed": "RiverBridge/Rowan/scene above6m task;Hall0/0/0;noCheck yet.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-J02-Q1-RESUME/step-03"
+  },
+  {
+    "scenarioId": "C-J01-Q1-DIRTY",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Saved wrong6m Check→hint→tap second6m without Check."
+    ],
+    "expected": "Edited12m must say unsaved.",
+    "observed": "12m,Your idea is not saved yet,changed since Check1;old6m feedback5/5 retained.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-J01-Q1-DIRTY/step-04"
+  },
+  {
+    "scenarioId": "C-J01-Q1-UNDO",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Native tap Undo to saved6m baseline."
+    ],
+    "expected": "Truthful saved acknowledgement at baseline.",
+    "observed": "One6m,Saved on this device,historicalCheck1unchanged.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-J01-Q1-UNDO/step-05"
+  },
+  {
+    "scenarioId": "C-Q1-ALTERNATE-DIRTY",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Remove saved6m baseline,actualCDPdrag3m then native taps4m/5m without Check."
+    ],
+    "expected": "[3,4,5]=12m remains unsaved;only historicalCheck1.",
+    "observed": "Threeplanks12m;Your idea is not saved yet;historical6mCheck1and5/5unchanged.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-Q1-ALTERNATE-DIRTY/step-06"
+  },
+  {
+    "scenarioId": "C-TOUCH-INPUT-DIVERGENCE",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Readback after drag3,requestedtap4/place,tap5/place and explicit Check."
+    ],
+    "expected": "Do not call success on unverified draft.",
+    "observed": "Actual draft was[3,3,5]=11m;Check2 correctly explains1mshort. Previous ALTERNATE-DIRTY prose incorrectly described intended3/4/5;original pixels/nativeDOM retained.",
+    "status": "failed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": "Observer input-sequence investigation;product cause not established",
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-TOUCH-INPUT-DIVERGENCE/step-07"
+  },
+  {
+    "scenarioId": "C-Q1-ALTERNATE-VERIFIED",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Remove incorrect middle3m,inspect native4m selected true,place before5m."
+    ],
+    "expected": "Readback exactly[3,4,5]=12m before Check.",
+    "observed": "Native DOM/pixels show3/4/5,total12;unsaved;only historicalCheck2(11m,0/0).",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-Q1-ALTERNATE-VERIFIED/step-08"
+  },
+  {
+    "scenarioId": "C-Q1-SUCCESS",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Explicit touch Check of visibly verified3+4+5."
+    ],
+    "expected": "Saved correct12m and bridge restoration.",
+    "observed": "Check3 adds25/5;Q1total30/10 because Check2 added0/0;RiverBridgeRestored and savedstatus.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-Q1-SUCCESS/step-09"
+  },
+  {
+    "scenarioId": "C-Q1-RESTORATION",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Direct completed bridge revisit before next quest."
+    ],
+    "expected": "Joined crossing/caption persists.",
+    "observed": "Joined timber arch,Restored caption,optional/practice choices;native loadedimage.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-Q1-RESTORATION/step-10"
+  },
+  {
+    "scenarioId": "C-Q2-WRONG-DRAFT",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Observe each selected mark before tap placement:question.,discovery!."
+    ],
+    "expected": "Editable unscored wrong question draft.",
+    "observed": "./!,2/2slots,scoring turn not started.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-Q2-WRONG-DRAFT/step-11"
+  },
+  {
+    "scenarioId": "C-J02-Q2-RESUME",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Native touch punctuation Leave/Hall/back/named resume."
+    ],
+    "expected": "Correct library scene and saved . / ! draft.",
+    "observed": "WhisperingLibrary/Iona/art above . / !;Hall30/10/1,no extra turn.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "pending-or-blank",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-J02-Q2-RESUME/step-12"
+  },
+  {
+    "scenarioId": "C-J01-Q2-DIRTY",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Savedwrong./!Check,hint,then changequestionto?without Check."
+    ],
+    "expected": "Dirty draft status truthful;historicalwrongquestionfeedbackretained.",
+    "observed": "?/!,Your idea is not saved yet;oldCheck1still5/5.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-J01-Q2-DIRTY/step-13"
+  },
+  {
+    "scenarioId": "C-J01-Q2-UNDO",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "TapUndo back to saved./!baseline."
+    ],
+    "expected": "Clean draft acknowledgement truthful.",
+    "observed": "./!,Saved on this device,historicalCheck1 unchanged.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-J01-Q2-UNDO/step-14"
+  },
+  {
+    "scenarioId": "C-Q2-SUCCESS",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Explicit native touchCheck?/!afterdirty/Undo."
+    ],
+    "expected": "Saved excited-discovery variant accepted;library restored.",
+    "observed": "Check2adds25/5;writtenquestion/discoveryexplanation;libraryRestored,savedstatus.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-Q2-SUCCESS/step-15"
+  },
+  {
+    "scenarioId": "C-Q3-WRONG-DRAFT",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Native touch number controls with count readback aftereach increment."
+    ],
+    "expected": "Unscored5apples/3pears retained.",
+    "observed": "Counts5/3,total8;scoringnotstarted.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "pending-or-blank",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-Q3-WRONG-DRAFT/step-16"
+  },
+  {
+    "scenarioId": "C-J02-Q3-RESUME",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Touch merchantLeave/Hall/back/namedresume."
+    ],
+    "expected": "Retained5/3 belongs beneath Market Square afterreadyacknowledgement.",
+    "observed": "MarketSquare/Nessa caption above5/3;no newCheck before resumedCheck.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-J02-Q3-RESUME/step-17"
+  },
+  {
+    "scenarioId": "C-J01-Q3-DIRTY",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Wrong5/3Check→hint→nativeAddappleto6/3withoutCheck."
+    ],
+    "expected": "Edited9fruit saysunsaved,historical8fruitCheckretained.",
+    "observed": "6/3,Your idea is not saved yet;oldCheck1feedback5/5unchanged.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-J01-Q3-DIRTY/step-18"
+  },
+  {
+    "scenarioId": "C-J01-Q3-UNDO",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "TapUndo returns tosaved5/3baseline."
+    ],
+    "expected": "Cleanbaselineacknowledgementtruthful.",
+    "observed": "5/3,Saved on this device,Check1unchanged.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-J01-Q3-UNDO/step-19"
+  },
+  {
+    "scenarioId": "C-Q3-SUCCESS",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "ExplicitnativeCheck6/3afterdirty/Undo."
+    ],
+    "expected": "SavedCheck2;marketrestored,bothrequestsconfirmed.",
+    "observed": "Check2adds25/5;allthreeRestored;savedstatus.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-Q3-SUCCESS/step-20"
+  },
+  {
+    "scenarioId": "C-CONCLUSION",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Normalthirdquestcontinuation."
+    ],
+    "expected": "ThreeRestoredandcreativeendingonC.",
+    "observed": "VillagewelcomeandYourlittlecorner;threeRestoredchips.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "pending-or-blank",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-CONCLUSION/step-21"
+  },
+  {
+    "scenarioId": "C-APPEARANCE-PREVIEW",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Tapamber/violet/spot2choices."
+    ],
+    "expected": "Previewdistinctfromsavedappearance.",
+    "observed": "Previewonly;nativeSave/Undo/Cancelavailable.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "pending-or-blank",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-APPEARANCE-PREVIEW/step-22"
+  },
+  {
+    "scenarioId": "C-APPEARANCE-SAVED",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "ExplicitSaveandreturntovillage."
+    ],
+    "expected": "Completedconclusionandvioletplanterspot2saved.",
+    "observed": "Firstadventurecomplete,threeRestored,savedvioletplanter.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-APPEARANCE-SAVED/step-23"
+  },
+  {
+    "scenarioId": "C-FINAL-HALL",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Touch Hall after saved ending."
+    ],
+    "expected": "Actual cumulative receipts only.",
+    "observed": "Weekly30,lifetime90,3/30 turns;appearance added no points.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "not-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-FINAL-HALL/step-24"
+  },
+  {
+    "scenarioId": "C-J02-REVISIT-RESUME",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Fresh Try some practice before any optional task;6m draft;Leave/Hall/back/named resume."
+    ],
+    "expected": "Bound Practice resumes River Bridge with its10m prompt and6m draft.",
+    "observed": "Practice label,River Bridge/Rowan,10m prompt,one6m;story already restored;no Check.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-J02-REVISIT-RESUME/step-25"
+  },
+  {
+    "scenarioId": "C-NO-REPEAT",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Visit after unscored practice resume."
+    ],
+    "expected": "No repeat story or appearance reward.",
+    "observed": "Hall30weekly/90lifetime/3turns unchanged.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "not-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-NO-REPEAT/step-26"
+  },
+  {
+    "scenarioId": "C-FINAL-RELOAD",
+    "release": "M1",
+    "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "candidateBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "matrixCase": "T1",
+    "browserVersion": "156.0.8078.4",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "inputMode": "touch-tap",
+    "seededOrUnseeded": "unseeded",
+    "setupRef": "Fresh normal C Willow profile; matched Chromium156 touch emulation, accepted native CDP drag/cancel, taps; no seeded state.",
+    "actions": [
+      "Exact project-path reload and normal choose Willow."
+    ],
+    "expected": "Completed world and saved amber/violet/spot2 survive.",
+    "observed": "ThreeRestored,firstadventurecomplete,savedvioletplanter;freshPractice6m retained in namedresume.",
+    "status": "passed",
+    "evidenceLinks": [],
+    "acousticStatus": "not-applicable",
+    "defectOwner": null,
+    "retestedBuildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "finalBuildApplicability": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "sceneAssetState": "image-present",
+    "directory": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M1/4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1/journey/T1/C-FINAL-RELOAD/step-27"
+  }
+]

@@ -1,0 +1,8 @@
+[
+  {
+    "id": "C-Q1-ALTERNATE-DIRTY",
+    "correction": "Original metadata describes intended3/4/5 but its original DOM/pixels show3/3/5,total11. This row does not pass alternate-combination coverage. Subsequent Check2 correctly reports11m,1mshort. Observer proceeded before using readback, now corrected explicitly.",
+    "status": "failed",
+    "preserveOriginal": true
+  }
+]

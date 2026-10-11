@@ -1,0 +1,18 @@
+{
+  "outcome": "decoded",
+  "src": "https://alexbrasier451-tech.github.io/Learning-is-Fun/assets/art/m1/ui/hall-marker.svg",
+  "complete": true,
+  "naturalWidth": 240,
+  "naturalHeight": 240,
+  "rect": {
+    "x": 24,
+    "y": 570.125,
+    "width": 128,
+    "height": 128,
+    "top": 570.125,
+    "right": 152,
+    "bottom": 698.125,
+    "left": 24
+  },
+  "display": "block"
+}
