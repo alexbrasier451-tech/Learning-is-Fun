@@ -143,6 +143,8 @@ function AdventureBinding({ snapshot, ...props }: Props & { snapshot: CommittedS
       if (candidates.length !== 1) { setMessage('The saved selection could not be identified safely. Return to the village and resume a named saved activity.'); return; }
       const selection = selectCommittedActivity(result.snapshot, catalogue, { profileId: selectedProfileId, encounterId: candidates[0].encounterId });
       if (selection.status !== 'ready') { setMessage('The approved content for this saved activity is unavailable. Your progress is unchanged.'); return; }
+      const quest = QUESTS.find(q => q.id === selection.activity.bindingProvenance?.questId && q.milestone === 'M1');
+      if (quest) setScene(quest.sceneId);
       retainedOpen.current = null; setEncounter(selection.activity.encounterId); setCreative(false); setFresh(''); setMessage('');
     } catch { if (current()) setMessage('The activity could not be opened. Retry without losing your saved progress.'); }
     finally { opening.current = false; if (current()) setBusy(false); }

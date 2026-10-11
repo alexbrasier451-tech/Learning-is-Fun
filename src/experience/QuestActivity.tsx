@@ -29,7 +29,7 @@ function createActivitySession(initial: CommittedActivityProjection, controller:
   let activity = initial, draft = createDraft(toActivityTaskView(initial).responseSpec, initial.responseDraft);
   let baseline = toResponse(draft), connected = false, failedLeave = false, pending = false, leaving = false, freshSuccess = false;
   let operation: Promise<CommitResult | null> | null = null, leaveOperation: Promise<PanelLeaveResult> | null = null;
-  let retry: ActivityCommand | null = null, leaveRetry: Extract<ActivityCommand, { kind: 'SuspendEncounter' }> | null = null, message = '', conflict = false;
+  let retry: ActivityCommand | null = null, leaveRetry: Extract<ActivityCommand, { kind: 'SuspendEncounter' }> | null = null, message = '', savedNotice = '', conflict = false;
   let version = 0, status: ActivePanelStatus = { dirty: false, pending: false, failed: false };
   const listeners = new Set<() => void>();
   const read = () => {
@@ -63,7 +63,8 @@ function createActivitySession(initial: CommittedActivityProjection, controller:
       if (!read()) return null;
       pending = false; activity = read()!;
       if (acknowledged(result)) {
-        retry = null; conflict = false; message = result.status === 'already-applied' ? 'Already saved. Your progress is safe.' : 'Saved on this device.';
+        retry = null; conflict = false; message = '';
+        savedNotice = result.status === 'already-applied' ? 'Already saved. Your progress is safe.' : 'Saved on this device.';
         if (command.kind === 'SubmitCheck' || command.kind === 'SuspendEncounter' || command.kind === 'SaveDraft') {
           baseline = toResponse(createDraft(toActivityTaskView(activity).responseSpec, activity.responseDraft));
         }
@@ -136,7 +137,7 @@ function createActivitySession(initial: CommittedActivityProjection, controller:
   };
   return {
     lifecycle, getVersion: () => version, subscribe: lifecycle.subscribe,
-    getView: () => ({ activity, draft, message, status, retry, conflict, freshSuccess }),
+    getView: () => ({ activity, draft, message: message || (status.dirty ? '' : savedNotice), status, retry, conflict, freshSuccess }),
     edit(action: DraftAction) {
       if (pending || leaving || activity.episodeStatus !== 'open' || !read()) return;
       draft = reduceDraft(draft, action, toActivityTaskView(activity).responseSpec); publish();

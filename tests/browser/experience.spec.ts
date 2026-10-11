@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import type { Page, Locator, TestInfo } from '@playwright/test';
 import type { AdventureFixtureApi } from '../fixtures/adventure-api';
+import type { StateController } from '../../src/state/contracts';
 
 type FixtureWindow = { adventureFixture: AdventureFixtureApi };
 const snapshot = (page: Page) => page.evaluate(() => (globalThis as unknown as FixtureWindow).adventureFixture.snapshot());
@@ -316,4 +317,100 @@ test('silent reduced motion and 200 percent portrait keep native controls and co
   });
   expect(layout.width).toBeLessThanOrEqual(layout.viewport); expect(layout.small).toEqual([]);
   await capture(page, info, 'portrait-200-percent-reduced-motion'); await evidence(page, info);
+});
+
+test('published journey: Hall resume keeps mission scene and edited saved Checks remain visibly unsaved', async ({ page }, info) => {
+  const readRoot = () => page.evaluate(() => (globalThis as unknown as { __shellRuntime: { state: StateController } }).__shellRuntime.state.getSnapshot());
+  const rootPlayer = async () => Object.values((await readRoot()).save.profiles)[0];
+  const hallAndBack = async () => {
+    await page.getByRole('navigation', { name: 'Your story', exact: true }).getByRole('button', { name: 'Hall of Champions', exact: true }).click();
+    await expect(page.getByRole('heading', { name: 'Hall of Champions', exact: true })).toBeVisible();
+    await page.getByRole('button', { name: 'Back to adventure', exact: true }).click();
+  };
+  await page.goto('./');
+  await page.getByRole('button', { name: 'Add an explorer', exact: true }).click();
+  await page.getByLabel('Nickname', { exact: true }).fill('River');
+  await page.getByRole('button', { name: 'Save explorer', exact: true }).click();
+  await page.getByRole('button', { name: 'River Choose explorer', exact: true }).click();
+  await openBridge(page); await bridge(page, [6], 'keyboard');
+  await expect(page.locator('.activity-save-status')).toHaveText('Your idea is not saved yet.');
+  await page.getByRole('button', { name: 'Leave activity', exact: true }).click();
+  await hallAndBack();
+  const before = Object.values((await rootPlayer()).encounters)[0];
+  await page.getByRole('button', { name: 'Resume A Bridge Back Home', exact: true }).click();
+  await expect.soft(page.locator('.adventure-scene-art')).toHaveAttribute('data-scene', 'river-bridge');
+  await expect.soft(page.getByRole('button', { name: 'Meet Pip at the bridge' })).toHaveCount(0);
+  await check(page); await page.getByRole('button', { name: 'Ask Pip for a hint' }).click();
+  await expect(page.locator('.pip-guidance')).toContainText('Look at the required span');
+  await bridge(page, [6], 'keyboard');
+  await expect(page.getByText('You have changed your idea since this Check.', { exact: false })).toBeVisible();
+  await expect.soft(page.locator('.activity-save-status')).toHaveText('Your idea is not saved yet.');
+  const dirty = (await rootPlayer()).encounters[before.encounterId];
+  expect(dirty.responseDraft).toEqual({ kind: 'bridge', planks: [6] }); expect(dirty.validChecks).toBe(1);
+  expect(dirty.learningEpisode.ordinal).toBe(before.learningEpisode.ordinal); expect(dirty.opportunityId).toBe(before.opportunityId);
+  await capture(page, info, 'published-bridge-dirty');
+  await page.getByRole('button', { name: 'Undo last edit', exact: true }).click();
+  await expect(page.locator('.activity-save-status')).toHaveText('Saved on this device.');
+  await bridge(page, [6], 'keyboard'); await check(page);
+  await expect(page.getByText('Your idea worked!', { exact: true })).toBeVisible();
+  await expect(page.locator('.activity-save-status')).toHaveText('Saved on this device.');
+  await expect.soft(page.locator('.adventure-scene-art')).toHaveAttribute('data-scene', 'river-bridge');
+  await expect(page.locator('.adventure-scene-art')).toHaveAttribute('data-results', /bridge-restored/);
+  const savedWorld = (await rootPlayer()).world;
+  await page.reload(); await page.getByRole('button', { name: 'River Choose explorer', exact: true }).click();
+  expect((await rootPlayer()).world).toEqual(savedWorld);
+  await page.getByRole('button', { name: /The spellbook/ }).click();
+  await page.getByRole('button', { name: 'Wake the Whispering Library', exact: true }).click();
+  // Replay J-03's portrait draft, rotation and exact text-only enlargement.
+  await page.setViewportSize({ width: 768, height: 1024 });
+  await mark(page, '?', 'question', 'keyboard');
+  await page.setViewportSize({ width: 1024, height: 768 });
+  await page.evaluate(`(() => {
+    globalThis.journeyFontBaseline = [...document.querySelectorAll('body *')].filter(el => el instanceof HTMLElement)
+      .map(el => ({ el, style: el.getAttribute('style'), size: parseFloat(getComputedStyle(el).fontSize) }));
+    for (const { el, size } of globalThis.journeyFontBaseline) if (Number.isFinite(size)) el.style.fontSize = (size * 2) + 'px';
+  })()`);
+  const measureReflow = () => page.evaluate<{ viewport: number; document: number; heading: { client: number; scroll: number } }>(`(() => {
+    const heading = document.querySelector('.adventure-story h1');
+    return { viewport: document.documentElement.clientWidth, document: document.documentElement.scrollWidth,
+      heading: { client: heading.clientWidth, scroll: heading.scrollWidth } };
+  })()`);
+  const enlarged = await measureReflow();
+  expect.soft(enlarged.document).toBeLessThanOrEqual(enlarged.viewport);
+  expect.soft(enlarged.heading.scroll).toBeLessThanOrEqual(enlarged.heading.client);
+  await info.attach('library-text-200-layout', { body: JSON.stringify(enlarged), contentType: 'application/json' });
+  await info.attach('library-text-200', { body: await page.locator('.adventure-scene-layout').screenshot(), contentType: 'image/png' });
+  await page.evaluate(`(() => {
+    for (const { el, style } of globalThis.journeyFontBaseline) {
+      if (style === null) el.removeAttribute('style'); else el.setAttribute('style', style);
+    }
+    delete globalThis.journeyFontBaseline;
+  })()`);
+  const restored = await measureReflow(); expect(restored.document).toBeLessThanOrEqual(restored.viewport);
+  // Independent supported root-text enlargement, rather than compounding it.
+  await page.evaluate(`document.documentElement.style.fontSize = '200%'`);
+  const rootText = await measureReflow(); expect(rootText.document).toBeLessThanOrEqual(rootText.viewport);
+  await page.setViewportSize({ width: 768, height: 1024 });
+  const portrait = await measureReflow(); expect(portrait.document).toBeLessThanOrEqual(portrait.viewport);
+  await page.evaluate(`document.documentElement.style.removeProperty('font-size')`);
+  await expect(page.getByRole('button', { name: 'Place selected mark in question', exact: true })).toContainText('?');
+  await mark(page, '.', 'question', 'keyboard'); await mark(page, '?', 'discovery', 'keyboard'); await check(page);
+  await page.getByRole('button', { name: 'Leave activity', exact: true }).click(); await hallAndBack();
+  await page.getByRole('button', { name: 'Resume Wake the Whispering Library', exact: true }).click();
+  await expect.soft(page.locator('.adventure-scene-art')).toHaveAttribute('data-scene', 'whispering-library');
+  await page.getByRole('button', { name: 'Ask Pip for a hint' }).click();
+  await mark(page, '?', 'question', 'keyboard'); await mark(page, '!', 'discovery', 'keyboard');
+  await expect.soft(page.locator('.activity-save-status')).toHaveText('Your idea is not saved yet.');
+  await check(page); await page.getByRole('button', { name: 'Continue without the extra challenge' }).click();
+  await page.getByRole('button', { name: 'The Merchant’s Welcome', exact: true }).click();
+  await fruit(page, 5, 4, 'keyboard'); await check(page);
+  await page.getByRole('button', { name: 'Leave activity', exact: true }).click(); await hallAndBack();
+  await page.getByRole('button', { name: 'Resume The Merchant’s Welcome', exact: true }).click();
+  await expect.soft(page.locator('.adventure-scene-art')).toHaveAttribute('data-scene', 'market-square');
+  await page.getByRole('button', { name: 'Ask Pip for a hint' }).click(); await fruit(page, 6, 3, 'keyboard');
+  await expect.soft(page.locator('.activity-save-status')).toHaveText('Your idea is not saved yet.');
+  await check(page); await expect(page.getByText('Your idea worked!', { exact: true })).toBeVisible();
+  expect((await rootPlayer()).world.completedQuestIds).toEqual(['Q1', 'Q2', 'Q3']);
+  expect((await rootPlayer()).rewards.questReceipts).toHaveLength(3);
+  await info.attach('published-journey-committed-snapshot', { body: JSON.stringify(await readRoot(), null, 2), contentType: 'application/json' });
 });
