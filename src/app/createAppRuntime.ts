@@ -4,6 +4,8 @@ import { QUEST_ACTIVITY_BINDINGS } from '../content/quest-bindings';
 import { APP_NAMESPACE } from '../platform/appIdentity';
 import { assetUrl } from '../platform/assets';
 import { attachLifecycle } from '../platform/lifecycle';
+import { registerOfflineApp } from '../platform/pwa';
+import type { OfflineStatus } from '../platform/pwa';
 import { validateSave } from '../state/backup';
 import { createStateController } from '../state/controller';
 import { openSaveRepository } from '../state/repository';
@@ -62,8 +64,19 @@ export function createAppRuntime() {
   forward();
   const lifecycle = attachLifecycle(audio);
   let disposed = false;
-  return { state, audio, panels, setPaused: lifecycle.setPaused, dispose() {
+  let offlineStatus: OfflineStatus | null = null;
+  const offlineListeners = new Set<() => void>();
+  const registration = registerOfflineApp({ onStatus(status) {
+    if (disposed) return;
+    offlineStatus = status; for (const listener of offlineListeners) listener();
+  } });
+  const offline = { getSnapshot: () => offlineStatus,
+    subscribe(listener: () => void) { offlineListeners.add(listener); return () => { offlineListeners.delete(listener); }; },
+    retryPreparation: registration.retryPreparation,
+  };
+  return { state, audio, panels, offline, setPaused: lifecycle.setPaused, dispose() {
     if (disposed) return; disposed = true;
+    registration.dispose(); offlineListeners.clear();
     lifecycle.dispose(); stopPreferences(); persist = () => {};
     panels.dispose(); audio.dispose(); state.dispose();
   } };

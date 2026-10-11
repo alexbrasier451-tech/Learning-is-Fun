@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "vite",
     "typecheck": "tsc -b",
-    "build": "pnpm typecheck && vite build",
+    "build": "pnpm typecheck && vite build && node scripts/check-precache.mjs",
     "preview": "vite preview",
     "test": "vitest run",
     "test:browser": "playwright test"

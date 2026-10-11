@@ -20,6 +20,13 @@ body { margin: 0; }
 .shell-save { padding-block: .7rem; justify-content: flex-start; }
 .app-shell .audio-controls { font-size: 1.125rem; }
 .shell-save p { flex: 1 1 18rem; margin: 0; }
+.shell-platform { max-width: 1440px; margin: auto; padding: 1rem clamp(1rem, 3vw, 3rem); border-block: 1px solid #b8bca2; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+.shell-platform > div:first-child { flex: 1 1 24rem; }
+.shell-platform p { margin: .4rem 0; }
+.shell-offline-status { font-weight: 700; }
+.shell-platform-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.shell-platform .shell-update-instructions { background: #e8edda; padding: .8rem; border-left: 4px solid #176a68; }
+.shell-fullscreen-status { flex-basis: 100%; }
 .shell-main { min-height: 40vh; }
 .shell-paper, .shell-leave { max-width: 70rem; margin: 1rem auto; padding: clamp(1rem, 3vw, 3rem); border: 1px solid #b8bca2; border-radius: 1.25rem; background: #fff8e9; }
 .shell-paper h1 { font: 600 2.5rem/1.15 Georgia, serif; }

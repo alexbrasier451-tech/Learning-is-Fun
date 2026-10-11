@@ -4,6 +4,7 @@ import adult from './adult-profiles.config';
 import hall from './local-leaderboard.config';
 import audio from './audio.config';
 import creative from './creative.config';
+import { offlineConfig } from './offline-runner';
 
 // Keep each owner's server, private output paths and teardown together.
 const adventureRoot = process.env.ADVENTURE_VERIFY_ROOT;
@@ -34,10 +35,11 @@ const shell = shellRoot ? defineConfig({
     env: { APP_BASE: '/playtest/', APP_BUILD_ID: 'local-wp01-02a', SHELL_VERIFY_ROOT: shellRoot },
   },
 }) : undefined;
-const fixtures = { adult, hall, audio, creative, adventure, shell };
+const offline = process.env.OFFLINE_OUTPUT ? offlineConfig(process.env.OFFLINE_OUTPUT) : undefined;
+const fixtures = { adult, hall, audio, creative, adventure, shell, offline };
 const selection = process.env.D3_FIXTURE;
 if (!selection || !Object.hasOwn(fixtures, selection)) {
-  throw new Error('Set D3_FIXTURE to adult, hall, audio, creative, adventure or shell.');
+  throw new Error('Set D3_FIXTURE to adult, hall, audio, creative, adventure, shell or offline.');
 }
 const fixture = selection as keyof typeof fixtures;
 if (fixture === 'adult' && process.env.ADULT_REAL_RELEASE !== 'yes') {
@@ -50,9 +52,13 @@ const grep = {
   creative: /scarf: free preview|approved help remains hidden/,
   adventure: /.*/,
   shell: /.*/,
+  offline: /.*/,
 }[fixture];
 const base = fixtures[fixture];
-if (!base) throw new Error(`D3 ${fixture} requires ${fixture.toUpperCase()}_VERIFY_ROOT to be a private temporary directory.`);
+if (!base) {
+  const variable = fixture === 'offline' ? 'OFFLINE_OUTPUT' : `${fixture.toUpperCase()}_VERIFY_ROOT`;
+  throw new Error(`D3 ${fixture} requires ${variable} to be a private temporary directory.`);
+}
 
 export default defineConfig({
   ...base,
@@ -61,7 +67,7 @@ export default defineConfig({
   forbidOnly: true,
   workers: 1,
   retries: 0,
-  globalTimeout: 300_000,
+  globalTimeout: fixture === 'offline' ? 600_000 : 300_000,
   use: { ...base.use, trace: 'on', screenshot: 'on' },
   // Replace the owned project array: no Chromium, Edge or touch project runs here.
   projects: [{

@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       selection:
-        description: Run the component smoke, M1 adventure, or actual application shell
+        description: Run components, M1 adventure, application shell, or production offline cases
         type: choice
         required: true
         default: components
@@ -12,6 +12,7 @@ on:
           - components
           - adventure
           - shell
+          - offline
 
 permissions:
   contents: read
@@ -47,9 +48,9 @@ jobs:
           if (!process.env.RUNNER_TEMP || !process.env.GITHUB_ENV) {
             throw new Error('Runner temporary directory and environment file are required.');
           }
-          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 6 }, shell: { shell: 4 } };
+          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 6 }, shell: { shell: 4 }, offline: { offline: 4 } };
           const selection = process.env.D3_SELECTION;
-          if (!selection || !Object.hasOwn(selections, selection)) throw new Error('D3_SELECTION must be components, adventure or shell.');
+          if (!selection || !Object.hasOwn(selections, selection)) throw new Error('D3_SELECTION must be components, adventure, shell or offline.');
           const expected = selections[selection];
           appendFileSync(process.env.GITHUB_ENV, `D3_FIXTURES=${Object.keys(expected).join(' ')}\n`);
           const root = join(process.env.RUNNER_TEMP, 'd3-firefox');
@@ -61,6 +62,7 @@ jobs:
             CREATIVE_VERIFY_ROOT: join(root, 'creative'),
             ADVENTURE_VERIFY_ROOT: join(root, 'adventure'),
             SHELL_VERIFY_ROOT: join(root, 'shell'),
+            OFFLINE_OUTPUT: join(root, 'offline'),
           };
           for (const [key, value] of Object.entries(roots)) {
             mkdirSync(value, { recursive: true });
@@ -85,7 +87,7 @@ jobs:
           node --input-type=module <<'NODE'
           import { readFileSync } from 'node:fs';
           import { join } from 'node:path';
-          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 6 }, shell: { shell: 4 } };
+          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 6 }, shell: { shell: 4 }, offline: { offline: 4 } };
           if (!Object.hasOwn(selections, process.env.D3_SELECTION ?? '')) throw new Error('Unknown D3 selection.');
           const expected = selections[process.env.D3_SELECTION];
           const tests = suites => suites.flatMap(suite => [
@@ -289,7 +291,7 @@ jobs:
           node --input-type=module <<'NODE'
           import { readFileSync } from 'node:fs';
           import { join } from 'node:path';
-          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 6 }, shell: { shell: 4 } };
+          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 6 }, shell: { shell: 4 }, offline: { offline: 4 } };
           if (!Object.hasOwn(selections, process.env.D3_SELECTION ?? '')) throw new Error('Unknown D3 selection.');
           const expected = selections[process.env.D3_SELECTION];
           const tests = suites => suites.flatMap(suite => [
@@ -356,5 +358,8 @@ jobs:
             ${{ runner.temp }}/d3-firefox/*/discovery.json
             ${{ runner.temp }}/d3-firefox/*/results.json
             ${{ runner.temp }}/d3-firefox/*/playwright/
+            ${{ runner.temp }}/d3-firefox/offline/build-contract.json
+            ${{ runner.temp }}/d3-firefox/offline/precache-*.json
+            ${{ runner.temp }}/d3-firefox/offline/server-cleanup.json
           retention-days: 1
           if-no-files-found: warn

@@ -5,8 +5,27 @@ async function probe(page: Page) {
   return page.evaluate(() => {
     const runtime = (globalThis as unknown as { __shellRuntime: any }).__shellRuntime;
     return { snapshot: runtime.state.getSnapshot(), readiness: runtime.state.getUpdateReadiness(),
-      transient: runtime.panels.readTransientReadiness(), audio: runtime.audio.getSnapshot(), load: runtime.state.getLoadState() };
+      transient: runtime.panels.readTransientReadiness(), audio: runtime.audio.getSnapshot(), load: runtime.state.getLoadState(), offline: runtime.offline.getSnapshot() };
   });
+}
+// UI contract fixture only: real adapter/MessageChannel, synthetic worker replies.
+// These assertions do not establish worker caching, native activation or offline launch.
+async function offlineUiFixture(page: Page, info: TestInfo) {
+  info.annotations.push({ type: 'UI-only', description: 'Synthetic service-worker replies and fullscreen outcomes; production A/B acceptance is separate.' });
+  await page.addInitScript(`
+    const fixture=globalThis.shellOfflineUi={registers:0,updates:0,listeners:0,messages:[],activeCurrent:true,activeComplete:false,waitingBuildId:'ui-next-build'};
+    function target(){const value=new EventTarget(),add=value.addEventListener.bind(value),remove=value.removeEventListener.bind(value),entries=new Map();
+      value.addEventListener=(name,fn)=>{let set=entries.get(name);if(!set){set=new Set();entries.set(name,set);}if(!set.has(fn)){set.add(fn);fixture.listeners++;}add(name,fn);};
+      value.removeEventListener=(name,fn)=>{if(entries.get(name)?.delete(fn))fixture.listeners--;remove(name,fn);};return value;}
+    function worker(waiting){const value=target();value.state=waiting?'installed':'activated';value.postMessage=(request,ports)=>{
+      fixture.messages.push(request.type);const pageBuildId=request.requestId.slice(0,request.requestId.lastIndexOf(':'));
+      ports[0].postMessage({type:'OFFLINE_INVENTORY_RESULT',requestId:request.requestId,
+        buildId:waiting?fixture.waitingBuildId:fixture.activeCurrent?pageBuildId:'ui-old-build',complete:waiting||fixture.activeComplete,reason:null});};return value;}
+    const registration=target();registration.active=worker(false);registration.waiting=worker(true);registration.installing=null;
+    registration.update=async()=>{fixture.updates++;};fixture.registration=registration;
+    const container=target();container.register=async()=>{fixture.registers++;return registration;};fixture.container=container;
+    Object.defineProperty(navigator,'serviceWorker',{configurable:true,value:container});
+  `);
 }
 async function attach(page: Page, info: TestInfo, name: string) {
   await info.attach(name, { body: JSON.stringify(await probe(page), null, 2), contentType: 'application/json' });
@@ -37,12 +56,28 @@ test.afterEach(async ({ page }, info) => {
   if (info.status !== info.expectedStatus) await attach(page, info, 'failure-state').catch(() => {});
 });
 test('real shell keyboard, help focus, Hall, adult barrier and supported reflow', async ({ page }, info) => {
+  info.setTimeout(60000);
+  await offlineUiFixture(page, info);
   const errors: string[] = []; page.on('pageerror', error => errors.push(error.message));
-  await start(page); await openBridge(page); await plank(page); await plank(page);
+  await start(page);
+  const beforeFullscreen = (await probe(page)).snapshot;
+  await page.evaluate(`Object.defineProperty(document,'fullscreenEnabled',{configurable:true,value:true});Object.defineProperty(HTMLElement.prototype,'requestFullscreen',{configurable:true,writable:true,value:undefined});`);
+  await page.getByRole('button', { name: 'Open fullscreen', exact: true }).click();
+  await expect(page.locator('.shell-fullscreen-status')).toContainText('Fullscreen is unavailable here');
+  await page.evaluate(`HTMLElement.prototype.requestFullscreen=async()=>{throw new Error('UI-only denial');};`);
+  await page.getByRole('button', { name: 'Open fullscreen', exact: true }).click();
+  await expect(page.locator('.shell-fullscreen-status')).toContainText('Fullscreen was not opened');
+  await page.evaluate(`HTMLElement.prototype.requestFullscreen=async()=>{};`);
+  await page.getByRole('button', { name: 'Open fullscreen', exact: true }).click();
+  await expect(page.locator('.shell-fullscreen-status')).toContainText('Fullscreen opened');
+  await page.evaluate(`Object.defineProperty(document,'fullscreenElement',{configurable:true,value:null});document.dispatchEvent(new Event('fullscreenchange'));`);
+  await expect(page.locator('.shell-fullscreen-status')).toContainText('Back in your browser tab');
+  expect((await probe(page)).snapshot).toEqual(beforeFullscreen);
+  await openBridge(page); await plank(page); await plank(page);
   await info.attach('supported-layout', { body: await page.screenshot({ fullPage: true }), contentType: 'image/png' });
   await page.getByRole('button', { name: 'Check my idea', exact: true }).focus();
   await page.keyboard.press('Enter'); await expect(page.getByText('Your idea worked!', { exact: true })).toBeVisible();
-  for (const [name, action] of [['Hazel', 'save'], ['Willow', 'adventure']] as const) {
+  for (const [name, action] of [['Hazel', 'save'], ['Willow', 'adventure'], ['Alder', 'update']] as const) {
     await page.getByRole('navigation', { name: 'Your story', exact: true }).getByRole('button', { name: 'Explorers', exact: true }).click();
     await create(page, name); await page.getByRole('button', { name: `${name} Choose explorer`, exact: true }).click();
     await openBridge(page); await plank(page, 3);
@@ -50,6 +85,7 @@ test('real shell keyboard, help focus, Hall, adult barrier and supported reflow'
     const initial = Object.values(profile.encounters)[0] as any;
     expect(initial.validChecks).toBe(0); expect(before.transient.dirty).toBe(true);
     const control = action === 'save' ? page.getByRole('button', { name: 'Save progress', exact: true })
+      : action === 'update' ? page.getByRole('button', { name: 'Update on next launch', exact: true })
       : page.getByRole('navigation', { name: 'Your story', exact: true }).getByRole('button', { name: 'Adventure', exact: true });
     await control.focus(); await control.press('Enter');
     await expect(page.getByRole('heading', { name: 'Village Green', exact: true })).toBeVisible();
@@ -59,9 +95,11 @@ test('real shell keyboard, help focus, Hall, adult barrier and supported reflow'
     expect(suspended.opportunityId).toBe(initial.opportunityId); expect(suspended.learningEpisode.ordinal).toBe(initial.learningEpisode.ordinal);
     await expect.poll(async () => (await probe(page)).readiness.ready).toBe(true);
     if (action === 'save') await expect(page.locator('.shell-save')).toContainText('Your progress is saved. Choose where to explore next.');
+    if (action === 'update') await expect(page.locator('.shell-update-instructions')).toContainText('Learning is Fun game tabs and windows');
     await attach(page, info, `F01-${action}-overview`);
     const resume = page.getByRole('button', { name: 'Resume A Bridge Back Home', exact: true });
     await resume.focus(); await resume.press('Enter');
+    await expect(page.locator('.shell-update-instructions')).toHaveCount(0);
     await expect(page.getByRole('button', { name: 'Choose placed plank 1: 3 metres', exact: true })).toBeVisible();
     const reopened = (await probe(page)).snapshot.save.profiles[profile.identity.profileId].encounters[initial.encounterId];
     expect(reopened.learningEpisode.status).toBe('open'); expect(reopened.responseDraft).toEqual(suspended.responseDraft);
@@ -107,9 +145,12 @@ test('real shell keyboard, help focus, Hall, adult barrier and supported reflow'
   await page.setViewportSize({ width: 1024, height: 768 });
   expect(await page.evaluate(() => { const d = (globalThis as unknown as { document: { documentElement: { scrollWidth: number; clientWidth: number } } }).document.documentElement; return d.scrollWidth <= d.clientWidth; })).toBe(true);
   await attach(page, info, 'complete-shell'); expect(errors).toEqual([]);
+  expect(await page.evaluate('globalThis.shellOfflineUi.registers')).toBe(1);
+  await info.attach('UI-only-offline-registration', { body: JSON.stringify(await page.evaluate('({registers:shellOfflineUi.registers,messages:shellOfflineUi.messages})')), contentType: 'application/json' });
 });
 
 test('two-profile suspension failure, exact retry, safe discard and live readiness', async ({ page }, info) => {
+  await offlineUiFixture(page, info);
   await page.goto('./'); await create(page, 'River'); await create(page, 'Meadow');
   await page.getByRole('button', { name: 'River Choose explorer', exact: true }).click(); await openBridge(page); await plank(page);
   const beforeRotation = await probe(page), answer = await page.locator('.iw-summary').textContent();
@@ -161,10 +202,11 @@ test('two-profile suspension failure, exact retry, safe discard and live readine
   expect((await probe(page)).readiness.failedCommand).toBe(true);
   await attach(page, info, 'retry-and-discard');
   await openBridge(page); await plank(page, 3); await page.evaluate('globalThis.abortShellNext=true');
-  await page.getByRole('button', { name: 'Save progress', exact: true }).click();
+  await page.getByRole('button', { name: 'Update on next launch', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Retry saving and continue' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Choose placed plank 1: 3 metres', exact: true })).toBeVisible();
   await expect(page.locator('.adventure-player')).toContainText('Meadow');
+  await expect(page.locator('.shell-update-instructions')).toHaveCount(0);
   await attach(page, info, 'F01-failed-save-keeps-draft');
   await page.getByRole('button', { name: 'Retry saving and continue' }).click();
   await expect(page.getByRole('heading', { name: 'Village Green', exact: true })).toBeVisible();
@@ -172,6 +214,7 @@ test('two-profile suspension failure, exact retry, safe discard and live readine
   await expect(page.locator('.shell-save')).toContainText('Your activity is saved. Some other changes still need saving');
   expect((await probe(page)).readiness.ready).toBe(false); expect((await probe(page)).readiness.failedCommand).toBe(true);
   expect((await probe(page)).transient).toEqual({ dirty: false, pending: false, failed: false });
+  await expect(page.locator('.shell-update-instructions')).toHaveCount(0);
   await attach(page, info, 'F01-saved-activity-retains-independent-blocker');
   await page.getByRole('button', { name: 'Resume A Bridge Back Home', exact: true }).click();
   await plank(page, 3); await plank(page, 6); await page.getByRole('button', { name: 'Check my idea', exact: true }).click();
@@ -250,8 +293,34 @@ test('native audio cold start, pending decode silence, channels, pause, reload a
 });
 
 test('token registry stale cleanup, live readiness, guarded pending epoch replacement and disposal', async ({ page }, info) => {
+  await offlineUiFixture(page, info);
   await page.goto('./'); await create(page, 'River'); await create(page, 'Meadow');
   await page.getByRole('button', { name: 'River Choose explorer', exact: true }).click();
+  const offlineStatus = page.locator('.shell-offline-status');
+  await expect(offlineStatus).toContainText('Offline preparation incomplete');
+  await expect(page.getByRole('button', { name: 'Update on next launch', exact: true })).toBeVisible();
+  expect((await probe(page)).offline.waitingBuildId).toBe('ui-next-build');
+  await page.evaluate('globalThis.shellOfflineUi.activeComplete=true');
+  await page.getByRole('button', { name: 'Retry offline preparation', exact: true }).click();
+  await expect(offlineStatus).toHaveText('Ready offline');
+  await page.evaluate('globalThis.shellOfflineUi.activeCurrent=false');
+  await page.getByRole('button', { name: 'Retry offline preparation', exact: true }).click();
+  await expect(offlineStatus).toContainText('Offline preparation incomplete');
+  expect((await probe(page)).offline.activeBuildId).toBe('ui-old-build');
+  await page.evaluate('globalThis.shellOfflineUi.activeCurrent=true');
+  await page.getByRole('button', { name: 'Retry offline preparation', exact: true }).click();
+  await expect(offlineStatus).toHaveText('Ready offline');
+  await page.getByRole('button', { name: 'Update on next launch', exact: true }).click();
+  await expect(page.locator('.shell-update-instructions')).toBeVisible();
+  // Facade preference failure must withdraw instructions even without a new committed snapshot.
+  await page.evaluate(`globalThis.abortUiPreference=true;const put=IDBObjectStore.prototype.put;IDBObjectStore.prototype.put=function(...args){const request=put.apply(this,args);if(globalThis.abortUiPreference){globalThis.abortUiPreference=false;this.transaction.abort();}return request;};`);
+  await page.getByRole('button', { name: 'Silence all', exact: true }).click();
+  await expect.poll(async () => (await probe(page)).readiness.failedPreferences).toBe(true);
+  expect((await probe(page)).audio.preferences.silenceAll).toBe(true);
+  await expect(page.locator('.shell-update-instructions')).toHaveCount(0);
+  await page.evaluate(async () => { await (globalThis as unknown as {__shellRuntime:any}).__shellRuntime.state.preferences.retry(); });
+  await expect.poll(async () => (await probe(page)).readiness.ready).toBe(true);
+  await page.getByRole('navigation',{name:'Your story',exact:true}).getByRole('button',{name:'Adventure',exact:true}).click();
   const result = await page.evaluate(async () => {
     const url='/playtest/src/app/createAppRuntime.ts'; const {createActivePanelRegistry}=await import(url);
     const registry=createActivePanelRegistry(); let notifyOld=()=>{}; let secondDirty=false;
@@ -277,9 +346,9 @@ test('token registry stale cleanup, live readiness, guarded pending epoch replac
   await page.evaluate('globalThis.__shellRuntime.panels.resetBinding()');
   await page.getByRole('navigation',{name:'Your story',exact:true}).getByRole('button',{name:'Adventure',exact:true}).click();
   await page.evaluate('globalThis.installShellPending()');
-  const meadow=Object.values((await probe(page)).snapshot.save.profiles).find((p:any)=>p.identity.nickname==='Meadow') as any;
-  await page.getByLabel('Active explorer', {exact:true}).selectOption(meadow.identity.profileId);
+  await page.getByRole('button', { name: 'Update on next launch', exact: true }).click();
   await expect(page.getByLabel('Active explorer', {exact:true})).toBeDisabled();
+  await expect(page.locator('.shell-update-instructions')).toHaveCount(0);
   expect((await probe(page)).transient.pending).toBe(true); await page.getByRole('button',{name:'Silence all',exact:true}).click();
   await expect.poll(async () => (await probe(page)).audio.persistence.pending).toBe(false);
   await page.evaluate(async () => {
@@ -290,13 +359,14 @@ test('token registry stale cleanup, live readiness, guarded pending epoch replac
   await page.evaluate('globalThis.releaseShellLeave?.()');
   await expect(page.getByRole('heading',{name:'Who’s exploring today?'})).toBeVisible();
   expect((await probe(page)).transient).toEqual({dirty:false,pending:false,failed:false});
+  await expect(page.locator('.shell-update-instructions')).toHaveCount(0);
   await attach(page,info,'registry-epoch-replacement');
   await create(page,'River'); await create(page,'Meadow'); await page.getByRole('button',{name:'River Choose explorer',exact:true}).click();
   await page.evaluate('globalThis.installShellPending()');
   const profiles=(await probe(page)).snapshot.save.profiles;
   const remaining=(Object.values(profiles).find((p:any)=>p.identity.nickname==='Meadow') as any).identity.profileId;
   const deleted=(Object.values(profiles).find((p:any)=>p.identity.nickname==='River') as any).identity.profileId;
-  await page.getByLabel('Active explorer',{exact:true}).selectOption(remaining);
+  await page.getByRole('button', { name: 'Update on next launch', exact: true }).click();
   await expect(page.getByLabel('Active explorer',{exact:true})).toBeDisabled();
   await page.evaluate(async id=>{const state=(globalThis as unknown as {__shellRuntime:any}).__shellRuntime.state;await state.dispatch(state.prepareCommand({kind:'DeleteProfile',profileId:id,payload:{}}));},deleted);
   await expect(page.getByRole('heading',{name:'Who’s exploring today?'})).toBeVisible();
@@ -304,7 +374,14 @@ test('token registry stale cleanup, live readiness, guarded pending epoch replac
   await expect(page.getByRole('heading',{name:'Who’s exploring today?'})).toBeVisible();
   await expect(page.getByLabel('Active explorer',{exact:true})).toHaveValue('');
   expect(Object.keys((await probe(page)).snapshot.save.profiles)).toEqual([remaining]);
+  await expect(page.locator('.shell-update-instructions')).toHaveCount(0);
   await attach(page,info,'deleted-binding-ignores-late-leave');
-  await page.evaluate(async()=>{const runtime=(globalThis as unknown as {__shellRuntime:any}).__shellRuntime;runtime.dispose();runtime.dispose();});
+  expect(await page.evaluate('globalThis.shellOfflineUi.registers')).toBe(1);
+  expect(await page.evaluate('globalThis.shellOfflineUi.messages.every(type=>type==="OFFLINE_INVENTORY_PROBE")')).toBe(true);
+  const disposedStatus = await page.evaluate(async()=>{const runtime=(globalThis as unknown as {__shellRuntime:any}).__shellRuntime;runtime.dispose();runtime.dispose();return runtime.offline.getSnapshot();});
+  expect(await page.evaluate('globalThis.shellOfflineUi.listeners')).toBe(0);
+  await page.evaluate(`(async()=>{await globalThis.__shellRuntime.offline.retryPreparation();document.dispatchEvent(new Event('visibilitychange'));globalThis.dispatchEvent(new Event('pageshow'));})()`);
+  expect((await probe(page)).offline).toEqual(disposedStatus);
+  await info.attach('UI-only-offline-status-and-disposal', { body: JSON.stringify({ offline: disposedStatus, counters: await page.evaluate('({registers:shellOfflineUi.registers,updates:shellOfflineUi.updates,listeners:shellOfflineUi.listeners,messages:shellOfflineUi.messages})') }), contentType: 'application/json' });
   await page.getByRole('button',{name:'Silence all',exact:true}).click();
 });
