@@ -56,7 +56,7 @@ export function createAppRuntime() {
   let persist: Parameters<typeof createAudioController>[0]['persistPreferences'] = () => {};
   const audio = createAudioController({ assetResolver: assetUrl, persistPreferences: intent => persist(intent) });
   const repository = openSaveRepository({ appNamespace: APP_NAMESPACE, initialSave: createInitialSave(), validateSave, catalogue });
-  const state = createStateController({ repository, catalogue, questBindings: QUEST_ACTIVITY_BINDINGS, milestone: 'M1',
+  const state = createStateController({ repository, catalogue, questBindings: QUEST_ACTIVITY_BINDINGS, milestone: 'M2',
     clock: { nowEpochMs: () => Date.now() }, preferenceGate: { applyLiveIntent: audio.applyLiveIntent }, readTransientReadiness: panels.readTransientReadiness });
   persist = state.preferences.setAudioPreferences;
   const forward = () => audio.applyPreferenceState(state.preferences.getStatus());

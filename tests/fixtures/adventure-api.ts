@@ -9,6 +9,8 @@ export type AdventureFixtureApi = {
   loseNextAcknowledgement(): void; redeliverLastCommand(): Promise<CommitResult>;
   readiness(): { facade: UpdateReadiness; panel: ActivePanelStatus | null; stateSubscriptions: number };
   remountWorld(): void;
+  /** Real backup preview/confirmation, for an unchanged immutable source. */
+  importBackup(text: string): Promise<CommitResult>;
   flush(): Promise<UpdateReadiness>;
   setClock(iso: string): void;
   externalRename(nickname: string): Promise<CommitResult>;

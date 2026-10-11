@@ -1,9 +1,12 @@
 import { COSMETICS, DISCOVERIES, QUESTS, SCENES, WORLD_RESULTS } from './catalogue';
 import { getRequiredBindingIds, QUEST_ACTIVITY_BINDINGS } from '../content/quest-bindings';
+import { SKILLS } from '../content/skills';
 import type { CreativeState, Milestone, QuestId, SceneId, WorldHotspot, WorldProgress, WorldView } from './types';
 
 export const QUEST_TITLES: Readonly<Partial<Record<QuestId, string>>> = {
   Q1: 'A Bridge Back Home', Q2: 'Wake the Whispering Library', Q3: "The Merchant’s Welcome",
+  Q4: 'Start the Sawmill', Q5: 'Mix the Growing Potion', Q6: 'Shelve the Lost Stories',
+  Q7: 'Rebuild the Forest Tale', Q8: 'Follow the Hidden Map', Q9: 'Set the Castle Clock', Q10: 'A Kingdom Together',
 };
 
 export function committedResultIds(world: WorldProgress) {
@@ -11,7 +14,7 @@ export function committedResultIds(world: WorldProgress) {
 }
 
 export function requiredProgress(world: WorldProgress, questId: QuestId) {
-  const required = getRequiredBindingIds(QUEST_ACTIVITY_BINDINGS, questId, 'M1');
+  const required = getRequiredBindingIds(QUEST_ACTIVITY_BINDINGS, questId, 'M2');
   return { completed: required.filter(id => world.completedStoryBindingIds.includes(id)).length, total: required.length };
 }
 
@@ -25,7 +28,7 @@ export function resolveWorldView({ world, creative, entitlements, sceneId, miles
   const quests = QUESTS.filter(quest => quest.milestone === 'M1' || milestone === 'M2');
   const available = quests.filter(quest => !world.completedQuestIds.includes(quest.id)
     && quest.requiresAll.every(id => world.completedQuestIds.includes(id)));
-  const reachable = scenes.filter(s => s.id === 'village-green' || s.id === 'river-bridge' || world.completedQuestIds.includes('Q1'));
+  const reachable = scenes.filter(s => sceneReachable(s.id, world));
   const hotspots: WorldHotspot[] = reachable.filter(s => s.id !== sceneId).map(s => ({
     id: `visit-${s.id}`, label: s.title, intent: { kind: 'navigate', sceneId: s.id },
   }));
@@ -35,9 +38,9 @@ export function resolveWorldView({ world, creative, entitlements, sceneId, miles
     && quests.some(q => q.id === b.questId && q.sceneId === sceneId)).forEach(b => hotspots.push({
     id: b.bindingId, label: 'Try the optional challenge', intent: { kind: 'practice', route: { kind: 'optional-transfer', bindingId: b.bindingId } },
   }));
-  QUEST_ACTIVITY_BINDINGS.filter(b => b.role === 'revisit' && world.completedQuestIds.includes(b.questId as QuestId)
+  QUEST_ACTIVITY_BINDINGS.filter(b => b.role === 'revisit' && (b.availability === 'M1' || milestone === 'M2') && world.completedQuestIds.includes(b.questId as QuestId)
     && quests.some(q => q.id === b.questId && q.sceneId === sceneId)).forEach(b => hotspots.push({
-    id: b.bindingId, label: 'Try some practice', intent: { kind: 'practice', route: { kind: 'revisit', bindingId: b.bindingId } },
+    id: b.bindingId, label: b.availability === 'M1' ? 'Try some practice' : `Explore ${SKILLS.find(skill => skill.skillId === b.skillId)!.label} · ${b.responseKind}`, intent: { kind: 'practice', route: { kind: 'revisit', bindingId: b.bindingId } },
   }));
   hotspots.push({ id: 'creative', label: 'Your little corner', intent: { kind: 'creative' } }, { id: 'hall', label: 'Hall of Champions', intent: { kind: 'hall' } });
   const discovery = DISCOVERIES.find(d => d.id === scene.discoveryId);
@@ -50,4 +53,13 @@ export function resolveWorldView({ world, creative, entitlements, sceneId, miles
     if (creative.planterRimId && COSMETICS.some(c => c.id === creative.planterRimId && entitlements.includes(c.entitlementId))) assets.add(creative.planterRimId);
   }
   return { sceneId, visibleAssetIds: [...assets], hotspots, completedQuestIds: quests.filter(q => world.completedQuestIds.includes(q.id)).map(q => q.id), availableQuestIds: available.map(q => q.id) };
+}
+
+/** Location access follows the same permanent prerequisite facts as the story. */
+export function sceneReachable(sceneId: SceneId, world: WorldProgress) {
+  const needs: Partial<Record<SceneId, readonly QuestId[]>> = {
+    'whispering-library': ['Q1'], 'market-square': ['Q1'], 'tinkers-workshop': ['Q3'],
+    'storywood-forest': ['Q5', 'Q6'], 'clockwork-castle': ['Q8'],
+  };
+  return (needs[sceneId] ?? []).every(id => world.completedQuestIds.includes(id));
 }

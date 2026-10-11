@@ -50,7 +50,7 @@ jobs:
           if (!process.env.RUNNER_TEMP || !process.env.GITHUB_ENV) {
             throw new Error('Runner temporary directory and environment file are required.');
           }
-          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 7 }, shell: { shell: 4 }, offline: { offline: 4 }, published: { published: 1 } };
+          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 11 }, shell: { shell: 6 }, offline: { offline: 4 }, published: { published: 1 } };
           const selection = process.env.D3_SELECTION;
           if (!selection || !Object.hasOwn(selections, selection)) throw new Error('D3_SELECTION must be components, adventure, shell, offline or published.');
           const expected = selections[selection];
@@ -112,7 +112,7 @@ jobs:
           node --input-type=module <<'NODE'
           import { readFileSync } from 'node:fs';
           import { join } from 'node:path';
-          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 7 }, shell: { shell: 4 }, offline: { offline: 4 }, published: { published: 1 } };
+          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 11 }, shell: { shell: 6 }, offline: { offline: 4 }, published: { published: 1 } };
           if (!Object.hasOwn(selections, process.env.D3_SELECTION ?? '')) throw new Error('Unknown D3 selection.');
           const expected = selections[process.env.D3_SELECTION];
           const tests = suites => suites.flatMap(suite => [
@@ -324,7 +324,7 @@ jobs:
           node --input-type=module <<'NODE'
           import { readFileSync } from 'node:fs';
           import { join } from 'node:path';
-          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 7 }, shell: { shell: 4 }, offline: { offline: 4 }, published: { published: 1 } };
+          const selections = { components: { adult: 3, hall: 3, audio: 2, creative: 2 }, adventure: { adventure: 11 }, shell: { shell: 6 }, offline: { offline: 4 }, published: { published: 1 } };
           if (!Object.hasOwn(selections, process.env.D3_SELECTION ?? '')) throw new Error('Unknown D3 selection.');
           const expected = selections[process.env.D3_SELECTION];
           const tests = suites => suites.flatMap(suite => [

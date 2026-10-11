@@ -1,17 +1,13 @@
 import type { CommittedActivityProjection } from '../state/contracts';
-import type { M1ResponseSpec } from '../interaction/draft';
 
 /** No answer rules cross the presentation adapter. Feedback is explicitly attributed. */
 export function toActivityTaskView(activity: CommittedActivityProjection) {
   const { task, lastCheck, lastEvaluation, rewardDisplay } = activity;
-  if (task.responseSpec.kind !== 'bridge' && task.responseSpec.kind !== 'merchant' && task.responseSpec.kind !== 'punctuation') {
-    throw new Error('This activity needs an unavailable response form. Your saved work is unchanged.');
-  }
   const help = [...task.hints, task.workedSupport].filter(item => activity.revealedAssistanceIds.includes(item.id));
   return {
     profileId: activity.profileId, encounterId: activity.encounterId, epoch: activity.token.epoch,
     learningEpisodeOrdinal: activity.learningEpisodeOrdinal, nextCheckSequence: activity.nextCheckSequence,
-    responseSpec: task.responseSpec as M1ResponseSpec, instructionText: task.instructionText, assessedText: task.assessedText,
+    responseSpec: task.responseSpec, stimulus: task.stimulus, instructionText: task.instructionText, assessedText: task.assessedText,
     neutralText: task.narration.neutralText, assessedTextMayBeSpoken: task.narration.assessedTextMayBeSpokenBeforeCheck,
     responseDraft: activity.responseDraft, help,
     nextHelp: task.hints.find(item => !activity.revealedAssistanceIds.includes(item.id))

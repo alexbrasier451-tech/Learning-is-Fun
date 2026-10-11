@@ -1,10 +1,12 @@
-import { useEffect, useMemo, useRef, useSyncExternalStore } from 'react';
+import { useLayoutEffect, useMemo, useRef, useSyncExternalStore } from 'react';
 import type { ActivePanelHost, ActivePanelLifecycle, ActivePanelStatus, PanelLeaveResult } from '../app/panelLifecycle';
 import type { AudioController } from '../audio/controller';
 import { listTasks } from '../content/catalogue';
 import { createDraft, reduceDraft, toResponse } from '../interaction/draft';
 import type { ActivityDraft, DraftAction } from '../interaction/draft';
-import { ChoiceTiles, PlacementBoard, QuantityControl } from '../interaction/ActivityWidgets';
+import { ChoiceTiles, MatchingBoard, PlacementBoard, QuantityControl, SequenceList, SortBoard } from '../interaction/ActivityWidgets';
+import { TaskStimulus } from '../interaction/TaskStimulus';
+import type { CreativeState } from './types';
 import { selectCommittedActivity } from '../state/controller';
 import type { CommitResult, CommittedActivityProjection, StateCommand, StateController } from '../state/contracts';
 import { CompanionView } from './CompanionView';
@@ -188,8 +190,9 @@ function createActivitySession(initial: CommittedActivityProjection, controller:
   };
 }
 
-export function QuestActivity({ activity, stateController, audioController, activePanelHost, onLeave, onContinue, onTransfer, onCommitted }: {
+export function QuestActivity({ activity, stateController, audioController, activePanelHost, appearance, onLeave, onContinue, onTransfer, onCommitted }: {
   activity: CommittedActivityProjection; stateController: StateController; audioController: AudioController; activePanelHost: ActivePanelHost;
+  appearance?: CreativeState;
   onLeave(): void; onContinue(): void; onTransfer?: () => void;
   onCommitted(result: Extract<CommitResult, { status: 'committed' }>): void;
 }) {
@@ -199,7 +202,9 @@ export function QuestActivity({ activity, stateController, audioController, acti
   useSyncExternalStore(session.subscribe, session.getVersion, session.getVersion);
   const audioStatus = useSyncExternalStore(audioController.subscribe, audioController.getSnapshot, audioController.getSnapshot);
   const heading = useRef<HTMLHeadingElement>(null);
-  useEffect(() => {
+  // Bind and focus before painted controls can accept input. A passive effect
+  // left a visible, enabled but disconnected interval on native WebKit resume.
+  useLayoutEffect(() => {
     const disconnect = session.connect();
     const unregister = activePanelHost.register(session.lifecycle); heading.current?.focus();
     return () => { disconnect(); audioController.stopReading(); unregister(); };
@@ -210,13 +215,17 @@ export function QuestActivity({ activity, stateController, audioController, acti
     && audioStatus.preferences.soundEnabled && !audioStatus.preferences.silenceAll;
   const terminal = view.activity.episodeStatus.startsWith('completed');
   const guidance = task.help.length ? task.help.map(h => h.text).join('\n\n') : task.instructionText;
-  const Widget = task.responseSpec.kind === 'bridge' ? PlacementBoard : task.responseSpec.kind === 'punctuation' ? ChoiceTiles : QuantityControl;
+  const Widget = task.responseSpec.kind === 'bridge' ? PlacementBoard
+    : task.responseSpec.kind === 'punctuation' || task.responseSpec.kind === 'choice' ? ChoiceTiles
+      : task.responseSpec.kind === 'matching' ? MatchingBoard : task.responseSpec.kind === 'sorting' ? SortBoard
+        : task.responseSpec.kind === 'sequence' ? SequenceList : QuantityControl;
   const changedSinceCheck = task.feedback && !same(toResponse(view.draft), task.feedback.response);
   return <section className="adventure-activity" aria-busy={view.status.pending}>
     <header className="activity-heading"><div><p className="adventure-eyebrow">{task.label}{task.familiar ? ' · A familiar idea' : ''}</p>
       <h2 ref={heading} tabIndex={-1}>Make a little difference</h2></div>
       <button type="button" onClick={onLeave}>Leave activity</button></header>
     <p className="activity-prompt">{task.instructionText}</p>
+    <TaskStimulus stimulus={task.stimulus} />
     {task.assessedText && <div className="activity-reading"><p>{task.assessedText}</p>
       {task.assessedTextMayBeSpoken && <button type="button" disabled={view.status.pending || terminal || !!view.retry || !canRead}
         onClick={() => { void session.readAssessed(audioController); }}>Read the task text with listening support</button>}</div>}
@@ -240,6 +249,7 @@ export function QuestActivity({ activity, stateController, audioController, acti
     </section>}
     <p className="adventure-note">{task.rewardLabel}</p>
     <CompanionView pose={view.freshSuccess ? 'celebration' : task.help.length ? 'help' : 'idle'} visibleGuidance={guidance}
+      appearance={appearance} persistenceAcknowledgement={view.freshSuccess && task.help.length > 0 ? 'You used support and kept going. Your successful idea is saved.' : undefined}
       audioStatus={audioStatus} onRequestHint={() => { void session.requestHint(); }}
       onChooseNext={onContinue} nextActivityLabel={success ? 'Continue the adventure' : undefined}
       onRead={() => audioController.readText({ requestId: crypto.randomUUID(), language: 'en', text: guidance, role: task.help.length ? 'answer-help' : 'instruction' })}

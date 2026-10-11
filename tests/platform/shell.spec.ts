@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 import type { Page, TestInfo } from '@playwright/test';
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { listTasks } from '../../src/content/catalogue';
 
 async function probe(page: Page) {
   return page.evaluate(() => {
@@ -55,6 +57,118 @@ async function plank(page: Page, length = 6) {
 test.afterEach(async ({ page }, info) => {
   await info.attach('browser-and-viewport', { body: JSON.stringify({ browser: page.context().browser()?.version(), project: info.project.name, viewport: page.viewportSize() }), contentType: 'application/json' });
   if (info.status !== info.expectedStatus) await attach(page, info, 'failure-state').catch(() => {});
+});
+
+test('M2 root activation continues genuine M1 progress and commits a new required activity', async ({ page, baseURL }, info) => {
+  const source = readFileSync(process.env.M2_SHELL_STARTER ?? 'artifacts/playtests/M1/b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/boundaries/starter-save.json');
+  expect(source.length).toBe(22690);
+  expect(createHash('sha256').update(source).digest('hex')).toBe('7400aef18215e63f5d44303e8c16c804bc323e1f534a9edbe70956e563bc6c3e');
+  const donor = JSON.parse(source.toString('utf8'));
+  const river = Object.values(donor.save.profiles).find((profile: any) => profile.identity.nickname === 'River Boundary') as any;
+  const moss = Object.values(donor.save.profiles).find((profile: any) => profile.identity.nickname === 'Moss Boundary') as any;
+  const current = async () => (await probe(page)).snapshot.save.profiles[river.identity.profileId];
+  const open = async () => Object.values((await current()).encounters).find((encounter: any) => encounter.learningEpisode.status === 'open') as any;
+  const nativeRoot = () => page.evaluate(namespace => new Promise<any>((resolve, reject) => {
+    const request = indexedDB.open(`${namespace}:save`);
+    request.onerror = () => reject(request.error);
+    request.onsuccess = () => {
+      const db = request.result, tx = db.transaction('records'), read = tx.objectStore('records').get('root');
+      read.onsuccess = () => resolve(read.result); read.onerror = () => reject(read.error);
+      tx.oncomplete = () => db.close();
+    };
+  }), `learning-is-fun:${new URL(baseURL!).pathname}`);
+  const errors: string[] = []; page.on('pageerror', error => errors.push(error.message));
+  await page.clock.setFixedTime(new Date(donor.exportedAt));
+  await page.goto('./');
+  await page.getByRole('button', { name: 'Grown-ups', exact: true }).click();
+  await page.getByRole('button', { name: 'For grown-ups', exact: true }).click();
+  await page.getByRole('button', { name: 'Continue to adult area', exact: true }).click();
+  await page.locator('input[type=file]').setInputFiles({ name: 'genuine-m1.json', mimeType: 'application/json', buffer: source });
+  await page.getByRole('button', { name: 'Confirm whole-save replacement', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'River Boundary Choose explorer', exact: true })).toBeVisible();
+  expect((await nativeRoot()).save).toEqual(donor.save);
+  expect((await probe(page)).snapshot.save).toEqual(donor.save);
+  await attach(page, info, 'M2-root-genuine-M1-import');
+  await page.getByRole('button', { name: 'River Boundary Choose explorer', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Village Green', exact: true })).toBeVisible();
+  expect((await probe(page)).audio.preferences).toEqual(donor.save.installation.audio);
+  expect((await current()).world.completedQuestIds).toEqual(['Q1', 'Q2', 'Q3']);
+  const oldSuspended = river.encounters['75d97a4f-733b-460f-82f2-59a884fc1909'];
+  await page.getByRole('button', { name: /^Resume The Merchant/ }).click();
+  await expect(page.getByRole('button', { name: 'Check my idea', exact: true })).toBeEnabled();
+  expect(await open()).toEqual({ ...oldSuspended, learningEpisode: { ...oldSuspended.learningEpisode, status: 'open' } });
+  expect((await current()).rewards).toEqual(river.rewards);
+  await page.getByRole('button', { name: 'Save progress', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Village Green', exact: true })).toBeVisible();
+  const retained = (await current()).encounters[oldSuspended.encounterId];
+  expect(retained.responseDraft).toEqual(oldSuspended.responseDraft);
+  expect(retained.opportunityId).toBe(oldSuspended.opportunityId);
+  expect(retained.learningEpisode.ordinal).toBe(oldSuspended.learningEpisode.ordinal);
+  expect(retained.validChecks).toBe(oldSuspended.validChecks);
+  await page.locator('.adventure-chapters button').nth(5).click();
+  await page.getByRole('button', { name: 'Shelve the Lost Stories', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Check my idea', exact: true })).toBeEnabled();
+  expect((await open()).bindingProvenance.bindingId).toBe('q6-story-e04-sort');
+  expect((await current()).world.completedQuestIds).toEqual(['Q1', 'Q2', 'Q3']);
+  await attach(page, info, 'M2-root-Q6-open');
+  await page.getByRole('button', { name: 'Leave activity', exact: true }).click();
+  await page.locator('.adventure-chapters button').nth(3).click();
+  await page.getByRole('button', { name: 'Start the Sawmill', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Check my idea', exact: true })).toBeEnabled();
+  const encounter = await open();
+  expect(encounter.bindingProvenance.bindingId).toBe('q4-story-m02-match');
+  const task = listTasks().find(row => row.canonicalQuestionId === encounter.canonicalQuestionId)!;
+  if (task.responseSpec.kind !== 'matching' || task.answerRule.kind !== 'accepted-responses') throw new Error('Expected the reviewed Q4 matching task.');
+  const answer = task.answerRule.responses.find(response => response.kind === 'matching');
+  if (!answer || answer.kind !== 'matching') throw new Error('Expected a reviewed matching response.');
+  // Read approved answers in this test process; enter them through actual controls.
+  for (const item of task.responseSpec.items) {
+    const target = task.responseSpec.targets.find(row => row.id === answer.pairs[item.id])!;
+    await page.getByRole('button', { name: `Choose ${item.label}`, exact: true }).click();
+    await page.getByRole('button', { name: `Place selected item with ${target.label}`, exact: true }).click();
+  }
+  const beforeCheck = await current(), beforeNative = await nativeRoot();
+  await page.evaluate(`globalThis.m2RootChecks=[];const state=globalThis.__shellRuntime.state,send=state.dispatch;state.dispatch=command=>{if(command.kind==='SubmitCheck')globalThis.m2RootChecks.push(structuredClone(command));return send(command);};const put=IDBObjectStore.prototype.put;let abort=true;IDBObjectStore.prototype.put=function(...args){const request=put.apply(this,args);if(abort){abort=false;this.transaction.abort();}return request;};`);
+  await page.getByRole('button', { name: 'Check my idea', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Retry saved action', exact: true })).toBeVisible();
+  expect((await current()).world).toEqual(beforeCheck.world);
+  expect((await current()).rewards).toEqual(beforeCheck.rewards);
+  expect(await nativeRoot()).toEqual(beforeNative);
+  expect((await probe(page)).readiness.ready).toBe(false);
+  await expect(page.getByRole('button', { name: 'Silence all', exact: true })).toBeEnabled();
+  expect((await probe(page)).audio.preferences.silenceAll).toBe(true);
+  await attach(page, info, 'M2-root-native-failed-Check');
+  await page.getByRole('button', { name: 'Retry saved action', exact: true }).click();
+  await expect(page.getByText('Your idea worked!', { exact: true })).toBeVisible();
+  const checks = await page.evaluate('globalThis.m2RootChecks') as unknown[];
+  expect(checks).toHaveLength(2); expect(checks[1]).toEqual(checks[0]);
+  const committed = await current();
+  expect(committed.world.completedQuestIds).toContain('Q4');
+  expect(committed.world.completedStoryBindingIds).toContain('q4-story-m02-match');
+  expect(committed.rewards.questReceipts.filter((receipt: any) => ['Q1', 'Q2', 'Q3'].includes(receipt.questId))).toEqual(river.rewards.questReceipts);
+  expect(committed.rewards.questReceipts.filter((receipt: any) => receipt.questId === 'Q4')).toHaveLength(1);
+  expect(committed.encounters[encounter.encounterId].validChecks).toBe(1);
+  for (const old of Object.values(river.encounters) as any[]) {
+    if (old.learningEpisode.status === 'completed-success') expect(committed.encounters[old.encounterId]).toEqual(old);
+  }
+  expect((await probe(page)).snapshot.save.profiles[moss.identity.profileId]).toEqual(moss);
+  expect((await nativeRoot()).save).toEqual((await probe(page)).snapshot.save);
+  await attach(page, info, 'M2-root-Q4-committed');
+  await page.getByRole('button', { name: 'Leave activity', exact: true }).click();
+  await expect.poll(async () => (await probe(page)).readiness.ready).toBe(true);
+  await page.reload();
+  await page.getByRole('button', { name: 'River Boundary Choose explorer', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Village Green', exact: true })).toBeVisible();
+  expect((await current()).world).toEqual(committed.world);
+  expect((await current()).rewards).toEqual(committed.rewards);
+  expect((await probe(page)).audio.preferences).toEqual(donor.save.installation.audio);
+  await page.locator('.adventure-chapters button').nth(5).click();
+  await page.getByRole('button', { name: 'Resume Shelve the Lost Stories', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Check my idea', exact: true })).toBeEnabled();
+  expect((await open()).bindingProvenance.bindingId).toBe('q6-story-e04-sort');
+  await attach(page, info, 'M2-root-reloaded-continued');
+  await info.attach('M2-root-reloaded-screen', { body: await page.screenshot({ fullPage: true }), contentType: 'image/png' });
+  expect(errors).toEqual([]);
 });
 test('real shell keyboard, help focus, Hall, adult barrier and supported reflow', async ({ page }, info) => {
   info.setTimeout(60000);

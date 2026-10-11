@@ -54,7 +54,7 @@ const repository: SaveRepository = { ...real, async commitCommand(command, ports
   if (loseAcknowledgement) { loseAcknowledgement = false; events.push({ stage: 'acknowledgement-lost' }); throw new Error('Fixture transport dropped the actual native acknowledgement'); }
   return result;
 } };
-const facade = createStateController({ repository, catalogue, questBindings: QUEST_ACTIVITY_BINDINGS, milestone: 'M1',
+const facade = createStateController({ repository, catalogue, questBindings: QUEST_ACTIVITY_BINDINGS, milestone: 'M2',
   clock: { nowEpochMs: () => now }, preferenceGate: audio,
   readTransientReadiness: () => active?.panel.getStatus() ?? { dirty: false, pending: switchPending, failed: false } });
 const controller: typeof facade = { ...facade, subscribe(listener) {
@@ -106,7 +106,7 @@ function Fixture() {
   useSyncExternalStore(listener => { listeners.add(listener); return () => { listeners.delete(listener); }; }, () => version, () => version);
   const [nickname, setNickname] = useState('');
   const snapshot = controller.getSnapshot();
-  return <><div className="fixture-tools"><p>Bounded M1 producer host · native IndexedDB · local evidence only · port 5194</p>
+  return <><div className="fixture-tools"><p>Bounded adventure producer host · native IndexedDB · local evidence only</p>
     <nav aria-label="Fixture player selection">{Object.values(snapshot.save.profiles).map(p => <button key={p.identity.profileId} disabled={switchPending}
       onClick={() => { void guard(() => { selected = p.identity.profileId; view = { kind: 'world' }; }); }}>Play as {p.identity.nickname}</button>)}
       <button disabled={switchPending} onClick={() => { void guard(() => { view = { kind: 'profiles' }; }); }}>Player chooser</button>
@@ -138,10 +138,16 @@ const api: AdventureFixtureApi = {
   // Deliberately bypass normal leave only to exercise genuine disposal while an
   // already dispatched native command is pending. No save/progress is patched.
   remountWorld() { worldMount++; publish(); },
+  async importBackup(text) {
+    const preview = await controller.backupActions.prepare({ size: new TextEncoder().encode(text).byteLength, text: async () => text });
+    if (preview.status !== 'ready') throw new Error('Import did not prepare: ' + preview.status);
+    const result = await controller.backupActions.confirm(preview.preview.preparedImportId);
+    selected = ''; view = { kind: 'profiles' }; publish(); return result;
+  },
   setClock(iso) { const date = Date.parse(iso); if (!Number.isFinite(date)) throw new Error('Invalid test date'); now = date; },
   async externalRename(nickname) {
     const external = createStateController({ repository: openSaveRepository({ appNamespace: namespace, initialSave: createInitialSave(), validateSave, catalogue }),
-      catalogue, questBindings: QUEST_ACTIVITY_BINDINGS, milestone: 'M1', clock: { nowEpochMs: () => now }, preferenceGate: { applyLiveIntent() {} },
+      catalogue, questBindings: QUEST_ACTIVITY_BINDINGS, milestone: 'M2', clock: { nowEpochMs: () => now }, preferenceGate: { applyLiveIntent() {} },
       readTransientReadiness: () => ({ dirty: false, pending: false, failed: false }) });
     await external.ready;
     try { return await external.dispatch(external.prepareCommand({ kind: 'RenameProfile', profileId: selected, payload: { nickname } })); }

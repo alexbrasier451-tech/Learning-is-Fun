@@ -23,6 +23,17 @@
 .adventure-scene-layout { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(17rem, 1fr); align-items: center; gap: 2rem; }
 .adventure-illustration { position: relative; border-radius: 1.4rem; background: #e1ebd2; box-shadow: 0 12px 25px #44594018; }
 .adventure-scene-art { aspect-ratio: 960 / 600; display: grid; align-items: center; }
+.adventure-scene-canvas, .adventure-scene-art { position: relative; }
+.adventure-scene-piece { position: absolute; pointer-events: none; }
+.adventure-scene-piece img { width: 100%; height: 100%; object-fit: contain; }
+.adventure-facade { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.adventure-saved-decoration { position: absolute; width: 12.5%; aspect-ratio: 1; pointer-events: none; }
+.adventure-saved-decoration img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.adventure-saved-decoration .adventure-extra-socket { left: 3.33%; top: 71.33%; width: 93.33%; height: 38.89%; }
+.adventure-festival-offer, .adventure-practice { margin-top: 2rem; padding: 1.5rem; border: 1px solid #9eaf7f; border-radius: 1rem; background: var(--paper); }
+.adventure-festival-offer button, .adventure-practice button { margin: .5rem .6rem .5rem 0; }
+.adventure-practice select { font: inherit; max-width: 100%; min-height: 48px; padding: .5rem; display: block; }
+.adventure-practice summary { cursor: pointer; min-height: 48px; }
 .adventure-scene-art img, .adventure-map-art img { width: 100%; height: auto; display: block; object-fit: contain; }
 .scene-caption { display: block; background: #e4ead5; color: #405344; text-align: center; font-size: .875rem; padding: .8rem; border-radius: 0 0 1.4rem 1.4rem; }
 .adventure-story-copy { font-size: 1.2rem; }
