@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checks": [
+    "draft native root unchanged",
+    "navigation/reload root unchanged",
+    "Finish candidate identical for retained actionId retry",
+    "Check candidate identical for retained submission retry",
+    "resume ordinal2 with same encounter/opportunity/cumulativeChecks/help and zero episode Checks",
+    "same-opportunity repeat Check zero lifetime",
+    "normal reexport equals untouched starter logical save"
+  ],
+  "at": "2026-10-11T06:43:39.425Z"
+}

@@ -1,0 +1,4330 @@
+[
+  {
+    "name": "D1-Q1-before",
+    "revision": 4,
+    "lifetime": 0,
+    "quests": [],
+    "encounters": [
+      {
+        "id": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+        "canonical": "lif.math.bridge.r1.total-12",
+        "opportunity": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "checks": 0,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 0,
+          "firstCheckSequence": null,
+          "status": "open",
+          "completionActionId": null
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        }
+      }
+    ],
+    "learning": {}
+  },
+  {
+    "name": "D1-Q1-edited",
+    "revision": 4,
+    "lifetime": 0,
+    "quests": [],
+    "encounters": [
+      {
+        "id": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+        "canonical": "lif.math.bridge.r1.total-12",
+        "opportunity": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "checks": 0,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 0,
+          "firstCheckSequence": null,
+          "status": "open",
+          "completionActionId": null
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        }
+      }
+    ],
+    "learning": {}
+  },
+  {
+    "name": "D1-Q1-success",
+    "revision": 5,
+    "lifetime": 40,
+    "weekly": 20,
+    "slots": [
+      {
+        "slot": 1,
+        "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+        "points": 20
+      }
+    ],
+    "quests": [
+      "Q1"
+    ],
+    "encounters": [
+      {
+        "id": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+        "canonical": "lif.math.bridge.r1.total-12",
+        "opportunity": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "8e7c1a5e-4075-4fe5-90f2-bc9fc155be8a"
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 40,
+          "competitiveDelta": 20,
+          "consumedSlot": 1,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "answer"
+            },
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "independent-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q1"
+            }
+          ],
+          "newEntitlementIds": [
+            "scarf-leaf"
+          ]
+        }
+      }
+    ],
+    "learning": {
+      "M01": {
+        "skillId": "M01",
+        "bands": {
+          "support": {
+            "validChecks": 1,
+            "correctChecks": 1,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 1,
+            "independentSuccesses": 1,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.math.bridge.r1.total-12"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+                "objectiveId": "M01-addition-subtraction",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": true,
+                "assistance": {
+                  "answerHintUsed": false,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": "2026-10-14"
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      }
+    }
+  },
+  {
+    "name": "D1-Q2-wrong-hint",
+    "revision": 8,
+    "lifetime": 45,
+    "weekly": 25,
+    "slots": [
+      {
+        "slot": 1,
+        "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+        "points": 20
+      },
+      {
+        "slot": 2,
+        "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+        "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+        "points": 5
+      }
+    ],
+    "quests": [
+      "Q1"
+    ],
+    "encounters": [
+      {
+        "id": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+        "canonical": "lif.math.bridge.r1.total-12",
+        "opportunity": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "8e7c1a5e-4075-4fe5-90f2-bc9fc155be8a"
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 40,
+          "competitiveDelta": 20,
+          "consumedSlot": 1,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "answer"
+            },
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "independent-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q1"
+            }
+          ],
+          "newEntitlementIds": [
+            "scarf-leaf"
+          ]
+        }
+      },
+      {
+        "id": "59b0c93b-5680-441b-9064-873575f0a72d",
+        "canonical": "lif.english.punctuation.r1.spellbook-anchor",
+        "opportunity": "b774b495-d27e-4598-8009-8d00d9212234",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "open",
+          "completionActionId": null
+        },
+        "assistance": {
+          "answerHintUsed": true,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 5,
+          "competitiveDelta": 5,
+          "consumedSlot": 2,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+              "component": "answer"
+            }
+          ],
+          "newEntitlementIds": []
+        }
+      }
+    ],
+    "learning": {
+      "M01": {
+        "skillId": "M01",
+        "bands": {
+          "support": {
+            "validChecks": 1,
+            "correctChecks": 1,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 1,
+            "independentSuccesses": 1,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.math.bridge.r1.total-12"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+                "objectiveId": "M01-addition-subtraction",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": true,
+                "assistance": {
+                  "answerHintUsed": false,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": "2026-10-14"
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      },
+      "E06": {
+        "skillId": "E06",
+        "bands": {
+          "support": {
+            "validChecks": 1,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {
+          "59b0c93b-5680-441b-9064-873575f0a72d": {
+            "encounterId": "59b0c93b-5680-441b-9064-873575f0a72d",
+            "learningEpisodeOrdinal": 1,
+            "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+            "objectiveId": "E06-punctuation",
+            "band": "support",
+            "validChecks": 1,
+            "encounterCheckIndex": 1,
+            "firstCheckCorrect": false,
+            "assistance": {
+              "answerHintUsed": false,
+              "workedSupportUsed": false,
+              "assessedTextReadAloud": false,
+              "evidenceMode": "independent"
+            },
+            "issues": [
+              {
+                "code": "punctuation-context",
+                "observed": ".",
+                "explanation": "For “Where are my magic books”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                "slotId": "question",
+                "constraintId": null
+              },
+              {
+                "code": "punctuation-context",
+                "observed": "?",
+                "explanation": "For “Look, there they are”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                "slotId": "discovery",
+                "constraintId": null
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "D1-Q2-leave-reload",
+    "revision": 8,
+    "lifetime": 45,
+    "weekly": 25,
+    "slots": [
+      {
+        "slot": 1,
+        "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+        "points": 20
+      },
+      {
+        "slot": 2,
+        "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+        "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+        "points": 5
+      }
+    ],
+    "quests": [
+      "Q1"
+    ],
+    "encounters": [
+      {
+        "id": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+        "canonical": "lif.math.bridge.r1.total-12",
+        "opportunity": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "8e7c1a5e-4075-4fe5-90f2-bc9fc155be8a"
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 40,
+          "competitiveDelta": 20,
+          "consumedSlot": 1,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "answer"
+            },
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "independent-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q1"
+            }
+          ],
+          "newEntitlementIds": [
+            "scarf-leaf"
+          ]
+        }
+      },
+      {
+        "id": "59b0c93b-5680-441b-9064-873575f0a72d",
+        "canonical": "lif.english.punctuation.r1.spellbook-anchor",
+        "opportunity": "b774b495-d27e-4598-8009-8d00d9212234",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "open",
+          "completionActionId": null
+        },
+        "assistance": {
+          "answerHintUsed": true,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 5,
+          "competitiveDelta": 5,
+          "consumedSlot": 2,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+              "component": "answer"
+            }
+          ],
+          "newEntitlementIds": []
+        }
+      }
+    ],
+    "learning": {
+      "M01": {
+        "skillId": "M01",
+        "bands": {
+          "support": {
+            "validChecks": 1,
+            "correctChecks": 1,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 1,
+            "independentSuccesses": 1,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.math.bridge.r1.total-12"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+                "objectiveId": "M01-addition-subtraction",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": true,
+                "assistance": {
+                  "answerHintUsed": false,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": "2026-10-14"
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      },
+      "E06": {
+        "skillId": "E06",
+        "bands": {
+          "support": {
+            "validChecks": 1,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {
+          "59b0c93b-5680-441b-9064-873575f0a72d": {
+            "encounterId": "59b0c93b-5680-441b-9064-873575f0a72d",
+            "learningEpisodeOrdinal": 1,
+            "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+            "objectiveId": "E06-punctuation",
+            "band": "support",
+            "validChecks": 1,
+            "encounterCheckIndex": 1,
+            "firstCheckCorrect": false,
+            "assistance": {
+              "answerHintUsed": false,
+              "workedSupportUsed": false,
+              "assessedTextReadAloud": false,
+              "evidenceMode": "independent"
+            },
+            "issues": [
+              {
+                "code": "punctuation-context",
+                "observed": ".",
+                "explanation": "For “Where are my magic books”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                "slotId": "question",
+                "constraintId": null
+              },
+              {
+                "code": "punctuation-context",
+                "observed": "?",
+                "explanation": "For “Look, there they are”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                "slotId": "discovery",
+                "constraintId": null
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "D1-finish-abort",
+    "revision": 8,
+    "lifetime": 45,
+    "weekly": 25,
+    "slots": [
+      {
+        "slot": 1,
+        "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+        "points": 20
+      },
+      {
+        "slot": 2,
+        "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+        "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+        "points": 5
+      }
+    ],
+    "quests": [
+      "Q1"
+    ],
+    "encounters": [
+      {
+        "id": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+        "canonical": "lif.math.bridge.r1.total-12",
+        "opportunity": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "8e7c1a5e-4075-4fe5-90f2-bc9fc155be8a"
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 40,
+          "competitiveDelta": 20,
+          "consumedSlot": 1,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "answer"
+            },
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "independent-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q1"
+            }
+          ],
+          "newEntitlementIds": [
+            "scarf-leaf"
+          ]
+        }
+      },
+      {
+        "id": "59b0c93b-5680-441b-9064-873575f0a72d",
+        "canonical": "lif.english.punctuation.r1.spellbook-anchor",
+        "opportunity": "b774b495-d27e-4598-8009-8d00d9212234",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "open",
+          "completionActionId": null
+        },
+        "assistance": {
+          "answerHintUsed": true,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 5,
+          "competitiveDelta": 5,
+          "consumedSlot": 2,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+              "component": "answer"
+            }
+          ],
+          "newEntitlementIds": []
+        }
+      }
+    ],
+    "learning": {
+      "M01": {
+        "skillId": "M01",
+        "bands": {
+          "support": {
+            "validChecks": 1,
+            "correctChecks": 1,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 1,
+            "independentSuccesses": 1,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.math.bridge.r1.total-12"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+                "objectiveId": "M01-addition-subtraction",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": true,
+                "assistance": {
+                  "answerHintUsed": false,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": "2026-10-14"
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      },
+      "E06": {
+        "skillId": "E06",
+        "bands": {
+          "support": {
+            "validChecks": 1,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {
+          "59b0c93b-5680-441b-9064-873575f0a72d": {
+            "encounterId": "59b0c93b-5680-441b-9064-873575f0a72d",
+            "learningEpisodeOrdinal": 1,
+            "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+            "objectiveId": "E06-punctuation",
+            "band": "support",
+            "validChecks": 1,
+            "encounterCheckIndex": 1,
+            "firstCheckCorrect": false,
+            "assistance": {
+              "answerHintUsed": false,
+              "workedSupportUsed": false,
+              "assessedTextReadAloud": false,
+              "evidenceMode": "independent"
+            },
+            "issues": [
+              {
+                "code": "punctuation-context",
+                "observed": ".",
+                "explanation": "For “Where are my magic books”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                "slotId": "question",
+                "constraintId": null
+              },
+              {
+                "code": "punctuation-context",
+                "observed": "?",
+                "explanation": "For “Look, there they are”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                "slotId": "discovery",
+                "constraintId": null
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "D1-finish-retry",
+    "revision": 9,
+    "lifetime": 45,
+    "weekly": 25,
+    "slots": [
+      {
+        "slot": 1,
+        "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+        "points": 20
+      },
+      {
+        "slot": 2,
+        "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+        "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+        "points": 5
+      }
+    ],
+    "quests": [
+      "Q1"
+    ],
+    "encounters": [
+      {
+        "id": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+        "canonical": "lif.math.bridge.r1.total-12",
+        "opportunity": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "8e7c1a5e-4075-4fe5-90f2-bc9fc155be8a"
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 40,
+          "competitiveDelta": 20,
+          "consumedSlot": 1,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "answer"
+            },
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "independent-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q1"
+            }
+          ],
+          "newEntitlementIds": [
+            "scarf-leaf"
+          ]
+        }
+      },
+      {
+        "id": "59b0c93b-5680-441b-9064-873575f0a72d",
+        "canonical": "lif.english.punctuation.r1.spellbook-anchor",
+        "opportunity": "b774b495-d27e-4598-8009-8d00d9212234",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-unsuccessful",
+          "completionActionId": "6040c29f-00b5-478c-a9c1-616f8a477d25"
+        },
+        "assistance": {
+          "answerHintUsed": true,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 5,
+          "competitiveDelta": 5,
+          "consumedSlot": 2,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+              "component": "answer"
+            }
+          ],
+          "newEntitlementIds": []
+        }
+      }
+    ],
+    "learning": {
+      "M01": {
+        "skillId": "M01",
+        "bands": {
+          "support": {
+            "validChecks": 1,
+            "correctChecks": 1,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 1,
+            "independentSuccesses": 1,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.math.bridge.r1.total-12"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+                "objectiveId": "M01-addition-subtraction",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": true,
+                "assistance": {
+                  "answerHintUsed": false,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": "2026-10-14"
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      },
+      "E06": {
+        "skillId": "E06",
+        "bands": {
+          "support": {
+            "validChecks": 1,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 1,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "59b0c93b-5680-441b-9064-873575f0a72d",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+                "objectiveId": "E06-punctuation",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": false,
+                "assistance": {
+                  "answerHintUsed": true,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [
+                  {
+                    "code": "punctuation-context",
+                    "observed": ".",
+                    "explanation": "For “Where are my magic books”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                    "slotId": "question",
+                    "constraintId": null
+                  },
+                  {
+                    "code": "punctuation-context",
+                    "observed": "?",
+                    "explanation": "For “Look, there they are”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                    "slotId": "discovery",
+                    "constraintId": null
+                  }
+                ],
+                "outcome": "deliberate-unsuccessful",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      }
+    }
+  },
+  {
+    "name": "D1-Q2-episode2",
+    "revision": 10,
+    "lifetime": 45,
+    "weekly": 25,
+    "slots": [
+      {
+        "slot": 1,
+        "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+        "points": 20
+      },
+      {
+        "slot": 2,
+        "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+        "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+        "points": 5
+      }
+    ],
+    "quests": [
+      "Q1"
+    ],
+    "encounters": [
+      {
+        "id": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+        "canonical": "lif.math.bridge.r1.total-12",
+        "opportunity": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "8e7c1a5e-4075-4fe5-90f2-bc9fc155be8a"
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 40,
+          "competitiveDelta": 20,
+          "consumedSlot": 1,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "answer"
+            },
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "independent-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q1"
+            }
+          ],
+          "newEntitlementIds": [
+            "scarf-leaf"
+          ]
+        }
+      },
+      {
+        "id": "59b0c93b-5680-441b-9064-873575f0a72d",
+        "canonical": "lif.english.punctuation.r1.spellbook-anchor",
+        "opportunity": "b774b495-d27e-4598-8009-8d00d9212234",
+        "checks": 1,
+        "episode": {
+          "ordinal": 2,
+          "validChecks": 0,
+          "firstCheckSequence": null,
+          "status": "open",
+          "completionActionId": null
+        },
+        "assistance": {
+          "answerHintUsed": true,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 5,
+          "competitiveDelta": 5,
+          "consumedSlot": 2,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+              "component": "answer"
+            }
+          ],
+          "newEntitlementIds": []
+        }
+      }
+    ],
+    "learning": {
+      "M01": {
+        "skillId": "M01",
+        "bands": {
+          "support": {
+            "validChecks": 1,
+            "correctChecks": 1,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 1,
+            "independentSuccesses": 1,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.math.bridge.r1.total-12"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+                "objectiveId": "M01-addition-subtraction",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": true,
+                "assistance": {
+                  "answerHintUsed": false,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": "2026-10-14"
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      },
+      "E06": {
+        "skillId": "E06",
+        "bands": {
+          "support": {
+            "validChecks": 1,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 1,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "59b0c93b-5680-441b-9064-873575f0a72d",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+                "objectiveId": "E06-punctuation",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": false,
+                "assistance": {
+                  "answerHintUsed": true,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [
+                  {
+                    "code": "punctuation-context",
+                    "observed": ".",
+                    "explanation": "For “Where are my magic books”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                    "slotId": "question",
+                    "constraintId": null
+                  },
+                  {
+                    "code": "punctuation-context",
+                    "observed": "?",
+                    "explanation": "For “Look, there they are”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                    "slotId": "discovery",
+                    "constraintId": null
+                  }
+                ],
+                "outcome": "deliberate-unsuccessful",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      }
+    }
+  },
+  {
+    "name": "D1-Q2-offline-success",
+    "revision": 11,
+    "lifetime": 70,
+    "weekly": 30,
+    "slots": [
+      {
+        "slot": 1,
+        "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+        "points": 20
+      },
+      {
+        "slot": 2,
+        "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+        "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+        "points": 10
+      }
+    ],
+    "quests": [
+      "Q1",
+      "Q2"
+    ],
+    "encounters": [
+      {
+        "id": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+        "canonical": "lif.math.bridge.r1.total-12",
+        "opportunity": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "8e7c1a5e-4075-4fe5-90f2-bc9fc155be8a"
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 40,
+          "competitiveDelta": 20,
+          "consumedSlot": 1,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "answer"
+            },
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "independent-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q1"
+            }
+          ],
+          "newEntitlementIds": [
+            "scarf-leaf"
+          ]
+        }
+      },
+      {
+        "id": "59b0c93b-5680-441b-9064-873575f0a72d",
+        "canonical": "lif.english.punctuation.r1.spellbook-anchor",
+        "opportunity": "b774b495-d27e-4598-8009-8d00d9212234",
+        "checks": 2,
+        "episode": {
+          "ordinal": 2,
+          "validChecks": 1,
+          "firstCheckSequence": 2,
+          "status": "completed-success",
+          "completionActionId": "90a68c54-5d50-4245-b482-882161deb78a"
+        },
+        "assistance": {
+          "answerHintUsed": true,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 25,
+          "competitiveDelta": 5,
+          "consumedSlot": null,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+              "component": "supported-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q2"
+            }
+          ],
+          "newEntitlementIds": [
+            "planter-rim"
+          ]
+        }
+      }
+    ],
+    "learning": {
+      "M01": {
+        "skillId": "M01",
+        "bands": {
+          "support": {
+            "validChecks": 1,
+            "correctChecks": 1,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 1,
+            "independentSuccesses": 1,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.math.bridge.r1.total-12"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+                "objectiveId": "M01-addition-subtraction",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": true,
+                "assistance": {
+                  "answerHintUsed": false,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": "2026-10-14"
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      },
+      "E06": {
+        "skillId": "E06",
+        "bands": {
+          "support": {
+            "validChecks": 2,
+            "correctChecks": 1,
+            "answerHelpChecks": 1,
+            "completedEpisodes": 2,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 1,
+            "retrySuccesses": 1,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.english.punctuation.r1.spellbook-anchor"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "59b0c93b-5680-441b-9064-873575f0a72d",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+                "objectiveId": "E06-punctuation",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": false,
+                "assistance": {
+                  "answerHintUsed": true,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [
+                  {
+                    "code": "punctuation-context",
+                    "observed": ".",
+                    "explanation": "For “Where are my magic books”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                    "slotId": "question",
+                    "constraintId": null
+                  },
+                  {
+                    "code": "punctuation-context",
+                    "observed": "?",
+                    "explanation": "For “Look, there they are”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                    "slotId": "discovery",
+                    "constraintId": null
+                  }
+                ],
+                "outcome": "deliberate-unsuccessful",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              },
+              {
+                "encounterId": "59b0c93b-5680-441b-9064-873575f0a72d",
+                "learningEpisodeOrdinal": 2,
+                "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+                "objectiveId": "E06-punctuation",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 2,
+                "firstCheckCorrect": false,
+                "assistance": {
+                  "answerHintUsed": true,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      }
+    }
+  },
+  {
+    "name": "D1-Q3-success",
+    "revision": 14,
+    "lifetime": 110,
+    "weekly": 50,
+    "slots": [
+      {
+        "slot": 1,
+        "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+        "points": 20
+      },
+      {
+        "slot": 2,
+        "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+        "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+        "points": 10
+      },
+      {
+        "slot": 3,
+        "opportunityId": "c502db13-f6c8-4405-9e7a-f5ae2240749f",
+        "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-3",
+        "points": 20
+      }
+    ],
+    "quests": [
+      "Q1",
+      "Q2",
+      "Q3"
+    ],
+    "encounters": [
+      {
+        "id": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+        "canonical": "lif.math.bridge.r1.total-12",
+        "opportunity": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "8e7c1a5e-4075-4fe5-90f2-bc9fc155be8a"
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 40,
+          "competitiveDelta": 20,
+          "consumedSlot": 1,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "answer"
+            },
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "independent-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q1"
+            }
+          ],
+          "newEntitlementIds": [
+            "scarf-leaf"
+          ]
+        }
+      },
+      {
+        "id": "59b0c93b-5680-441b-9064-873575f0a72d",
+        "canonical": "lif.english.punctuation.r1.spellbook-anchor",
+        "opportunity": "b774b495-d27e-4598-8009-8d00d9212234",
+        "checks": 2,
+        "episode": {
+          "ordinal": 2,
+          "validChecks": 1,
+          "firstCheckSequence": 2,
+          "status": "completed-success",
+          "completionActionId": "90a68c54-5d50-4245-b482-882161deb78a"
+        },
+        "assistance": {
+          "answerHintUsed": true,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 25,
+          "competitiveDelta": 5,
+          "consumedSlot": null,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+              "component": "supported-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q2"
+            }
+          ],
+          "newEntitlementIds": [
+            "planter-rim"
+          ]
+        }
+      },
+      {
+        "id": "d40606c8-8ffe-4500-8058-57076e9b68ef",
+        "canonical": "lif.math.merchant.r1.mult-2.pears-3",
+        "opportunity": "c502db13-f6c8-4405-9e7a-f5ae2240749f",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "8b50445c-2f68-47bd-ba54-9b536a219a66"
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 40,
+          "competitiveDelta": 20,
+          "consumedSlot": 3,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "c502db13-f6c8-4405-9e7a-f5ae2240749f",
+              "component": "answer"
+            },
+            {
+              "opportunityId": "c502db13-f6c8-4405-9e7a-f5ae2240749f",
+              "component": "independent-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q3"
+            }
+          ],
+          "newEntitlementIds": []
+        }
+      }
+    ],
+    "learning": {
+      "M01": {
+        "skillId": "M01",
+        "bands": {
+          "support": {
+            "validChecks": 1,
+            "correctChecks": 1,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 1,
+            "independentSuccesses": 1,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.math.bridge.r1.total-12"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+                "objectiveId": "M01-addition-subtraction",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": true,
+                "assistance": {
+                  "answerHintUsed": false,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": "2026-10-14"
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      },
+      "E06": {
+        "skillId": "E06",
+        "bands": {
+          "support": {
+            "validChecks": 2,
+            "correctChecks": 1,
+            "answerHelpChecks": 1,
+            "completedEpisodes": 2,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 1,
+            "retrySuccesses": 1,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.english.punctuation.r1.spellbook-anchor"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "59b0c93b-5680-441b-9064-873575f0a72d",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+                "objectiveId": "E06-punctuation",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": false,
+                "assistance": {
+                  "answerHintUsed": true,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [
+                  {
+                    "code": "punctuation-context",
+                    "observed": ".",
+                    "explanation": "For “Where are my magic books”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                    "slotId": "question",
+                    "constraintId": null
+                  },
+                  {
+                    "code": "punctuation-context",
+                    "observed": "?",
+                    "explanation": "For “Look, there they are”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                    "slotId": "discovery",
+                    "constraintId": null
+                  }
+                ],
+                "outcome": "deliberate-unsuccessful",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              },
+              {
+                "encounterId": "59b0c93b-5680-441b-9064-873575f0a72d",
+                "learningEpisodeOrdinal": 2,
+                "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+                "objectiveId": "E06-punctuation",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 2,
+                "firstCheckCorrect": false,
+                "assistance": {
+                  "answerHintUsed": true,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      },
+      "M04": {
+        "skillId": "M04",
+        "bands": {
+          "support": {
+            "validChecks": 1,
+            "correctChecks": 1,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 1,
+            "independentSuccesses": 1,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.math.merchant.r1.mult-2.pears-3"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "d40606c8-8ffe-4500-8058-57076e9b68ef",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-3",
+                "objectiveId": "M04-integer-scaling",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": true,
+                "assistance": {
+                  "answerHintUsed": false,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": "2026-10-14"
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      }
+    }
+  },
+  {
+    "name": "D1-optional-unfinished",
+    "revision": 17,
+    "lifetime": 115,
+    "weekly": 55,
+    "slots": [
+      {
+        "slot": 1,
+        "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+        "points": 20
+      },
+      {
+        "slot": 2,
+        "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+        "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+        "points": 10
+      },
+      {
+        "slot": 3,
+        "opportunityId": "c502db13-f6c8-4405-9e7a-f5ae2240749f",
+        "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-3",
+        "points": 20
+      },
+      {
+        "slot": 4,
+        "opportunityId": "50c8f1d7-d271-4645-b16c-6f5e636f6845",
+        "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-1",
+        "points": 5
+      }
+    ],
+    "quests": [
+      "Q1",
+      "Q2",
+      "Q3"
+    ],
+    "encounters": [
+      {
+        "id": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+        "canonical": "lif.math.bridge.r1.total-12",
+        "opportunity": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "8e7c1a5e-4075-4fe5-90f2-bc9fc155be8a"
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 40,
+          "competitiveDelta": 20,
+          "consumedSlot": 1,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "answer"
+            },
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "independent-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q1"
+            }
+          ],
+          "newEntitlementIds": [
+            "scarf-leaf"
+          ]
+        }
+      },
+      {
+        "id": "59b0c93b-5680-441b-9064-873575f0a72d",
+        "canonical": "lif.english.punctuation.r1.spellbook-anchor",
+        "opportunity": "b774b495-d27e-4598-8009-8d00d9212234",
+        "checks": 2,
+        "episode": {
+          "ordinal": 2,
+          "validChecks": 1,
+          "firstCheckSequence": 2,
+          "status": "completed-success",
+          "completionActionId": "90a68c54-5d50-4245-b482-882161deb78a"
+        },
+        "assistance": {
+          "answerHintUsed": true,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 25,
+          "competitiveDelta": 5,
+          "consumedSlot": null,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+              "component": "supported-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q2"
+            }
+          ],
+          "newEntitlementIds": [
+            "planter-rim"
+          ]
+        }
+      },
+      {
+        "id": "d40606c8-8ffe-4500-8058-57076e9b68ef",
+        "canonical": "lif.math.merchant.r1.mult-2.pears-3",
+        "opportunity": "c502db13-f6c8-4405-9e7a-f5ae2240749f",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "8b50445c-2f68-47bd-ba54-9b536a219a66"
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 40,
+          "competitiveDelta": 20,
+          "consumedSlot": 3,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "c502db13-f6c8-4405-9e7a-f5ae2240749f",
+              "component": "answer"
+            },
+            {
+              "opportunityId": "c502db13-f6c8-4405-9e7a-f5ae2240749f",
+              "component": "independent-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q3"
+            }
+          ],
+          "newEntitlementIds": []
+        }
+      },
+      {
+        "id": "75d97a4f-733b-460f-82f2-59a884fc1909",
+        "canonical": "lif.math.merchant.r1.mult-2.pears-1",
+        "opportunity": "50c8f1d7-d271-4645-b16c-6f5e636f6845",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "open",
+          "completionActionId": null
+        },
+        "assistance": {
+          "answerHintUsed": true,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 5,
+          "competitiveDelta": 5,
+          "consumedSlot": 4,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "50c8f1d7-d271-4645-b16c-6f5e636f6845",
+              "component": "answer"
+            }
+          ],
+          "newEntitlementIds": []
+        }
+      }
+    ],
+    "learning": {
+      "M01": {
+        "skillId": "M01",
+        "bands": {
+          "support": {
+            "validChecks": 1,
+            "correctChecks": 1,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 1,
+            "independentSuccesses": 1,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.math.bridge.r1.total-12"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+                "objectiveId": "M01-addition-subtraction",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": true,
+                "assistance": {
+                  "answerHintUsed": false,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": "2026-10-14"
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      },
+      "E06": {
+        "skillId": "E06",
+        "bands": {
+          "support": {
+            "validChecks": 2,
+            "correctChecks": 1,
+            "answerHelpChecks": 1,
+            "completedEpisodes": 2,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 1,
+            "retrySuccesses": 1,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.english.punctuation.r1.spellbook-anchor"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "59b0c93b-5680-441b-9064-873575f0a72d",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+                "objectiveId": "E06-punctuation",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": false,
+                "assistance": {
+                  "answerHintUsed": true,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [
+                  {
+                    "code": "punctuation-context",
+                    "observed": ".",
+                    "explanation": "For “Where are my magic books”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                    "slotId": "question",
+                    "constraintId": null
+                  },
+                  {
+                    "code": "punctuation-context",
+                    "observed": "?",
+                    "explanation": "For “Look, there they are”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                    "slotId": "discovery",
+                    "constraintId": null
+                  }
+                ],
+                "outcome": "deliberate-unsuccessful",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              },
+              {
+                "encounterId": "59b0c93b-5680-441b-9064-873575f0a72d",
+                "learningEpisodeOrdinal": 2,
+                "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+                "objectiveId": "E06-punctuation",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 2,
+                "firstCheckCorrect": false,
+                "assistance": {
+                  "answerHintUsed": true,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      },
+      "M04": {
+        "skillId": "M04",
+        "bands": {
+          "support": {
+            "validChecks": 2,
+            "correctChecks": 1,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 1,
+            "independentSuccesses": 1,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.math.merchant.r1.mult-2.pears-3"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "d40606c8-8ffe-4500-8058-57076e9b68ef",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-3",
+                "objectiveId": "M04-integer-scaling",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": true,
+                "assistance": {
+                  "answerHintUsed": false,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": "2026-10-14"
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {
+          "75d97a4f-733b-460f-82f2-59a884fc1909": {
+            "encounterId": "75d97a4f-733b-460f-82f2-59a884fc1909",
+            "learningEpisodeOrdinal": 1,
+            "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-1",
+            "objectiveId": "M04-integer-scaling",
+            "band": "support",
+            "validChecks": 1,
+            "encounterCheckIndex": 1,
+            "firstCheckCorrect": false,
+            "assistance": {
+              "answerHintUsed": false,
+              "workedSupportUsed": false,
+              "assessedTextReadAloud": false,
+              "evidenceMode": "independent"
+            },
+            "issues": [
+              {
+                "code": "total-mismatch",
+                "observed": "1 fruit",
+                "explanation": "There are 1 pieces of fruit in the basket. The request is for 3 altogether.",
+                "slotId": null,
+                "constraintId": "total"
+              },
+              {
+                "code": "relationship-mismatch",
+                "observed": "1 apple and 0 pears",
+                "explanation": "The request needs 2 apples for each pear. With 0 pears, that relationship would give 0 apples; this basket has 1. Check the total too.",
+                "slotId": null,
+                "constraintId": "relationship"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "D1-repeat-first-check",
+    "revision": 4,
+    "lifetime": 125,
+    "weekly": 65,
+    "slots": [
+      {
+        "slot": 1,
+        "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+        "points": 20
+      },
+      {
+        "slot": 2,
+        "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+        "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+        "points": 10
+      },
+      {
+        "slot": 3,
+        "opportunityId": "c502db13-f6c8-4405-9e7a-f5ae2240749f",
+        "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-3",
+        "points": 20
+      },
+      {
+        "slot": 4,
+        "opportunityId": "50c8f1d7-d271-4645-b16c-6f5e636f6845",
+        "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-1",
+        "points": 10
+      },
+      {
+        "slot": 5,
+        "opportunityId": "a0ea6cf3-b0ed-4c8f-9dfb-2b64ce512c36",
+        "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-2",
+        "points": 5
+      }
+    ],
+    "quests": [
+      "Q1",
+      "Q2",
+      "Q3"
+    ],
+    "encounters": [
+      {
+        "id": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+        "canonical": "lif.math.bridge.r1.total-12",
+        "opportunity": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "8e7c1a5e-4075-4fe5-90f2-bc9fc155be8a"
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 40,
+          "competitiveDelta": 20,
+          "consumedSlot": 1,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "answer"
+            },
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "independent-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q1"
+            }
+          ],
+          "newEntitlementIds": [
+            "scarf-leaf"
+          ]
+        }
+      },
+      {
+        "id": "59b0c93b-5680-441b-9064-873575f0a72d",
+        "canonical": "lif.english.punctuation.r1.spellbook-anchor",
+        "opportunity": "b774b495-d27e-4598-8009-8d00d9212234",
+        "checks": 2,
+        "episode": {
+          "ordinal": 2,
+          "validChecks": 1,
+          "firstCheckSequence": 2,
+          "status": "completed-success",
+          "completionActionId": "90a68c54-5d50-4245-b482-882161deb78a"
+        },
+        "assistance": {
+          "answerHintUsed": true,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 25,
+          "competitiveDelta": 5,
+          "consumedSlot": null,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+              "component": "supported-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q2"
+            }
+          ],
+          "newEntitlementIds": [
+            "planter-rim"
+          ]
+        }
+      },
+      {
+        "id": "d40606c8-8ffe-4500-8058-57076e9b68ef",
+        "canonical": "lif.math.merchant.r1.mult-2.pears-3",
+        "opportunity": "c502db13-f6c8-4405-9e7a-f5ae2240749f",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "8b50445c-2f68-47bd-ba54-9b536a219a66"
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 40,
+          "competitiveDelta": 20,
+          "consumedSlot": 3,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "c502db13-f6c8-4405-9e7a-f5ae2240749f",
+              "component": "answer"
+            },
+            {
+              "opportunityId": "c502db13-f6c8-4405-9e7a-f5ae2240749f",
+              "component": "independent-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q3"
+            }
+          ],
+          "newEntitlementIds": []
+        }
+      },
+      {
+        "id": "75d97a4f-733b-460f-82f2-59a884fc1909",
+        "canonical": "lif.math.merchant.r1.mult-2.pears-1",
+        "opportunity": "50c8f1d7-d271-4645-b16c-6f5e636f6845",
+        "checks": 2,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 2,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "c4ae7b87-778f-4643-9a7c-397784272d8f"
+        },
+        "assistance": {
+          "answerHintUsed": true,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 5,
+          "competitiveDelta": 5,
+          "consumedSlot": null,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "50c8f1d7-d271-4645-b16c-6f5e636f6845",
+              "component": "supported-success"
+            }
+          ],
+          "newEntitlementIds": []
+        }
+      },
+      {
+        "id": "7238aec6-5e45-42cd-aabc-601227f5722d",
+        "canonical": "lif.math.merchant.r1.mult-2.pears-2",
+        "opportunity": "a0ea6cf3-b0ed-4c8f-9dfb-2b64ce512c36",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "open",
+          "completionActionId": null
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 5,
+          "competitiveDelta": 5,
+          "consumedSlot": 5,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "a0ea6cf3-b0ed-4c8f-9dfb-2b64ce512c36",
+              "component": "answer"
+            }
+          ],
+          "newEntitlementIds": []
+        }
+      }
+    ],
+    "learning": {
+      "M01": {
+        "skillId": "M01",
+        "bands": {
+          "support": {
+            "validChecks": 1,
+            "correctChecks": 1,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 1,
+            "independentSuccesses": 1,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.math.bridge.r1.total-12"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+                "objectiveId": "M01-addition-subtraction",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": true,
+                "assistance": {
+                  "answerHintUsed": false,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": "2026-10-14"
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      },
+      "E06": {
+        "skillId": "E06",
+        "bands": {
+          "support": {
+            "validChecks": 2,
+            "correctChecks": 1,
+            "answerHelpChecks": 1,
+            "completedEpisodes": 2,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 1,
+            "retrySuccesses": 1,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.english.punctuation.r1.spellbook-anchor"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "59b0c93b-5680-441b-9064-873575f0a72d",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+                "objectiveId": "E06-punctuation",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": false,
+                "assistance": {
+                  "answerHintUsed": true,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [
+                  {
+                    "code": "punctuation-context",
+                    "observed": ".",
+                    "explanation": "For “Where are my magic books”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                    "slotId": "question",
+                    "constraintId": null
+                  },
+                  {
+                    "code": "punctuation-context",
+                    "observed": "?",
+                    "explanation": "For “Look, there they are”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                    "slotId": "discovery",
+                    "constraintId": null
+                  }
+                ],
+                "outcome": "deliberate-unsuccessful",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              },
+              {
+                "encounterId": "59b0c93b-5680-441b-9064-873575f0a72d",
+                "learningEpisodeOrdinal": 2,
+                "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+                "objectiveId": "E06-punctuation",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 2,
+                "firstCheckCorrect": false,
+                "assistance": {
+                  "answerHintUsed": true,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      },
+      "M04": {
+        "skillId": "M04",
+        "bands": {
+          "support": {
+            "validChecks": 4,
+            "correctChecks": 2,
+            "answerHelpChecks": 1,
+            "completedEpisodes": 2,
+            "independentSuccesses": 1,
+            "supportedSuccesses": 1,
+            "retrySuccesses": 1,
+            "laterDistinctSuccesses": 1,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.math.merchant.r1.mult-2.pears-3",
+              "lif.math.merchant.r1.mult-2.pears-1"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "d40606c8-8ffe-4500-8058-57076e9b68ef",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-3",
+                "objectiveId": "M04-integer-scaling",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": true,
+                "assistance": {
+                  "answerHintUsed": false,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              },
+              {
+                "encounterId": "75d97a4f-733b-460f-82f2-59a884fc1909",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-1",
+                "objectiveId": "M04-integer-scaling",
+                "band": "support",
+                "validChecks": 2,
+                "encounterCheckIndex": 2,
+                "firstCheckCorrect": false,
+                "assistance": {
+                  "answerHintUsed": true,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [
+                  {
+                    "code": "total-mismatch",
+                    "observed": "1 fruit",
+                    "explanation": "There are 1 pieces of fruit in the basket. The request is for 3 altogether.",
+                    "slotId": null,
+                    "constraintId": "total"
+                  },
+                  {
+                    "code": "relationship-mismatch",
+                    "observed": "1 apple and 0 pears",
+                    "explanation": "The request needs 2 apples for each pear. With 0 pears, that relationship would give 0 apples; this basket has 1. Check the total too.",
+                    "slotId": null,
+                    "constraintId": "relationship"
+                  }
+                ],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": "2026-10-14"
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {
+          "7238aec6-5e45-42cd-aabc-601227f5722d": {
+            "encounterId": "7238aec6-5e45-42cd-aabc-601227f5722d",
+            "learningEpisodeOrdinal": 1,
+            "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-2",
+            "objectiveId": "M04-integer-scaling",
+            "band": "support",
+            "validChecks": 1,
+            "encounterCheckIndex": 1,
+            "firstCheckCorrect": false,
+            "assistance": {
+              "answerHintUsed": false,
+              "workedSupportUsed": false,
+              "assessedTextReadAloud": false,
+              "evidenceMode": "independent"
+            },
+            "issues": [
+              {
+                "code": "total-mismatch",
+                "observed": "1 fruit",
+                "explanation": "There are 1 pieces of fruit in the basket. The request is for 6 altogether.",
+                "slotId": null,
+                "constraintId": "total"
+              },
+              {
+                "code": "relationship-mismatch",
+                "observed": "1 apple and 0 pears",
+                "explanation": "The request needs 2 apples for each pear. With 0 pears, that relationship would give 0 apples; this basket has 1. Check the total too.",
+                "slotId": null,
+                "constraintId": "relationship"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "D1-repeat-after-reload",
+    "revision": 5,
+    "lifetime": 125,
+    "weekly": 65,
+    "slots": [
+      {
+        "slot": 1,
+        "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+        "points": 20
+      },
+      {
+        "slot": 2,
+        "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+        "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+        "points": 10
+      },
+      {
+        "slot": 3,
+        "opportunityId": "c502db13-f6c8-4405-9e7a-f5ae2240749f",
+        "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-3",
+        "points": 20
+      },
+      {
+        "slot": 4,
+        "opportunityId": "50c8f1d7-d271-4645-b16c-6f5e636f6845",
+        "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-1",
+        "points": 10
+      },
+      {
+        "slot": 5,
+        "opportunityId": "a0ea6cf3-b0ed-4c8f-9dfb-2b64ce512c36",
+        "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-2",
+        "points": 5
+      }
+    ],
+    "quests": [
+      "Q1",
+      "Q2",
+      "Q3"
+    ],
+    "encounters": [
+      {
+        "id": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+        "canonical": "lif.math.bridge.r1.total-12",
+        "opportunity": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "8e7c1a5e-4075-4fe5-90f2-bc9fc155be8a"
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 40,
+          "competitiveDelta": 20,
+          "consumedSlot": 1,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "answer"
+            },
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "independent-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q1"
+            }
+          ],
+          "newEntitlementIds": [
+            "scarf-leaf"
+          ]
+        }
+      },
+      {
+        "id": "59b0c93b-5680-441b-9064-873575f0a72d",
+        "canonical": "lif.english.punctuation.r1.spellbook-anchor",
+        "opportunity": "b774b495-d27e-4598-8009-8d00d9212234",
+        "checks": 2,
+        "episode": {
+          "ordinal": 2,
+          "validChecks": 1,
+          "firstCheckSequence": 2,
+          "status": "completed-success",
+          "completionActionId": "90a68c54-5d50-4245-b482-882161deb78a"
+        },
+        "assistance": {
+          "answerHintUsed": true,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 25,
+          "competitiveDelta": 5,
+          "consumedSlot": null,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+              "component": "supported-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q2"
+            }
+          ],
+          "newEntitlementIds": [
+            "planter-rim"
+          ]
+        }
+      },
+      {
+        "id": "d40606c8-8ffe-4500-8058-57076e9b68ef",
+        "canonical": "lif.math.merchant.r1.mult-2.pears-3",
+        "opportunity": "c502db13-f6c8-4405-9e7a-f5ae2240749f",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "8b50445c-2f68-47bd-ba54-9b536a219a66"
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 40,
+          "competitiveDelta": 20,
+          "consumedSlot": 3,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "c502db13-f6c8-4405-9e7a-f5ae2240749f",
+              "component": "answer"
+            },
+            {
+              "opportunityId": "c502db13-f6c8-4405-9e7a-f5ae2240749f",
+              "component": "independent-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q3"
+            }
+          ],
+          "newEntitlementIds": []
+        }
+      },
+      {
+        "id": "75d97a4f-733b-460f-82f2-59a884fc1909",
+        "canonical": "lif.math.merchant.r1.mult-2.pears-1",
+        "opportunity": "50c8f1d7-d271-4645-b16c-6f5e636f6845",
+        "checks": 2,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 2,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "c4ae7b87-778f-4643-9a7c-397784272d8f"
+        },
+        "assistance": {
+          "answerHintUsed": true,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 5,
+          "competitiveDelta": 5,
+          "consumedSlot": null,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "50c8f1d7-d271-4645-b16c-6f5e636f6845",
+              "component": "supported-success"
+            }
+          ],
+          "newEntitlementIds": []
+        }
+      },
+      {
+        "id": "7238aec6-5e45-42cd-aabc-601227f5722d",
+        "canonical": "lif.math.merchant.r1.mult-2.pears-2",
+        "opportunity": "a0ea6cf3-b0ed-4c8f-9dfb-2b64ce512c36",
+        "checks": 2,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 2,
+          "firstCheckSequence": 1,
+          "status": "open",
+          "completionActionId": null
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 0,
+          "competitiveDelta": 0,
+          "consumedSlot": null,
+          "newReceiptKeys": [],
+          "newEntitlementIds": []
+        }
+      }
+    ],
+    "learning": {
+      "M01": {
+        "skillId": "M01",
+        "bands": {
+          "support": {
+            "validChecks": 1,
+            "correctChecks": 1,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 1,
+            "independentSuccesses": 1,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.math.bridge.r1.total-12"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+                "objectiveId": "M01-addition-subtraction",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": true,
+                "assistance": {
+                  "answerHintUsed": false,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": "2026-10-14"
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      },
+      "E06": {
+        "skillId": "E06",
+        "bands": {
+          "support": {
+            "validChecks": 2,
+            "correctChecks": 1,
+            "answerHelpChecks": 1,
+            "completedEpisodes": 2,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 1,
+            "retrySuccesses": 1,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.english.punctuation.r1.spellbook-anchor"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "59b0c93b-5680-441b-9064-873575f0a72d",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+                "objectiveId": "E06-punctuation",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": false,
+                "assistance": {
+                  "answerHintUsed": true,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [
+                  {
+                    "code": "punctuation-context",
+                    "observed": ".",
+                    "explanation": "For “Where are my magic books”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                    "slotId": "question",
+                    "constraintId": null
+                  },
+                  {
+                    "code": "punctuation-context",
+                    "observed": "?",
+                    "explanation": "For “Look, there they are”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                    "slotId": "discovery",
+                    "constraintId": null
+                  }
+                ],
+                "outcome": "deliberate-unsuccessful",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              },
+              {
+                "encounterId": "59b0c93b-5680-441b-9064-873575f0a72d",
+                "learningEpisodeOrdinal": 2,
+                "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+                "objectiveId": "E06-punctuation",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 2,
+                "firstCheckCorrect": false,
+                "assistance": {
+                  "answerHintUsed": true,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      },
+      "M04": {
+        "skillId": "M04",
+        "bands": {
+          "support": {
+            "validChecks": 5,
+            "correctChecks": 2,
+            "answerHelpChecks": 1,
+            "completedEpisodes": 2,
+            "independentSuccesses": 1,
+            "supportedSuccesses": 1,
+            "retrySuccesses": 1,
+            "laterDistinctSuccesses": 1,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.math.merchant.r1.mult-2.pears-3",
+              "lif.math.merchant.r1.mult-2.pears-1"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "d40606c8-8ffe-4500-8058-57076e9b68ef",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-3",
+                "objectiveId": "M04-integer-scaling",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": true,
+                "assistance": {
+                  "answerHintUsed": false,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              },
+              {
+                "encounterId": "75d97a4f-733b-460f-82f2-59a884fc1909",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-1",
+                "objectiveId": "M04-integer-scaling",
+                "band": "support",
+                "validChecks": 2,
+                "encounterCheckIndex": 2,
+                "firstCheckCorrect": false,
+                "assistance": {
+                  "answerHintUsed": true,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [
+                  {
+                    "code": "total-mismatch",
+                    "observed": "1 fruit",
+                    "explanation": "There are 1 pieces of fruit in the basket. The request is for 3 altogether.",
+                    "slotId": null,
+                    "constraintId": "total"
+                  },
+                  {
+                    "code": "relationship-mismatch",
+                    "observed": "1 apple and 0 pears",
+                    "explanation": "The request needs 2 apples for each pear. With 0 pears, that relationship would give 0 apples; this basket has 1. Check the total too.",
+                    "slotId": null,
+                    "constraintId": "relationship"
+                  }
+                ],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": "2026-10-14"
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {
+          "7238aec6-5e45-42cd-aabc-601227f5722d": {
+            "encounterId": "7238aec6-5e45-42cd-aabc-601227f5722d",
+            "learningEpisodeOrdinal": 1,
+            "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-2",
+            "objectiveId": "M04-integer-scaling",
+            "band": "support",
+            "validChecks": 2,
+            "encounterCheckIndex": 2,
+            "firstCheckCorrect": false,
+            "assistance": {
+              "answerHintUsed": false,
+              "workedSupportUsed": false,
+              "assessedTextReadAloud": false,
+              "evidenceMode": "independent"
+            },
+            "issues": [
+              {
+                "code": "total-mismatch",
+                "observed": "1 fruit",
+                "explanation": "There are 1 pieces of fruit in the basket. The request is for 6 altogether.",
+                "slotId": null,
+                "constraintId": "total"
+              },
+              {
+                "code": "relationship-mismatch",
+                "observed": "1 apple and 0 pears",
+                "explanation": "The request needs 2 apples for each pear. With 0 pears, that relationship would give 0 apples; this basket has 1. Check the total too.",
+                "slotId": null,
+                "constraintId": "relationship"
+              },
+              {
+                "code": "total-mismatch",
+                "observed": "1 fruit",
+                "explanation": "There are 1 pieces of fruit in the basket. The request is for 6 altogether.",
+                "slotId": null,
+                "constraintId": "total"
+              },
+              {
+                "code": "relationship-mismatch",
+                "observed": "1 apple and 0 pears",
+                "explanation": "The request needs 2 apples for each pear. With 0 pears, that relationship would give 0 apples; this basket has 1. Check the total too.",
+                "slotId": null,
+                "constraintId": "relationship"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "D1-repeat-later-success",
+    "revision": 9,
+    "lifetime": 130,
+    "weekly": 70,
+    "slots": [
+      {
+        "slot": 1,
+        "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+        "points": 20
+      },
+      {
+        "slot": 2,
+        "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+        "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+        "points": 10
+      },
+      {
+        "slot": 3,
+        "opportunityId": "c502db13-f6c8-4405-9e7a-f5ae2240749f",
+        "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-3",
+        "points": 20
+      },
+      {
+        "slot": 4,
+        "opportunityId": "50c8f1d7-d271-4645-b16c-6f5e636f6845",
+        "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-1",
+        "points": 10
+      },
+      {
+        "slot": 5,
+        "opportunityId": "a0ea6cf3-b0ed-4c8f-9dfb-2b64ce512c36",
+        "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-2",
+        "points": 10
+      }
+    ],
+    "quests": [
+      "Q1",
+      "Q2",
+      "Q3"
+    ],
+    "encounters": [
+      {
+        "id": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+        "canonical": "lif.math.bridge.r1.total-12",
+        "opportunity": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "8e7c1a5e-4075-4fe5-90f2-bc9fc155be8a"
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 40,
+          "competitiveDelta": 20,
+          "consumedSlot": 1,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "answer"
+            },
+            {
+              "opportunityId": "fe5ebc9a-89c7-40ee-9f65-5ffcfa2cc82c",
+              "component": "independent-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q1"
+            }
+          ],
+          "newEntitlementIds": [
+            "scarf-leaf"
+          ]
+        }
+      },
+      {
+        "id": "59b0c93b-5680-441b-9064-873575f0a72d",
+        "canonical": "lif.english.punctuation.r1.spellbook-anchor",
+        "opportunity": "b774b495-d27e-4598-8009-8d00d9212234",
+        "checks": 2,
+        "episode": {
+          "ordinal": 2,
+          "validChecks": 1,
+          "firstCheckSequence": 2,
+          "status": "completed-success",
+          "completionActionId": "90a68c54-5d50-4245-b482-882161deb78a"
+        },
+        "assistance": {
+          "answerHintUsed": true,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 25,
+          "competitiveDelta": 5,
+          "consumedSlot": null,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "b774b495-d27e-4598-8009-8d00d9212234",
+              "component": "supported-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q2"
+            }
+          ],
+          "newEntitlementIds": [
+            "planter-rim"
+          ]
+        }
+      },
+      {
+        "id": "d40606c8-8ffe-4500-8058-57076e9b68ef",
+        "canonical": "lif.math.merchant.r1.mult-2.pears-3",
+        "opportunity": "c502db13-f6c8-4405-9e7a-f5ae2240749f",
+        "checks": 1,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "8b50445c-2f68-47bd-ba54-9b536a219a66"
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 40,
+          "competitiveDelta": 20,
+          "consumedSlot": 3,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "c502db13-f6c8-4405-9e7a-f5ae2240749f",
+              "component": "answer"
+            },
+            {
+              "opportunityId": "c502db13-f6c8-4405-9e7a-f5ae2240749f",
+              "component": "independent-success"
+            },
+            {
+              "profileId": "6d6f8fd7-46a7-438c-8129-71d152f1c0e2",
+              "questId": "Q3"
+            }
+          ],
+          "newEntitlementIds": []
+        }
+      },
+      {
+        "id": "75d97a4f-733b-460f-82f2-59a884fc1909",
+        "canonical": "lif.math.merchant.r1.mult-2.pears-1",
+        "opportunity": "50c8f1d7-d271-4645-b16c-6f5e636f6845",
+        "checks": 2,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 2,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "c4ae7b87-778f-4643-9a7c-397784272d8f"
+        },
+        "assistance": {
+          "answerHintUsed": true,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 5,
+          "competitiveDelta": 5,
+          "consumedSlot": null,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "50c8f1d7-d271-4645-b16c-6f5e636f6845",
+              "component": "supported-success"
+            }
+          ],
+          "newEntitlementIds": []
+        }
+      },
+      {
+        "id": "7238aec6-5e45-42cd-aabc-601227f5722d",
+        "canonical": "lif.math.merchant.r1.mult-2.pears-2",
+        "opportunity": "a0ea6cf3-b0ed-4c8f-9dfb-2b64ce512c36",
+        "checks": 3,
+        "episode": {
+          "ordinal": 1,
+          "validChecks": 3,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "e8e58743-b042-4918-9393-70c52e7f34ac"
+        },
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "delta": {
+          "lifetimeDelta": 5,
+          "competitiveDelta": 5,
+          "consumedSlot": null,
+          "newReceiptKeys": [
+            {
+              "opportunityId": "a0ea6cf3-b0ed-4c8f-9dfb-2b64ce512c36",
+              "component": "supported-success"
+            }
+          ],
+          "newEntitlementIds": []
+        }
+      }
+    ],
+    "learning": {
+      "M01": {
+        "skillId": "M01",
+        "bands": {
+          "support": {
+            "validChecks": 1,
+            "correctChecks": 1,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 1,
+            "independentSuccesses": 1,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.math.bridge.r1.total-12"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "b4ee85f5-9e0a-4201-9972-7038874b6b47",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+                "objectiveId": "M01-addition-subtraction",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": true,
+                "assistance": {
+                  "answerHintUsed": false,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": "2026-10-14"
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      },
+      "E06": {
+        "skillId": "E06",
+        "bands": {
+          "support": {
+            "validChecks": 2,
+            "correctChecks": 1,
+            "answerHelpChecks": 1,
+            "completedEpisodes": 2,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 1,
+            "retrySuccesses": 1,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.english.punctuation.r1.spellbook-anchor"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "59b0c93b-5680-441b-9064-873575f0a72d",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+                "objectiveId": "E06-punctuation",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": false,
+                "assistance": {
+                  "answerHintUsed": true,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [
+                  {
+                    "code": "punctuation-context",
+                    "observed": ".",
+                    "explanation": "For “Where are my magic books”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                    "slotId": "question",
+                    "constraintId": null
+                  },
+                  {
+                    "code": "punctuation-context",
+                    "observed": "?",
+                    "explanation": "For “Look, there they are”: The first line asks where the books are, so it ends with a question mark. The second tells of a discovery: a full stop is a calm observation and an exclamation mark is an excited one. Both discoveries work equally well. A question mark would make the discovery uncertain, outside this scene.",
+                    "slotId": "discovery",
+                    "constraintId": null
+                  }
+                ],
+                "outcome": "deliberate-unsuccessful",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              },
+              {
+                "encounterId": "59b0c93b-5680-441b-9064-873575f0a72d",
+                "learningEpisodeOrdinal": 2,
+                "canonicalQuestionId": "lif.english.punctuation.r1.spellbook-anchor",
+                "objectiveId": "E06-punctuation",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 2,
+                "firstCheckCorrect": false,
+                "assistance": {
+                  "answerHintUsed": true,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      },
+      "M04": {
+        "skillId": "M04",
+        "bands": {
+          "support": {
+            "validChecks": 6,
+            "correctChecks": 3,
+            "answerHelpChecks": 1,
+            "completedEpisodes": 3,
+            "independentSuccesses": 1,
+            "supportedSuccesses": 2,
+            "retrySuccesses": 2,
+            "laterDistinctSuccesses": 2,
+            "distinctSuccessfulCanonicalQuestionIds": [
+              "lif.math.merchant.r1.mult-2.pears-3",
+              "lif.math.merchant.r1.mult-2.pears-1",
+              "lif.math.merchant.r1.mult-2.pears-2"
+            ],
+            "recentCompletedEpisodes": [
+              {
+                "encounterId": "d40606c8-8ffe-4500-8058-57076e9b68ef",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-3",
+                "objectiveId": "M04-integer-scaling",
+                "band": "support",
+                "validChecks": 1,
+                "encounterCheckIndex": 1,
+                "firstCheckCorrect": true,
+                "assistance": {
+                  "answerHintUsed": false,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              },
+              {
+                "encounterId": "75d97a4f-733b-460f-82f2-59a884fc1909",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-1",
+                "objectiveId": "M04-integer-scaling",
+                "band": "support",
+                "validChecks": 2,
+                "encounterCheckIndex": 2,
+                "firstCheckCorrect": false,
+                "assistance": {
+                  "answerHintUsed": true,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [
+                  {
+                    "code": "total-mismatch",
+                    "observed": "1 fruit",
+                    "explanation": "There are 1 pieces of fruit in the basket. The request is for 3 altogether.",
+                    "slotId": null,
+                    "constraintId": "total"
+                  },
+                  {
+                    "code": "relationship-mismatch",
+                    "observed": "1 apple and 0 pears",
+                    "explanation": "The request needs 2 apples for each pear. With 0 pears, that relationship would give 0 apples; this basket has 1. Check the total too.",
+                    "slotId": null,
+                    "constraintId": "relationship"
+                  }
+                ],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              },
+              {
+                "encounterId": "7238aec6-5e45-42cd-aabc-601227f5722d",
+                "learningEpisodeOrdinal": 1,
+                "canonicalQuestionId": "lif.math.merchant.r1.mult-2.pears-2",
+                "objectiveId": "M04-integer-scaling",
+                "band": "support",
+                "validChecks": 3,
+                "encounterCheckIndex": 3,
+                "firstCheckCorrect": false,
+                "assistance": {
+                  "answerHintUsed": false,
+                  "workedSupportUsed": false,
+                  "assessedTextReadAloud": false,
+                  "evidenceMode": "independent"
+                },
+                "issues": [
+                  {
+                    "code": "total-mismatch",
+                    "observed": "1 fruit",
+                    "explanation": "There are 1 pieces of fruit in the basket. The request is for 6 altogether.",
+                    "slotId": null,
+                    "constraintId": "total"
+                  },
+                  {
+                    "code": "relationship-mismatch",
+                    "observed": "1 apple and 0 pears",
+                    "explanation": "The request needs 2 apples for each pear. With 0 pears, that relationship would give 0 apples; this basket has 1. Check the total too.",
+                    "slotId": null,
+                    "constraintId": "relationship"
+                  },
+                  {
+                    "code": "total-mismatch",
+                    "observed": "1 fruit",
+                    "explanation": "There are 1 pieces of fruit in the basket. The request is for 6 altogether.",
+                    "slotId": null,
+                    "constraintId": "total"
+                  },
+                  {
+                    "code": "relationship-mismatch",
+                    "observed": "1 apple and 0 pears",
+                    "explanation": "The request needs 2 apples for each pear. With 0 pears, that relationship would give 0 apples; this basket has 1. Check the total too.",
+                    "slotId": null,
+                    "constraintId": "relationship"
+                  }
+                ],
+                "outcome": "success",
+                "localDate": "2026-10-11",
+                "competitionWeekId": "2026-10-05",
+                "familiar": false,
+                "reviewReference": null
+              }
+            ],
+            "reviewResults": [],
+            "reviewDueLocalDate": "2026-10-14"
+          },
+          "core": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          },
+          "stretch": {
+            "validChecks": 0,
+            "correctChecks": 0,
+            "answerHelpChecks": 0,
+            "completedEpisodes": 0,
+            "independentSuccesses": 0,
+            "supportedSuccesses": 0,
+            "retrySuccesses": 0,
+            "laterDistinctSuccesses": 0,
+            "distinctSuccessfulCanonicalQuestionIds": [],
+            "recentCompletedEpisodes": [],
+            "reviewResults": [],
+            "reviewDueLocalDate": null
+          }
+        },
+        "activeEpisodes": {}
+      }
+    }
+  }
+]

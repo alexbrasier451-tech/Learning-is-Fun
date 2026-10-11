@@ -1,0 +1,1055 @@
+{
+  "source": "fixture-results-1.json; derived read-only attachment reduction",
+  "stats": {
+    "startTime": "2026-10-11T07:05:05.627Z",
+    "duration": 50187.28,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "cases": [
+    {
+      "title": "accepted fixture cap 30 then continuous 31",
+      "status": "passed",
+      "fixture": "cap-before-30.json",
+      "instant": "2026-07-01T11:00:00.000Z",
+      "browser": "155.0.8059.40",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "seeded": true,
+      "initialLifetime": 640,
+      "lifetime": 680,
+      "weekly": 600,
+      "slots": 30,
+      "questReceipts": [
+        {
+          "profileId": "boundary-cap",
+          "questId": "Q1"
+        },
+        {
+          "profileId": "boundary-cap",
+          "questId": "Q2"
+        },
+        {
+          "profileId": "boundary-cap",
+          "questId": "Q3"
+        }
+      ],
+      "opportunity": {
+        "opportunityId": "650136c8-82b8-4a18-ad99-2a311828ce3c",
+        "profileId": "boundary-cap",
+        "canonicalQuestionId": "lif.english.punctuation.r1.authored-%5B%22spellbook-06%22%2C%5B%5D%5D",
+        "ordinal": 1,
+        "selectionFacts": {
+          "profileId": "boundary-cap",
+          "canonicalQuestionId": "lif.english.punctuation.r1.authored-%5B%22spellbook-06%22%2C%5B%5D%5D",
+          "encounterId": "a1de7392-284d-4393-8e2f-0ab5375241fd",
+          "selectionReason": "adaptive",
+          "candidate": "first-encounter",
+          "band": "support"
+        },
+        "earningWeek": "2026-06-29",
+        "slot": null,
+        "validChecks": 1,
+        "answerHintUsed": false,
+        "components": {
+          "answer": true,
+          "independentSuccess": true,
+          "supportedSuccess": false
+        },
+        "firstSuccessWeek": "2026-06-29",
+        "firstSuccessLocalDate": "2026-07-01"
+      },
+      "encounter": {
+        "encounterId": "a1de7392-284d-4393-8e2f-0ab5375241fd",
+        "opportunityId": "650136c8-82b8-4a18-ad99-2a311828ce3c",
+        "canonicalQuestionId": "lif.english.punctuation.r1.authored-%5B%22spellbook-06%22%2C%5B%5D%5D",
+        "descriptor": {
+          "familyId": "english.punctuation",
+          "equivalenceVersion": "r1",
+          "authoredKey": "spellbook-06",
+          "parameters": {}
+        },
+        "taskContentRevision": "starter-punctuation-1",
+        "skillId": "E06",
+        "band": "support",
+        "selectionReason": "adaptive-practice",
+        "bindingProvenance": {
+          "bindingId": "q2-revisit-e06",
+          "questId": "Q2",
+          "role": "revisit"
+        },
+        "familiar": false,
+        "reviewReference": null,
+        "validChecks": 1,
+        "firstCheckCorrect": true,
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "learningEpisode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "130bc044-4809-4efc-8e21-fef7020a548b"
+        },
+        "responseDraft": {
+          "kind": "punctuation",
+          "slots": {
+            "warning": "!"
+          }
+        },
+        "revealedAssistanceIds": [],
+        "eligibility": {
+          "kind": "resume-existing",
+          "reason": "unfinished-opportunity"
+        },
+        "lastCommittedCheck": {
+          "submissionId": "c8fd6b5c-4327-4121-9a22-9ddc85e0d7ed",
+          "checkSequence": 1,
+          "learningEpisodeOrdinal": 1,
+          "response": {
+            "kind": "punctuation",
+            "slots": {
+              "warning": "!"
+            }
+          },
+          "evaluation": {
+            "status": "judged",
+            "correct": true,
+            "canonicalQuestionId": "lif.english.punctuation.r1.authored-%5B%22spellbook-06%22%2C%5B%5D%5D",
+            "skillId": "E06",
+            "objectiveId": "E06-punctuation",
+            "band": "support",
+            "feedback": {
+              "explanation": "The branch is falling! uses an exclamation mark to show the urgent alarm requested here. A full stop could suit a calm report in another scene, and a question mark could ask for confirmation, but neither expresses this shouted warning.",
+              "issues": []
+            }
+          },
+          "delta": {
+            "lifetimeDelta": 20,
+            "competitiveDelta": 0,
+            "consumedSlot": null,
+            "newReceiptKeys": [
+              {
+                "opportunityId": "650136c8-82b8-4a18-ad99-2a311828ce3c",
+                "component": "answer"
+              },
+              {
+                "opportunityId": "650136c8-82b8-4a18-ad99-2a311828ce3c",
+                "component": "independent-success"
+              }
+            ],
+            "newEntitlementIds": []
+          }
+        }
+      },
+      "archives": [],
+      "personalRecords": {
+        "best": null,
+        "medals": {
+          "gold": 0,
+          "silver": 0,
+          "bronze": 0
+        }
+      },
+      "otherProfileUnchanged": true,
+      "competitionUnchangedAfterClosedOrCappedCheck": true,
+      "sameWeekRedisplay": null,
+      "screenshot": "accepted-fixture-cap-30-then-continuous-31.png"
+    },
+    {
+      "title": "accepted fixture cap independent 31",
+      "status": "passed",
+      "fixture": "cap-before-31.json",
+      "instant": "2026-07-01T11:00:00.000Z",
+      "browser": "155.0.8059.40",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "seeded": true,
+      "initialLifetime": 660,
+      "lifetime": 680,
+      "weekly": 600,
+      "slots": 30,
+      "questReceipts": [
+        {
+          "profileId": "boundary-cap",
+          "questId": "Q1"
+        },
+        {
+          "profileId": "boundary-cap",
+          "questId": "Q2"
+        },
+        {
+          "profileId": "boundary-cap",
+          "questId": "Q3"
+        }
+      ],
+      "opportunity": {
+        "opportunityId": "cap-opportunity-65",
+        "profileId": "boundary-cap",
+        "canonicalQuestionId": "lif.english.punctuation.r1.authored-%5B%22spellbook-06%22%2C%5B%5D%5D",
+        "ordinal": 1,
+        "selectionFacts": {
+          "profileId": "boundary-cap",
+          "canonicalQuestionId": "lif.english.punctuation.r1.authored-%5B%22spellbook-06%22%2C%5B%5D%5D",
+          "encounterId": "cap-encounter-65",
+          "selectionReason": "adaptive",
+          "candidate": "first-encounter",
+          "band": "support"
+        },
+        "earningWeek": "2026-06-29",
+        "slot": null,
+        "validChecks": 1,
+        "answerHintUsed": false,
+        "components": {
+          "answer": true,
+          "independentSuccess": true,
+          "supportedSuccess": false
+        },
+        "firstSuccessWeek": "2026-06-29",
+        "firstSuccessLocalDate": "2026-07-01"
+      },
+      "encounter": {
+        "encounterId": "cap-encounter-65",
+        "opportunityId": "cap-opportunity-65",
+        "canonicalQuestionId": "lif.english.punctuation.r1.authored-%5B%22spellbook-06%22%2C%5B%5D%5D",
+        "descriptor": {
+          "familyId": "english.punctuation",
+          "equivalenceVersion": "r1",
+          "authoredKey": "spellbook-06",
+          "parameters": {}
+        },
+        "taskContentRevision": "starter-punctuation-1",
+        "skillId": "E06",
+        "band": "support",
+        "selectionReason": "adaptive-practice",
+        "bindingProvenance": {
+          "bindingId": "q2-revisit-e06",
+          "questId": "Q2",
+          "role": "revisit"
+        },
+        "familiar": false,
+        "reviewReference": null,
+        "validChecks": 1,
+        "firstCheckCorrect": true,
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "learningEpisode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "0d7ed402-debd-48dc-a38a-11ed9f24297a"
+        },
+        "responseDraft": {
+          "kind": "punctuation",
+          "slots": {
+            "warning": "!"
+          }
+        },
+        "revealedAssistanceIds": [],
+        "eligibility": {
+          "kind": "resume-existing",
+          "reason": "unfinished-opportunity"
+        },
+        "lastCommittedCheck": {
+          "submissionId": "e3a5997f-b21c-450b-a793-18dd6aec7162",
+          "checkSequence": 1,
+          "learningEpisodeOrdinal": 1,
+          "response": {
+            "kind": "punctuation",
+            "slots": {
+              "warning": "!"
+            }
+          },
+          "evaluation": {
+            "status": "judged",
+            "correct": true,
+            "canonicalQuestionId": "lif.english.punctuation.r1.authored-%5B%22spellbook-06%22%2C%5B%5D%5D",
+            "skillId": "E06",
+            "objectiveId": "E06-punctuation",
+            "band": "support",
+            "feedback": {
+              "explanation": "The branch is falling! uses an exclamation mark to show the urgent alarm requested here. A full stop could suit a calm report in another scene, and a question mark could ask for confirmation, but neither expresses this shouted warning.",
+              "issues": []
+            }
+          },
+          "delta": {
+            "lifetimeDelta": 20,
+            "competitiveDelta": 0,
+            "consumedSlot": null,
+            "newReceiptKeys": [
+              {
+                "opportunityId": "cap-opportunity-65",
+                "component": "answer"
+              },
+              {
+                "opportunityId": "cap-opportunity-65",
+                "component": "independent-success"
+              }
+            ],
+            "newEntitlementIds": []
+          }
+        }
+      },
+      "archives": [],
+      "personalRecords": {
+        "best": null,
+        "medals": {
+          "gold": 0,
+          "silver": 0,
+          "bronze": 0
+        }
+      },
+      "otherProfileUnchanged": true,
+      "competitionUnchangedAfterClosedOrCappedCheck": true,
+      "sameWeekRedisplay": null,
+      "screenshot": "accepted-fixture-cap-independent-31.png"
+    },
+    {
+      "title": "accepted fixture summer whole Sunday hinted sequence",
+      "status": "passed",
+      "fixture": "summer-sunday-before-check.json",
+      "instant": "2026-07-05T22:59:59.000Z",
+      "browser": "155.0.8059.40",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "seeded": true,
+      "initialLifetime": 0,
+      "lifetime": 30,
+      "weekly": 0,
+      "slots": 0,
+      "questReceipts": [
+        {
+          "profileId": "boundary-summer",
+          "questId": "Q1"
+        }
+      ],
+      "opportunity": {
+        "opportunityId": "summer-opportunity-3",
+        "profileId": "boundary-summer",
+        "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+        "ordinal": 1,
+        "selectionFacts": {
+          "profileId": "boundary-summer",
+          "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+          "encounterId": "summer-encounter-3",
+          "selectionReason": "story",
+          "candidate": "first-encounter",
+          "band": "support"
+        },
+        "earningWeek": "2026-06-29",
+        "slot": 1,
+        "validChecks": 2,
+        "answerHintUsed": true,
+        "components": {
+          "answer": true,
+          "independentSuccess": false,
+          "supportedSuccess": true
+        },
+        "firstSuccessWeek": "2026-07-06",
+        "firstSuccessLocalDate": "2026-07-06"
+      },
+      "encounter": {
+        "encounterId": "summer-encounter-3",
+        "opportunityId": "summer-opportunity-3",
+        "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+        "descriptor": {
+          "familyId": "math.bridge",
+          "equivalenceVersion": "r1",
+          "authoredKey": null,
+          "parameters": {
+            "target": 12
+          }
+        },
+        "taskContentRevision": "starter-maths-1",
+        "skillId": "M01",
+        "band": "support",
+        "selectionReason": "story-anchor",
+        "bindingProvenance": {
+          "bindingId": "q1-story-m01",
+          "questId": "Q1",
+          "role": "story"
+        },
+        "familiar": false,
+        "reviewReference": null,
+        "validChecks": 2,
+        "firstCheckCorrect": false,
+        "assistance": {
+          "answerHintUsed": true,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "learningEpisode": {
+          "ordinal": 1,
+          "validChecks": 2,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "0fe5a4ad-cf54-45b2-b1b7-27f3ab4ed987"
+        },
+        "responseDraft": {
+          "kind": "bridge",
+          "planks": [
+            6,
+            6
+          ]
+        },
+        "revealedAssistanceIds": [
+          "bridge-look"
+        ],
+        "eligibility": {
+          "kind": "resume-existing",
+          "reason": "unfinished-opportunity"
+        },
+        "lastCommittedCheck": {
+          "submissionId": "47ebaf67-abe1-4764-aebc-b8e05295c0b9",
+          "checkSequence": 2,
+          "learningEpisodeOrdinal": 1,
+          "response": {
+            "kind": "bridge",
+            "planks": [
+              6,
+              6
+            ]
+          },
+          "evaluation": {
+            "status": "judged",
+            "correct": true,
+            "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+            "skillId": "M01",
+            "objectiveId": "M01-addition-subtraction",
+            "band": "support",
+            "feedback": {
+              "explanation": "Add all the chosen lengths. Any arrangement totalling 12 metres works, using one to six permitted planks. Changing the order does not change the total.",
+              "issues": []
+            }
+          },
+          "delta": {
+            "lifetimeDelta": 25,
+            "competitiveDelta": 0,
+            "consumedSlot": null,
+            "newReceiptKeys": [
+              {
+                "opportunityId": "summer-opportunity-3",
+                "component": "supported-success"
+              },
+              {
+                "profileId": "boundary-summer",
+                "questId": "Q1"
+              }
+            ],
+            "newEntitlementIds": [
+              "scarf-leaf"
+            ]
+          }
+        }
+      },
+      "archives": [
+        {
+          "week": "2026-06-29",
+          "timezone": "Europe/London",
+          "policyVersion": "1",
+          "entries": [
+            {
+              "profileId": "boundary-summer",
+              "nickname": "Sunday Explorer",
+              "avatarId": "pip",
+              "points": 5,
+              "rank": 1,
+              "medal": "gold"
+            }
+          ],
+          "omittedDeletedProfiles": false
+        }
+      ],
+      "personalRecords": {
+        "best": {
+          "points": 5,
+          "week": "2026-06-29"
+        },
+        "medals": {
+          "gold": 1,
+          "silver": 0,
+          "bronze": 0
+        }
+      },
+      "otherProfileUnchanged": true,
+      "competitionUnchangedAfterClosedOrCappedCheck": true,
+      "sameWeekRedisplay": null,
+      "screenshot": "accepted-fixture-summer-whole-Sunday-hinted-sequence.png"
+    },
+    {
+      "title": "accepted fixture summer saved wrong shortcut",
+      "status": "passed",
+      "fixture": "summer-sunday-wrong.json",
+      "instant": "2026-07-05T22:59:59.000Z",
+      "browser": "155.0.8059.40",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "seeded": true,
+      "initialLifetime": 5,
+      "lifetime": 30,
+      "weekly": 0,
+      "slots": 0,
+      "questReceipts": [
+        {
+          "profileId": "boundary-summer",
+          "questId": "Q1"
+        }
+      ],
+      "opportunity": {
+        "opportunityId": "summer-opportunity-3",
+        "profileId": "boundary-summer",
+        "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+        "ordinal": 1,
+        "selectionFacts": {
+          "profileId": "boundary-summer",
+          "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+          "encounterId": "summer-encounter-3",
+          "selectionReason": "story",
+          "candidate": "first-encounter",
+          "band": "support"
+        },
+        "earningWeek": "2026-06-29",
+        "slot": 1,
+        "validChecks": 2,
+        "answerHintUsed": false,
+        "components": {
+          "answer": true,
+          "independentSuccess": false,
+          "supportedSuccess": true
+        },
+        "firstSuccessWeek": "2026-07-06",
+        "firstSuccessLocalDate": "2026-07-06"
+      },
+      "encounter": {
+        "encounterId": "summer-encounter-3",
+        "opportunityId": "summer-opportunity-3",
+        "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+        "descriptor": {
+          "familyId": "math.bridge",
+          "equivalenceVersion": "r1",
+          "authoredKey": null,
+          "parameters": {
+            "target": 12
+          }
+        },
+        "taskContentRevision": "starter-maths-1",
+        "skillId": "M01",
+        "band": "support",
+        "selectionReason": "story-anchor",
+        "bindingProvenance": {
+          "bindingId": "q1-story-m01",
+          "questId": "Q1",
+          "role": "story"
+        },
+        "familiar": false,
+        "reviewReference": null,
+        "validChecks": 2,
+        "firstCheckCorrect": false,
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "learningEpisode": {
+          "ordinal": 1,
+          "validChecks": 2,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "88125c52-b741-4054-bbbe-a25988848096"
+        },
+        "responseDraft": {
+          "kind": "bridge",
+          "planks": [
+            6,
+            6
+          ]
+        },
+        "revealedAssistanceIds": [],
+        "eligibility": {
+          "kind": "resume-existing",
+          "reason": "unfinished-opportunity"
+        },
+        "lastCommittedCheck": {
+          "submissionId": "effa3db3-47a3-4da5-97a4-b10572f25946",
+          "checkSequence": 2,
+          "learningEpisodeOrdinal": 1,
+          "response": {
+            "kind": "bridge",
+            "planks": [
+              6,
+              6
+            ]
+          },
+          "evaluation": {
+            "status": "judged",
+            "correct": true,
+            "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+            "skillId": "M01",
+            "objectiveId": "M01-addition-subtraction",
+            "band": "support",
+            "feedback": {
+              "explanation": "Add all the chosen lengths. Any arrangement totalling 12 metres works, using one to six permitted planks. Changing the order does not change the total.",
+              "issues": []
+            }
+          },
+          "delta": {
+            "lifetimeDelta": 25,
+            "competitiveDelta": 0,
+            "consumedSlot": null,
+            "newReceiptKeys": [
+              {
+                "opportunityId": "summer-opportunity-3",
+                "component": "supported-success"
+              },
+              {
+                "profileId": "boundary-summer",
+                "questId": "Q1"
+              }
+            ],
+            "newEntitlementIds": [
+              "scarf-leaf"
+            ]
+          }
+        }
+      },
+      "archives": [
+        {
+          "week": "2026-06-29",
+          "timezone": "Europe/London",
+          "policyVersion": "1",
+          "entries": [
+            {
+              "profileId": "boundary-summer",
+              "nickname": "Sunday Explorer",
+              "avatarId": "pip",
+              "points": 5,
+              "rank": 1,
+              "medal": "gold"
+            }
+          ],
+          "omittedDeletedProfiles": false
+        }
+      ],
+      "personalRecords": {
+        "best": {
+          "points": 5,
+          "week": "2026-06-29"
+        },
+        "medals": {
+          "gold": 1,
+          "silver": 0,
+          "bronze": 0
+        }
+      },
+      "otherProfileUnchanged": true,
+      "competitionUnchangedAfterClosedOrCappedCheck": true,
+      "sameWeekRedisplay": null,
+      "screenshot": "accepted-fixture-summer-saved-wrong-shortcut.png"
+    },
+    {
+      "title": "accepted fixture genuine plus 3 due review",
+      "status": "passed",
+      "fixture": "review-plus-3-ready.json",
+      "instant": "2026-07-06T11:00:00.000Z",
+      "browser": "155.0.8059.40",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "seeded": true,
+      "initialLifetime": 120,
+      "lifetime": 140,
+      "weekly": 20,
+      "slots": 1,
+      "questReceipts": [
+        {
+          "profileId": "boundary-review",
+          "questId": "Q1"
+        },
+        {
+          "profileId": "boundary-review",
+          "questId": "Q2"
+        },
+        {
+          "profileId": "boundary-review",
+          "questId": "Q3"
+        }
+      ],
+      "opportunity": {
+        "opportunityId": "33c7728f-afb1-4baf-b552-3bf7a71679c6",
+        "profileId": "boundary-review",
+        "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+        "ordinal": 2,
+        "selectionFacts": {
+          "profileId": "boundary-review",
+          "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+          "encounterId": "3449d03b-4ec9-4f7b-8073-75ff29ffd9d8",
+          "selectionReason": "due-review",
+          "candidate": "later-week-due-review",
+          "band": "support",
+          "dueLocalDate": "2026-07-06",
+          "previousSuccessWeek": "2026-06-29"
+        },
+        "earningWeek": "2026-07-06",
+        "slot": 1,
+        "validChecks": 1,
+        "answerHintUsed": false,
+        "components": {
+          "answer": true,
+          "independentSuccess": true,
+          "supportedSuccess": false
+        },
+        "firstSuccessWeek": "2026-07-06",
+        "firstSuccessLocalDate": "2026-07-06"
+      },
+      "encounter": {
+        "encounterId": "3449d03b-4ec9-4f7b-8073-75ff29ffd9d8",
+        "opportunityId": "33c7728f-afb1-4baf-b552-3bf7a71679c6",
+        "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+        "descriptor": {
+          "familyId": "math.bridge",
+          "equivalenceVersion": "r1",
+          "authoredKey": null,
+          "parameters": {
+            "target": 12
+          }
+        },
+        "taskContentRevision": "starter-maths-1",
+        "skillId": "M01",
+        "band": "support",
+        "selectionReason": "due-review",
+        "bindingProvenance": null,
+        "familiar": true,
+        "reviewReference": {
+          "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+          "dueLocalDate": "2026-07-06",
+          "previousSuccessWeek": "2026-06-29"
+        },
+        "validChecks": 1,
+        "firstCheckCorrect": true,
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "learningEpisode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "06b5a638-7054-4a59-86f0-b40cd2d5488e"
+        },
+        "responseDraft": {
+          "kind": "bridge",
+          "planks": [
+            6,
+            6
+          ]
+        },
+        "revealedAssistanceIds": [],
+        "eligibility": {
+          "kind": "resume-existing",
+          "reason": "unfinished-opportunity"
+        },
+        "lastCommittedCheck": {
+          "submissionId": "eabc628d-0ef3-46a6-affd-fbe87d0898d5",
+          "checkSequence": 1,
+          "learningEpisodeOrdinal": 1,
+          "response": {
+            "kind": "bridge",
+            "planks": [
+              6,
+              6
+            ]
+          },
+          "evaluation": {
+            "status": "judged",
+            "correct": true,
+            "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+            "skillId": "M01",
+            "objectiveId": "M01-addition-subtraction",
+            "band": "support",
+            "feedback": {
+              "explanation": "Add all the chosen lengths. Any arrangement totalling 12 metres works, using one to six permitted planks. Changing the order does not change the total.",
+              "issues": []
+            }
+          },
+          "delta": {
+            "lifetimeDelta": 20,
+            "competitiveDelta": 20,
+            "consumedSlot": 1,
+            "newReceiptKeys": [
+              {
+                "opportunityId": "33c7728f-afb1-4baf-b552-3bf7a71679c6",
+                "component": "answer"
+              },
+              {
+                "opportunityId": "33c7728f-afb1-4baf-b552-3bf7a71679c6",
+                "component": "independent-success"
+              }
+            ],
+            "newEntitlementIds": []
+          }
+        }
+      },
+      "archives": [
+        {
+          "week": "2026-06-29",
+          "timezone": "Europe/London",
+          "policyVersion": "1",
+          "entries": [
+            {
+              "profileId": "boundary-review",
+              "nickname": "Review Explorer",
+              "avatarId": "pip",
+              "points": 60,
+              "rank": 1,
+              "medal": "gold"
+            }
+          ],
+          "omittedDeletedProfiles": false
+        }
+      ],
+      "personalRecords": {
+        "best": {
+          "points": 60,
+          "week": "2026-06-29"
+        },
+        "medals": {
+          "gold": 1,
+          "silver": 0,
+          "bronze": 0
+        }
+      },
+      "otherProfileUnchanged": true,
+      "competitionUnchangedAfterClosedOrCappedCheck": null,
+      "sameWeekRedisplay": {
+        "rewardUnchanged": true,
+        "competitionUnchanged": true
+      },
+      "screenshot": "accepted-fixture-genuine-plus-3-due-review.png"
+    },
+    {
+      "title": "accepted fixture genuine plus 7 due review",
+      "status": "passed",
+      "fixture": "review-plus-7-ready.json",
+      "instant": "2026-07-13T11:00:00.000Z",
+      "browser": "155.0.8059.40",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "seeded": true,
+      "initialLifetime": 180,
+      "lifetime": 200,
+      "weekly": 20,
+      "slots": 1,
+      "questReceipts": [
+        {
+          "profileId": "boundary-review",
+          "questId": "Q1"
+        },
+        {
+          "profileId": "boundary-review",
+          "questId": "Q2"
+        },
+        {
+          "profileId": "boundary-review",
+          "questId": "Q3"
+        }
+      ],
+      "opportunity": {
+        "opportunityId": "8739ac03-5a7a-4ad0-b82c-8dbdc134f173",
+        "profileId": "boundary-review",
+        "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+        "ordinal": 3,
+        "selectionFacts": {
+          "profileId": "boundary-review",
+          "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+          "encounterId": "e528ac55-f80a-4b5b-a3b6-83e5f087dcf9",
+          "selectionReason": "due-review",
+          "candidate": "later-week-due-review",
+          "band": "support",
+          "dueLocalDate": "2026-07-13",
+          "previousSuccessWeek": "2026-07-06"
+        },
+        "earningWeek": "2026-07-13",
+        "slot": 1,
+        "validChecks": 1,
+        "answerHintUsed": false,
+        "components": {
+          "answer": true,
+          "independentSuccess": true,
+          "supportedSuccess": false
+        },
+        "firstSuccessWeek": "2026-07-13",
+        "firstSuccessLocalDate": "2026-07-13"
+      },
+      "encounter": {
+        "encounterId": "e528ac55-f80a-4b5b-a3b6-83e5f087dcf9",
+        "opportunityId": "8739ac03-5a7a-4ad0-b82c-8dbdc134f173",
+        "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+        "descriptor": {
+          "familyId": "math.bridge",
+          "equivalenceVersion": "r1",
+          "authoredKey": null,
+          "parameters": {
+            "target": 12
+          }
+        },
+        "taskContentRevision": "starter-maths-1",
+        "skillId": "M01",
+        "band": "support",
+        "selectionReason": "due-review",
+        "bindingProvenance": null,
+        "familiar": true,
+        "reviewReference": {
+          "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+          "dueLocalDate": "2026-07-13",
+          "previousSuccessWeek": "2026-07-06"
+        },
+        "validChecks": 1,
+        "firstCheckCorrect": true,
+        "assistance": {
+          "answerHintUsed": false,
+          "workedSupportUsed": false,
+          "assessedTextReadAloud": false,
+          "evidenceMode": "independent"
+        },
+        "learningEpisode": {
+          "ordinal": 1,
+          "validChecks": 1,
+          "firstCheckSequence": 1,
+          "status": "completed-success",
+          "completionActionId": "0a406209-1a36-4160-81c1-e0d18bc7c944"
+        },
+        "responseDraft": {
+          "kind": "bridge",
+          "planks": [
+            6,
+            6
+          ]
+        },
+        "revealedAssistanceIds": [],
+        "eligibility": {
+          "kind": "resume-existing",
+          "reason": "unfinished-opportunity"
+        },
+        "lastCommittedCheck": {
+          "submissionId": "fc35eb15-a4f4-4398-8784-7d23710759c3",
+          "checkSequence": 1,
+          "learningEpisodeOrdinal": 1,
+          "response": {
+            "kind": "bridge",
+            "planks": [
+              6,
+              6
+            ]
+          },
+          "evaluation": {
+            "status": "judged",
+            "correct": true,
+            "canonicalQuestionId": "lif.math.bridge.r1.total-12",
+            "skillId": "M01",
+            "objectiveId": "M01-addition-subtraction",
+            "band": "support",
+            "feedback": {
+              "explanation": "Add all the chosen lengths. Any arrangement totalling 12 metres works, using one to six permitted planks. Changing the order does not change the total.",
+              "issues": []
+            }
+          },
+          "delta": {
+            "lifetimeDelta": 20,
+            "competitiveDelta": 20,
+            "consumedSlot": 1,
+            "newReceiptKeys": [
+              {
+                "opportunityId": "8739ac03-5a7a-4ad0-b82c-8dbdc134f173",
+                "component": "answer"
+              },
+              {
+                "opportunityId": "8739ac03-5a7a-4ad0-b82c-8dbdc134f173",
+                "component": "independent-success"
+              }
+            ],
+            "newEntitlementIds": []
+          }
+        }
+      },
+      "archives": [
+        {
+          "week": "2026-06-29",
+          "timezone": "Europe/London",
+          "policyVersion": "1",
+          "entries": [
+            {
+              "profileId": "boundary-review",
+              "nickname": "Review Explorer",
+              "avatarId": "pip",
+              "points": 60,
+              "rank": 1,
+              "medal": "gold"
+            }
+          ],
+          "omittedDeletedProfiles": false
+        },
+        {
+          "week": "2026-07-06",
+          "timezone": "Europe/London",
+          "policyVersion": "1",
+          "entries": [
+            {
+              "profileId": "boundary-review",
+              "nickname": "Review Explorer",
+              "avatarId": "pip",
+              "points": 60,
+              "rank": 1,
+              "medal": "gold"
+            }
+          ],
+          "omittedDeletedProfiles": false
+        }
+      ],
+      "personalRecords": {
+        "best": {
+          "points": 60,
+          "week": "2026-06-29"
+        },
+        "medals": {
+          "gold": 2,
+          "silver": 0,
+          "bronze": 0
+        }
+      },
+      "otherProfileUnchanged": true,
+      "competitionUnchangedAfterClosedOrCappedCheck": null,
+      "sameWeekRedisplay": {
+        "rewardUnchanged": true,
+        "competitionUnchanged": true
+      },
+      "screenshot": "accepted-fixture-genuine-plus-7-due-review.png"
+    }
+  ]
+}

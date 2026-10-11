@@ -1,0 +1,94 @@
+{
+  "recordedAt": "2026-10-11T07:13:09.963Z",
+  "build": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+  "acceptedProducerCommit": "cabce3f399e3f81a8815f946e49efd0477f736b6",
+  "fixtures": [
+    {
+      "file": "cap-before-30.json",
+      "bytes": 102699,
+      "sha256": "337563c88c7557d3b4e1cdf53d9c4af628f7861035441e190b0b9e29853b40d0",
+      "matchesAccepted": true
+    },
+    {
+      "file": "cap-before-31.json",
+      "bytes": 106096,
+      "sha256": "4cb9ddd9e9fd80d2272c923b7cf65d446bb07556aa2040921ccacabd2c29e6d2",
+      "matchesAccepted": true
+    },
+    {
+      "file": "summer-sunday-before-check.json",
+      "bytes": 3803,
+      "sha256": "f5bbd171771de4a4a602c5981f8e2c3e19300acf137102d084843418a74fd04c",
+      "matchesAccepted": true
+    },
+    {
+      "file": "summer-sunday-wrong.json",
+      "bytes": 6464,
+      "sha256": "288d7d4f73096f354469255d04fc472476aefcf1d01e2628a572b07518ca6a1d",
+      "matchesAccepted": true
+    },
+    {
+      "file": "review-plus-3-ready.json",
+      "bytes": 15989,
+      "sha256": "7c0fb84de4d64765790503717cb83114b36dabcb48fd6a88b71fe7cae09cbe19",
+      "matchesAccepted": true
+    },
+    {
+      "file": "review-plus-7-ready.json",
+      "bytes": 18899,
+      "sha256": "7313652d3745734f2d0357ec747dbf6cfc4be3fc6e506fae8412d3dff0518be2",
+      "matchesAccepted": true
+    }
+  ],
+  "starter": {
+    "bytes": 22690,
+    "sha256": "7400aef18215e63f5d44303e8c16c804bc323e1f534a9edbe70956e563bc6c3e",
+    "unchanged": true
+  },
+  "runs": {
+    "fixtures": {
+      "startTime": "2026-10-11T07:05:05.627Z",
+      "duration": 50187.28,
+      "expected": 6,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "heldDecode": {
+      "startTime": "2026-10-11T07:06:22.596Z",
+      "duration": 8292.473,
+      "expected": 2,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "nativeVisibility": {
+      "passed": true,
+      "artifact": "native-hidden-result.json"
+    }
+  },
+  "typecheck": {
+    "scope": [
+      "tests/playtest/access-audio.spec.ts",
+      "tests/playtest/local-boundaries.spec.ts"
+    ],
+    "options": "--ignoreConfig --noEmit --incremental false --strict --skipLibCheck --target ES2023 --lib ES2023,DOM --module ESNext --moduleResolution Bundler --types node",
+    "exitCode": 0
+  },
+  "cleanup": {
+    "playwrightFixtureAndHeldRunsExited": 0,
+    "nativeChromePid": 47888,
+    "nativeChromePidAbsentAtFinalCheck": true,
+    "nativeChromeExitCode": null,
+    "nativeChromeSignal": "SIGTERM",
+    "privateProfileRetained": true,
+    "originalRunnerNotRestarted": true,
+    "noServerCreated": true
+  },
+  "limits": [
+    "F01 remains open on frozen published B; local producer fix is not a published retest",
+    "Acoustic evidence pending already-requested human listening",
+    "Review replay is disabled Check plus reload/redisplay; no injected duplicate delivery"
+  ],
+  "otherProfilesUnchanged": true
+}

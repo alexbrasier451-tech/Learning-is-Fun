@@ -1,0 +1,382 @@
+{
+  "note": "Observation index only; not a new browser capture. T1 actual environment and individual source proofs are separately retained. Blocked/untested rows do not claim execution.",
+  "rows": [
+    {
+      "scenarioId": "M1-LOCAL",
+      "release": "M1",
+      "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+      "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+      "matrixCase": "D1",
+      "browserVersion": "155.0.8059.40",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "inputMode": "mouse",
+      "seededOrUnseeded": "unseeded",
+      "setupRef": "docs/playtests/M1/BOUNDARIES.md",
+      "actions": [
+        "See exact command/result and trace references in BOUNDARIES.md"
+      ],
+      "expected": "Accepted WP06-03A/SCENARIOS producer contract; finite case table specifies exact oracle.",
+      "observed": "Two normal UI profiles remain isolated; resume/roundtrip preserves logical save.",
+      "status": "passed",
+      "evidenceLinks": [
+        "D1-Moss-isolation.json",
+        "starter-save.json",
+        "local-results.json"
+      ],
+      "acousticStatus": "not-applicable",
+      "defectOwner": null,
+      "retestedBuildId": null,
+      "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1"
+    },
+    {
+      "scenarioId": "M1-REWARD",
+      "release": "M1",
+      "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+      "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+      "matrixCase": "D1",
+      "browserVersion": "155.0.8059.40",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "inputMode": "mouse",
+      "seededOrUnseeded": "unseeded",
+      "setupRef": "docs/playtests/M1/BOUNDARIES.md",
+      "actions": [
+        "See exact command/result and trace references in BOUNDARIES.md"
+      ],
+      "expected": "Accepted WP06-03A/SCENARIOS producer contract; finite case table specifies exact oracle.",
+      "observed": "First unassisted +20 question plus separate +20 quest; wrong Check+5, supported remainder+5; repeated Check zero.",
+      "status": "passed",
+      "evidenceLinks": [
+        "boundary-state-reduction.json",
+        "evidence-assertions.json"
+      ],
+      "acousticStatus": "not-applicable",
+      "defectOwner": null,
+      "retestedBuildId": null,
+      "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1"
+    },
+    {
+      "scenarioId": "M1-PRACTICE",
+      "release": "M1",
+      "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+      "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+      "matrixCase": "D1",
+      "browserVersion": "155.0.8059.40",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "inputMode": "mouse",
+      "seededOrUnseeded": "unseeded",
+      "setupRef": "docs/playtests/M1/BOUNDARIES.md",
+      "actions": [
+        "See exact command/result and trace references in BOUNDARIES.md"
+      ],
+      "expected": "Accepted WP06-03A/SCENARIOS producer contract; finite case table specifies exact oracle.",
+      "observed": "Navigation/reload no completion; deliberate Finish same-action retry creates one completion and resume advances ordinal with cumulative facts intact.",
+      "status": "passed",
+      "evidenceLinks": [
+        "finish-candidate-writes.json",
+        "D1-Q2-episode2.json"
+      ],
+      "acousticStatus": "not-applicable",
+      "defectOwner": null,
+      "retestedBuildId": null,
+      "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1"
+    },
+    {
+      "scenarioId": "M1-CHECK-FAILURE",
+      "release": "M1",
+      "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+      "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+      "matrixCase": "D1",
+      "browserVersion": "155.0.8059.40",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "inputMode": "mouse",
+      "seededOrUnseeded": "seeded",
+      "setupRef": "docs/playtests/M1/BOUNDARIES.md",
+      "actions": [
+        "See exact command/result and trace references in BOUNDARIES.md"
+      ],
+      "expected": "Accepted WP06-03A/SCENARIOS producer contract; finite case table specifies exact oracle.",
+      "observed": "Real native abort retains draft and root; identical submission retry adds one revision/+5.",
+      "status": "passed",
+      "evidenceLinks": [
+        "local-results.json",
+        "check-candidate-writes.json"
+      ],
+      "acousticStatus": "not-applicable",
+      "defectOwner": null,
+      "retestedBuildId": null,
+      "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1"
+    },
+    {
+      "scenarioId": "M1-PREFERENCE-RECOVERY",
+      "release": "M1",
+      "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+      "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+      "matrixCase": "D1",
+      "browserVersion": "155.0.8059.40",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "inputMode": "mouse",
+      "seededOrUnseeded": "seeded",
+      "setupRef": "docs/playtests/M1/BOUNDARIES.md",
+      "actions": [
+        "See exact command/result and trace references in BOUNDARIES.md"
+      ],
+      "expected": "Accepted WP06-03A/SCENARIOS producer contract; finite case table specifies exact oracle.",
+      "observed": "Live stop passes, saved root unchanged, explicit durable UI recovery unavailable.",
+      "status": "failed",
+      "evidenceLinks": [
+        "D1-preference-no-ui-retry.json",
+        "result-27.json",
+        "result-28.json"
+      ],
+      "acousticStatus": "not-applicable",
+      "defectOwner": "WP02 shell/audio binding with WP04 preferences",
+      "retestedBuildId": null,
+      "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1"
+    },
+    {
+      "scenarioId": "M1-OFFLINE",
+      "release": "M1",
+      "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+      "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+      "matrixCase": "D1",
+      "browserVersion": "155.0.8059.40",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "inputMode": "mouse",
+      "seededOrUnseeded": "unseeded",
+      "setupRef": "docs/playtests/M1/BOUNDARIES.md",
+      "actions": [
+        "See exact command/result and trace references in BOUNDARIES.md"
+      ],
+      "expected": "Accepted WP06-03A/SCENARIOS producer contract; finite case table specifies exact oracle.",
+      "observed": "Complete frozen worker and disconnected Q2 commit/resume.",
+      "status": "passed",
+      "evidenceLinks": [
+        "result-2.json",
+        "D1-Q2-offline-success.json"
+      ],
+      "acousticStatus": "not-applicable",
+      "defectOwner": null,
+      "retestedBuildId": null,
+      "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1"
+    },
+    {
+      "scenarioId": "M1-AUDIO-D1-T1",
+      "release": "M1",
+      "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+      "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+      "matrixCase": "D1",
+      "browserVersion": "155.0.8059.40",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "inputMode": "mouse",
+      "seededOrUnseeded": "unseeded",
+      "setupRef": "docs/playtests/M1/BOUNDARIES.md",
+      "actions": [
+        "See exact command/result and trace references in BOUNDARIES.md"
+      ],
+      "expected": "Accepted WP06-03A/SCENARIOS producer contract; finite case table specifies exact oracle.",
+      "observed": "Technical consent/control/cue playback cases pass; resumed held-load and native-hidden pass separately. Acoustic review remains unverified.",
+      "status": "passed",
+      "evidenceLinks": [
+        "audio-results-5.json",
+        "audio-results.json",
+        "result-43.json"
+      ],
+      "acousticStatus": "unverified",
+      "defectOwner": null,
+      "retestedBuildId": null,
+      "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1"
+    },
+    {
+      "scenarioId": "M1-NATIVE-HIDDEN",
+      "release": "M1",
+      "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+      "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+      "matrixCase": "D1",
+      "browserVersion": "155.0.8059.40",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "inputMode": "mouse",
+      "seededOrUnseeded": "unseeded",
+      "setupRef": "docs/playtests/M1/BOUNDARIES.md",
+      "actions": [
+        "See exact command/result and trace references in BOUNDARIES.md"
+      ],
+      "expected": "Accepted WP06-03A/SCENARIOS producer contract; finite case table specifies exact oracle.",
+      "observed": "Native Chrome connectOverCDP noDefaults=true exposes real hidden/visible events; hide stops, show resumes one; Silence all survives second hide/show.",
+      "status": "passed",
+      "evidenceLinks": [
+        "native-hidden-result.json",
+        "native-hidden.png"
+      ],
+      "acousticStatus": "not-applicable",
+      "defectOwner": null,
+      "retestedBuildId": null,
+      "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1"
+    },
+    {
+      "scenarioId": "M1-HELD-LOAD",
+      "release": "M1",
+      "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+      "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+      "matrixCase": "D1",
+      "browserVersion": "155.0.8059.40",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "inputMode": "mouse",
+      "seededOrUnseeded": "unseeded",
+      "setupRef": "docs/playtests/M1/BOUNDARIES.md",
+      "actions": [
+        "See exact command/result and trace references in BOUNDARIES.md"
+      ],
+      "expected": "Accepted WP06-03A/SCENARIOS producer contract; finite case table specifies exact oracle.",
+      "observed": "Held genuine decoded buffer delivery cannot start source after Silence all or Pause sound; explicit exit/resume starts one loop.",
+      "status": "passed",
+      "evidenceLinks": [
+        "held-results-1.json",
+        "resumed-audio-observations.json"
+      ],
+      "acousticStatus": "not-applicable",
+      "defectOwner": null,
+      "retestedBuildId": null,
+      "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1"
+    },
+    {
+      "scenarioId": "M1-CAP",
+      "release": "M1",
+      "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+      "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+      "matrixCase": "D1",
+      "browserVersion": "155.0.8059.40",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "inputMode": "mouse",
+      "seededOrUnseeded": "seeded",
+      "setupRef": "docs/playtests/M1/BOUNDARIES.md",
+      "actions": [
+        "See exact command/result and trace references in BOUNDARIES.md"
+      ],
+      "expected": "Accepted WP06-03A/SCENARIOS producer contract; finite case table specifies exact oracle.",
+      "observed": "Normal imports; continuous30→31 plus independent31;660/600/30 then680/600/30 lifetime/weekly/slots.",
+      "status": "passed",
+      "evidenceLinks": [
+        "fixture-results-1.json",
+        "resumed-fixture-observations.json"
+      ],
+      "acousticStatus": "not-applicable",
+      "defectOwner": null,
+      "retestedBuildId": null,
+      "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1"
+    },
+    {
+      "scenarioId": "M1-CLOSED-WEEK",
+      "release": "M1",
+      "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+      "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+      "matrixCase": "D1",
+      "browserVersion": "155.0.8059.40",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "inputMode": "mouse",
+      "seededOrUnseeded": "seeded",
+      "setupRef": "docs/playtests/M1/BOUNDARIES.md",
+      "actions": [
+        "See exact command/result and trace references in BOUNDARIES.md"
+      ],
+      "expected": "Accepted WP06-03A/SCENARIOS producer contract; finite case table specifies exact oracle.",
+      "observed": "Sunday wrong/hint and saved-wrong variants retain earning weekJune29; Monday+5 supported and separateQ1+20; archive5/rank1/gold unchanged.",
+      "status": "passed",
+      "evidenceLinks": [
+        "fixture-results-1.json",
+        "resumed-fixture-observations.json"
+      ],
+      "acousticStatus": "not-applicable",
+      "defectOwner": null,
+      "retestedBuildId": null,
+      "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1"
+    },
+    {
+      "scenarioId": "M1-DUE-REVIEW",
+      "release": "M1",
+      "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+      "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+      "matrixCase": "D1",
+      "browserVersion": "155.0.8059.40",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "inputMode": "mouse",
+      "seededOrUnseeded": "seeded",
+      "setupRef": "docs/playtests/M1/BOUNDARIES.md",
+      "actions": [
+        "See exact command/result and trace references in BOUNDARIES.md"
+      ],
+      "expected": "Accepted WP06-03A/SCENARIOS producer contract; finite case table specifies exact oracle.",
+      "observed": "Genuine +3/+7 due selections, fresh ordinals2/3, +20/+20, lifetime140/200; completed Check disabled and reload/redisplay unchanged.",
+      "status": "passed",
+      "evidenceLinks": [
+        "fixture-results-1.json",
+        "resumed-fixture-observations.json"
+      ],
+      "acousticStatus": "not-applicable",
+      "defectOwner": null,
+      "retestedBuildId": null,
+      "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1"
+    },
+    {
+      "scenarioId": "M1-ACOUSTIC",
+      "release": "M1",
+      "candidateUrl": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+      "candidateBuildId": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1",
+      "matrixCase": "D1",
+      "browserVersion": "155.0.8059.40",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "inputMode": "mouse",
+      "seededOrUnseeded": "unseeded",
+      "setupRef": "docs/playtests/M1/BOUNDARIES.md",
+      "actions": [
+        "See exact command/result and trace references in BOUNDARIES.md"
+      ],
+      "expected": "Accepted WP06-03A/SCENARIOS producer contract; finite case table specifies exact oracle.",
+      "observed": "Await Controller-forwarded capable listener evidence; no route established.",
+      "status": "blocked",
+      "evidenceLinks": [],
+      "acousticStatus": "unverified",
+      "defectOwner": null,
+      "retestedBuildId": null,
+      "finalBuildApplicability": "b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1"
+    }
+  ]
+}

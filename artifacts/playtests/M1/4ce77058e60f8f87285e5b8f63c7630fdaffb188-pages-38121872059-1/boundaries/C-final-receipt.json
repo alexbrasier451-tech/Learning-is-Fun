@@ -1,0 +1,192 @@
+{
+  "recordedAt": "2026-10-11T07:57:31.439Z",
+  "candidate": {
+    "release": "M1",
+    "url": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+    "basePath": "/Learning-is-Fun/",
+    "buildId": "4ce77058e60f8f87285e5b8f63c7630fdaffb188-pages-38121872059-1",
+    "commit": "4ce77058e60f8f87285e5b8f63c7630fdaffb188",
+    "deploymentRun": "https://github.com/alexbrasier451-tech/Learning-is-Fun/actions/runs/38121872059",
+    "requiredInventoryLocation": "C:/Users/alexb/.codex/visualizations/2026/10/11/01a1296c-853f-73d1-9788-f757198f484b/retained-C-38121872059/precache-report.json"
+  },
+  "freezeUTC": "2026-10-11T07:49:53Z",
+  "runner": {
+    "session": 5999,
+    "exitCode": 0,
+    "workers": 1,
+    "retries": 0,
+    "stats": {
+      "startTime": "2026-10-11T07:53:51.020Z",
+      "duration": 33662.37,
+      "expected": 4,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "cases": [
+    {
+      "file": "D1-Chrome-original.json",
+      "browser": "155.0.8059.40",
+      "epoch": "098909d2-4a01-4799-8c25-63940363382c",
+      "revisions": [
+        3,
+        4
+      ],
+      "abortRootUnchanged": true,
+      "reloadRootUnchanged": true,
+      "retryCountsUnchanged": true,
+      "reloadCounts": {
+        "contexts": 0,
+        "resumes": 0,
+        "starts": 0,
+        "active": 0,
+        "speaking": false,
+        "pendingSpeech": false
+      }
+    },
+    {
+      "file": "D1-Chrome-newer.json",
+      "browser": "155.0.8059.40",
+      "epoch": "d7a4ab8a-da71-4ccb-b68d-1ced56a35d44",
+      "revisions": [
+        3,
+        5
+      ],
+      "abortRootUnchanged": true,
+      "reloadRootUnchanged": true,
+      "retryCountsUnchanged": true,
+      "reloadCounts": {
+        "contexts": 0,
+        "resumes": 0,
+        "starts": 0,
+        "active": 0,
+        "speaking": false,
+        "pendingSpeech": false
+      }
+    },
+    {
+      "file": "T1-Chromium-touch-original.json",
+      "browser": "156.0.8078.4",
+      "epoch": "3e0e2122-9af7-494e-aced-13cfc74ef1c6",
+      "revisions": [
+        3,
+        4
+      ],
+      "abortRootUnchanged": true,
+      "reloadRootUnchanged": true,
+      "retryCountsUnchanged": true,
+      "reloadCounts": {
+        "contexts": 0,
+        "resumes": 0,
+        "starts": 0,
+        "active": 0,
+        "speaking": false,
+        "pendingSpeech": false
+      }
+    },
+    {
+      "file": "T1-Chromium-touch-newer.json",
+      "browser": "156.0.8078.4",
+      "epoch": "cd07be3b-5649-4442-8275-a37817fa9910",
+      "revisions": [
+        3,
+        5
+      ],
+      "abortRootUnchanged": true,
+      "reloadRootUnchanged": true,
+      "retryCountsUnchanged": true,
+      "reloadCounts": {
+        "contexts": 0,
+        "resumes": 0,
+        "starts": 0,
+        "active": 0,
+        "speaking": false,
+        "pendingSpeech": false
+      }
+    }
+  ],
+  "typecheck": {
+    "exitCode": 0,
+    "scope": [
+      "tests/playtest/access-audio.spec.ts",
+      "tests/playtest/local-boundaries.spec.ts"
+    ],
+    "options": "--ignoreConfig --noEmit --incremental false --strict --skipLibCheck --target ES2023 --lib ES2023,DOM --module ESNext --moduleResolution Bundler --types node"
+  },
+  "sourceApplicability": {
+    "from": "b158e2b3de86d119c1650996977201264563abde",
+    "to": "4ce77058e60f8f87285e5b8f63c7630fdaffb188",
+    "method": "read-only git diff --name-only for src/public/package.json/pnpm-lock.yaml/vite.config.ts; consumed complete accepted publication comparison",
+    "changedPaths": [
+      "src/app/App.tsx",
+      "src/app/AppShell.tsx",
+      "src/audio/AudioControls.tsx",
+      "src/experience/AdventureView.tsx",
+      "src/experience/QuestActivity.tsx",
+      "src/experience/experience.css"
+    ],
+    "reusedPaths": [
+      "state/repository/preferences/backup",
+      "rewards/calendar",
+      "learning/evaluation",
+      "audio controller/speech/catalogue",
+      "platform/media"
+    ],
+    "consumedDocuments": [
+      "M1-CORRECTED-PUBLICATION-EXECUTION.md",
+      "M1-CORRECTED-PUBLICATION-VALIDATION.md",
+      "PAGES-M1-C-EXECUTION.md",
+      "PUBLISHED-AUDIO-RETRY-HANDOFF.md",
+      "PUBLISHED-AUDIO-RETRY-VALIDATION.md",
+      "WP06-03A-VALIDATION.md"
+    ]
+  },
+  "preservedBFiles": [
+    {
+      "path": "../../b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/boundaries/starter-save.json",
+      "bytes": 22690,
+      "sha256": "7400aef18215e63f5d44303e8c16c804bc323e1f534a9edbe70956e563bc6c3e"
+    },
+    {
+      "path": "../../b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/boundaries/starter-save-provenance.json",
+      "bytes": 49262,
+      "sha256": "25636990b8f2ae99e69440eeb13e68e963a1f913e54eb394bce04c2467dada71"
+    },
+    {
+      "path": "../../b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/boundaries/result-27.json",
+      "bytes": 53400,
+      "sha256": "a37b1ca677c5dbfec8715c398a4fd54f0d214cda0f8684912e3b69c5bedceaee"
+    },
+    {
+      "path": "../../b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/boundaries/result-28.json",
+      "bytes": 1763,
+      "sha256": "47f32b73037ccc92a54710dfea8ce7feaebe43bc06448834ba90af90ff9714bf"
+    },
+    {
+      "path": "../../b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/boundaries/D1-preference-no-ui-retry.json",
+      "bytes": 45123,
+      "sha256": "839155a1f0beb038ad84efada87c933a7800fbbbc50a72c5a86c18140aa8b2c1"
+    },
+    {
+      "path": "../../b158e2b3de86d119c1650996977201264563abde-pages-38116364473-1/boundaries/D1-original.trace.zip",
+      "bytes": 17479101,
+      "sha256": "5b19d6dfd50e60d45585e19736d3f8bcadab20b6be395eb99d5564b874e425dc"
+    }
+  ],
+  "starterMatchesOriginalHash": true,
+  "originalFrozenExcerpt": "Preserved in place; scoped document patch changes the introduction and adds a C section without changing original F01 excerpt. HEAD comparison unavailable because this document is untracked.",
+  "cleanup": {
+    "testManagedContextsClosed": true,
+    "runnerExitCode": 0,
+    "noServer": true,
+    "noPersistentRunnerStarted": true
+  },
+  "limits": [
+    "Technical F01 retest PASS on C; independent review and Controller disposition separate",
+    "Prior B observation evidence carried with unchanged-producer applicability, not rerun",
+    "T1 touch emulation with keyboard sliders; not physical tablet",
+    "Speech inactive in fresh C cases; cancellation evidence reused",
+    "Acoustic listening unverified; existing human request pending"
+  ]
+}

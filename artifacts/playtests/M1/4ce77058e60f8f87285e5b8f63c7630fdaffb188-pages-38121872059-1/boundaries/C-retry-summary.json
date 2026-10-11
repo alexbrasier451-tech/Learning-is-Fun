@@ -1,0 +1,341 @@
+{
+  "source": "retry-results-1.json",
+  "stats": {
+    "startTime": "2026-10-11T07:53:51.020Z",
+    "duration": 33662.37,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "cases": [
+    {
+      "file": "D1-Chrome-original.json",
+      "newer": false,
+      "browser": "155.0.8059.40",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "touch": false,
+      "epoch": "098909d2-4a01-4799-8c25-63940363382c",
+      "beforeRevision": 3,
+      "afterRevision": 4,
+      "abortRootUnchanged": true,
+      "reloadRootUnchanged": true,
+      "countsBefore": {
+        "contexts": 1,
+        "resumes": 1,
+        "starts": 3,
+        "active": 1,
+        "speaking": false,
+        "pendingSpeech": false
+      },
+      "countsFailed": {
+        "contexts": 1,
+        "resumes": 1,
+        "starts": 3,
+        "active": 0,
+        "speaking": false,
+        "pendingSpeech": false
+      },
+      "countsHeld": {
+        "contexts": 1,
+        "resumes": 1,
+        "starts": 3,
+        "active": 0,
+        "speaking": false,
+        "pendingSpeech": false
+      },
+      "countsCommitted": {
+        "contexts": 1,
+        "resumes": 1,
+        "starts": 3,
+        "active": 0,
+        "speaking": false,
+        "pendingSpeech": false
+      },
+      "countsReload": {
+        "contexts": 0,
+        "resumes": 0,
+        "starts": 0,
+        "active": 0,
+        "speaking": false,
+        "pendingSpeech": false
+      },
+      "keyboardPath": [
+        "Exit Silence all",
+        "Music",
+        "Music volume",
+        "Effects",
+        "Effects volume",
+        "Retry saving sound choices"
+      ],
+      "completedTransactions": [
+        {
+          "revision": 4,
+          "completed": true,
+          "watchdog": false
+        }
+      ],
+      "finalAudio": {
+        "soundEnabled": true,
+        "silenceAll": true,
+        "music": {
+          "muted": false,
+          "volume": 0.5
+        },
+        "effects": {
+          "muted": false,
+          "volume": 0.5
+        }
+      }
+    },
+    {
+      "file": "D1-Chrome-newer.json",
+      "newer": true,
+      "browser": "155.0.8059.40",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "touch": false,
+      "epoch": "d7a4ab8a-da71-4ccb-b68d-1ced56a35d44",
+      "beforeRevision": 3,
+      "afterRevision": 5,
+      "abortRootUnchanged": true,
+      "reloadRootUnchanged": true,
+      "countsBefore": {
+        "contexts": 1,
+        "resumes": 1,
+        "starts": 2,
+        "active": 1,
+        "speaking": false,
+        "pendingSpeech": false
+      },
+      "countsFailed": {
+        "contexts": 1,
+        "resumes": 1,
+        "starts": 2,
+        "active": 0,
+        "speaking": false,
+        "pendingSpeech": false
+      },
+      "countsHeld": {
+        "contexts": 1,
+        "resumes": 1,
+        "starts": 2,
+        "active": 0,
+        "speaking": false,
+        "pendingSpeech": false
+      },
+      "countsCommitted": {
+        "contexts": 1,
+        "resumes": 1,
+        "starts": 2,
+        "active": 0,
+        "speaking": false,
+        "pendingSpeech": false
+      },
+      "countsReload": {
+        "contexts": 0,
+        "resumes": 0,
+        "starts": 0,
+        "active": 0,
+        "speaking": false,
+        "pendingSpeech": false
+      },
+      "keyboardPath": [
+        "Exit Silence all",
+        "Music",
+        "Music volume",
+        "Effects",
+        "Effects volume",
+        "Retry saving sound choices"
+      ],
+      "completedTransactions": [
+        {
+          "revision": 4,
+          "completed": true,
+          "watchdog": false
+        },
+        {
+          "revision": 5,
+          "completed": true,
+          "watchdog": false
+        }
+      ],
+      "finalAudio": {
+        "soundEnabled": true,
+        "silenceAll": true,
+        "music": {
+          "muted": true,
+          "volume": 0.37
+        },
+        "effects": {
+          "muted": true,
+          "volume": 0.19
+        }
+      }
+    },
+    {
+      "file": "T1-Chromium-touch-original.json",
+      "newer": false,
+      "browser": "156.0.8078.4",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "touch": true,
+      "epoch": "3e0e2122-9af7-494e-aced-13cfc74ef1c6",
+      "beforeRevision": 3,
+      "afterRevision": 4,
+      "abortRootUnchanged": true,
+      "reloadRootUnchanged": true,
+      "countsBefore": {
+        "contexts": 1,
+        "resumes": 1,
+        "starts": 3,
+        "active": 1,
+        "speaking": false,
+        "pendingSpeech": false
+      },
+      "countsFailed": {
+        "contexts": 1,
+        "resumes": 1,
+        "starts": 3,
+        "active": 0,
+        "speaking": false,
+        "pendingSpeech": false
+      },
+      "countsHeld": {
+        "contexts": 1,
+        "resumes": 1,
+        "starts": 3,
+        "active": 0,
+        "speaking": false,
+        "pendingSpeech": false
+      },
+      "countsCommitted": {
+        "contexts": 1,
+        "resumes": 1,
+        "starts": 3,
+        "active": 0,
+        "speaking": false,
+        "pendingSpeech": false
+      },
+      "countsReload": {
+        "contexts": 0,
+        "resumes": 0,
+        "starts": 0,
+        "active": 0,
+        "speaking": false,
+        "pendingSpeech": false
+      },
+      "keyboardPath": [
+        "native tap"
+      ],
+      "completedTransactions": [
+        {
+          "revision": 4,
+          "completed": true,
+          "watchdog": false
+        }
+      ],
+      "finalAudio": {
+        "soundEnabled": true,
+        "silenceAll": true,
+        "music": {
+          "muted": false,
+          "volume": 0.5
+        },
+        "effects": {
+          "muted": false,
+          "volume": 0.5
+        }
+      }
+    },
+    {
+      "file": "T1-Chromium-touch-newer.json",
+      "newer": true,
+      "browser": "156.0.8078.4",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "touch": true,
+      "epoch": "cd07be3b-5649-4442-8275-a37817fa9910",
+      "beforeRevision": 3,
+      "afterRevision": 5,
+      "abortRootUnchanged": true,
+      "reloadRootUnchanged": true,
+      "countsBefore": {
+        "contexts": 1,
+        "resumes": 1,
+        "starts": 2,
+        "active": 1,
+        "speaking": false,
+        "pendingSpeech": false
+      },
+      "countsFailed": {
+        "contexts": 1,
+        "resumes": 1,
+        "starts": 2,
+        "active": 0,
+        "speaking": false,
+        "pendingSpeech": false
+      },
+      "countsHeld": {
+        "contexts": 1,
+        "resumes": 1,
+        "starts": 2,
+        "active": 0,
+        "speaking": false,
+        "pendingSpeech": false
+      },
+      "countsCommitted": {
+        "contexts": 1,
+        "resumes": 1,
+        "starts": 2,
+        "active": 0,
+        "speaking": false,
+        "pendingSpeech": false
+      },
+      "countsReload": {
+        "contexts": 0,
+        "resumes": 0,
+        "starts": 0,
+        "active": 0,
+        "speaking": false,
+        "pendingSpeech": false
+      },
+      "keyboardPath": [
+        "native tap"
+      ],
+      "completedTransactions": [
+        {
+          "revision": 4,
+          "completed": true,
+          "watchdog": false
+        },
+        {
+          "revision": 5,
+          "completed": true,
+          "watchdog": false
+        }
+      ],
+      "finalAudio": {
+        "soundEnabled": true,
+        "silenceAll": true,
+        "music": {
+          "muted": true,
+          "volume": 0.37
+        },
+        "effects": {
+          "muted": true,
+          "volume": 0.19
+        }
+      }
+    }
+  ]
+}

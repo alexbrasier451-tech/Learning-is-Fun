@@ -1,0 +1,147 @@
+{
+  "source": "held-results-1.json",
+  "stats": {
+    "startTime": "2026-10-11T07:06:22.596Z",
+    "duration": 8292.473,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "cases": [
+    {
+      "title": "published held native decode respects Silence all",
+      "status": "passed",
+      "observations": {
+        "held-native-decode": {
+          "gate": "Silence all",
+          "browser": "155.0.8059.40",
+          "held": {
+            "contexts": [
+              "running"
+            ],
+            "gains": [
+              1,
+              0.25,
+              0.5
+            ],
+            "sources": [],
+            "speaking": false,
+            "pendingSpeech": false
+          },
+          "stopped": {
+            "contexts": [
+              "running"
+            ],
+            "gains": [
+              0,
+              0,
+              0
+            ],
+            "sources": [],
+            "speaking": false,
+            "pendingSpeech": false
+          },
+          "resumed": {
+            "contexts": [
+              "running"
+            ],
+            "gains": [
+              1,
+              0.25,
+              0.5,
+              1
+            ],
+            "sources": [
+              {
+                "started": true,
+                "stopped": false,
+                "ended": false,
+                "loop": true,
+                "seconds": 69.9965
+              }
+            ],
+            "speaking": false,
+            "pendingSpeech": false
+          },
+          "decoded": [
+            {
+              "seconds": 69.9965,
+              "frames": 3359832,
+              "rate": 48000
+            }
+          ],
+          "acousticStatus": "unverified"
+        },
+        "screenshot": "published-held-native-decode-respects-Silence-all.png"
+      }
+    },
+    {
+      "title": "published held native decode respects Pause sound",
+      "status": "passed",
+      "observations": {
+        "held-native-decode": {
+          "gate": "Pause sound",
+          "browser": "155.0.8059.40",
+          "held": {
+            "contexts": [
+              "running"
+            ],
+            "gains": [
+              1,
+              0.25,
+              0.5
+            ],
+            "sources": [],
+            "speaking": false,
+            "pendingSpeech": false
+          },
+          "stopped": {
+            "contexts": [
+              "running"
+            ],
+            "gains": [
+              0,
+              0,
+              0
+            ],
+            "sources": [],
+            "speaking": false,
+            "pendingSpeech": false
+          },
+          "resumed": {
+            "contexts": [
+              "running"
+            ],
+            "gains": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "sources": [
+              {
+                "started": true,
+                "stopped": false,
+                "ended": false,
+                "loop": true,
+                "seconds": 69.9965
+              }
+            ],
+            "speaking": false,
+            "pendingSpeech": false
+          },
+          "decoded": [
+            {
+              "seconds": 69.9965,
+              "frames": 3359832,
+              "rate": 48000
+            }
+          ],
+          "acousticStatus": "unverified"
+        },
+        "screenshot": "published-held-native-decode-respects-Pause-sound.png"
+      }
+    }
+  ]
+}
