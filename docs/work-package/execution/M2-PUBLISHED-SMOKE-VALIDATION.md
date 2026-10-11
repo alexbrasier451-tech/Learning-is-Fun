@@ -1,4 +1,10 @@
-# M2 published smoke — independent preparation review
+# M2 published smoke — independent preparation and runtime review
+
+11 October 2026. **Actual published M2 D3 Firefox bounded smoke PASS on `011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1`.** The exact prepared source ran once with no retries or skipped/unexpected/flaky results. This evidence is reusable for WP06-05A D3 if the final accepted candidate remains unchanged. Publication freeze, D2, full D1/T1 journeys, acoustic evidence and M2 acceptance are not closed by this verdict; Controller retains those gates.
+
+## Historical preparation review
+
+The preparation sections below preserve their then-current identities and limits. The runtime addendum at the end supersedes only their no-M2-runtime-result status.
 
 11 October 2026. **Preparation PASS: no required source correction or substantive preparation blocker found in the frozen bounded D2/D3 smoke.** This accepts only the reviewed source/discovery handoff for Controller/foundation integration. It is not an actual browser pass, published M2 validation, WP06-05A acceptance or M2 gate. Public M1 C and the Controller-reported 42/49 accepted count remain unchanged.
 
@@ -51,3 +57,28 @@ The120-second case timeout is an infrastructure bound. Retry/count enforcement, 
 Private reviewer evidence is `C:/Users/alexb/.codex/visualizations/2026/10/11/01a129cd-254f-71d3-bb51-2b6fdabf31c4/M2-smoke-preparation-review.json`. The reviewer wrote only this validation and private evidence, with no producer/spec/helper/workflow edit, broad test, actual browser, Git, deployment or other-chat action.
 
 **Preparation handoff PASS for this exact frozen source.** Controller may integrate through the assigned owners after the separate runner review. An actual published/frozen M2 identity and later authorized runtime collection are still required for D2/D3 smoke results and full D1/T1 journey evidence. No published M2, whole-child, release, physical-device, child or listening acceptance follows from this preparation verdict.
+
+## Actual published M2 D3 runtime addendum — PASS
+
+Reviewed the retained actual [run38177907179, attempt1](https://github.com/alexbrasier451-tech/Learning-is-Fun/actions/runs/38177907179), [artifact11716881306](https://github.com/alexbrasier451-tech/Learning-is-Fun/actions/runs/38177907179/artifacts/11716881306), and native discovery/results/trace/checkpoints/browser cleanup. Root **E** is `artifacts/ci/M2/e2c7bef/published-m2-38177907179`. Retained GitHub metadata reports completed/success. Independently recomputed `artifact.zip`: **22,210,331 bytes**, SHA-256 **`a14c78e565f6065e8ed1abbf523909bad66f667cb6135362bf6da51f439d9d63`**, matching the GitHub artifact size/digest.
+
+**CI source** is `e2c7bef66fedac38dac8f2631bfb29ca61fd7841`; **deployed source** is `011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9`, build **`011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1`**, Pages run38177521884. `run.json`, discovery configuration, runtime configuration and session attachment agree on these separate identities. Metadata SHA-256 `c939b17c55777c9345a67a4bafa81c940ded29110a4444b5d04c76c20a69765f` agrees across receipts and independently matches the current M2 candidate bytes. No CI commit is represented as the deployed application.
+
+| Actual evidence | Independent result |
+| --- | --- |
+| Discovery and execution | One exact prepared title, `expansion.spec.ts`, actual D3-Firefox, workers1/repeatEach1/retries0/no webServer. Discovery has empty results and no errors; its list-only skipped marker is not a runtime skip. Actual execution has **1 expected pass, 0 skipped/unexpected/flaky**, one attempt retry0, empty report/test errors. |
+| Native environment/time | Linux6.17.0-1022-azure, **Firefox157.0**, Playwright1.64.0, viewport1280×720, Europe/London, native service workers allowed. Starts **21:49:50.548UTC / 22:49:50.548BST**; test **13.768s**, invocation **15.342583s**. Native Firefox launcher and trace identify the actual engine. |
+| Frozen source | Trace-embedded expansion source is **13,625 bytes**, SHA-256 `c7ec8c35401da00b076d9b9adbd5261fde5ac450dae32cd6c1b4d7bd720ac086`: exactly the independently approved preparation source, with no weakened assertions. |
+| Identity before input | Visible Help contains the exact deployed M2 version. Native worker result `prin@69` equals the session attachment and precedes nickname fill `prin@85`; active worker has exact project scope/build and complete=true. Initial controller=null remains disclosed. |
+| Native path | **98 actions / 228 frame snapshots**, zero browser-action errors; test.trace likewise has zero action-error records. Exact project navigations are `prin@61` and `prin@217`. Native create/select, three starter Checks, workshop draft, Leave/reload/named Resume, deliberate adult entry and Hall are retained. |
+| Checkpoints | All six required identity/gates/workshop-draft/workshop-resume/adult/Hall metadata rows pass on actual Firefox/M2. All six retained accessible DOM files equal the native trace snapshots. |
+
+The actual normal starter route uses6+6, question?/period and6apples/3pears, with each saved success requiring40 lifetime/20 weekly. Q4 resolves to Start the Sawmill / `q4-story-m02-match`, matching. The rendered exploratory assignment is **11 × 8 → 88 counters**. Before leaving and after reload it remains **1 of3 items assigned**, with “Your scoring turn has not started”; no Q4 Check occurs. The resumed scene remains Tinker's Workshop, its native image-state probe `prin@237` returns true for at least one image and all complete/positive natural widths, and the rendered original screenshot shows the workshop and retained assignment. This establishes loaded rendered images, without inventing an explicit decode() call or an independent correct-Q4 result.
+
+Viewed actual Help, workshop-resume and Hall PNGs. Hall visibly shows **120 lifetime / 60 weekly / 3 of30 turns**, local-browser scope and loaded emblem, matching native DOM. The unscored Q4 draft adds no points or turn. Adult notebook capture retains the normal local practice evidence. Full-page sticky-sound placement is not by itself a viewport-obstruction finding; this bounded smoke is not a full visual/access audit.
+
+Cleanup is evidenced by `browser.log`: Firefox **PID4436** gracefully closes, exits0 with no signal, and finishes temporary-directory cleanup. Private audio-host `cleanup.json` at21:50:06.090UTC records exit0, no signal/error, empty stdout/stderr and no truncation. The browser log retains namespace-sandbox, Juggler response-body `NS_ERROR_INVALID_CONTENT_ENCODING` and teardown progress-listener diagnostics. They are not hidden or converted into a clean-log claim; the supplied receipt has no corresponding action/test failure or failed cleanup. No acoustic observation follows from the private audio host or the Silent UI.
+
+Private `R/M2-D3-runtime/review.json` retains **60 passing independent comparisons** and the native action/identity/checkpoint assessment, with extracted trace/source alongside it. Here **R** is `C:/Users/alexb/.codex/visualizations/2026/10/11/01a129cd-254f-71d3-bb51-2b6fdabf31c4`. The reviewer launched no browser or test and changed only this validation and private evidence; no source, Git, deployment, other-chat or publisher work occurred.
+
+**No actionable D3 smoke receipt finding remains.** This actual result may be reused for WP06-05A D3 on this unchanged candidate. At this review handoff, publication freeze was not yet accepted; the publisher's M1→M2 native update/fresh-entry report remains a separate review. D2 runtime, full D1/T1 journeys and their wider expansion/visual/access coverage, listening and release acceptance remain outside this result. No full-journey, acoustic or M2 gate PASS is asserted.
