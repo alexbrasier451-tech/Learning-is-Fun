@@ -68,5 +68,5 @@
 .scene-fallback { padding: 2rem; }
 .adventure[data-reduced-motion=true] *, .adventure[data-reduced-motion=true] *::before, .adventure[data-reduced-motion=true] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 @media (max-width: 950px) { .adventure-scene-layout { grid-template-columns: 1fr; }.adventure-story { max-width: 44rem; }.adventure-illustration { max-width: 56rem; }.adventure-map { grid-template-columns: 1fr; }.adventure-map-art { max-width: 38rem; } }
-@media (max-width: 600px) { .adventure-chapters { grid-template-columns: 1fr; gap: .1rem; }.adventure-masthead, .activity-heading { flex-direction: column; align-items: start; }.adventure-discovery { flex-wrap: wrap; } }
+@media (max-width: 600px) { .adventure-chapters { grid-template-columns: 1fr; gap: .1rem; }.adventure-masthead, .activity-heading { flex-direction: column; align-items: start; }.adventure-discovery, .adventure-neighbour { flex-wrap: wrap; } }
 @media (prefers-reduced-motion: reduce) { .adventure *, .adventure *::before, .adventure *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
