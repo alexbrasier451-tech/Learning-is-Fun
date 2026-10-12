@@ -1,0 +1,28 @@
+{
+  "frozenAt": "2026-10-11T23:27:31.903Z",
+  "title": "Published M2 WebKit touch and scene transport observation",
+  "candidateBuildId": "011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1",
+  "files": [
+    {
+      "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/tests/playtest/published-webkit.spec.ts",
+      "bytes": 31509,
+      "sha256": "fc15de3167c9eb3f8e131aa036b87464cd2c6ad90c83ab780382dd8a59ef6c87"
+    },
+    {
+      "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/tests/fixtures/published-webkit-endgame.json",
+      "bytes": 84033,
+      "sha256": "ef0a74d01e489704110ca02b6508fb9d532900d883a91d02d8bcb47afea70290"
+    },
+    {
+      "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/HANDOFF.md",
+      "bytes": 5146,
+      "sha256": "b0487b8feb6accab046b6bddbb810537030d541d3de7bc892b553330158a7df5"
+    }
+  ],
+  "validation": {
+    "typecheck": "passed;focusednoemit",
+    "discovery": "passed;exactly1test/1file",
+    "browserExecution": "none;LinuxdispatchbelongsController/foundation"
+  },
+  "mutationHold": "Do not mutate reviewed files pending original independent review."
+}

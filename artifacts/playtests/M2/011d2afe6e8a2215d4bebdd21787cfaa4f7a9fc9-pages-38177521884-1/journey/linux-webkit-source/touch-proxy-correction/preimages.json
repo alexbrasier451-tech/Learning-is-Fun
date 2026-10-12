@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-12T00:05:43.728Z",
+  "files": [
+    {
+      "original": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/tests/playtest/published-webkit.spec.ts",
+      "copy": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/touch-proxy-correction/source-before.spec.ts",
+      "bytes": 31509,
+      "sha256": "fc15de3167c9eb3f8e131aa036b87464cd2c6ad90c83ab780382dd8a59ef6c87"
+    },
+    {
+      "original": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/HANDOFF.md",
+      "copy": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/touch-proxy-correction/HANDOFF-before.md",
+      "bytes": 5146,
+      "sha256": "b0487b8feb6accab046b6bddbb810537030d541d3de7bc892b553330158a7df5"
+    },
+    {
+      "original": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/FILES.json",
+      "copy": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/touch-proxy-correction/FILES-before.json",
+      "bytes": 1248,
+      "sha256": "40de3cc98bd271ea28731d8f74f68c86f560b2ce2ca05bf9f0dcad236b115f8d"
+    }
+  ]
+}

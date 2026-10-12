@@ -1,0 +1,178 @@
+{
+  "fresh-original": {
+    "traceCalls": [
+      {
+        "version": 10,
+        "type": "context-options",
+        "origin": "library",
+        "browserName": "webkit",
+        "playwrightVersion": "1.64.0",
+        "options": {
+          "noDefaultViewport": false,
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "ignoreHTTPSErrors": false,
+          "javaScriptEnabled": true,
+          "bypassCSP": false,
+          "locale": "en-US",
+          "timezoneId": "Europe/London",
+          "offline": false,
+          "isMobile": false,
+          "hasTouch": true,
+          "colorScheme": "light",
+          "reducedMotion": "reduce",
+          "forcedColors": "none",
+          "acceptDownloads": "accept",
+          "contrast": "no-preference",
+          "baseURL": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+          "serviceWorkers": "allow",
+          "selectorEngines": [],
+          "testIdAttributeName": "data-testid",
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15"
+        },
+        "platform": "linux",
+        "wallTime": 1791763153699,
+        "monotonicTime": 4922.02,
+        "sdkLanguage": "javascript",
+        "testIdAttributeName": "data-testid"
+      },
+      {
+        "type": "before",
+        "callId": "gqhv@77",
+        "startTime": 7048.516,
+        "class": "Page",
+        "method": "touchscreenTap",
+        "params": {
+          "x": 518.2890625,
+          "y": 218.1796875
+        }
+      },
+      {
+        "type": "input",
+        "callId": "gqhv@77",
+        "point": {
+          "x": 518.2890625,
+          "y": 218.1796875
+        }
+      },
+      {
+        "type": "after",
+        "callId": "gqhv@77",
+        "endTime": 7057.159
+      }
+    ],
+    "actions": [
+      {
+        "at": "2026-10-11T23:59:13.731Z",
+        "action": "goto frozen URL; domcontentloaded;6000ms"
+      },
+      {
+        "at": "2026-10-11T23:59:15.825Z",
+        "action": "touchscreen.tap Help"
+      }
+    ],
+    "native": {
+      "at": "2026-10-11T23:59:21.874Z",
+      "local": "Mon Oct 12 2026 00:59:21 GMT+0100 (British Summer Time)",
+      "timezone": "Europe/London",
+      "controller": null,
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "rootFont": "16px",
+      "touchPoints": 0,
+      "reducedMotion": true
+    }
+  },
+  "supplementary-imported-endgame": {
+    "traceCalls": [
+      {
+        "version": 10,
+        "type": "context-options",
+        "origin": "library",
+        "browserName": "webkit",
+        "playwrightVersion": "1.64.0",
+        "options": {
+          "noDefaultViewport": false,
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "ignoreHTTPSErrors": false,
+          "javaScriptEnabled": true,
+          "bypassCSP": false,
+          "locale": "en-US",
+          "timezoneId": "Europe/London",
+          "offline": false,
+          "isMobile": false,
+          "hasTouch": true,
+          "colorScheme": "light",
+          "reducedMotion": "reduce",
+          "forcedColors": "none",
+          "acceptDownloads": "accept",
+          "contrast": "no-preference",
+          "baseURL": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+          "serviceWorkers": "allow",
+          "selectorEngines": [],
+          "testIdAttributeName": "data-testid",
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15"
+        },
+        "platform": "linux",
+        "wallTime": 1791763162196,
+        "monotonicTime": 13418.774,
+        "sdkLanguage": "javascript",
+        "testIdAttributeName": "data-testid"
+      },
+      {
+        "type": "before",
+        "callId": "gqhv@151",
+        "startTime": 14323.099,
+        "class": "Page",
+        "method": "touchscreenTap",
+        "params": {
+          "x": 518.2890625,
+          "y": 218.1796875
+        }
+      },
+      {
+        "type": "input",
+        "callId": "gqhv@151",
+        "point": {
+          "x": 518.2890625,
+          "y": 218.1796875
+        }
+      },
+      {
+        "type": "after",
+        "callId": "gqhv@151",
+        "endTime": 14331.339
+      }
+    ],
+    "actions": [
+      {
+        "at": "2026-10-11T23:59:22.206Z",
+        "action": "goto frozen URL; domcontentloaded;6000ms"
+      },
+      {
+        "at": "2026-10-11T23:59:23.100Z",
+        "action": "touchscreen.tap Help"
+      }
+    ],
+    "native": {
+      "at": "2026-10-11T23:59:29.673Z",
+      "local": "Mon Oct 12 2026 00:59:29 GMT+0100 (British Summer Time)",
+      "timezone": "Europe/London",
+      "controller": null,
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "rootFont": "16px",
+      "touchPoints": 0,
+      "reducedMotion": true
+    }
+  }
+}

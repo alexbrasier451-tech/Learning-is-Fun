@@ -1,12 +1,12 @@
 {
-  "frozenAt": "2026-10-11T23:27:31.903Z",
+  "frozenAt": "2026-10-12T00:09:59.1090942Z",
   "title": "Published M2 WebKit touch and scene transport observation",
   "candidateBuildId": "011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1",
   "files": [
     {
       "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/tests/playtest/published-webkit.spec.ts",
-      "bytes": 31509,
-      "sha256": "fc15de3167c9eb3f8e131aa036b87464cd2c6ad90c83ab780382dd8a59ef6c87"
+      "bytes": 34579,
+      "sha256": "d3bc936de03cd66cbf39ca38526fea20ecdf0b26548462263a7108a7762c051d"
     },
     {
       "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/tests/fixtures/published-webkit-endgame.json",
@@ -15,14 +15,30 @@
     },
     {
       "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/HANDOFF.md",
-      "bytes": 5146,
-      "sha256": "b0487b8feb6accab046b6bddbb810537030d541d3de7bc892b553330158a7df5"
+      "bytes": 6229,
+      "sha256": "5380bb63214d83b2dff9a6cbc568a7a4f6acc1e29b2564b7e3b2abb1d1ad543a"
+    },
+    {
+      "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/touch-proxy-correction/CORRECTION.md",
+      "bytes": 4850,
+      "sha256": "defc9903c27491a96ec4813a39ccded671cbe747f845724fd6f9eaf000b18119"
+    },
+    {
+      "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/touch-proxy-correction/preimages.json",
+      "bytes": 1564,
+      "sha256": "0fe27e6f6472ee1a159f74b625363e2c8c81af8b3579281eb6042e2a59333e59"
+    },
+    {
+      "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/touch-proxy-correction/trace-evidence.json",
+      "bytes": 5096,
+      "sha256": "ef48624d3dd3ca3e99805be9c9aef230c24c12d288f668770dd152d2fd646377"
     }
   ],
   "validation": {
-    "typecheck": "passed;focusednoemit",
-    "discovery": "passed;exactly1test/1file",
-    "browserExecution": "none;LinuxdispatchbelongsController/foundation"
+    "typecheck": "passed; focused no-emit after touch correction",
+    "discovery": "passed; exactly 1 test/1 file after touch correction",
+    "browserExecution": "none for corrected gate; prior Linux failures retained; dispatch belongs Controller/foundation"
   },
+  "preimages": "touch-proxy-correction/preimages.json; FILES-before.json retained",
   "mutationHold": "Do not mutate reviewed files pending original independent review."
 }

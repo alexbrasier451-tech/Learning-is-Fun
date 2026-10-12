@@ -16,6 +16,9 @@ const EXPORT_SHA = 'ef0a74d01e489704110ca02b6508fb9d532900d883a91d02d8bcb47afea7
 const require = createRequire(import.meta.url);
 const sha256 = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 type Metadata = Record<string, unknown>;
+type NativeInput = { type: string; at: number; time: number; isTrusted: boolean; target: string | null;
+  pointerType: string | null; pointerId: number | null; clientX: number | null; clientY: number | null;
+  changedTouches: { identifier: number; clientX: number; clientY: number }[] };
 type Identity = { scope: string; activeScript: string | null; controller: string | null;
   reply: { type: string; buildId: string; complete: boolean } };
 type Scope = { id: string; context: BrowserContext; page: Page; network: Metadata[];
@@ -78,6 +81,21 @@ test('Published M2 WebKit touch and scene transport observation', async ({ brows
     page.on('requestfailed', r => s.network.push({ event: 'failed', at: new Date().toISOString(), url: r.url(), failure: r.failure() }));
     page.on('pageerror', e => s.network.push({ event: 'pageerror', at: new Date().toISOString(), message: e.message }));
     await page.addInitScript(() => {
+      const inputRows: NativeInput[] = [];
+      (window as unknown as { __nativeInputDiagnostics: NativeInput[] }).__nativeInputDiagnostics = inputRows;
+      for (const type of ['touchstart', 'touchend', 'pointerdown', 'pointerup']) {
+        document.addEventListener(type, event => {
+          const button = event.target instanceof Element ? event.target.closest('button') : null;
+          const touch = typeof TouchEvent !== 'undefined' && event instanceof TouchEvent ? event : null;
+          const pointer = typeof PointerEvent !== 'undefined' && event instanceof PointerEvent ? event : null;
+          inputRows.push({ type: event.type, at: Date.now(), time: performance.now(), isTrusted: event.isTrusted,
+            target: button?.getAttribute('aria-label') ?? button?.textContent?.trim() ?? null,
+            pointerType: pointer?.pointerType ?? null, pointerId: pointer?.pointerId ?? null,
+            clientX: pointer?.clientX ?? null, clientY: pointer?.clientY ?? null,
+            changedTouches: touch ? Array.from(touch.changedTouches, t => ({ identifier: t.identifier,
+              clientX: t.clientX, clientY: t.clientY })) : [] });
+        }, { capture: true, passive: true });
+      }
       const native = window.fetch, rows: Record<string, unknown>[] = [];
       (window as unknown as { __sceneFetchDiagnostics: typeof rows }).__sceneFetchDiagnostics = rows;
       let next = 0;
@@ -131,6 +149,7 @@ test('Published M2 WebKit touch and scene transport observation', async ({ brows
           visibleCSS: rect.width > 0 && rect.height > 0 && css.visibility !== 'hidden' && css.display !== 'none',
           rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height } };
       }) })), fetch: (window as unknown as { __sceneFetchDiagnostics?: Metadata[] }).__sceneFetchDiagnostics ?? [],
+    nativeInput: (window as unknown as { __nativeInputDiagnostics?: NativeInput[] }).__nativeInputDiagnostics ?? [],
   }));
   const checkpoint = async (s: Scope, id: string, expected: string, status: CheckpointRecord['status'] = 'passed') => {
     const state = await nativeState(s);
@@ -174,7 +193,22 @@ test('Published M2 WebKit touch and scene transport observation', async ({ brows
     expect.soft(s.identity.controller, 'Initial uncontrolled page condition; mismatch is retained without reload').toBeNull();
     const initialState = await nativeState(s);
     expect(initialState.timezone).toBe('Europe/London');
-    expect(initialState.touchPoints).toBeGreaterThan(0);
+    const helpInput = initialState.nativeInput.filter(event => event.target === 'Help' && event.isTrusted);
+    const touchPair = helpInput.some((start, index) => start.type === 'touchstart' && start.changedTouches.length === 1
+      && Number.isFinite(start.changedTouches[0].identifier) && helpInput.slice(index + 1).some(end =>
+        end.type === 'touchend' && end.changedTouches.length === 1 && end.time >= start.time
+        && end.changedTouches[0].identifier === start.changedTouches[0].identifier
+        && end.changedTouches[0].clientX === start.changedTouches[0].clientX
+        && end.changedTouches[0].clientY === start.changedTouches[0].clientY));
+    const pointerPair = helpInput.some((start, index) => start.type === 'pointerdown' && start.pointerType === 'touch'
+      && start.pointerId !== null && Number.isFinite(start.pointerId) && helpInput.slice(index + 1).some(end =>
+        end.type === 'pointerup' && end.pointerType === 'touch' && end.pointerId === start.pointerId
+        && end.time >= start.time && end.clientX === start.clientX && end.clientY === start.clientY));
+    await attachJSON(s.id + '-native-touch-proof', { action: 'Existing ordinary Help touchscreen.tap',
+      maxTouchPoints: initialState.touchPoints, events: initialState.nativeInput, touchPair, pointerPair,
+      proven: touchPair || pointerPair });
+    expect(touchPair || pointerPair,
+      'Native Help tap must deliver a trusted touchstart/end or pointerType touch pair; no mouse substitution').toBe(true);
     expect(initialState.reducedMotion).toBe(true);
     await checkpoint(s, 'IDENTITY', 'Actual Help/active-worker exact M2 before input; initially uncontrolled', s.identity.controller === null ? 'passed' : 'failed');
     await tap(s, 'Back to my story');
