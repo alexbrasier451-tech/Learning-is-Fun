@@ -1,12 +1,12 @@
 {
-  "frozenAt": "2026-10-12T00:09:59.1090942Z",
+  "frozenAt": "2026-10-12T00:26:13.1642937Z",
   "title": "Published M2 WebKit touch and scene transport observation",
   "candidateBuildId": "011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1",
   "files": [
     {
       "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/tests/playtest/published-webkit.spec.ts",
-      "bytes": 34579,
-      "sha256": "d3bc936de03cd66cbf39ca38526fea20ecdf0b26548462263a7108a7762c051d"
+      "bytes": 36590,
+      "sha256": "2eb3caaff310e4b6dd6190b925686fa208297435440190488967c75e9ba1ee0e"
     },
     {
       "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/tests/fixtures/published-webkit-endgame.json",
@@ -15,8 +15,8 @@
     },
     {
       "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/HANDOFF.md",
-      "bytes": 6229,
-      "sha256": "5380bb63214d83b2dff9a6cbc568a7a4f6acc1e29b2564b7e3b2abb1d1ad543a"
+      "bytes": 7469,
+      "sha256": "bbab1fbc19aee19d63b56d4d48189c3a18c5874fc0691433c385ee2071f6ca5b"
     },
     {
       "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/touch-proxy-correction/CORRECTION.md",
@@ -32,13 +32,28 @@
       "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/touch-proxy-correction/trace-evidence.json",
       "bytes": 5096,
       "sha256": "ef48624d3dd3ca3e99805be9c9aef230c24c12d288f668770dd152d2fd646377"
+    },
+    {
+      "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/import-transition-correction/CORRECTION.md",
+      "bytes": 4593,
+      "sha256": "0f731817512c15b3cdb607343f83c5f132583f6192577e92a7902bbb1dd4ded7"
+    },
+    {
+      "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/import-transition-correction/preimages.json",
+      "bytes": 1506,
+      "sha256": "80d3a7a8b8394aebe0629bfa92d863afee04055fb5a15d7dd216f7bd10ca4c59"
+    },
+    {
+      "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/import-transition-correction/trace-evidence.json",
+      "bytes": 8756,
+      "sha256": "f600f9fa6c4a458d2b2bb77082a04ec76f6f83b288295f9df19f081559ef946b"
     }
   ],
   "validation": {
-    "typecheck": "passed; focused no-emit after touch correction",
-    "discovery": "passed; exactly 1 test/1 file after touch correction",
-    "browserExecution": "none for corrected gate; prior Linux failures retained; dispatch belongs Controller/foundation"
+    "typecheck": "passed; focused no-emit after import-transition correction",
+    "discovery": "passed; exactly 1 test/1 file after import-transition correction",
+    "browserExecution": "none for corrected import transition; prior Linux run38187415616 passed fresh prefix/trusted touch, then stopped before Castle/Green; original same-case rerun belongs Controller/foundation"
   },
-  "preimages": "touch-proxy-correction/preimages.json; FILES-before.json retained",
+  "preimages": "import-transition-correction/preimages.json and FILES-before.json; earlier touch-proxy-correction preimages retained",
   "mutationHold": "Do not mutate reviewed files pending original independent review."
 }

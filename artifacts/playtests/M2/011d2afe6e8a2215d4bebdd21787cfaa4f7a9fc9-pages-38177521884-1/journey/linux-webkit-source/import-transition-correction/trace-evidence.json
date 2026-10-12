@@ -1,0 +1,163 @@
+{
+  "lastNativeTap": [
+    {
+      "type": "before",
+      "callId": "yfgz@1641",
+      "startTime": 35766.762,
+      "class": "Page",
+      "method": "touchscreenTap",
+      "params": {
+        "x": 462.9765625,
+        "y": 636.09375
+      }
+    },
+    {
+      "type": "input",
+      "callId": "yfgz@1641",
+      "point": {
+        "x": 462.9765625,
+        "y": 636.09375
+      }
+    },
+    {
+      "type": "after",
+      "callId": "yfgz@1641",
+      "endTime": 35817.333
+    }
+  ],
+  "actions": [
+    {
+      "at": "2026-10-12T00:18:56.653Z",
+      "action": "goto frozen URL; domcontentloaded;6000ms"
+    },
+    {
+      "at": "2026-10-12T00:18:57.234Z",
+      "action": "touchscreen.tap Help"
+    },
+    {
+      "at": "2026-10-12T00:18:58.299Z",
+      "action": "touchscreen.tap Back to my story"
+    },
+    {
+      "at": "2026-10-12T00:18:58.379Z",
+      "action": "touchscreen.tap Grown-ups"
+    },
+    {
+      "at": "2026-10-12T00:18:58.444Z",
+      "action": "touchscreen.tap For grown-ups"
+    },
+    {
+      "at": "2026-10-12T00:18:58.605Z",
+      "action": "touchscreen.tap Continue to adult area"
+    },
+    {
+      "at": "2026-10-12T00:18:58.63Z",
+      "action": "Adult native file input:setInputFiles byte-identical genuine export"
+    },
+    {
+      "at": "2026-10-12T00:18:58.849Z",
+      "action": "touchscreen.tap Confirm whole-save replacement"
+    }
+  ],
+  "scopeOutcome": {
+    "frozenBuild": "011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1",
+    "freshPrefix": "Q1–Q3 then Q4 matching/Q5 quantity/Q6 sorting; original Market/library checks",
+    "supplementary": "Genuine imported Juniper endgame Castle/Green composition only; not fresh journey/partial-Q9 equivalence",
+    "fatalErrors": [
+      {
+        "message": "\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Whole backup replacement committed. Return to the profile chooser to select an explorer.', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Whole backup replacement committed. Return to the profile chooser to select an explorer.', { exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Whole backup replacement committed. Return to the profile chooser to select an explorer.', { exact: true })\u001b[22m\n",
+        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Whole backup replacement committed. Return to the profile chooser to select an explorer.', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Whole backup replacement committed. Return to the profile chooser to select an explorer.', { exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Whole backup replacement committed. Return to the profile chooser to select an explorer.', { exact: true })\u001b[22m\n\n    at /home/runner/work/Learning-is-Fun/Learning-is-Fun/tests/playtest/published-webkit.spec.ts:370:159"
+      }
+    ],
+    "softAssertionErrors": [],
+    "pendingAbortObservations": [
+      {
+        "scope": "fresh-original",
+        "originalConditionMismatch": false,
+        "artFetchesAbortedWhilePending": [],
+        "limit": "Fast decoded success without a pending abort narrows host behaviour; it does not prove cancellation safety under the failing Windows condition"
+      },
+      {
+        "scope": "supplementary-imported-endgame",
+        "originalConditionMismatch": false,
+        "artFetchesAbortedWhilePending": [],
+        "limit": "Fast decoded success without a pending abort narrows host behaviour; it does not prove cancellation safety under the failing Windows condition"
+      }
+    ],
+    "windowsFailuresRetained": true,
+    "windowsCorrectionClaim": false,
+    "matrixAcceptance": "Controller adjudication; no independent fullT2 closure",
+    "acousticStatus": "unverified"
+  },
+  "nativeTouchProof": {
+    "action": "Existing ordinary Help touchscreen.tap",
+    "maxTouchPoints": 0,
+    "events": [
+      {
+        "type": "pointerdown",
+        "at": 1791764337237,
+        "time": 578,
+        "isTrusted": true,
+        "target": "Help",
+        "pointerType": "touch",
+        "pointerId": 2,
+        "clientX": 518,
+        "clientY": 218,
+        "changedTouches": []
+      },
+      {
+        "type": "touchstart",
+        "at": 1791764337237,
+        "time": 578,
+        "isTrusted": true,
+        "target": "Help",
+        "pointerType": null,
+        "pointerId": null,
+        "clientX": null,
+        "clientY": null,
+        "changedTouches": [
+          {
+            "identifier": 0,
+            "clientX": 518,
+            "clientY": 218
+          }
+        ]
+      },
+      {
+        "type": "pointerup",
+        "at": 1791764337237,
+        "time": 578,
+        "isTrusted": true,
+        "target": "Help",
+        "pointerType": "touch",
+        "pointerId": 2,
+        "clientX": 518,
+        "clientY": 218,
+        "changedTouches": []
+      },
+      {
+        "type": "touchend",
+        "at": 1791764337237,
+        "time": 579,
+        "isTrusted": true,
+        "target": "Help",
+        "pointerType": null,
+        "pointerId": null,
+        "clientX": null,
+        "clientY": null,
+        "changedTouches": [
+          {
+            "identifier": 0,
+            "clientX": 518,
+            "clientY": 218
+          }
+        ]
+      }
+    ],
+    "touchPair": true,
+    "pointerPair": true,
+    "proven": true
+  },
+  "retainedErrorContext": "# Instructions\n\n- Following Playwright test failed.\n- Explain why, be concise, respect Playwright best practices.\n- Provide a snippet of code with the fix, if possible.\n\n# Test info\n\n- Name: published-webkit.spec.ts >> Published M2 WebKit touch and scene transport observation\n- Location: tests/playtest/published-webkit.spec.ts:30:1\n\n# Error details\n\n```\nError: expect(locator).toBeVisible() failed\n\nLocator: getByText('Whole backup replacement committed. Return to the profile chooser to select an explorer.', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" getByText('Whole backup replacement committed. Return to the profile chooser to select an explorer.', { exact: true }) with timeout 5000ms\n  - waiting for getByText('Whole backup replacement committed. Return to the profile chooser to select an explorer.', { exact: true })\n\n```\n\n```yaml\n- link \"Skip to your story\":\n  - /url: \"#story\"\n- banner:\n  - link \"Learning is Fun A little learning. A lasting adventure.\":\n    - /url: \"#story\"\n- complementary \"Sound controls\":\n  - button \"Sound Silent\"\n  - button \"Silence all\"\n- navigation \"Your story\":\n  - button \"Explorers\"\n  - button \"Adventure\" [disabled]\n  - button \"Hall of Champions\"\n  - button \"Help\"\n  - button \"Grown-ups\"\n- text: Explorer\n- combobox \"Active explorer\":\n  - option \"Choose an explorer\" [selected]\n  - option \"Juniper M2\"\n- status: Choose an explorer for this saved story.\n- button \"Save progress\"\n- button \"Pause sound\"\n- region \"Offline play and fullscreen\":\n  - status: Ready offline\n  - button \"Retry offline preparation\"\n  - button \"Open fullscreen\"\n- main:\n  - region \"Who’s exploring today?\":\n    - paragraph: YOUR STORY STARTS HERE\n    - heading \"Who’s exploring today?\" [level=1]\n    - paragraph: Choose your own little corner of the adventure.\n    - article:\n      - button \"Juniper M2 Choose explorer\":\n        - strong: Juniper M2\n        - text: Choose explorer\n      - button \"Rename Juniper M2\"\n      - button \"Picture for Juniper M2\"\n    - button \"Add an explorer\"\n    - paragraph: 1 of 16 local profiles\n    - complementary:\n      - strong: A story saved on this browser\n      - paragraph: Profiles belong to this app address and this browser profile. Other browsers and devices have separate stories. Clearing browser data can erase them. Grown-ups can download a manual backup and transfer it to another device.\n- contentinfo: Made for curious explorers · Saved on this browser\n```\n\n",
+  "snapshotLimit": "Trace frame snapshots contain differential references; raw substring absence is not a rendered DOM assertion. Retained error-context DOM supplies the final chooser observation."
+}

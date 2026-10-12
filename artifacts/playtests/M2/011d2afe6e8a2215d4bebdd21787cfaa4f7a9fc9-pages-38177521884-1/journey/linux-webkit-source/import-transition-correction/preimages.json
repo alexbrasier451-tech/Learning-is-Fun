@@ -1,0 +1,20 @@
+[
+  {
+    "source": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/tests/playtest/published-webkit.spec.ts",
+    "copy": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/import-transition-correction/source-before.spec.ts",
+    "bytes": 34579,
+    "sha256": "d3bc936de03cd66cbf39ca38526fea20ecdf0b26548462263a7108a7762c051d"
+  },
+  {
+    "source": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/HANDOFF.md",
+    "copy": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/import-transition-correction/HANDOFF-before.md",
+    "bytes": 6229,
+    "sha256": "5380bb63214d83b2dff9a6cbc568a7a4f6acc1e29b2564b7e3b2abb1d1ad543a"
+  },
+  {
+    "source": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/FILES.json",
+    "copy": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/import-transition-correction/FILES-before.json",
+    "bytes": 2483,
+    "sha256": "df01be714398117f227008334e7d1286cf23a6278dff987b0b3ff3506b96e98b"
+  }
+]

@@ -367,8 +367,31 @@ test('Published M2 WebKit touch and scene transport observation', async ({ brows
       await supplementary.page.getByLabel('Choose a backup to replace this app’s whole save', { exact: true }).setInputFiles(fixture);
       await expect(supplementary.page.getByRole('dialog', { name: 'Replace this app’s whole save?', exact: true })).toContainText('Juniper M2');
       await tap(supplementary, 'Confirm whole-save replacement');
-      await expect(supplementary.page.getByText('Whole backup replacement committed. Return to the profile chooser to select an explorer.', { exact: true })).toBeVisible();
-      await tap(supplementary, 'Exit adult area'); await tap(supplementary, 'Juniper M2 Choose explorer');
+      // Whole-save epoch replacement retires the adult panel and returns to the
+      // chooser. Verify that stable UI and committed data before selecting.
+      await expect(supplementary.page.getByRole('heading', { name: 'Who’s exploring today?', exact: true })).toBeVisible();
+      await expect(supplementary.page.getByRole('button', { name: 'Juniper M2 Choose explorer', exact: true })).toBeVisible();
+      await expect(supplementary.page.getByText('Choose an explorer for this saved story.', { exact: true })).toBeVisible();
+      await expect(supplementary.page.getByRole('combobox', { name: 'Active explorer', exact: true })).toHaveValue('');
+      await expect(supplementary.page.getByRole('heading', { name: 'Stories, practice and care', exact: true })).toBeHidden();
+      await expect(supplementary.page.getByRole('dialog', { name: 'Replace this app’s whole save?', exact: true })).toBeHidden();
+      const importedRoot = await supplementary.page.evaluate(() => new Promise<{ save: unknown; revision: number }>((resolve, reject) => {
+        const request = indexedDB.open('learning-is-fun:/Learning-is-Fun/:save');
+        request.onerror = () => reject(request.error);
+        request.onsuccess = () => {
+          const db = request.result, transaction = db.transaction('records', 'readonly'), query = transaction.objectStore('records').get('root');
+          let value: { save: unknown; revision: number };
+          query.onsuccess = () => { value = query.result; };
+          transaction.oncomplete = () => { db.close(); resolve(value); };
+          transaction.onabort = () => { db.close(); reject(transaction.error); };
+        };
+      }));
+      expect(importedRoot.save, 'Normal UI replacement committed the exact genuine whole save').toEqual(exported.save);
+      expect(importedRoot.revision).toBe(0);
+      await attachJSON('supplementary-import-commit', { source: 'Read-only native IndexedDB root after normal UI confirmation',
+        fixtureSha256: sha256(bytes), revision: importedRoot.revision, exactWholeSaveMatch: true });
+      await checkpoint(supplementary, 'IMPORT-COMMITTED-CHOOSER', 'Whole-save confirmation returned to chooser; exact genuine save committed, no profile selected');
+      await tap(supplementary, 'Juniper M2 Choose explorer');
       await expect(supplementary.page.getByRole('button', { name: 'Sound Silent', exact: true })).toBeVisible();
       await expect(supplementary.page.getByRole('region', { name: 'Kingdom story finale', exact: true })).toBeVisible();
       await assertArt(supplementary, 'GREEN-PORTRAIT', 'village-green', 3, ['garden-restored', 'forest-marker', 'kingdom-finale'],
