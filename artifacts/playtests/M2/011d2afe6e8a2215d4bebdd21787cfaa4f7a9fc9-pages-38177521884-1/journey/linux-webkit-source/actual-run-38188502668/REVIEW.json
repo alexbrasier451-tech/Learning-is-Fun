@@ -1,0 +1,1373 @@
+{
+  "run": "38188502668",
+  "ciSource": "9d0dbd00859d2a5a5c8d18ef16013944ae90491c",
+  "artifactId": "11720378822",
+  "artifactBytes": 72625590,
+  "artifactSha256": "f7eee416f4f3a4ab8ec9602d34393b7a36eb86fede68eff0c16bebfe7a01d592",
+  "result": {
+    "stats": {
+      "startTime": "2026-10-12T00:35:16.317Z",
+      "duration": 37399.305,
+      "expected": 1,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "status": "passed",
+    "durationMs": 36475,
+    "retry": 0,
+    "errorCount": 0
+  },
+  "runtime": {
+    "os": "linux 6.17.0-1022-azure",
+    "browserVersion": "27.2",
+    "engine": "webkit",
+    "playwrightVersion": "1.64.0",
+    "executablePath": "/home/runner/.cache/ms-playwright/webkit-2370/pw_run.sh",
+    "installedRevision": "2370",
+    "candidate": {
+      "release": "M2",
+      "url": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+      "basePath": "/Learning-is-Fun/",
+      "buildId": "011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1",
+      "commit": "011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9",
+      "deploymentRun": "https://github.com/alexbrasier451-tech/Learning-is-Fun/actions/runs/38177521884",
+      "requiredInventoryLocation": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/pages/M2/38177521884/artifact/precache-report.json"
+    },
+    "candidateSha256": "c939b17c55777c9345a67a4bafa81c940ded29110a4444b5d04c76c20a69765f",
+    "ciSourceCommit": "9d0dbd00859d2a5a5c8d18ef16013944ae90491c",
+    "launch": "Playwright runner browser fixture; headless Linux; no explicit launch/proxy/transport overrides in this spec",
+    "initial": {
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "hasTouch": true,
+      "timezoneId": "Europe/London",
+      "reducedMotion": "reduce"
+    },
+    "navigation": {
+      "waitUntil": "domcontentloaded",
+      "timeout": 6000
+    },
+    "observation": "Metadata-only fetch/signal wrapper returns native promise; no body reads, route interception, HTTP suppression, cache bypass, forced retry or artificial delay",
+    "acousticStatus": "unverified; silent",
+    "startedAt": "2026-10-12T00:35:17.078Z"
+  },
+  "scopes": [
+    {
+      "scope": "fresh-original",
+      "seeded": false,
+      "checkpointCount": 21,
+      "rows": [
+        {
+          "id": "IDENTITY",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "16px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-IDENTITY-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-IDENTITY-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-IDENTITY-metadata-checkpoint-3-28c41e8a842066d94437df0f81af149c1da55721.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-IDENTITY-screen-checkpoint-3-879deab3a04e88746569c3540cdbce11d90cbd20.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-IDENTITY-visible-state-checkpoint-3-e9deb0e76fca8ae6f385c73f1fd39780a7ef7bb3.txt"
+          },
+          "art": [],
+          "layout": null
+        },
+        {
+          "id": "Q1-DRAFT",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "16px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-Q1-DRAFT-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-Q1-DRAFT-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q1-DRAFT-metadata-checkpoint-8-570418506fb88be5c4cc55446821c50fbf80aff4.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q1-DRAFT-screen-checkpoint-8-1976655c361724651f6d48b0c4a047d8d311026a.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q1-DRAFT-visible-state-checkpoint-8-de7913940fccb30fe09b92eee4771f3fbe422a2d.txt"
+          },
+          "art": [
+            {
+              "scene": "river-bridge",
+              "results": "",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": null
+        },
+        {
+          "id": "Q1-SUCCESS",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "16px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-Q1-SUCCESS-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-Q1-SUCCESS-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q1-SUCCESS-metadata-checkpoint-13-74548196a6e48f484ac11aec4b908e23c73b98e8.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q1-SUCCESS-screen-checkpoint-13-56b2445085f7a637d820e5dddcf4467ba249c10a.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q1-SUCCESS-visible-state-checkpoint-13-bee1f97423b480be9ee540c8ab5935c71290a495.txt"
+          },
+          "art": [
+            {
+              "scene": "river-bridge",
+              "results": "bridge-restored|route-to-library-market",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": null
+        },
+        {
+          "id": "Q2-DRAFT",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "16px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-Q2-DRAFT-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-Q2-DRAFT-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q2-DRAFT-metadata-checkpoint-18-a34c388364eb90b0f0bf9f071df88bfa51551a3f.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q2-DRAFT-screen-checkpoint-18-b8a2910cdc6b0b571acdd81b6cd7fefc11b98d0d.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q2-DRAFT-visible-state-checkpoint-18-1930aa424f05aa41094711a28076958963d3656d.txt"
+          },
+          "art": [
+            {
+              "scene": "whispering-library",
+              "results": "bridge-restored|route-to-library-market",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": null
+        },
+        {
+          "id": "Q2-SUCCESS",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "16px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-Q2-SUCCESS-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-Q2-SUCCESS-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q2-SUCCESS-metadata-checkpoint-23-3b347f7856bddca7eb1f8b8b7773a0f03d313026.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q2-SUCCESS-screen-checkpoint-23-610f178929e465bf14e143d71eadee66c7575c81.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q2-SUCCESS-visible-state-checkpoint-23-be35f67ec649dec57c754c9bd466473c9b49efd8.txt"
+          },
+          "art": [
+            {
+              "scene": "whispering-library",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions",
+              "images": [],
+              "fallback": false
+            }
+          ],
+          "layout": null
+        },
+        {
+          "id": "Q3-DRAFT",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "16px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-Q3-DRAFT-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-Q3-DRAFT-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q3-DRAFT-metadata-checkpoint-28-2c4df946bb5843a6e07a8b5c5e667720af390cac.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q3-DRAFT-screen-checkpoint-28-ff69fdead4254f93fb37ba37c0674bd38ad38f33.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q3-DRAFT-visible-state-checkpoint-28-1a0e645c5f088e306eb86b1c69f7c6f0702980f6.txt"
+          },
+          "art": [
+            {
+              "scene": "market-square",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": null
+        },
+        {
+          "id": "Q3-SUCCESS-IMMEDIATE",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "16px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-Q3-SUCCESS-IMMEDIATE-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-Q3-SUCCESS-IMMEDIATE-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q3-SUCCESS-IMMEDIATE-metadata-checkpoint-33-51948abcf5337e9e30ad89e8ec1d5b37e271dbd8.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q3-SUCCESS-IMMEDIATE-screen-checkpoint-33-fa5b90d2eec4f833636bc472bd964ada850c12ef.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q3-SUCCESS-IMMEDIATE-visible-state-checkpoint-33-d7828d351c3ed94ddd0ffe3453480180bb76721a.txt"
+          },
+          "art": [
+            {
+              "scene": "market-square",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions|market-stocked|village-welcome|planter-available",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": null
+        },
+        {
+          "id": "Q3-MARKET-ART",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "16px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-Q3-MARKET-ART-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-Q3-MARKET-ART-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q3-MARKET-ART-metadata-checkpoint-38-a4ccdfab5c857589745ebcb360d1ab868b65f253.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q3-MARKET-ART-screen-checkpoint-38-314195d8f7333a67787046f81994aebe728a377e.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q3-MARKET-ART-visible-state-checkpoint-38-b1ac6454c0bdfbe285215cd2527376b54db8e06e.txt"
+          },
+          "art": [
+            {
+              "scene": "market-square",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions|market-stocked|village-welcome|planter-available",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": null
+        },
+        {
+          "id": "MATCH-PORTRAIT",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "16px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-MATCH-PORTRAIT-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-MATCH-PORTRAIT-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-MATCH-PORTRAIT-metadata-checkpoint-43-fe927b9b93114718893f80cea30fd84c6935f308.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-MATCH-PORTRAIT-screen-checkpoint-43-1cf30b0063e53ebacd317faa0ec0624421e04c1b.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-MATCH-PORTRAIT-visible-state-checkpoint-43-1ce54c636dfd931c87ad1059b1fe042f3bb9afad.txt"
+          },
+          "art": [
+            {
+              "scene": "tinkers-workshop",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions|market-stocked|village-welcome|planter-available",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": {
+            "documentWidth": 768,
+            "targetCount": 30,
+            "under44": 0,
+            "overflow": 0
+          }
+        },
+        {
+          "id": "MATCH-ROTATED",
+          "status": "passed",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "rootFont": "16px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-MATCH-ROTATED-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-MATCH-ROTATED-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-MATCH-ROTATED-metadata-checkpoint-48-a4904106150df5deab3bed63fe90ea5e6f8a6075.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-MATCH-ROTATED-screen-checkpoint-48-f9f8e00a9801daa849fca85121d73ce9b400a8a1.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-MATCH-ROTATED-visible-state-checkpoint-48-fe7b7be7c3d3c3b991cf2fae06dbf282e725d0d3.txt"
+          },
+          "art": [
+            {
+              "scene": "tinkers-workshop",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions|market-stocked|village-welcome|planter-available",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": {
+            "documentWidth": 1024,
+            "targetCount": 30,
+            "under44": 0,
+            "overflow": 0
+          }
+        },
+        {
+          "id": "MATCH-TEXT200",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "32px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-MATCH-TEXT200-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-MATCH-TEXT200-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-MATCH-TEXT200-metadata-checkpoint-53-332f15a1b27c84de2f444489987ec749ab6a1636.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-MATCH-TEXT200-screen-checkpoint-53-c11ce96c3e7a2aa53ffdbb52e2616d887af38274.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-MATCH-TEXT200-visible-state-checkpoint-53-e6c47335bc562f66b2564063e3e7b6877d745d6a.txt"
+          },
+          "art": [
+            {
+              "scene": "tinkers-workshop",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions|market-stocked|village-welcome|planter-available",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": {
+            "documentWidth": 768,
+            "targetCount": 30,
+            "under44": 0,
+            "overflow": 0
+          }
+        },
+        {
+          "id": "Q4-SUCCESS-TEXT200",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "32px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-Q4-SUCCESS-TEXT200-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-Q4-SUCCESS-TEXT200-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q4-SUCCESS-TEXT200-metadata-checkpoint-58-de96e3c356c6a6b9463cb5ab0cbaeb94f360067e.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q4-SUCCESS-TEXT200-screen-checkpoint-58-b529268a2e1c21312dc102a1530672cbc315c4ba.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q4-SUCCESS-TEXT200-visible-state-checkpoint-58-1fce56977f46efccbcd26d3c689bd552c9ab72f8.txt"
+          },
+          "art": [
+            {
+              "scene": "tinkers-workshop",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions|market-stocked|village-welcome|planter-available|sawmill-restored|invention-available",
+              "images": [
+                {
+                  "width": 0,
+                  "height": 0,
+                  "visibleCSS": false
+                },
+                {
+                  "width": 0,
+                  "height": 0,
+                  "visibleCSS": false
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": null
+        },
+        {
+          "id": "QUANTITY-PORTRAIT",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "16px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-QUANTITY-PORTRAIT-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-QUANTITY-PORTRAIT-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-QUANTITY-PORTRAIT-metadata-checkpoint-63-51b71aad912321d55703531404d7ed2166ba6778.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-QUANTITY-PORTRAIT-screen-checkpoint-63-e6dcf7cf55d59bf24f15ddbef20e653953489f2e.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-QUANTITY-PORTRAIT-visible-state-checkpoint-63-d803281a720079bb5ec42c6ec43239f237c03b44.txt"
+          },
+          "art": [
+            {
+              "scene": "village-green",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions|market-stocked|village-welcome|planter-available|sawmill-restored|invention-available",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": {
+            "documentWidth": 768,
+            "targetCount": 36,
+            "under44": 0,
+            "overflow": 0
+          }
+        },
+        {
+          "id": "QUANTITY-ROTATED",
+          "status": "passed",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "rootFont": "16px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-QUANTITY-ROTATED-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-QUANTITY-ROTATED-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-QUANTITY-ROTATED-metadata-checkpoint-68-b09590a2f325fc29714c6db1ba8b15e7e875a986.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-QUANTITY-ROTATED-screen-checkpoint-68-02025986e6744ed00de22b7010cc069975dcdea5.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-QUANTITY-ROTATED-visible-state-checkpoint-68-b7c0058b546f2a3807c2d36595db5cce7471c261.txt"
+          },
+          "art": [
+            {
+              "scene": "village-green",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions|market-stocked|village-welcome|planter-available|sawmill-restored|invention-available",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": {
+            "documentWidth": 1024,
+            "targetCount": 36,
+            "under44": 0,
+            "overflow": 0
+          }
+        },
+        {
+          "id": "QUANTITY-TEXT200",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "32px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-QUANTITY-TEXT200-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-QUANTITY-TEXT200-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-QUANTITY-TEXT200-metadata-checkpoint-73-d2a8e6aa35bddf262c9eeeec9a08ba7be667d199.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-QUANTITY-TEXT200-screen-checkpoint-73-9427f3aac616ecfaa91e1a971a42cbd82d8fa00e.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-QUANTITY-TEXT200-visible-state-checkpoint-73-bc21bbce6868d8770861756b5516833f66478b9a.txt"
+          },
+          "art": [
+            {
+              "scene": "village-green",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions|market-stocked|village-welcome|planter-available|sawmill-restored|invention-available",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": {
+            "documentWidth": 768,
+            "targetCount": 36,
+            "under44": 0,
+            "overflow": 0
+          }
+        },
+        {
+          "id": "Q5-SUCCESS-TEXT200",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "32px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-Q5-SUCCESS-TEXT200-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-Q5-SUCCESS-TEXT200-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q5-SUCCESS-TEXT200-metadata-checkpoint-78-62f91aee5a09b249981c838112f65dd95f7ea7f4.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q5-SUCCESS-TEXT200-screen-checkpoint-78-2bd257af17f5eb12fd5057dd12b4dfa750159dfb.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q5-SUCCESS-TEXT200-visible-state-checkpoint-78-30ca658c73405e5c615fed5657b1ca174fdba60a.txt"
+          },
+          "art": [
+            {
+              "scene": "village-green",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions|market-stocked|village-welcome|planter-available|sawmill-restored|invention-available|garden-restored|forest-marker",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                },
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                },
+                {
+                  "width": 240,
+                  "height": 240,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": null
+        },
+        {
+          "id": "SORT-PORTRAIT",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "16px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-SORT-PORTRAIT-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-SORT-PORTRAIT-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-SORT-PORTRAIT-metadata-checkpoint-83-4857ed8c7d959660ec1bef9fd47914510b9d316b.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-SORT-PORTRAIT-screen-checkpoint-83-c22c8145123937f637b970cea28085ca93dd0a34.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-SORT-PORTRAIT-visible-state-checkpoint-83-75b056385223322a2dc8e4a6b7009f747e87958a.txt"
+          },
+          "art": [
+            {
+              "scene": "whispering-library",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions|market-stocked|village-welcome|planter-available|sawmill-restored|invention-available|garden-restored|forest-marker",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                },
+                {
+                  "width": 240,
+                  "height": 240,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": {
+            "documentWidth": 768,
+            "targetCount": 30,
+            "under44": 0,
+            "overflow": 0
+          }
+        },
+        {
+          "id": "SORT-ROTATED",
+          "status": "passed",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "rootFont": "16px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-SORT-ROTATED-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-SORT-ROTATED-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-SORT-ROTATED-metadata-checkpoint-88-cfd9ad71e8afb11805ab6889bbb8f71348a71553.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-SORT-ROTATED-screen-checkpoint-88-0a89a2b79dec3551bef30bf5eb988f5995242c8d.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-SORT-ROTATED-visible-state-checkpoint-88-5a4c1f3788eb1e976e9a41926ec0c5ea6466eb18.txt"
+          },
+          "art": [
+            {
+              "scene": "whispering-library",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions|market-stocked|village-welcome|planter-available|sawmill-restored|invention-available|garden-restored|forest-marker",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                },
+                {
+                  "width": 240,
+                  "height": 240,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": {
+            "documentWidth": 1024,
+            "targetCount": 30,
+            "under44": 0,
+            "overflow": 0
+          }
+        },
+        {
+          "id": "SORT-TEXT200",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "32px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-SORT-TEXT200-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-SORT-TEXT200-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-SORT-TEXT200-metadata-checkpoint-93-5bfbf60b0cb373abc77f26ac19e6b81e6157fe42.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-SORT-TEXT200-screen-checkpoint-93-b77f170c065ffad5e44e41e241993047ac196db8.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-SORT-TEXT200-visible-state-checkpoint-93-304fa7be77b054ef3f902f98c35fda499cf620d2.txt"
+          },
+          "art": [
+            {
+              "scene": "whispering-library",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions|market-stocked|village-welcome|planter-available|sawmill-restored|invention-available|garden-restored|forest-marker",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                },
+                {
+                  "width": 240,
+                  "height": 240,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": {
+            "documentWidth": 768,
+            "targetCount": 30,
+            "under44": 0,
+            "overflow": 0
+          }
+        },
+        {
+          "id": "Q6-SORT-SUCCESS-TEXT200",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "32px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-Q6-SORT-SUCCESS-TEXT200-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-Q6-SORT-SUCCESS-TEXT200-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q6-SORT-SUCCESS-TEXT200-metadata-checkpoint-98-a354ab5933a876e850eff1d80c139ac62e6b1832.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q6-SORT-SUCCESS-TEXT200-screen-checkpoint-98-a9cf6aaf33ef5055153f330a478fb899a0058bb7.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-Q6-SORT-SUCCESS-TEXT200-visible-state-checkpoint-98-658f588fbcfa3aa0653dd97cca9bd040745049d0.txt"
+          },
+          "art": [
+            {
+              "scene": "whispering-library",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions|market-stocked|village-welcome|planter-available|sawmill-restored|invention-available|garden-restored|forest-marker",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                },
+                {
+                  "width": 240,
+                  "height": 240,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": null
+        },
+        {
+          "id": "ORIGINAL-LIBRARY-ART",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "16px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-ORIGINAL-LIBRARY-ART-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-ORIGINAL-LIBRARY-ART-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-ORIGINAL-LIBRARY-ART-metadata-checkpoint-103-a5786d98dd92592c123c36c3e7198b644bd3243e.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-ORIGINAL-LIBRARY-ART-screen-checkpoint-103-01facd98c603a6487cd429a803a6357e37bb0de2.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/fresh-original-ORIGINAL-LIBRARY-ART-visible-state-checkpoint-103-f726aca2609ba38bed869aede53b15abb70298a7.txt"
+          },
+          "art": [
+            {
+              "scene": "whispering-library",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions|market-stocked|village-welcome|planter-available|sawmill-restored|invention-available|garden-restored|forest-marker",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                },
+                {
+                  "width": 240,
+                  "height": 240,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": null
+        }
+      ],
+      "touch": {
+        "rawMaxTouchPoints": 0,
+        "touchPair": true,
+        "pointerPair": true,
+        "trustedEvents": 4
+      },
+      "requests": {
+        "failures": 0,
+        "artResponses": 54,
+        "artResponsesNon200": 0,
+        "artFromWorker": 0
+      },
+      "lifecycles": {
+        "fetches": 26,
+        "rejections": 0,
+        "pendingAbort": 0
+      },
+      "trace": {
+        "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/fresh-original-trace.zip",
+        "sha256": "f7d4f962416852ad9fa0fea7d4e3b8af4a4d1508756eac112612889d67491c1c",
+        "entries": 205,
+        "contextOptions": [
+          {
+            "version": 10,
+            "type": "context-options",
+            "origin": "library",
+            "browserName": "webkit",
+            "playwrightVersion": "1.64.0",
+            "options": {
+              "noDefaultViewport": false,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              },
+              "ignoreHTTPSErrors": false,
+              "javaScriptEnabled": true,
+              "bypassCSP": false,
+              "locale": "en-US",
+              "timezoneId": "Europe/London",
+              "offline": false,
+              "isMobile": false,
+              "hasTouch": true,
+              "colorScheme": "light",
+              "reducedMotion": "reduce",
+              "forcedColors": "none",
+              "acceptDownloads": "accept",
+              "contrast": "no-preference",
+              "baseURL": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+              "serviceWorkers": "allow",
+              "selectorEngines": [],
+              "testIdAttributeName": "data-testid",
+              "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15"
+            },
+            "platform": "linux",
+            "wallTime": 1791765320821,
+            "monotonicTime": 4803.475,
+            "sdkLanguage": "javascript",
+            "testIdAttributeName": "data-testid"
+          }
+        ],
+        "nativeTapCount": 73,
+        "nativeTapErrors": 0
+      },
+      "initialWorker": {
+        "scope": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+        "activeScript": "https://alexbrasier451-tech.github.io/Learning-is-Fun/sw.js",
+        "controller": null,
+        "reply": {
+          "type": "OFFLINE_INVENTORY_RESULT",
+          "requestId": "fresh-original-before-profile",
+          "buildId": "011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1",
+          "complete": true,
+          "reason": null
+        }
+      },
+      "finalWorker": {
+        "scope": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+        "activeScript": "https://alexbrasier451-tech.github.io/Learning-is-Fun/sw.js",
+        "controller": null,
+        "reply": {
+          "type": "OFFLINE_INVENTORY_RESULT",
+          "requestId": "fresh-original-final",
+          "buildId": "011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1",
+          "complete": true,
+          "reason": null
+        }
+      }
+    },
+    {
+      "scope": "supplementary-imported-endgame",
+      "seeded": true,
+      "checkpointCount": 8,
+      "rows": [
+        {
+          "id": "IDENTITY",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "16px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/supplementary-imported-endgame-IDENTITY-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/supplementary-imported-endgame-IDENTITY-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-IDENTITY-metadata-checkpoint-117-2437dff27047266fa4802d2f1a43a496c6d9c30f.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-IDENTITY-screen-checkpoint-117-295636429dcbc4a558c37698785a86857db0d15f.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-IDENTITY-visible-state-checkpoint-117-baac86cc56dbcb14635fd1f1f47dec2e03cbf8e1.txt"
+          },
+          "art": [],
+          "layout": null
+        },
+        {
+          "id": "IMPORT-COMMITTED-CHOOSER",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "16px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/supplementary-imported-endgame-IMPORT-COMMITTED-CHOOSER-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/supplementary-imported-endgame-IMPORT-COMMITTED-CHOOSER-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-IMPORT-COMMITTED-CHOOSER-metadata-checkpoint-124-f250603f2cbb82d587fd5ba620b3eb4ee15c71a8.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-IMPORT-COMMITTED-CHOOSER-screen-checkpoint-124-084e7bbba65e5b2fc9eeba26be2b0d00253750bf.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-IMPORT-COMMITTED-CHOOSER-visible-state-checkpoint-124-ab572535d9518b75c8abd62599e049eb23c74842.txt"
+          },
+          "art": [],
+          "layout": null
+        },
+        {
+          "id": "GREEN-PORTRAIT",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "16px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/supplementary-imported-endgame-GREEN-PORTRAIT-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/supplementary-imported-endgame-GREEN-PORTRAIT-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-GREEN-PORTRAIT-metadata-checkpoint-129-114d9fc7aa34c0e8122745edd56ca1e5e13949ba.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-GREEN-PORTRAIT-screen-checkpoint-129-3c4fee555f9928269ccde22ff82885b796faa4c6.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-GREEN-PORTRAIT-visible-state-checkpoint-129-e88e7ad7c643bcf16c35164ac2757088b4cfe9a0.txt"
+          },
+          "art": [
+            {
+              "scene": "village-green",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions|market-stocked|village-welcome|planter-available|sawmill-restored|invention-available|garden-restored|forest-marker|books-shelved|forest-story-map|forest-path-restored|castle-gear-recovered|castle-clock-restored|castle-open|kingdom-finale",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                },
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                },
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                },
+                {
+                  "width": 240,
+                  "height": 240,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": null
+        },
+        {
+          "id": "GREEN-ROTATED",
+          "status": "passed",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "rootFont": "16px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/supplementary-imported-endgame-GREEN-ROTATED-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/supplementary-imported-endgame-GREEN-ROTATED-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-GREEN-ROTATED-metadata-checkpoint-134-a895621bc25196add3838003e58304c6e4d49086.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-GREEN-ROTATED-screen-checkpoint-134-b19ffee5ae087c6e5115abcf470e66f815b5f2e3.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-GREEN-ROTATED-visible-state-checkpoint-134-2aba6658f7667db97ebdcbc36e5a42ce1e200c1b.txt"
+          },
+          "art": [
+            {
+              "scene": "village-green",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions|market-stocked|village-welcome|planter-available|sawmill-restored|invention-available|garden-restored|forest-marker|books-shelved|forest-story-map|forest-path-restored|castle-gear-recovered|castle-clock-restored|castle-open|kingdom-finale",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                },
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                },
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                },
+                {
+                  "width": 240,
+                  "height": 240,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": null
+        },
+        {
+          "id": "CASTLE-PORTRAIT",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "16px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/supplementary-imported-endgame-CASTLE-PORTRAIT-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/supplementary-imported-endgame-CASTLE-PORTRAIT-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-CASTLE-PORTRAIT-metadata-checkpoint-139-c22f3cf8998ec9bf46c1132b87c0e8666d8ee4cb.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-CASTLE-PORTRAIT-screen-checkpoint-139-11efbbaf6dcf3dcfc65b81da2672306d05a17a32.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-CASTLE-PORTRAIT-visible-state-checkpoint-139-6b8653400d635ced25ec9507f4ace4818f3cfa19.txt"
+          },
+          "art": [
+            {
+              "scene": "clockwork-castle",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions|market-stocked|village-welcome|planter-available|sawmill-restored|invention-available|garden-restored|forest-marker|books-shelved|forest-story-map|forest-path-restored|castle-gear-recovered|castle-clock-restored|castle-open|kingdom-finale",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                },
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": null
+        },
+        {
+          "id": "CASTLE-ROTATED",
+          "status": "passed",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "rootFont": "16px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/supplementary-imported-endgame-CASTLE-ROTATED-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/supplementary-imported-endgame-CASTLE-ROTATED-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-CASTLE-ROTATED-metadata-checkpoint-144-1a50f9bd79eebb48fd0faa1e58883f9e3848f23b.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-CASTLE-ROTATED-screen-checkpoint-144-b2ea3ab59e9dbd33823cffc21eb4562ff8dce9df.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-CASTLE-ROTATED-visible-state-checkpoint-144-15220b89294e6bf108d8988400a0ffd7316bc742.txt"
+          },
+          "art": [
+            {
+              "scene": "clockwork-castle",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions|market-stocked|village-welcome|planter-available|sawmill-restored|invention-available|garden-restored|forest-marker|books-shelved|forest-story-map|forest-path-restored|castle-gear-recovered|castle-clock-restored|castle-open|kingdom-finale",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                },
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": null
+        },
+        {
+          "id": "CASTLE-TEXT200",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "32px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/supplementary-imported-endgame-CASTLE-TEXT200-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/supplementary-imported-endgame-CASTLE-TEXT200-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-CASTLE-TEXT200-metadata-checkpoint-149-7adde100c6bca6cef0bcfe166b0e57a377afbf29.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-CASTLE-TEXT200-screen-checkpoint-149-f47cec0c77c4997f6f9b527893359837432e71eb.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-CASTLE-TEXT200-visible-state-checkpoint-149-e373cc14f8195a1551f9c16601f6c317f8cafe76.txt"
+          },
+          "art": [
+            {
+              "scene": "clockwork-castle",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions|market-stocked|village-welcome|planter-available|sawmill-restored|invention-available|garden-restored|forest-marker|books-shelved|forest-story-map|forest-path-restored|castle-gear-recovered|castle-clock-restored|castle-open|kingdom-finale",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                },
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": null
+        },
+        {
+          "id": "GREEN-TEXT200",
+          "status": "passed",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "rootFont": "32px",
+          "reducedMotion": true,
+          "runningAnimations": 0,
+          "files": {
+            "native": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/supplementary-imported-endgame-GREEN-TEXT200-native.json",
+            "viewportPNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/supplementary-imported-endgame-GREEN-TEXT200-viewport.png",
+            "metadata": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-GREEN-TEXT200-metadata-checkpoint-154-d1bb09fa5ad377abeca991e40843c47a20fb4d13.json",
+            "fullPagePNG": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-GREEN-TEXT200-screen-checkpoint-154-855b76e0dbc8a2a0c3b671f043beda0b6e1e6e4f.png",
+            "visibleDOM": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/attachments/supplementary-imported-endgame-GREEN-TEXT200-visible-state-checkpoint-154-3d5bdd94046075c0acfcb3e0c0497cf613efb5c3.txt"
+          },
+          "art": [
+            {
+              "scene": "village-green",
+              "results": "bridge-restored|route-to-library-market|library-restored|market-instructions|market-stocked|village-welcome|planter-available|sawmill-restored|invention-available|garden-restored|forest-marker|books-shelved|forest-story-map|forest-path-restored|castle-gear-recovered|castle-clock-restored|castle-open|kingdom-finale",
+              "images": [
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                },
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                },
+                {
+                  "width": 960,
+                  "height": 600,
+                  "visibleCSS": true
+                },
+                {
+                  "width": 240,
+                  "height": 240,
+                  "visibleCSS": true
+                }
+              ],
+              "fallback": false
+            }
+          ],
+          "layout": null
+        }
+      ],
+      "touch": {
+        "rawMaxTouchPoints": 0,
+        "touchPair": true,
+        "pointerPair": true,
+        "trustedEvents": 4
+      },
+      "requests": {
+        "failures": 0,
+        "artResponses": 30,
+        "artResponsesNon200": 0,
+        "artFromWorker": 0
+      },
+      "lifecycles": {
+        "fetches": 13,
+        "rejections": 0,
+        "pendingAbort": 0
+      },
+      "trace": {
+        "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/ci/M2/9d0dbd0/published-webkit-38188502668/artifact/playwright/published-webkit-Published-6112e-scene-transport-observation-T2-WebKit-touch/transport/supplementary-imported-endgame-trace.zip",
+        "sha256": "0875a0920a3190c84503a2ed9bbcfcd6731cb78d939abe2baffefcd5c7e6b8ad",
+        "entries": 71,
+        "contextOptions": [
+          {
+            "version": 10,
+            "type": "context-options",
+            "origin": "library",
+            "browserName": "webkit",
+            "playwrightVersion": "1.64.0",
+            "options": {
+              "noDefaultViewport": false,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              },
+              "ignoreHTTPSErrors": false,
+              "javaScriptEnabled": true,
+              "bypassCSP": false,
+              "locale": "en-US",
+              "timezoneId": "Europe/London",
+              "offline": false,
+              "isMobile": false,
+              "hasTouch": true,
+              "colorScheme": "light",
+              "reducedMotion": "reduce",
+              "forcedColors": "none",
+              "acceptDownloads": "accept",
+              "contrast": "no-preference",
+              "baseURL": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+              "serviceWorkers": "allow",
+              "selectorEngines": [],
+              "testIdAttributeName": "data-testid",
+              "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15"
+            },
+            "platform": "linux",
+            "wallTime": 1791765347141,
+            "monotonicTime": 31123.118,
+            "sdkLanguage": "javascript",
+            "testIdAttributeName": "data-testid"
+          }
+        ],
+        "nativeTapCount": 9,
+        "nativeTapErrors": 0
+      },
+      "initialWorker": {
+        "scope": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+        "activeScript": "https://alexbrasier451-tech.github.io/Learning-is-Fun/sw.js",
+        "controller": null,
+        "reply": {
+          "type": "OFFLINE_INVENTORY_RESULT",
+          "requestId": "supplementary-imported-endgame-before-profile",
+          "buildId": "011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1",
+          "complete": true,
+          "reason": null
+        }
+      },
+      "finalWorker": {
+        "scope": "https://alexbrasier451-tech.github.io/Learning-is-Fun/",
+        "activeScript": "https://alexbrasier451-tech.github.io/Learning-is-Fun/sw.js",
+        "controller": null,
+        "reply": {
+          "type": "OFFLINE_INVENTORY_RESULT",
+          "requestId": "supplementary-imported-endgame-final",
+          "buildId": "011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1",
+          "complete": true,
+          "reason": null
+        }
+      }
+    }
+  ],
+  "importCommit": {
+    "source": "Read-only native IndexedDB root after normal UI confirmation",
+    "fixtureSha256": "ef0a74d01e489704110ca02b6508fb9d532900d883a91d02d8bcb47afea70290",
+    "revision": 0,
+    "exactWholeSaveMatch": true
+  },
+  "cleanup": {
+    "contexts": [
+      {
+        "scope": "fresh-original",
+        "contextClosed": true,
+        "at": "2026-10-12T00:35:47.005Z"
+      },
+      {
+        "scope": "supplementary-imported-endgame",
+        "contextClosed": true,
+        "at": "2026-10-12T00:35:53.541Z"
+      }
+    ],
+    "allOwnContextsClosed": true,
+    "browser": "Playwright runner fixture owns browser teardown; this receipt does not preclaim its later close",
+    "finishedAt": "2026-10-12T00:35:53.541Z"
+  },
+  "outcome": {
+    "frozenBuild": "011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1",
+    "freshPrefix": "Q1–Q3 then Q4 matching/Q5 quantity/Q6 sorting; original Market/library checks",
+    "supplementary": "Genuine imported Juniper endgame Castle/Green composition only; not fresh journey/partial-Q9 equivalence",
+    "fatalErrors": [],
+    "softAssertionErrors": [],
+    "pendingAbortObservations": [
+      {
+        "scope": "fresh-original",
+        "originalConditionMismatch": false,
+        "artFetchesAbortedWhilePending": [],
+        "limit": "Fast decoded success without a pending abort narrows host behaviour; it does not prove cancellation safety under the failing Windows condition"
+      },
+      {
+        "scope": "supplementary-imported-endgame",
+        "originalConditionMismatch": false,
+        "artFetchesAbortedWhilePending": [],
+        "limit": "Fast decoded success without a pending abort narrows host behaviour; it does not prove cancellation safety under the failing Windows condition"
+      }
+    ],
+    "windowsFailuresRetained": true,
+    "windowsCorrectionClaim": false,
+    "matrixAcceptance": "Controller adjudication; no independent fullT2 closure",
+    "acousticStatus": "unverified"
+  },
+  "pixelsInspected": [
+    "fresh-original-Q3-MARKET-ART",
+    "fresh-original-ORIGINAL-LIBRARY-ART",
+    "fresh-original-MATCH-TEXT200",
+    "fresh-original-QUANTITY-TEXT200",
+    "fresh-original-SORT-TEXT200",
+    "supplementary-imported-endgame-CASTLE-PORTRAIT",
+    "supplementary-imported-endgame-CASTLE-ROTATED",
+    "supplementary-imported-endgame-CASTLE-TEXT200",
+    "supplementary-imported-endgame-GREEN-PORTRAIT",
+    "supplementary-imported-endgame-GREEN-ROTATED",
+    "supplementary-imported-endgame-GREEN-TEXT200"
+  ],
+  "limits": [
+    "Not a fresh Linux Q1-Q10 journey or original partial-Q9 equivalence",
+    "Windows transport failures retained; no production fix",
+    "No pending abort observed; cancellation safety not established",
+    "Native headless Linux WebKit is not Safari or a physical touch device",
+    "Silent; no agent acoustic claim",
+    "Context close receipt and successful runner completion retained; no separate PID/browser-close receipt"
+  ]
+}

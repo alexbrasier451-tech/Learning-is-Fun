@@ -1,0 +1,67 @@
+{
+  "frozenAt": "2026-10-12T00:45:56.4439615Z",
+  "purpose": "Original independent review of final WP06-05A report and scoped actual Linux evidence",
+  "run": "38188502668",
+  "ciSource": "9d0dbd00859d2a5a5c8d18ef16013944ae90491c",
+  "candidateBuildId": "011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1",
+  "files": [
+    {
+      "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/docs/playtests/M2/JOURNEY.md",
+      "bytes": 31803,
+      "sha256": "46211550f11cb23a39ef464a26c7ee5f441a840b563954e99c7f35a2d7370d43"
+    },
+    {
+      "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/HANDOFF.md",
+      "bytes": 10410,
+      "sha256": "ce432747e88e3c81213d4986606ebbcde2bef17c0765f96c80989e0a6e50a00f"
+    },
+    {
+      "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/actual-run-38188502668/REVIEW.json",
+      "bytes": 86623,
+      "sha256": "a81e573176f0c704d461330ebc330d48cc9fa778bb1b79bc6a7b0e544d30ea40"
+    },
+    {
+      "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/actual-run-38188502668/preimages.json",
+      "bytes": 952,
+      "sha256": "1fbc05a890582bdb4d75a37687fbf67cd1e4e07d2250972c65f72caebf06afc5"
+    },
+    {
+      "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/actual-run-38188502668/JOURNEY-before.md",
+      "bytes": 22586,
+      "sha256": "434d9c53412c7794ed3b95ddd2567462465ff73af7737b302a892f48574e145e"
+    },
+    {
+      "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/artifacts/playtests/M2/011d2afe6e8a2215d4bebdd21787cfaa4f7a9fc9-pages-38177521884-1/journey/linux-webkit-source/actual-run-38188502668/HANDOFF-before.md",
+      "bytes": 7469,
+      "sha256": "bbab1fbc19aee19d63b56d4d48189c3a18c5874fc0691433c385ee2071f6ca5b"
+    },
+    {
+      "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/tests/playtest/published-webkit.spec.ts",
+      "bytes": 36590,
+      "sha256": "2eb3caaff310e4b6dd6190b925686fa208297435440190488967c75e9ba1ee0e"
+    },
+    {
+      "path": "C:/Users/alexb/Documents/ChatGPT/Learning is Fun/tests/fixtures/published-webkit-endgame.json",
+      "bytes": 84033,
+      "sha256": "ef0a74d01e489704110ca02b6508fb9d532900d883a91d02d8bcb47afea70290"
+    }
+  ],
+  "validation": {
+    "reportLocalLinks": "15 present;0 missing",
+    "additionalCheckpointSets": "29; native/viewport/fullpage/metadata/DOM files all present",
+    "pixels": "8 named art checks plus3 fresh32px construction viewport screenshots inspected",
+    "actualResult": "1 expected pass,0unexpected/skipped/flaky,retry0;36.475s case",
+    "scenarioAndFixture": "Unchanged during report reconciliation",
+    "browserExecution": "No new browser or broad journey",
+    "cleanup": "2 owned contexts closed after sealed traces; runner completion successful; no separate per-PID browser-close receipt"
+  },
+  "limits": [
+    "Windows failures and all prior observer attempts retained",
+    "Fresh Linux ends after Q6 sorting; not full fresh Q1-Q10 or completed Q6",
+    "Castle/Green are supplementary genuine donor-import observations, not original partial-Q9 equivalence",
+    "No pending-abort boundary observed; cancellation safety unproven",
+    "No Safari/physical-device/agent acoustic inference",
+    "Controller T2 applicability proposal subject to independent review; no matrix/release acceptance by this lane"
+  ],
+  "mutationHold": "Do not mutate final report/handoff/evidence pending original independent review."
+}
